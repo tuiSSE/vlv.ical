@@ -1,0 +1,25 @@
+{
+    "name": "VLV.ical",
+    "description": "export events from VLV as *.ics",
+    "version": "0.0",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_title": "VLV.ical",
+        "default_icon": "resources/icon.png",
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://www.tu-ilmenau.de/vlv/*"
+            ],
+            "js": [
+                "js/script.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "activeTab",
+        "tabs"
+    ]
+}
