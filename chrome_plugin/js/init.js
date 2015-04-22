@@ -38,11 +38,23 @@ function getLectures(entryInfo) {
  */
 function parse(events) {
     var lectures = [];
+    var titles = [];
+    var speaker = [];
     for (item in events) {
         var event = events[item];
         lectures.push(event);
-        console.log(getTitleOfLecture(event));
+        titles.push(getTitleOfLecture(event));
+        speaker.push(getSpeakerOfLecture(event));
     }
+    
+    var i = 0;
+    while (i < events.length) {
+        console.log("Name: " + titles[i]);
+        console.log("Vorlesender:" + speaker[i]);
+        console.log(" ");
+        i = i + 1;
+    }
+
 }
 
 function getTitleOfLecture(event) {
@@ -51,4 +63,9 @@ function getTitleOfLecture(event) {
         var title = child.innerText;
         return title.slice(0, (title.lastIndexOf() - 12));
     }
+}
+
+function getSpeakerOfLecture(event) {
+    var child = event.childNodes[3];
+    return child.innerText;
 }
