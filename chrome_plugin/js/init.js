@@ -1,9 +1,11 @@
 fixDivHeight();
-parse();
+getLectures();
 
 /*
  * Log the container that holds all relevant information
  */
+console.log(" ");
+console.log("container:");
 console.log(document.getElementById("rechtespalte2"));
 
 
@@ -14,11 +16,11 @@ console.log(document.getElementById("rechtespalte2"));
 function fixDivHeight() {
     document.getElementById("rechtespalte2").style.height = "auto";
 }
-function parse() {
-    var list = document.getElementById("rechtespalte2").getElementsByTagName("div");
-    var i = 0;
-    for ( item in list ) {
-        console.log(document.getElementById("rechtespalte2").children[i].id);
+function getLectures() {
+    var list = document.getElementsByClassName("stupla_bold");
+    var i = 3;
+    while (i < list.length) {
+        console.log(list[i].parentNode);
         i = i + 1;
-    }
+    } 
 }
