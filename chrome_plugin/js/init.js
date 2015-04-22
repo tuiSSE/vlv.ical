@@ -2,8 +2,9 @@ var entryInfo = {
     entryPoint : "stupla_bold",
     skip : 3
 }
+
 fixDivHeight();
-parse(getLectures(entryInfo));
+parse(getCourses(entryInfo));
 
 /*
  * Log the container that holds all relevant information
@@ -20,44 +21,46 @@ function fixDivHeight() {
 }
 
 /*
- * Returns an Array of all Lectures shown on the current page.
+ * Returns an array of all courses shown on the current page.
  */
-function getLectures(entryInfo) {
+function getCourses(entryInfo) {
     var list = document.getElementsByClassName(entryInfo.entryPoint);
-    var lectures = [];
+    var courses = [];
     var i = entryInfo.skip;
     while (i < list.length) {
-        lectures.push(list[i].parentNode);
+        courses.push(list[i].parentNode);
         i = i + 1;
     } 
-    return lectures;
+    return courses;
 }
 
 /*
- * 
+ * Returns an array of lectures containing all relevant information about that lecture
  */
-function parse(events) {
-    var lectures = [];
+function parse(rawCourses) {
+    var courses = [];
     var titles = [];
     var speaker = [];
     for (item in events) {
-        var event = events[item];
-        lectures.push(event);
+        var event = rawCourses[item];
         titles.push(getTitleOfLecture(event));
         speaker.push(getSpeakerOfLecture(event));
     }
     
     var i = 0;
-    while (i < events.length) {
+    while (i < rawCourses.length) {
         console.log("Name: " + titles[i]);
         console.log("Vorlesender: " + speaker[i]);
         console.log(" ");
         i = i + 1;
     }
-
+    return courses;
 }
 
-function getTitleOfLecture(event) {
+/*
+ * Returns the name of a lecture
+ */
+function getTitleOfCourse(event) {
     var child = event.childNodes[1];
     if (child.innerText) {
         var title = child.innerText;
@@ -65,7 +68,18 @@ function getTitleOfLecture(event) {
     }
 }
 
+/*
+ * Returns the speaker of a lecture
+ */
 function getSpeakerOfLecture(event) {
     var child = event.childNodes[3];
     return child.innerText.slice(12);
+}
+
+function getLecture() {
+
+}
+
+function getLesson() {
+
 }
