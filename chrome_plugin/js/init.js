@@ -1,5 +1,9 @@
+var entryInfo = { 
+    entryPoint : "stupla_bold",
+    skip : 3
+}
 fixDivHeight();
-parse(getLectures());
+parse(getLectures(entryInfo));
 
 /*
  * Log the container that holds all relevant information
@@ -18,10 +22,10 @@ function fixDivHeight() {
 /*
  * Returns an Array of all Lectures shown on the current page.
  */
-function getLectures() {
-    var list = document.getElementsByClassName("stupla_bold");
+function getLectures(entryInfo) {
+    var list = document.getElementsByClassName(entryInfo.entryPoint);
     var lectures = [];
-    var i = 3;
+    var i = entryInfo.skip;
     while (i < list.length) {
         lectures.push(list[i].parentNode);
         i = i + 1;
@@ -34,6 +38,6 @@ function getLectures() {
  */
 function parse(events) {
     for (item in events) {
-        console.log(events[item].innerText);
+        console.log(events[item].innerHTML);
     }
 }
