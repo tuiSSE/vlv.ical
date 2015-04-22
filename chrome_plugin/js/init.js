@@ -50,7 +50,7 @@ function parse(events) {
     var i = 0;
     while (i < events.length) {
         console.log("Name: " + titles[i]);
-        console.log("Vorlesender:" + speaker[i]);
+        console.log("Vorlesender: " + speaker[i]);
         console.log(" ");
         i = i + 1;
     }
@@ -67,5 +67,5 @@ function getTitleOfLecture(event) {
 
 function getSpeakerOfLecture(event) {
     var child = event.childNodes[3];
-    return child.innerText;
+    return child.innerText.slice(12);
 }
