@@ -37,7 +37,18 @@ function getLectures(entryInfo) {
  * 
  */
 function parse(events) {
+    var lectures = [];
     for (item in events) {
-        console.log(events[item].innerHTML);
+        var event = events[item];
+        lectures.push(event);
+        console.log(getTitleOfLecture(event));
+    }
+}
+
+function getTitleOfLecture(event) {
+    var child = event.childNodes[1];
+    if (child.innerText) {
+        var title = child.innerText;
+        return title.slice(0, (title.lastIndexOf() - 12));
     }
 }
