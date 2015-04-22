@@ -14,7 +14,7 @@
                 "http://www.tu-ilmenau.de/vlv/*"
             ],
             "js": [
-                "js/script.js"
+                "js/init.js"
             ]
         }
     ],
