@@ -4,7 +4,7 @@ var entryInfo = {
 }
 
 fixDivHeight();
-parse(getCourses(entryInfo));
+parse(getSubjects(entryInfo));
 
 /*
  * Log the container that holds all relevant information
@@ -23,45 +23,45 @@ function fixDivHeight() {
 /*
  * Returns an array of all courses shown on the current page.
  */
-function getCourses(entryInfo) {
+function getSubjects(entryInfo) {
     var list = document.getElementsByClassName(entryInfo.entryPoint);
-    var courses = [];
+    var subjects = [];
     var i = entryInfo.skip;
     while (i < list.length) {
-        courses.push(list[i].parentNode);
+        subjects.push(list[i].parentNode);
         i = i + 1;
     } 
-    return courses;
+    return subjects;
 }
 
 /*
  * Returns an array of lectures containing all relevant information about that lecture
  */
-function parse(rawCourses) {
-    var courses = [];
+function parse(rawSubjects) {
+    var subjects = [];
     var titles = [];
     var speaker = [];
-    for (item in events) {
-        var event = rawCourses[item];
-        titles.push(getTitleOfLecture(event));
-        speaker.push(getSpeakerOfLecture(event));
+    for (item in rawSubjects) {
+        var subject = rawSubjects[item];
+        titles.push(getTitleOfSubject(subject));
+        speaker.push(getSpeakerOfLecture(subject));
     }
     
     var i = 0;
-    while (i < rawCourses.length) {
+    while (i < rawSubjects.length) {
         console.log("Name: " + titles[i]);
-        console.log("Vorlesender: " + speaker[i]);
+        console.log("Vorlesende(r): " + speaker[i]);
         console.log(" ");
         i = i + 1;
     }
-    return courses;
+    return subjects;
 }
 
 /*
  * Returns the name of a lecture
  */
-function getTitleOfCourse(event) {
-    var child = event.childNodes[1];
+function getTitleOfSubject(subject) {
+    var child = subject.childNodes[1];
     if (child.innerText) {
         var title = child.innerText;
         return title.slice(0, (title.lastIndexOf() - 12));
@@ -71,8 +71,8 @@ function getTitleOfCourse(event) {
 /*
  * Returns the speaker of a lecture
  */
-function getSpeakerOfLecture(event) {
-    var child = event.childNodes[3];
+function getSpeakerOfLecture(subject) {
+    var child = subject.childNodes[3];
     return child.innerText.slice(12);
 }
 
