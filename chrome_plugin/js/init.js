@@ -1,10 +1,5 @@
 fixDivHeight();
-//console.log(getLectures());
-var events = getLectures();
-for (item in events) {
-    console.log(events[item].innerText);
-}
-
+parse(getLectures());
 
 /*
  * Log the container that holds all relevant information
@@ -32,4 +27,13 @@ function getLectures() {
         i = i + 1;
     } 
     return lectures;
+}
+
+/*
+ * 
+ */
+function parse(events) {
+    for (item in events) {
+        console.log(events[item].innerText);
+    }
 }
