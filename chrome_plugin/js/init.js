@@ -5,13 +5,8 @@ var entryInfo = {
 }
 
 var subjects = getElements(getRootElement(entryInfo));
-parse(subjects);
-
-console.log(subjects[0]);
-
-
-
-
+console.log(getRootElement(entryInfo));
+console.log(parse(subjects));
 
 function parse(subjects) {
   var data = [];
@@ -19,6 +14,7 @@ function parse(subjects) {
   var lessons = $('[axis="Übungen:"]');
   parseLectures(lectures, data);
   parseLessons(lessons, data);
+  return data;
 }
 
 function getRootElement(entryInfo) {
@@ -30,7 +26,7 @@ function getElements(root) {
 }
 
 function getNameOfLecture(object) {
-    var name = object.parentNode.parentNode.parentNode.childNodes[1].innerText
+    var name = object.parentNode.parentNode.parentNode.childNodes[1].innerText;
     return name.slice(0, (name.length - 12));
 }
 
@@ -66,6 +62,48 @@ function getLastUpdated(object) {
 }
 
 function parseLectures(objects, data) {
+  var i = 0;
+  while (i < objects.length) {
+    var subjectData = {
+        name: "",
+        speaker: "",
+        lecture: {
+            dayOfWeek: "",
+            dates: [],
+            time: "",
+            location: "",
+            targetGroup: "",
+            lastUpdated: ""
+        },
+        lessons: [{
+            dayOfWeek: "",
+            dates: [],
+            time: "",
+            location: "",
+            targetGroup: "",
+            lastUpdated: ""
+        }]
+    };
+
+    var subject = objects[i].parentNode;
+
+    subjectData.name = getNameOfLecture(subject);
+    subjectData.speaker = getSpeakerOfLecture(subject);
+    subjectData.lecture.dayOfWeek = getDayOfWeek(subject);
+    subjectData.lecture.location = getLocation(subject);
+    subjectData.lecture.time = getTime(subject);
+    subjectData.lecture.dates = getDates(subject);
+    subjectData.lecture.targetGroup = getTargetGroup(subject);
+    subjectData.lecture.lastUpdated = getLastUpdated(subject);
+
+    data.push(subjectData);
+    i++;
+  }
+
+  return data;
+}
+
+function parseLessons(objects, data) {
   var subjectData = {
       name: "",
       speaker: "",
@@ -90,26 +128,19 @@ function parseLectures(objects, data) {
   var i = 0;
   while (i < objects.length) {
     var subject = objects[i].parentNode;
-    console.log(subject);
-    subjectData.name = getNameOfLecture(subject);
-    subjectData.speaker = getSpeakerOfLecture(subject);
-    subjectData.lecture.dayOfWeek = getDayOfWeek(subject);
-    subjectData.lecture.location = getLocation(subject);
-    subjectData.lecture.time = getTime(subject);
-    subjectData.lecture.dates = getDates(subject);
-    subjectData.lecture.targetGroup = getTargetGroup(subject);
-    subjectData.lecture.lastUpdated = getLastUpdated(subject);
-    console.log(subjectData);
 
-    data.push(subjectData);
+    var j = 0;
+    while (j < data.length) {
+      if (data[j].name == subject.parentNode.parentNode.parentNode.childNodes[1].innerText.slice(0, (name.length - 12))) {
+        
+      } else {
+
+      }
+      j++;
+    }
+
     i++;
   }
-
-  return data;
-}
-
-function parseLessons(objects, data) {
-
 }
 
 
