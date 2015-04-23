@@ -1,128 +1,92 @@
-var entryInfo = {
-    entryPoint: "stupla_bold",
-    skip: 3
-}
-
 fixDivHeight();
-console.log(parse(getSubjects(entryInfo)));
-
-/*
- * Log the container that holds all relevant information
- */
-console.log(" ");
-console.log("container:");
-console.log(document.getElementById("rechtespalte2"));
-
-/*
- * The VLV has a bad layout due to a single div containing a fixed height. This function fixes this by setting height to auto like it should be.
- */
-function fixDivHeight() {
-    document.getElementById("rechtespalte2").style.height = "auto";
+var entryInfo = {
+    entryPoint: "stupla_fs09",
+    rootElementLevel: 4
 }
 
-/*
- * Returns an array of all courses shown on the current page.
- */
-function getSubjects(entryInfo) {
-    var list = document.getElementsByClassName(entryInfo.entryPoint);
-    var subjects = [];
-    var i = entryInfo.skip;
-    while (i < list.length) {
-        subjects.push(list[i].parentNode);
-        i = i + 1;
-    }
-    return subjects;
-}
+var subjects = getElements(getRootElement(entryInfo));
+parse(subjects);
 
-/*
- * Returns an array of lectures containing all relevant information about that lecture
- */
-function parse(rawSubjects) {
-    var subjects = [];
-    var titles = [];
-    var speaker = [];
 
-    for (item in rawSubjects) {
-        var subject = rawSubjects[item];
-        titles.push(getTitleOfSubject(subject));
-        speaker.push(getSpeakerOfLecture(subject));
-    }
 
-    var i = 0;
-    while (i < rawSubjects.length) {
-        var item = rawSubjects[i];
-        var data = {
-            name: "",
-            speaker: "",
-            lecture: {
-                dayOfWeek: "",
-                weekOfYear: "",
-                time: "",
-                location: "",
-                targetGroup: "",
-                lastUpdated: ""
-            },
-            lesson: {
-                dayOfWeek: "",
-                weekOfYear: "",
-                time: "",
-                location: "",
-                targetGroup: "",
-                lastUpdated: ""
-            }
-        };
 
-        data.name = getTitleOfSubject(item);
-        data.speaker = getSpeakerOfLecture(item);
-        
-        try {
-            var lecture = getLecturesOfSubject(item);
-            data.lecture.dayOfWeek = getDayOfWeek(lecture);
-            console.log(lecture);
-        } catch(e) {
-            console.log("keine Vorlesung gefunden");
+
+
+
+function parse(subjects) {
+  var i = 0;
+  while (i < subjects.length) {
+    var item = subjects[i];
+    var data = {
+        name: "",
+        speaker: "",
+        lecture: {
+            dayOfWeek: "",
+            weekOfYear: "",
+            time: "",
+            location: "",
+            targetGroup: "",
+            lastUpdated: ""
+        },
+        lesson: {
+            dayOfWeek: "",
+            weekOfYear: "",
+            time: "",
+            location: "",
+            targetGroup: "",
+            lastUpdated: ""
         }
+    };
 
-        try {
-            var lesson = console.log(getLessonsOfSubject(item));
-            data.lesson.dayOfWeek = getDayOfWeek(lesson);
-        } catch(e) {
-            console.log("keine Übung gefunden");
-        }
+    data.name = getTitleOfSubject(item);
+    data.speaker = getSpeakerOfLecture(item);
 
-        subjects.push(data);
-        i = i + 1;
-    }
-    return subjects;
+    console.log(data);
+    i++;
+  }
 }
 
-/*
- * Returns the name of a lecture
- */
-function getTitleOfSubject(subject) {
-    var child = subject.childNodes[1];
+function getRootElement(entryInfo) {
+  return $(document.getElementsByClassName(entryInfo.entryPoint)[0]).parents().eq(entryInfo.rootElementLevel)[0];
+}
+
+function getElements(root) {
+  return root.getElementsByTagName('div');
+}
+
+function getTitleOfSubject(object) {
+    var child = object.childNodes[1];
     if (child.innerText) {
         var title = child.innerText;
         return title.slice(0, (title.lastIndexOf() - 12));
     }
 }
 
-/*
- * Returns the speaker of a lecture
- */
-function getSpeakerOfLecture(subject) {
-    var child = subject.childNodes[3];
+function getSpeakerOfLecture(object) {
+    var child =  object.childNodes[3];
     return child.innerText.slice(12);
 }
 
-function getLecturesOfSubject(subject) {
-    return subject.querySelectorAll("[axis='Vorlesungen:']")[0].parentNode;
-}
 
-function getLessonsOfSubject(subject) {
-    return subject.querySelectorAll("[axis='Übungen:']"[0].parentNode);
-}
 
-function getDayOfWeek(object) {
-    return object.childNodes[3].innerText;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function fixDivHeight() {
+    document.getElementById("rechtespalte2").style.height = "auto";
 }
