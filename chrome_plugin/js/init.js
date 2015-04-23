@@ -7,13 +7,15 @@ var entryInfo = {
 var subjects = getElements(getRootElement(entryInfo));
 parse(subjects);
 
-
+console.log(subjects[0]);
 
 
 
 
 
 function parse(subjects) {
+  var lectures = $('[axis="Vorlesungen:"]');
+
   var i = 0;
   while (i < subjects.length) {
     var item = subjects[i];
@@ -22,7 +24,7 @@ function parse(subjects) {
         speaker: "",
         lecture: {
             dayOfWeek: "",
-            weekOfYear: "",
+            dates: [],
             time: "",
             location: "",
             targetGroup: "",
@@ -30,7 +32,7 @@ function parse(subjects) {
         },
         lesson: {
             dayOfWeek: "",
-            weekOfYear: "",
+            dates: [],
             time: "",
             location: "",
             targetGroup: "",
@@ -40,6 +42,15 @@ function parse(subjects) {
 
     data.name = getTitleOfSubject(item);
     data.speaker = getSpeakerOfLecture(item);
+
+    try{
+      var lecture = lectures[i].parentNode;
+      data.lecture.dayOfWeek = getDayOfWeek(lecture);
+      data.lecture.location = getLocation(lecture);
+      console.log(lecture);
+    } catch(e) {
+
+    }
 
     console.log(data);
     i++;
@@ -67,9 +78,13 @@ function getSpeakerOfLecture(object) {
     return child.innerText.slice(12);
 }
 
+function getDayOfWeek(object) {
+  return object.childNodes[3].innerText;
+}
 
-
-
+function getLocation(object) {
+  return object.childNodes[9].innerText;
+}
 
 
 
