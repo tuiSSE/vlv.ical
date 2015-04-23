@@ -75,6 +75,20 @@ function parse(rawSubjects) {
         data.name = getTitleOfSubject(item);
         data.speaker = getSpeakerOfLecture(item);
         
+        try {
+            var lecture = getLecturesOfSubject(item);
+            data.lecture.dayOfWeek = getDayOfWeek(lecture);
+            console.log(lecture);
+        } catch(e) {
+            console.log("keine Vorlesung gefunden");
+        }
+
+        try {
+            var lesson = console.log(getLessonsOfSubject(item));
+            data.lesson.dayOfWeek = getDayOfWeek(lesson);
+        } catch(e) {
+            console.log("keine Übung gefunden");
+        }
 
         subjects.push(data);
         i = i + 1;
@@ -101,10 +115,14 @@ function getSpeakerOfLecture(subject) {
     return child.innerText.slice(12);
 }
 
-function getLecture(subject) {
-    return subject.childNodes[5].childNodes[3];
+function getLecturesOfSubject(subject) {
+    return subject.querySelectorAll("[axis='Vorlesungen:']")[0].parentNode;
 }
 
-function getLesson(subject) {
-    return subject.childNodes[5].childNodes[4];
+function getLessonsOfSubject(subject) {
+    return subject.querySelectorAll("[axis='Übungen:']"[0].parentNode);
+}
+
+function getDayOfWeek(object) {
+    return object.childNodes[3].innerText;
 }
