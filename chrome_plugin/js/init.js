@@ -4,6 +4,8 @@ var entryInfo = {
     rootElementLevel: 4
 }
 
+console.log(buildCalendar());
+
 var subjects = getElements(getRootElement(entryInfo));
 console.log(getRootElement(entryInfo));
 console.log(parse(subjects));
@@ -132,7 +134,7 @@ function parseLessons(objects, data) {
     var j = 0;
     while (j < data.length) {
       if (data[j].name == subject.parentNode.parentNode.parentNode.childNodes[1].innerText.slice(0, (name.length - 12))) {
-        
+
       } else {
 
       }
@@ -143,10 +145,51 @@ function parseLessons(objects, data) {
   }
 }
 
+function buildCalendar() {
+  var arr = [];
 
+  arr.push("BEGIN:VCALENDAR");
+  arr.push("VERSION:2.0");
+  arr.push("PRODID:-//github.com/vlvical/vlv.ical");
+  arr.push("CALSCALE:GREGORIAN");
+  arr.push("BEGIN:VTIMEZONE");
+  arr.push("TZID:Europe/Berlin");
+  arr.push("TZURL:http://tzurl.org/zoneinfo-outlook/Europe/Berlin");
+  arr.push("X-LIC-LOCATION:Europe/Berlin");
+  arr.push("BEGIN:DAYLIGHT");
+  arr.push("TZOFFSETFROM:+0100");
+  arr.push("TZOFFSETTO:+0200");
+  arr.push("TZNAME:CEST");
+  arr.push("DTSTART:19700329T020000");
+  arr.push("RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU");
+  arr.push("END:DAYLIGHT");
+  arr.push("BEGIN:STANDARD");
+  arr.push("TZOFFSETFROM:+0200");
+  arr.push("TZOFFSETTO:+0100");
+  arr.push("TZNAME:CET");
+  arr.push("DTSTART:19701025T030000");
+  arr.push("RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU");
+  arr.push("END:STANDARD");
+  arr.push("END:VTIMEZONE");
+  arr.push("BEGIN:VEVENT");
+  arr.push("DTSTAMP:20150424T085249Z");
+  arr.push("UID:20150424T085249Z-795382762@marudot.com");
+  arr.push('DTSTART;TZID="Europe/Berlin":20150424T120000');
+  arr.push('DTEND;TZID="Europe/Berlin":20150424T140000');
+  arr.push("SUMMARY:Titel");
+  arr.push("URL:" + url);
+  arr.push("DESCRIPTION:" + description);
+  arr.push("LOCATION:" + location);
+  arr.push("BEGIN:VALARM");
+  arr.push("ACTION:DISPLAY");
+  arr.push("DESCRIPTION:Titel");
+  arr.push("TRIGGER:-PT5M");
+  arr.push("END:VALARM");
+  arr.push("END:VEVENT");
+  arr.push("END:VCALENDAR");
 
-
-
+  return arr.join("\n");
+}
 
 
 
