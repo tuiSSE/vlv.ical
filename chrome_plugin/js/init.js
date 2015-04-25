@@ -4,11 +4,12 @@ var entryInfo = {
     rootElementLevel: 4
 }
 
-//console.log(buildCalendar());
 
-var subjects = getElements(getRootElement(entryInfo));
-console.log(getRootElement(entryInfo));
-console.log(parse(subjects));
+console.log(parseTime("09.00 - 10.30"));
+
+//var subjects = getElements(getRootElement(entryInfo));
+//console.log(getRootElement(entryInfo));
+//console.log(parse(subjects));
 
 function parse(subjects) {
   var data = [];
@@ -57,10 +58,7 @@ function getTargetGroup(object) {
 }
 
 function getLastUpdated(object) {
-  var st = object.childNodes[13].innerText.slice(13);
-  var parts = st.split('.');
-  var dt = new Date('20' + parts[2].slice(0,2), parts[1]-1, parts[0]);
-  return dt;
+  return object.childNodes[13].innerText.slice(13);
 }
 
 function parseLectures(objects, data) {
@@ -145,6 +143,14 @@ function parseLessons(objects, data) {
   }
 }
 
+function parseTime(raw) {
+  raw = raw.split(" ");
+  var time = [];
+  time[0] = raw[0].replace('.','') + '00';
+  time[1] = raw[2].replace('.','') + '00';
+  return time;
+}
+
 function buildCalendar(data) {
   var arr = [];
 
@@ -171,8 +177,8 @@ function addEvent(arr, event) {
   arr.push("BEGIN:VEVENT");
   //arr.push("DTSTART:20150425T090000");
   //arr.push("DTEND:20150425T100000");
-  arr.push("DTSTART:" + event.start);
-  arr.push("DTEND:" + event.end);
+  arr.push("DTSTART:" + event.date + 'T' + event.start);
+  arr.push("DTEND:" + event.date + 'T' + event.end);
   arr.push("SUMMARY:" + event.name);
   arr.push("LOCATION:" + event.location);
   //arr.push("DESCRIPTION:" + event.description);
