@@ -4,7 +4,7 @@ var entryInfo = {
     rootElementLevel: 4
 }
 
-console.log(buildCalendar());
+//console.log(buildCalendar());
 
 var subjects = getElements(getRootElement(entryInfo));
 console.log(getRootElement(entryInfo));
@@ -69,14 +69,14 @@ function parseLectures(objects, data) {
     var subjectData = {
         name: "",
         speaker: "",
-        lecture: {
+        lecture: [{
             dayOfWeek: "",
             dates: [],
             time: "",
             location: "",
             targetGroup: "",
             lastUpdated: ""
-        },
+        }],
         lessons: [{
             dayOfWeek: "",
             dates: [],
@@ -145,58 +145,52 @@ function parseLessons(objects, data) {
   }
 }
 
-function buildCalendar() {
+function buildCalendar(data) {
   var arr = [];
 
-  arr.push("BEGIN:VCALENDAR");
-  arr.push("VERSION:2.0");
-  arr.push("PRODID:-//github.com/vlvical/vlv.ical");
-  arr.push("CALSCALE:GREGORIAN");
-  arr.push("BEGIN:VTIMEZONE");
-  arr.push("TZID:Europe/Berlin");
-  arr.push("TZURL:http://tzurl.org/zoneinfo-outlook/Europe/Berlin");
-  arr.push("X-LIC-LOCATION:Europe/Berlin");
-  arr.push("BEGIN:DAYLIGHT");
-  arr.push("TZOFFSETFROM:+0100");
-  arr.push("TZOFFSETTO:+0200");
-  arr.push("TZNAME:CEST");
-  arr.push("DTSTART:19700329T020000");
-  arr.push("RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU");
-  arr.push("END:DAYLIGHT");
-  arr.push("BEGIN:STANDARD");
-  arr.push("TZOFFSETFROM:+0200");
-  arr.push("TZOFFSETTO:+0100");
-  arr.push("TZNAME:CET");
-  arr.push("DTSTART:19701025T030000");
-  arr.push("RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU");
-  arr.push("END:STANDARD");
-  arr.push("END:VTIMEZONE");
-  arr.push("BEGIN:VEVENT");
-  arr.push("DTSTAMP:20150424T085249Z");
-  arr.push("UID:20150424T085249Z-795382762@marudot.com");
-  arr.push('DTSTART;TZID="Europe/Berlin":20150424T120000');
-  arr.push('DTEND;TZID="Europe/Berlin":20150424T140000');
-  arr.push("SUMMARY:Titel");
-  arr.push("URL:" + url);
-  arr.push("DESCRIPTION:" + description);
-  arr.push("LOCATION:" + location);
-  arr.push("BEGIN:VALARM");
-  arr.push("ACTION:DISPLAY");
-  arr.push("DESCRIPTION:Titel");
-  arr.push("TRIGGER:-PT5M");
-  arr.push("END:VALARM");
-  arr.push("END:VEVENT");
-  arr.push("END:VCALENDAR");
+  arr = openCal(arr);
+
+  var i = 0;
+  while (i < data.length) {
+    arr = addEvent(arr, data[i]);
+    i++
+  }
+
+  arr = closeCal(arr);
 
   return arr.join("\n");
 }
 
+function openCal(arr) {
+  arr.push("BEGIN:VCALENDAR");
+  arr.push("VERSION:1.0");
+  return arr;
+}
 
+function addEvent(arr, event) {
+  arr.push("BEGIN:VEVENT");
+  //arr.push("DTSTART:20150425T090000");
+  //arr.push("DTEND:20150425T100000");
+  arr.push("DTSTART:" + event.start);
+  arr.push("DTEND:" + event.end);
+  arr.push("SUMMARY:" + event.name);
+  arr.push("LOCATION:" + event.location);
+  //arr.push("DESCRIPTION:" + event.description);
+  //arr.push("PRIORITY:3");
+  arr.push("END:VEVENT");
 
+  return arr;
+}
 
+function closeCal(arr) {
+  arr.push("END:VCALENDAR");
+  return arr;
+}
 
-
-
+function saveCal(cal, fileName) {
+  var file = new Blob(cal, {type: "text/plain;charset=utf-8"});
+  saveAs(file, fileName + ".ics");
+}
 
 function fixDivHeight() {
     document.getElementById("rechtespalte2").style.height = "auto";
