@@ -1,35 +1,213 @@
 fixDivHeight();
-//console.log(getLectures());
-var events = getLectures();
-for (item in events) {
-    console.log(events[item].innerText);
+init();
+
+function init() {
+  var entryInfo = {
+      entryPoint: "stupla_fs09",
+      rootElementLevel: 4
+  }
+
+  var subjects = getElements(getRootElement(entryInfo));
+
+  var cal = [];
+
+  cal.push('BEGIN:VCALENDAR');
+  cal.push('CALSCALE:GREGORIAN');
+  cal.push('VERSION:2.0');
+  cal.push('METHOD:PUBLISH');
+  cal.push('X-WR-CALNAME:Uni');
+  cal.push('X-WR-TIMEZONE:Europe/Berlin');
+  cal.push('X-APPLE-CALENDAR-COLOR:#1BADF8');
+  cal.push('BEGIN:VTIMEZONE');
+  cal.push('TZID:Europe/Berlin');
+  cal.push('BEGIN:DAYLIGHT');
+  cal.push('TZOFFSETFROM:+0100');
+  cal.push('RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU');
+  cal.push('DTSTART:19810329T020000');
+  cal.push('TZNAME:MESZ');
+  cal.push('TZOFFSETTO:+0200');
+  cal.push('END:DAYLIGHT');
+  cal.push('BEGIN:STANDARD');
+  cal.push('TZOFFSETFROM:+0200');
+  cal.push('RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU');
+  cal.push('DTSTART:19961027T030000');
+  cal.push('TZNAME:MEZ');
+  cal.push('TZOFFSETTO:+0100');
+  cal.push('END:STANDARD');
+  cal.push('END:VTIMEZONE');
+
+  try {
+    for (i in subjects) {
+      console.log(subjects[i]);
+      var event = getEventData(subjects[i]);
+      cal = addEvent(cal, event);
+      console.log(event);
+    }
+  } catch (e) {}
+
+  cal.push('END:VCALENDAR');
+  var str = cal.join('\n');
+
+  console.log([str]);
+
+  var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
+  saveAs(dl, "calendar.ics");
 }
 
+function getRootElement(entryInfo) {
+  return $(document.getElementsByClassName(entryInfo.entryPoint)[0]).parents().eq(entryInfo.rootElementLevel)[0];
+}
 
-/*
- * Log the container that holds all relevant information
- */
-console.log(" ");
-console.log("container:");
-console.log(document.getElementById("rechtespalte2"));
+function getElements(root) {
+  return root.getElementsByTagName('div');
+}
 
-/*
- * The VLV has a bad layout due to a single div containing a fixed height. This function fixes this by setting height to auto like it should be.
- */
-function fixDivHeight() {
+function getNameOfLecture(object) {
+    var name = object.childNodes[1].innerText;
+    return name.slice(0, (name.length - 12));
+}
+
+function getSpeakerOfLecture(object) {
+  return object.childNodes[3].innerText.slice(12).split(',').join('\\,');
+}
+
+function getDayOfWeek(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
+}
+
+function getLocation(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[9].innerText.split(',').join('\\,');
+}
+
+function getTime(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[7].innerText;
+}
+
+function getDates(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[5].innerText;
+}
+
+function getTargetGroup(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[11].innerText;
+}
+
+function getLastUpdated(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
+}
+
+function getEventData(subject) {
+  var event = {
+    name: "",
+    speaker: "",
+    location: "",
+    begin: "",
+    end: ""
+  }
+
+  event.name = getNameOfLecture(subject);
+  event.speaker = getSpeakerOfLecture(subject);
+  event.location = getLocation(subject);
+
+  var time = parseTime(getTime(subject), getDayOfWeek(subject));
+  event.begin = time[0];
+  event.end = time[1];
+
+  return event;
+}
+
+function parseTime(raw, day) {
+  raw = raw.split(" ");
+  var hours = [];
+  hours[0] = raw[0].split('.');
+  hours[1] = raw[2].split('.');
+
+  var time =[];
+  try {
+    var dt = getDateOfWeek(18, 2015, day);
+  } catch(e) { console.log(e); }
+
+  var year = dt.getFullYear().toString();
+
+  var month = dt.getMonth() + 1;
+  if (month < 10) {
+    month = '0' + month.toString();
+  }
+
+  var date = dt.getDate().toString();
+
+  time[0] = new String(year + month + date + 'T' + hours[0][0] + hours[0][1] + '00');
+  time[1] = new String(year + month + date + 'T' + hours[1][0] + hours[1][1] + '00');
+
+  return time;
+}
+
+function addEvent(cal, event) {
+  cal.push('BEGIN:VEVENT');
+  cal.push('CREATED:20150425T221630Z');
+  cal.push('UID:' + uid());
+  cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
+  cal.push("LOCATION:" + event.location);
+  cal.push('TRANSP:OPAQUE');
+  cal.push('SUMMARY:' + event.name);
+  cal.push("DESCRIPTION:" + event.speaker);
+  cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
+  cal.push('DTSTAMP:20150425T221630Z');
+  cal.push('SEQUENCE:0');
+  cal.push('END:VEVENT');
+
+  return cal;
+}
+
+function getDateOfWeek(w, y, day) {
+    var simple = new Date(y, 0, 1 + (w - 1) * 7);
+    var date = simple;
+    var dow = simple.getDay();
+    var weekStart = simple;
+    if (dow <= 4)
+        weekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    else
+        weekStart.setDate(simple.getDate() + 8 - simple.getDay());
+
+    switch(day) {
+      case 'Montag':
+        break;
+
+      case 'Dienstag':
+        date.setDate(weekStart.getDate() + 1);
+        break;
+
+      case 'Mittwoch':
+        date.setDate(weekStart.getDate() + 2);
+        break;
+
+      case 'Donnerstag':
+        date.setDate(weekStart.getDate() + 3);
+        break;
+
+      case 'Freitag':
+        date.setDate(weekStart.getDate() + 4);
+        break;
+
+      case 'Samstag':
+        date.setDate(weekStart.getDate() + 5);
+        break;
+
+      case 'Sonntag':
+        date.setDate(weekStart.getDate() + 6);
+        break;
+        }
+
+    return date;
+}
+
+function uid() {
+  function S4() {
+    return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+  }
+
+  return(S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
+}
+
+function fixDivHeight() {
     document.getElementById("rechtespalte2").style.height = "auto";
-}
-
-/*
- * Returns an Array of all Lectures shown on the current page.
- */
-function getLectures() {
-    var list = document.getElementsByClassName("stupla_bold");
-    var lectures = [];
-    var i = 3;
-    while (i < list.length) {
-        lectures.push(list[i].parentNode);
-        i = i + 1;
-    } 
-    return lectures;
 }
