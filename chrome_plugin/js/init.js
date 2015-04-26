@@ -119,12 +119,6 @@ function parseTime(raw) {
   hours[1] = raw[2].split('.');
 
   var time =[];
-  //time[0] = moment('25.04.2015', 'DD.MM.YYYY');
-  //time[0].hour(hours[0][0]);
-  //time[0].minute(hours[0][1]);
-  //time[1] = moment('25.04.2015', 'DD.MM.YYYY');
-  //time[1].hour(hours[1][0]);
-  //time[1].minute(hours[1][1]);
 
   time[0] = new String('20150425' + 'T' + hours[0][0] + hours[0][1] + '00');
   time[1] = new String('20150425' + 'T' + hours[1][0] + hours[1][1] + '00');
