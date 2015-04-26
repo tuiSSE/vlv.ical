@@ -1,7 +1,16 @@
 fixDivHeight();
-init();
 var toggledEvents = [];
 
+/*
+ * checks, if current page is the text one
+ */
+if (/vers=text/.test(self.location.href)) {
+  init();
+}
+
+/*
+ * initializes the plugin, loads the data, inserts the buttons, etc
+ */
 function init() {
   var entryInfo = {
       entryPoint: "stupla_fs09",
@@ -10,9 +19,9 @@ function init() {
 
   var subjects = getElements(getRootElement(entryInfo));
 
-  var d= $('<input type="button" id="downloadICS" style="background: white; border-radius: 5px; font-size: 15px; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 5px 0px 5px;font-family: Arial" value="Download"/> ');
-  d.insertBefore(subjects[0]);
-  $("#downloadICS").on('click', function(entryInfo){
+  var downloadSelected= $('<input type="button" id="downloadSelected" style="background: white; border-radius: 5px; font-size: 15px; border: solid #a3a3a3 2px;font-family: Helvetica;text-decoration: none;padding: 0px 7px 0px 7px;font-family: Arial" value="Download selected"/>');
+  downloadSelected.insertBefore(subjects[0]);
+  $("#downloadSelected").on('click', function(entryInfo){
     if (toggledEvents.length > 0) {
       download(toggledEvents);
     } else {
@@ -20,19 +29,42 @@ function init() {
     };
   });
 
+  var downloadAll= $('<input type="button" id="downloadAll" style="background: white; border-radius: 5px; font-size: 15px; border: solid #a3a3a3 2px;font-family: Helvetica;text-decoration: none;padding: 0px 7px 0px 7px;font-family: Arial" value="Download all"/>');
+  downloadAll.insertBefore(subjects[0]);
+  $("#downloadAll").on('click', function(entryInfo){
+    if (subjects.length > 0) {
+      download(subjects);
+    } else {
+      alert("Keine Veranstaltungen gefunden.")
+    };
+  });
+
   var i;
   for (i = 0; i < subjects.length; i++){
-    var r= $('<input type="button" class="eventToggle" style="background: white; border-radius: 5px; font-size: 15px;  color: #07d41f; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 5px 0px 5px;font-family: Arial" value="+"/> ');
+    var r= $('<input type="button" class="eventToggle" style="background: white; border-radius: 5px; font-size: 15px;  color: #07d41f; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 7px 0px 7px;font-family: Arial" value="+"/> ');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
   }
 
   $(".eventToggle").on('click', function(entryInfo){
-    toggleEvent(this.parentNode.parentNode);
-    console.log(toggledEvents);
+    var object = this.parentNode.parentNode;
+    if (!containsObject(object, toggledEvents)) {
+      toggledEvents.push(object);
+      this.value = '-';
+      this.style.color = 'red'
+      object.style.background = '#BEE8BA';
+    } else {
+      toggledEvents = removeFromList(toggledEvents, getObjectIndex(object, toggledEvents, object));
+      this.value = '+';
+      this.style.color = '#07d41f';
+      object.style.background = 'white';
+    }
   });
 
 }
 
+/*
+ * downloads the given events. takes an array as argument an concatenates it to a string to build an vCalendar formatted .ics file
+ */
 function download(subjects) {
   var cal = [];
 
@@ -78,20 +110,18 @@ function download(subjects) {
   saveAs(dl, "calendar.ics");
 }
 
-function toggleEvent(object) {
-  if (!containsObject(object, toggledEvents)) {
-    toggledEvents.push(object);
-  } else {
-    toggledEvents = removeFromList(toggledEvents, getObjectIndex(object, toggledEvents, object));
-  }
-}
-
+/*
+ * removes a given object from a given array. needed for removing an event from selection
+ */
 function removeFromList(list, i, object) {
   return list.filter(function (object) {
       return list[i] !== object;
     });
 }
 
+/*
+ * returns the index of an object in an array, needed for removeFromList()
+ */
 function getObjectIndex(object, list) {
   var i;
   for (i = 0; i< list.length; i++) {
@@ -101,6 +131,9 @@ function getObjectIndex(object, list) {
   }
 }
 
+/*
+ * returns whether or not an object is present in an array
+ */
 function containsObject(object, list) {
     var i;
     for (i = 0; i < list.length; i++) {
@@ -112,10 +145,16 @@ function containsObject(object, list) {
     return false;
 }
 
+/*
+ * returns the root element, which is the highest element on the page we work with
+ */
 function getRootElement(entryInfo) {
   return $(document.getElementsByClassName(entryInfo.entryPoint)[0]).parents().eq(entryInfo.rootElementLevel)[0];
 }
 
+/*
+ * returns an array of all events present on the page
+ */
 function getElements(root) {
   return root.getElementsByTagName('div');
 }
