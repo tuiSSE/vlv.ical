@@ -1,5 +1,6 @@
 fixDivHeight();
 init();
+var toggledEvents = [];
 
 function init() {
   var entryInfo = {
@@ -8,6 +9,17 @@ function init() {
   }
 
   var subjects = getElements(getRootElement(entryInfo));
+
+  var i;
+  for (i = 0; i < subjects.length; i++){
+    var r= $('<input type="button" class="eventToggle" style="background: white; border-radius: 5px; font-size: 15px;  color: #07d41f; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 5px 0px 5px;font-family: Arial" value="+"/> ');
+    r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
+  }
+
+  $(".eventToggle").on('click', function(entryInfo){
+    toggleEvent(this.parentNode.parentNode);
+    console.log(toggledEvents);
+  });
 
   var cal = [];
 
@@ -54,7 +66,41 @@ function init() {
   console.log([str]);
 
   var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
-  saveAs(dl, "calendar.ics");
+  //saveAs(dl, "calendar.ics");
+}
+
+function toggleEvent(object) {
+  if (!containsObject(object, toggledEvents)) {
+    toggledEvents.push(object);
+  } else {
+    toggledEvents = removeFromList(toggledEvents, getObjectIndex(object, toggledEvents, object));
+  }
+}
+
+function removeFromList(list, i, object) {
+  return list.filter(function (object) {
+      return list[i] !== object;
+    });
+}
+
+function getObjectIndex(object, list) {
+  var i;
+  for (i = 0; i< list.length; i++) {
+    if (list[i] === object) {
+      return i;
+    }
+  }
+}
+
+function containsObject(object, list) {
+    var i;
+    for (i = 0; i < list.length; i++) {
+        if (list[i] === object) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 function getRootElement(entryInfo) {
@@ -126,7 +172,7 @@ function parseTime(raw, day) {
 
   var time =[];
   try {
-    var dt = getDateOfWeek(18, 2015, day);
+    var dt = getDate(18, 2015, day);
   } catch(e) { console.log(e); }
 
   var year = dt.getFullYear().toString();
@@ -161,7 +207,7 @@ function addEvent(cal, event) {
   return cal;
 }
 
-function getDateOfWeek(w, y, day) {
+function getDate(w, y, day) {
     var simple = new Date(y, 0, 1 + (w - 1) * 7);
     var date = simple;
     var dow = simple.getDay();
