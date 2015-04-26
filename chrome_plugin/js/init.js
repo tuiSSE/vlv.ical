@@ -38,15 +38,18 @@ function init() {
 
   try {
     for (i in subjects) {
+      console.log(subjects[i]);
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
+      console.log(event);
     }
   } catch (e) {}
 
   cal.push('END:VCALENDAR');
   var str = cal.join('\n');
 
-  console.log(str);
+  console.log([str]);
+
   var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
   saveAs(dl, "calendar.ics");
 }
@@ -105,23 +108,35 @@ function getEventData(subject) {
   event.speaker = getSpeakerOfLecture(subject);
   event.location = getLocation(subject);
 
-  var time = parseTime(getTime(subject));
+  var time = parseTime(getTime(subject), getDayOfWeek(subject));
   event.begin = time[0];
   event.end = time[1];
 
   return event;
 }
 
-function parseTime(raw) {
+function parseTime(raw, day) {
   raw = raw.split(" ");
   var hours = [];
   hours[0] = raw[0].split('.');
   hours[1] = raw[2].split('.');
 
   var time =[];
+  try {
+    var dt = getDateOfWeek(18, 2015, day);
+  } catch(e) { console.log(e); }
 
-  time[0] = new String('20150425' + 'T' + hours[0][0] + hours[0][1] + '00');
-  time[1] = new String('20150425' + 'T' + hours[1][0] + hours[1][1] + '00');
+  var year = dt.getFullYear().toString();
+
+  var month = dt.getMonth() + 1;
+  if (month < 10) {
+    month = '0' + month.toString();
+  }
+
+  var date = dt.getDate().toString();
+
+  time[0] = new String(year + month + date + 'T' + hours[0][0] + hours[0][1] + '00');
+  time[1] = new String(year + month + date + 'T' + hours[1][0] + hours[1][1] + '00');
 
   return time;
 }
@@ -143,11 +158,52 @@ function addEvent(cal, event) {
   return cal;
 }
 
+function getDateOfWeek(w, y, day) {
+    var simple = new Date(y, 0, 1 + (w - 1) * 7);
+    var date = simple;
+    var dow = simple.getDay();
+    var weekStart = simple;
+    if (dow <= 4)
+        weekStart.setDate(simple.getDate() - simple.getDay() + 1);
+    else
+        weekStart.setDate(simple.getDate() + 8 - simple.getDay());
+
+    switch(day) {
+      case 'Montag':
+        break;
+
+      case 'Dienstag':
+        date.setDate(weekStart.getDate() + 1);
+        break;
+
+      case 'Mittwoch':
+        date.setDate(weekStart.getDate() + 2);
+        break;
+
+      case 'Donnerstag':
+        date.setDate(weekStart.getDate() + 3);
+        break;
+
+      case 'Freitag':
+        date.setDate(weekStart.getDate() + 4);
+        break;
+
+      case 'Samstag':
+        date.setDate(weekStart.getDate() + 5);
+        break;
+
+      case 'Sonntag':
+        date.setDate(weekStart.getDate() + 6);
+        break;
+        }
+
+    return date;
+}
+
 function uid() {
   function S4() {
     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
   }
-  console.log(S4);
 
   return(S4() + S4() + "-" + S4() + "-4" + S4().substr(0,3) + "-" + S4() + "-" + S4() + S4() + S4()).toLowerCase();
 }
