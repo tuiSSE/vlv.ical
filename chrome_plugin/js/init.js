@@ -38,16 +38,19 @@ function init() {
 
   try {
     for (i in subjects) {
+      console.log(getNameOfLecture(subjects[i]));
       console.log(subjects[i]);
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
       console.log(event);
+      console.log(" ");
     }
   } catch (e) {}
 
   cal.push('END:VCALENDAR');
   var str = cal.join('\n');
 
+  console.log('Output: ');
   console.log([str]);
 
   var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
