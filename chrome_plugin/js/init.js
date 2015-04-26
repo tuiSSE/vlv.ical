@@ -10,6 +10,16 @@ function init() {
 
   var subjects = getElements(getRootElement(entryInfo));
 
+  var d= $('<input type="button" id="downloadICS" style="background: white; border-radius: 5px; font-size: 15px; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 5px 0px 5px;font-family: Arial" value="Download"/> ');
+  d.insertBefore(subjects[0]);
+  $("#downloadICS").on('click', function(entryInfo){
+    if (toggledEvents.length > 0) {
+      download(toggledEvents);
+    } else {
+      alert("Keine Veranstaltungen ausgewählt.")
+    };
+  });
+
   var i;
   for (i = 0; i < subjects.length; i++){
     var r= $('<input type="button" class="eventToggle" style="background: white; border-radius: 5px; font-size: 15px;  color: #07d41f; border: solid #a3a3a3 2px;font-family: Arial;text-decoration: none;padding: 0px 5px 0px 5px;font-family: Arial" value="+"/> ');
@@ -21,6 +31,9 @@ function init() {
     console.log(toggledEvents);
   });
 
+}
+
+function download(subjects) {
   var cal = [];
 
   cal.push('BEGIN:VCALENDAR');
@@ -50,12 +63,8 @@ function init() {
 
   try {
     for (i in subjects) {
-      console.log(getNameOfLecture(subjects[i]));
-      console.log(subjects[i]);
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
-      console.log(event);
-      console.log(" ");
     }
   } catch (e) {}
 
@@ -66,7 +75,7 @@ function init() {
   console.log([str]);
 
   var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
-  //saveAs(dl, "calendar.ics");
+  saveAs(dl, "calendar.ics");
 }
 
 function toggleEvent(object) {
