@@ -1,0 +1,39 @@
+#container {
+    margin-left:    5px;
+    margin-top:     5px;
+    padding:        0px;
+    height:         100px;
+    width:          200px;
+}
+
+.eventToggle {
+  background: white;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #07d41f;
+  border: solid #a3a3a3 2px;
+  font-family: Arial;
+  text-decoration: none;
+  padding: 0px 7px 0px 7px;
+  font-family: Arial;
+}
+
+.eventToggle:hover {
+  color: gray;
+}
+
+.downloadButton {
+  background: white;
+  border-radius: 5px;
+  font-size: 15px;
+  color: black;
+  border: solid #a3a3a3 2px;
+  font-family: Arial;
+  text-decoration: none;
+  padding: 0px 7px 0px 7px;
+  font-family: Arial;
+}
+
+.downloadButton:hover {
+  color: grey;
+}
