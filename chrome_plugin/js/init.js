@@ -101,7 +101,8 @@ function download(subjects) {
 
   try {
     var i;
-    for (i = 0; i < subjects; i++) {
+    for (i = 0; i < subjects.length; i++) {
+      console.log(event);
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
     }
@@ -222,6 +223,7 @@ function getEventData(subject) {
   return event;
 }
 
+// TODO: get week and year
 function parseTime(raw, day) {
   raw = raw.split(" ");
   var hours = [];
