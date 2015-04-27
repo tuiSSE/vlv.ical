@@ -1,11 +1,16 @@
 fixDivHeight();
-var toggledEvents = [];
+var selectedEvents = [];
 
 /*
- * checks, if current page is the text one
+ * checks, if current page is the text one and then initializes the plugin
  */
 if (/vers=text/.test(self.location.href)) {
-  init();
+  try {
+    init();
+  } catch(e) {
+    console.log("Failed to initialize");
+    console.log(e);
+  }
 }
 
 /*
@@ -23,8 +28,8 @@ function init() {
   var downloadSelected= $('<input type="button" id="downloadSelected" style="background: white; border-radius: 5px; font-size: 15px; border: solid #a3a3a3 2px;font-family: Helvetica;text-decoration: none;padding: 0px 7px 0px 7px;font-family: Arial" value="Download selected"/>');
   downloadSelected.insertBefore(subjects[0]);
   $("#downloadSelected").on('click', function(entryInfo){
-    if (toggledEvents.length > 0) {
-      download(toggledEvents);
+    if (selectedEvents.length > 0) {
+      download(selectedEvents);
     } else {
       alert("Keine Veranstaltungen ausgewählt.")
     };
@@ -49,13 +54,13 @@ function init() {
   }
   $(".eventToggle").on('click', function(entryInfo){
     var object = this.parentNode.parentNode;
-    if (!containsObject(object, toggledEvents)) {
-      toggledEvents.push(object);
+    if (!containsObject(object, selectedEvents)) {
+      selectedEvents.push(object);
       this.value = '-';
       this.style.color = 'red'
       object.style.background = '#BEE8BA';
     } else {
-      toggledEvents = removeFromList(toggledEvents, getObjectIndex(object, toggledEvents, object));
+      selectedEvents = removeFromList(selectedEvents, getObjectIndex(object, selectedEvents, object));
       this.value = '+';
       this.style.color = '#07d41f';
       object.style.background = 'white';
@@ -95,11 +100,15 @@ function download(subjects) {
   cal.push('END:VTIMEZONE');
 
   try {
-    for (i in subjects) {
+    var i;
+    for (i = 0; i < subjects; i++) {
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
     }
-  } catch (e) {}
+  } catch (e) {
+    console.log(e);
+    console.log(subjects[i]);
+  }
 
   cal.push('END:VCALENDAR');
   var str = cal.join('\n');
