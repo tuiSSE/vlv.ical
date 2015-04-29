@@ -3,9 +3,13 @@ function injectDownloadButtons(subjects) {
   downloadSelected.insertBefore(subjects[0]);
   $("#downloadSelected").on('click', function(entryInfo){
     if (selectedEvents.length > 0) {
-      download(selectedEvents);
+      try {
+        download(subjects);
+      } catch(e) {
+        toastr.error("Download failed!", e);
+      }
     } else {
-      alert("Keine Veranstaltungen ausgewählt.")
+      toastr.warning("Keine Veranstaltungen ausgewählt.")
     };
   });
 
@@ -13,9 +17,13 @@ function injectDownloadButtons(subjects) {
   downloadAll.insertBefore(subjects[0]);
   $("#downloadAll").on('click', function(entryInfo){
     if (subjects.length > 0) {
-      download(subjects);
+      try {
+        download(subjects);
+      } catch(e) {
+        toastr.error("Download failed!", e);
+      }
     } else {
-      alert("Keine Veranstaltungen gefunden.")
+      toastr.warning("Keine Veranstaltungen gefunden.")
     };
   });
 }
