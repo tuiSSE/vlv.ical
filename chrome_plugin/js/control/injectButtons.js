@@ -4,7 +4,7 @@ function injectDownloadButtons(subjects) {
   $("#downloadSelected").on('click', function(entryInfo){
     if (selectedEvents.length > 0) {
       try {
-        download(subjects);
+        download(selectedEvents);
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -38,11 +38,13 @@ function injectAddButtons(subjects) {
     var object = this.parentNode.parentNode;
     if (!containsObject(object, selectedEvents)) {
       selectedEvents.push(object);
+      console.log(selectedEvents);
       this.value = '-';
       this.style.color = 'red'
       object.style.background = '#BEE8BA';
     } else {
       selectedEvents = removeFromList(selectedEvents, getObjectIndex(object, selectedEvents, object));
+      console.log(selectedEvents);
       this.value = '+';
       this.style.color = '#07d41f';
       object.style.background = 'white';

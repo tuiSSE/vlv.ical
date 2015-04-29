@@ -21,6 +21,7 @@
                 "js/helper/fixDiv.js",
                 "js/helper/getData.js",
                 "js/helper/misc.js",
+                "js/helper/parseDate.js",
                 "js/control/injectButtons.js",
                 "js/init.js"
             ],
