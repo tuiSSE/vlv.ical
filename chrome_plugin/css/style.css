@@ -6,34 +6,55 @@
     width:          200px;
 }
 
-.eventToggle {
-  background: white;
-  border-radius: 5px;
-  font-size: 15px;
-  color: #07d41f;
-  border: solid #a3a3a3 2px;
-  font-family: Arial;
-  text-decoration: none;
-  padding: 0px 7px 0px 7px;
-  font-family: Arial;
+.addButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #3dc21b;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #3dc21b;
+	box-shadow:inset 0px 1px 0px 0px #3dc21b;
+	background-color:#44c767;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	border:0px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:5px 20px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
 }
-
-.eventToggle:hover {
-  color: gray;
+.addButton:hover {
+	background-color:#5cbf2a;
+}
+.addButton:active {
+	position:relative;
+	top:1px;
 }
 
 .downloadButton {
-  background: white;
-  border-radius: 5px;
-  font-size: 15px;
-  color: black;
-  border: solid #a3a3a3 2px;
-  font-family: Arial;
-  text-decoration: none;
-  padding: 0px 7px 0px 7px;
-  font-family: Arial;
+	background-color:white;
+	border-radius:4px;
+	border:2px solid lightgrey;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
 }
 
 .downloadButton:hover {
   color: grey;
+}
+
+.shoppingCart {
+  vertical-align:left;
+  margin:0;
+  display:inline-block;
+  width:15px;
+  height:15px;
 }
