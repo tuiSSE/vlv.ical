@@ -13,7 +13,8 @@ function getElements(root) {
 }
 
 function getNameOfLecture(object) {
-    return subjects[i].childNodes[1].childNodes[0].data;
+    var name = object.childNodes[1].innerText;
+    return name.slice(0, (name.length - 12));
 }
 
 function getSpeakerOfLecture(object) {
