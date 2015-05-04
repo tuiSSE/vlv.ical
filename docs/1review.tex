@@ -1,4 +1,5 @@
 \documentclass[11pt]{report}
+\usepackage[utf8]{inputenc}
 \begin{document}
 
 \begin{center}
@@ -43,15 +44,19 @@ Tim Reinhold
 \end{center}
 
 \newpage
-\section*{Einleitung}
-\subsection*{Notwendigkeit der Software}
+\tableofcontents
+
+\newpage
+\chapter{Einleitung}
+\section{Notwendigkeit der Software}
 
 \normalsize \normalfont \textnormal
-Der Stundenplan der Studierenden der TU Ilmenau wird in einem online Vorlesungsverzeichnis veröffentlicht. In diesem sind die einzelnen Vorlesungen, Übungen oder externe Veranstaltungen der Studenten nach dem jeweiligen Semester aufgelistet. Die Übertragung dieser Veranstaltungen auf externe Geräte ist bisher nur durch manuelle Eingabe in andere Kalender möglich. Da hierfür noch keine andere benutzerfreundlichere Lösung gefunden wurde, führte es dazu, dass dieses Problem nun in einem Softwareprojekt von uns analysiert und bearbeitet werden soll.  Um die Arbeit der manuellen Übertragung dem Anwender abzunehmen, soll es ihm möglich sein durch ein Browser-Plug-in die Termine als ics-Datei zu exportieren und in seinen eigenen Kalender zu importieren. Dies wiederum erspart dem Benutzer Zeit und mühseliges eintippen der Termine in seinen Kalender.
+Der Stundenplan der Studierenden der TU Ilmenau wird in einem online Vorlesungsverzeichnis veröffentlicht. In diesem sind die einzelnen Vorlesungen, Übungen oder externe Veranstaltungen der Studenten nach dem jeweiligen Semester aufgelistet. Die Übertragung dieser Veranstaltungen auf externe Geräte ist bisher nur durch manuelle Eingabe in andere Kalender möglich. Da hierfür noch keine andere benutzerfreundlichere Lösung gefunden wurde, führte es dazu, dass dieses Problem nun in einem Softwareprojekt von uns analysiert und bearbeitet werden soll.  
+Um die Arbeit der manuellen Übertragung dem Anwender abzunehmen, soll es ihm möglich sein durch ein Browser-Plug-in die Termine als ics-Datei zu exportieren und in seinen eigenen Kalender zu importieren. Dies wiederum erspart dem Benutzer Zeit und mühseliges eintippen der Termine in seinen Kalender.
 
-\subsection*{Beschreibung des Aufgabenprojekts}
+\section{Beschreibung des Aufgabenprojekts}
 
-\subsection*{Muss-Kriterien}
+\section{Muss-Kriterien}
 \begin{itemize}
 \item \textbf{M1}: Oberfl\"achenlayout-Erweiterung der Software mittels Browser-Extension in Google Chrome
     \begin{itemize}
@@ -74,7 +79,7 @@ Der Stundenplan der Studierenden der TU Ilmenau wird in einem online Vorlesungsv
     \end{itemize}
 \end{itemize}
 
-\subsection*{Wunsch-Kriterien}
+\section{Wunsch-Kriterien}
 \begin{itemize}
 \item \textbf{W1}: Erweiterung für andere (Desktop-) Browser portieren
     \begin{itemize}
@@ -90,11 +95,27 @@ Der Stundenplan der Studierenden der TU Ilmenau wird in einem online Vorlesungsv
     \end{itemize}
 \end{itemize}
 
-\subsection*{Abgrenzungskriterien}
+\section{Abgrenzungskriterien}
 \begin{itemize}
-\item Die Software bietet Ausschließlich den Download der angezeigten Daten, ohne eine Auswahl treffen zu k\"onnen.
+\item Die Software bietet ausschließlich den Download der angezeigten Daten, ohne eine Auswahl treffen zu k\"onnen.
 \item Die erzeugte *.ics Datei ist nur mit wenigen Kalenderapplikationen kompatibel.
 \end{itemize}
 
+\chapter{Verwendete Technologien und Entwicklungswerkzeuge}
+\section{Codeverwaltung}
+\paragraph{Git \& GitHub}
+Der Sourcecode des Projektes wird über die Versionierungssoftware Git verwaltet, welches wiederum über das Portal GitHub.com für jeden als freie Software zur Verf\"ugung gestellt wird.
+Git ermöglicht es allen, gleichzeitig an der Software zu arbeiten und die \"Anderungen im Anschluss wieder zusammen zu f\"uhren um eine ganzheitliche Software zu erstellen. Sie bietet außerdem eine vollst\"andige History, womit Fehler zu jeder Zeit r\"uckg\"angig gemacht werden k\"onnen.
+Des weiteren ist vollst\"andig nachvollziehbar, welche Person zu welchem Zeitpunkt an welchem St\"uck Quellcode gearbeitet hat.
+
+\section{Kommunikation und Organisation}
+\paragraph{Gitter}
+Zur Kommunikation wird haupts\"achlich Gitter genutzt, welches sehr stark mit GitHub.com verkn\"upft ist und somit eine sehr stark projektorientierte Kommunikationsplattform. Sie bietet neben spezieller Textformatierung f\"ur Quellcode auch die Referenzierung auf Personen, Tickets und auch Dateien im Github Projekt. Außerdem sind auf der Plattform aktuelle Aktivit\"aten des Projektes \"uber sogenannte "Git-Hooks" ersichtlich.
+\paragraph{WhatsApp}
+Zur Organisation von Terminen, Versp\"atungen u.ä. dient außerdem die bekannte Messaging-Applikation WhatsApp.
+\paragraph{Trello}
+Zur Aufgabenverteilung, -zuweisung und auch zur Fortschrittsanalyse wird das Online-Portal Trello.com genutzt. Durch eine Browser Erweiterung bietet es außerdem eine Unterstützung des Vorgehensmodells SCRUM.
+
+\chapter{Glossar}
 
 \end{document}
