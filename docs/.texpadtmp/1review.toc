@@ -3,12 +3,15 @@
 \contentsline {section}{\numberline {1.2}Beschreibung des Aufgabenprojekts}{3}
 \contentsline {section}{\numberline {1.3}Muss-Kriterien}{3}
 \contentsline {section}{\numberline {1.4}Wunsch-Kriterien}{4}
-\contentsline {section}{\numberline {1.5}Abgrenzungskriterien}{5}
-\contentsline {chapter}{\numberline {2}Verwendete Technologien und Entwicklungswerkzeuge}{6}
-\contentsline {section}{\numberline {2.1}Codeverwaltung}{6}
-\contentsline {paragraph}{Git \& GitHub}{6}
-\contentsline {section}{\numberline {2.2}Kommunikation und Organisation}{6}
-\contentsline {paragraph}{Gitter}{6}
-\contentsline {paragraph}{WhatsApp}{6}
-\contentsline {paragraph}{Trello}{7}
-\contentsline {chapter}{\numberline {3}Glossar}{8}
+\contentsline {section}{\numberline {1.5}Abgrenzungskriterien}{4}
+\contentsline {chapter}{\numberline {2}Verwendete Technologien und Entwicklungswerkzeuge}{5}
+\contentsline {section}{\numberline {2.1}Codeverwaltung}{5}
+\contentsline {paragraph}{\nonumberline Git \& GitHub}{5}
+\contentsline {section}{\numberline {2.2}Kommunikation und Organisation}{5}
+\contentsline {paragraph}{\nonumberline Gitter.com}{5}
+\contentsline {paragraph}{\nonumberline WhatsApp}{5}
+\contentsline {paragraph}{\nonumberline Trello}{5}
+\contentsline {section}{\numberline {2.3}Programmiersprache}{5}
+\contentsline {paragraph}{\nonumberline Javascript}{5}
+\contentsline {paragraph}{\nonumberline Bibliotheken}{6}
+\contentsline {chapter}{\numberline {3}Glossar}{7}
