@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  5 MAY 2015 19:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  5 MAY 2015 19:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -406,81 +406,86 @@ Overfull \hbox (0.45956pt too wide) in paragraph at lines 55--56
 \OT1/cmr/m/n/10.95 Der Stun-den-plan der Studieren-den der TU Il-me-nau wird in einem on-line Vor-lesungsverze-
  []
 
+<usecase.png, id=14, 888.31876pt x 742.775pt>
+File: usecase.png Graphic file (type png)
+ <use usecase.png>
+Package pdftex.def Info: usecase.png used on input line 61.
+(pdftex.def)             Requested size: 418.25555pt x 349.72765pt.
+ [3
 
-Overfull \hbox (19.76952pt too wide) in paragraph at lines 65--66
+]
+Overfull \hbox (19.76952pt too wide) in paragraph at lines 71--72
  \OT1/cmss/bx/n/10.95 Verst^^?andlichkeit:[] \OT1/cmr/m/n/10.95 Durch eine ausf^^?uhrliche und ein-deutige Doku-men-ta-tion, sowie vollst^^?andig
  []
 
-[3
-
-]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 75.
+[4 <./usecase.png>]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 81.
  (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 75.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 81.
 
-Overfull \hbox (0.85614pt too wide) in paragraph at lines 77--78
+Overfull \hbox (0.85614pt too wide) in paragraph at lines 83--84
 []\OT1/cmr/m/n/10.95 Die ur-spr^^?ungliche Oberfl^^?ache des Vor-lesungsverze-ich-nisses wird unter an-derem
  []
 
 
-Overfull \hbox (24.79417pt too wide) in paragraph at lines 84--85
+Overfull \hbox (24.79417pt too wide) in paragraph at lines 90--91
 []\OT1/cmr/m/n/10.95 Auszulesende Daten sind im einzel-nen der Ve-r-anstal-tungsname, der/die Lesende(r),
  []
 
-[4]
-Overfull \hbox (4.65819pt too wide) in paragraph at lines 119--120
+[5]
+Overfull \hbox (4.65819pt too wide) in paragraph at lines 125--126
 []\OT1/cmr/m/n/10.95 Die Soft-ware ist auss-chlie^^Ylich f^^?ur das Vor-lesungsverze-ich-nis der TU-Ilmenau konzip-
  []
 
 
-Overfull \hbox (11.4007pt too wide) in paragraph at lines 119--120
+Overfull \hbox (11.4007pt too wide) in paragraph at lines 125--126
 \OT1/cmr/m/n/10.95 iert. Kom-pat-i-bilit^^?aten mit an-deren Seiten sind durch Soft-wa-reen-twick-ler zu portieren. 
  []
 
-[5]
+[6]
 Chapter 2.
-<Scrum.png, id=25, 420.38747pt x 273.81169pt>
+<Scrum.png, id=31, 420.38747pt x 273.81169pt>
 File: Scrum.png Graphic file (type png)
  <use Scrum.png>
-Package pdftex.def Info: Scrum.png used on input line 138.
+Package pdftex.def Info: Scrum.png used on input line 144.
 (pdftex.def)             Requested size: 420.38644pt x 273.81102pt.
 
-Overfull \hbox (2.13089pt too wide) in paragraph at lines 138--139
+Overfull \hbox (2.13089pt too wide) in paragraph at lines 144--145
 [][] 
  []
 
-[6
+[7
 
-] [7 <./Scrum.png (PNG copy)>] [8]
+] [8 <./Scrum.png (PNG copy)>] [9]
 Chapter 3.
-[9
+[10
 
-] [10]
+] [11]
 Chapter 4.
 
-Overfull \hbox (19.53728pt too wide) in paragraph at lines 199--200
+Overfull \hbox (19.53728pt too wide) in paragraph at lines 205--206
  \OT1/cmss/bx/n/10.95 GitHub.com[] \OT1/cmr/m/n/10.95 GitHub ist ein Por-tal, um Git Pro-jekte zu hosten. Es bi-etet eine ^^?ubersichtliche
  []
 
-[11
+[12
 
 ] (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.aux) ) 
 Here is how much of TeX's memory you used:
- 3055 strings out of 493117
- 47705 string characters out of 6135433
+ 3060 strings out of 493117
+ 47779 string characters out of 6135433
  154920 words of memory out of 5000000
- 6488 multiletter control sequences out of 15000+600000
+ 6492 multiletter control sequences out of 15000+600000
  9116 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 46i,7n,39p,799b,259s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,7n,39p,799b,252s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (11 pages, 139891 bytes).
+Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (12 pages, 173874 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 75 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
