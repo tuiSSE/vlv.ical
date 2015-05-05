@@ -1,6 +1,7 @@
 \documentclass[11pt]{scrreprt}
 \usepackage[utf8]{inputenc}
 \begin{document}
+\renewcommand\contentsname{Inhaltsverzeichnis}
 
 \begin{center}
 \Huge
@@ -57,10 +58,14 @@ Um die Arbeit der manuellen Übertragung dem Anwender abzunehmen, soll es ihm m�
 
 \section{Entwurfsziele}
 \paragraph{Korrektheit:} Die Aufgaben aller definierten Funktionen sollen wie vorgesehen erfüllt werden.
-\paragraph{Zuverlässigkeit:} Ein problemloses Starten und Laufen der Software nach einer Installation soll stets gewährleistet sein.
-\paragraph{Verständlichkeit:} Durch eine ausführliche und eindeutige Dokumentation, sowie vollständig kommentierter Quellcode soll die Software leichter zu verstehen sein.
-\paragraph{Performanz:} Die Software soll die üblichen Browsing-Gewohnheiten des Nutzers nicht beeinflussen.
-\paragraph{Benutzerfreundlichkeit:} Die Bedienung der Software soll größtenteils selbsterklärend sein. Ein Benutzerhandbuch soll überflüssig sein.
+
+\paragraph{Zuverlässigkeit:} Ein problemloses Starten und Laufen der Software nach einer Installation soll stets gewährleistet sein.
+
+\paragraph{Verständlichkeit:} Durch eine ausführliche und eindeutige Dokumentation, sowie vollständig kommentierter Quellcode soll die Software leichter zu verstehen sein.
+
+\paragraph{Performanz:} Die Software soll die üblichen Browsing-Gewohnheiten des Nutzers nicht beeinflussen.
+
+\paragraph{Benutzerfreundlichkeit:} Die Bedienung der Software soll größtenteils selbsterklärend sein. Ein Benutzerhandbuch soll überflüssig sein.
 
 \paragraph{Konsistenz} Die Software soll zu jedem Zeitpunkt korrekte Ergebnisse liefern. Im Falle von Problemen und Fehlern soll eine Fehlermeldung, statt falscher Ergebnisse geliefert werden.
 
@@ -117,7 +122,17 @@ Die Software soll es ermöglichen, in der Ansicht für ein bestimmtes Semester e
 Die Software soll es aber auch ermöglichen, dass der Benutzer sich nach dem Warenkorbprinzip (siehe Online Shops) Veranstaltungen auswählen kann. Dies soll sowohl Semester-, als auch Studiengangübergreifend möglich sein.
 
 \chapter{Vorgehensmodell - SCRUM}
-Scrum kennt drei Rollen für direkt am Prozeß Beteiligte: Product Owner(stellt fachliche Anforderungen und priorisiert sie), ScrumMaster(managt den Prozeß und beseitigt Hindernisse) und Team (entwickelt das Produkt). Daneben gibt es als Beobachter und Ratgeber noch dieStakeholders.Die Anforderungen (Requirements) werden in einer Liste (Product Backlog) gepflegt, erweitert und priorisiert. Das Product Backlog ist ständig im Fluß. Um ein sinnvolles Arbeiten zu ermöglichen, wird monatlich vom Team in Kooperation mit dem Product Owner ein definiertes Arbeitspaket dem oberen, höher priorisierten Ende des Product Backlogs entnommen und komplett in Funktionalität umgesetzt (inkl. Test und notwendiger Dokumentation). Dieses Arbeitspaket, das Increment, wird während der laufenden Iteration, des sog. Sprints, nicht durch Zusatzanforderungen modifiziert, um seine Fertigstellung nicht zu gefährden. Alle anderen Teile des Product Backlogs können vom Product Owner in Vorbereitung für den nachfolgenden Sprint verändert bzw. neu priorisiert werden.Das Arbeitspaket wird in kleinere Arbeitspakete (Tasks) heruntergebrochen und mit jeweils zuständigem Bearbeiter und täglich aktualisiertem Restaufwand in einer weiteren Liste, dem Sprint Backlog, festgehalten.  Während des Sprints arbeitet das Team konzentriert und ohne Störungen von außen daran, die Tasks aus dem Sprint Backlog in ein Increment of Potentially Shippable Functionality, also einen vollständig fertigen und potentiell produktiv einsetzbaren Anwendungsteil, umzusetzen. Das Team gleicht sich in einem täglichen, streng auf 15 Minuten begrenzten Informations-Meeting, dem Daily Scrum Meeting, ab, damit jeder weiß, woran der andere zuletzt gearbeitet hat, was er als nächstes vor hat und welche Probleme es evtl. gibt.Am Ende des Sprints präsentiert das Team dem Product Owner, den Stakeholders u.a. interessierten Teilnehmern in einem sog. Sprint Review Meeting live am System die implementierte Funktionalität. Halbfertiges oder gar Powerpoint-Folien sind während des Reviews verboten. Das Feedback der Zuseher und die neuen Anforderungen des Product Owners für den kommenden Sprint fließen dann wieder in das nächste Sprint Planning Meeting ein, und der Prozeß beginnt von neuem.Der ScrumMaster sorgt während des gesamten Prozesses dafür, daß Regeln eingehalten werden und der Status aller Tasks im Sprint Backlog von den jeweils zuständigen Team-Mitgliedern täglich aktualisiert wird. Er macht den Projektfortschritt transparent durch einen geeigneten Reporting-Mechanismus: die Veröffentlichung sog.Burndown Charts, welche den Fortschritt für den aktuellen Sprint bzw. für das gesamte Projekt jeweils in Form einer Kurve visualisieren. Eingezeichnete Trendlinien erlauben es, mögliche Probleme und Verzögerungen einfach (und rechtzeitig!) zu erkennen.Im Kern basiert Scrum also auf einer inkrementellen Vorgehensweise, der Organisation von Entwicklungsabschnitten und Meetings in vordefinierten Zeitabschnitten (Time-Boxes) und der Erkenntnis, daß ein funktionierendes Produkt wichtiger ist als eine dreihundertseitige Spezifikation.
+Scrum kennt drei Rollen für direkt am Prozeß Beteiligte: Product Owner(stellt fachliche Anforderungen und priorisiert sie), ScrumMaster(managt den Prozeß und beseitigt Hindernisse) und Team (entwickelt das Produkt). Daneben gibt es als Beobachter und Ratgeber noch dieStakeholders.
+
+Die Anforderungen (Requirements) werden in einer Liste (Product Backlog) gepflegt, erweitert und priorisiert. Das Product Backlog ist ständig im Fluß. Um ein sinnvolles Arbeiten zu ermöglichen, wird monatlich vom Team in Kooperation mit dem Product Owner ein definiertes Arbeitspaket dem oberen, höher priorisierten Ende des Product Backlogs entnommen und komplett in Funktionalität umgesetzt (inkl. Test und notwendiger Dokumentation). Dieses Arbeitspaket, das Increment, wird während der laufenden Iteration, des sog. Sprints, nicht durch Zusatzanforderungen modifiziert, um seine Fertigstellung nicht zu gefährden. Alle anderen Teile des Product Backlogs können vom Product Owner in Vorbereitung für den nachfolgenden Sprint verändert bzw. neu priorisiert werden.
+
+Das Arbeitspaket wird in kleinere Arbeitspakete (Tasks) heruntergebrochen und mit jeweils zuständigem Bearbeiter und täglich aktualisiertem Restaufwand in einer weiteren Liste, dem Sprint Backlog, festgehalten.  Während des Sprints arbeitet das Team konzentriert und ohne Störungen von außen daran, die Tasks aus dem Sprint Backlog in ein Increment of Potentially Shippable Functionality, also einen vollständig fertigen und potentiell produktiv einsetzbaren Anwendungsteil, umzusetzen. Das Team gleicht sich in einem täglichen, streng auf 15 Minuten begrenzten Informations-Meeting, dem Daily Scrum Meeting, ab, damit jeder weiß, woran der andere zuletzt gearbeitet hat, was er als nächstes vor hat und welche Probleme es evtl. gibt.
+
+Am Ende des Sprints präsentiert das Team dem Product Owner, den Stakeholders u.a. interessierten Teilnehmern in einem sog. Sprint Review Meeting live am System die implementierte Funktionalität. Halbfertiges oder gar Powerpoint-Folien sind während des Reviews verboten. Das Feedback der Zuseher und die neuen Anforderungen des Product Owners für den kommenden Sprint fließen dann wieder in das nächste Sprint Planning Meeting ein, und der Prozeß beginnt von neuem.
+
+Der ScrumMaster sorgt während des gesamten Prozesses dafür, daß Regeln eingehalten werden und der Status aller Tasks im Sprint Backlog von den jeweils zuständigen Team-Mitgliedern täglich aktualisiert wird. Er macht den Projektfortschritt transparent durch einen geeigneten Reporting-Mechanismus: die Veröffentlichung sog.Burndown Charts, welche den Fortschritt für den aktuellen Sprint bzw. für das gesamte Projekt jeweils in Form einer Kurve visualisieren. Eingezeichnete Trendlinien erlauben es, mögliche Probleme und Verzögerungen einfach (und rechtzeitig!) zu erkennen.
+
+Im Kern basiert Scrum also auf einer inkrementellen Vorgehensweise, der Organisation von Entwicklungsabschnitten und Meetings in vordefinierten Zeitabschnitten (Time-Boxes) und der Erkenntnis, daß ein funktionierendes Produkt wichtiger ist als eine dreihundertseitige Spezifikation.
 
 \chapter{Verwendete Technologien und Entwicklungswerkzeuge}
 \section{Codeverwaltung}
