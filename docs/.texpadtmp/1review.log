@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  4 MAY 2015 11:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  5 MAY 2015 18:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -333,50 +333,64 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 Chapter 1.
 
-Overfull \hbox (0.45956pt too wide) in paragraph at lines 54--56
+Overfull \hbox (0.45956pt too wide) in paragraph at lines 55--57
 \OT1/cmr/m/n/10.95 Der Stun-den-plan der Studieren-den der TU Il-me-nau wird in einem on-line Vor-lesungsverze-
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 61.
+
+Overfull \hbox (19.76952pt too wide) in paragraph at lines 63--64
+ \OT1/cmss/bx/n/10.95 Verst^^?andlichkeit:[] \OT1/cmr/m/n/10.95 Durch eine ausf^^?uhrliche und ein-deutige Doku-men-ta-tion, sowie vollst^^?andig
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 73.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 61.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
+ [3
 
-Overfull \hbox (0.85614pt too wide) in paragraph at lines 63--64
+]
+Overfull \hbox (0.85614pt too wide) in paragraph at lines 75--76
 []\OT1/cmr/m/n/10.95 Die ur-spr^^?ungliche Oberfl^^?ache des Vor-lesungsverze-ich-nisses wird unter an-derem
  []
 
 
-Overfull \hbox (24.79417pt too wide) in paragraph at lines 70--71
+Overfull \hbox (24.79417pt too wide) in paragraph at lines 82--83
 []\OT1/cmr/m/n/10.95 Auszulesende Daten sind im einzel-nen der Ve-r-anstal-tungsname, der/die Lesende(r),
  []
 
-[3
-
-] [4]
+[4] [5]
 Chapter 2.
-[5
+[6
 
-] [6]
+] [7]
 Chapter 3.
-[7
+[8
+
+] [9]
+Chapter 4.
+
+Overfull \hbox (19.53728pt too wide) in paragraph at lines 162--163
+ \OT1/cmss/bx/n/10.95 GitHub.com[] \OT1/cmr/m/n/10.95 GitHub ist ein Por-tal, um Git Pro-jekte zu hosten. Es bi-etet eine ^^?ubersichtliche
+ []
+
+[10
 
 ] (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.aux) ) 
 Here is how much of TeX's memory you used:
  1745 strings out of 493117
  27482 string characters out of 6135433
- 129106 words of memory out of 5000000
+ 130106 words of memory out of 5000000
  5239 multiletter control sequences out of 15000+600000
  9116 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,6n,39p,591b,278s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,6n,39p,799b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (7 pages, 97873 bytes).
+Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (10 pages, 103268 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
+ 65 PDF objects out of 1000 (max. 8388607)
+ 45 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
