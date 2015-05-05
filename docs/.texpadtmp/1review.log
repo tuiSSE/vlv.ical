@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  5 MAY 2015 18:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  5 MAY 2015 19:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -300,22 +300,91 @@ Now handling font encoding U ...
    defining Unicode char U+2026 (decimal 8230)
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
-)) (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.aux)
+)) (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/04/25 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: pdftex.def on input line 91.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count89
+))
+\Gin@req@height=\dimen103
+\Gin@req@width=\dimen104
+) (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.aux)
 \openout1 = `1review.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
- [1
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
+LaTeX Font Info:    ... okay on input line 4.
+ (/usr/local/texlive/2014/texmf-dist/tex/context/base/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count90
+\scratchdimen=\dimen105
+\scratchbox=\box27
+\nofMPsegments=\count91
+\nofMParguments=\count92
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count93
+\MPscratchDim=\dimen106
+\MPnumerator=\count94
+\makeMPintoPDFobject=\count95
+\everyMPtoPDFconversion=\toks18
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+) (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+)) (/usr/local/texlive/2014/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+ (/usr/local/texlive/2014/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+)) [1
 
 {/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -333,74 +402,85 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 ]
 Chapter 1.
 
-Overfull \hbox (0.45956pt too wide) in paragraph at lines 55--57
+Overfull \hbox (0.45956pt too wide) in paragraph at lines 56--57
 \OT1/cmr/m/n/10.95 Der Stun-den-plan der Studieren-den der TU Il-me-nau wird in einem on-line Vor-lesungsverze-
  []
 
 
-Overfull \hbox (19.76952pt too wide) in paragraph at lines 63--64
+Overfull \hbox (19.76952pt too wide) in paragraph at lines 66--67
  \OT1/cmss/bx/n/10.95 Verst^^?andlichkeit:[] \OT1/cmr/m/n/10.95 Durch eine ausf^^?uhrliche und ein-deutige Doku-men-ta-tion, sowie vollst^^?andig
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 73.
-(/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
+[3
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 76.
+ (/usr/local/texlive/2014/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 73.
- [3
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 76.
 
-]
-Overfull \hbox (0.85614pt too wide) in paragraph at lines 75--76
+Overfull \hbox (0.85614pt too wide) in paragraph at lines 78--79
 []\OT1/cmr/m/n/10.95 Die ur-spr^^?ungliche Oberfl^^?ache des Vor-lesungsverze-ich-nisses wird unter an-derem
  []
 
 
-Overfull \hbox (24.79417pt too wide) in paragraph at lines 82--83
+Overfull \hbox (24.79417pt too wide) in paragraph at lines 85--86
 []\OT1/cmr/m/n/10.95 Auszulesende Daten sind im einzel-nen der Ve-r-anstal-tungsname, der/die Lesende(r),
  []
 
 [4]
-Overfull \hbox (4.65819pt too wide) in paragraph at lines 117--118
+Overfull \hbox (4.65819pt too wide) in paragraph at lines 120--121
 []\OT1/cmr/m/n/10.95 Die Soft-ware ist auss-chlie^^Ylich f^^?ur das Vor-lesungsverze-ich-nis der TU-Ilmenau konzip-
  []
 
 
-Overfull \hbox (11.4007pt too wide) in paragraph at lines 117--118
+Overfull \hbox (11.4007pt too wide) in paragraph at lines 120--121
 \OT1/cmr/m/n/10.95 iert. Kom-pat-i-bilit^^?aten mit an-deren Seiten sind durch Soft-wa-reen-twick-ler zu portieren. 
  []
 
 [5]
 Chapter 2.
+<Scrum.png, id=25, 420.38747pt x 273.81169pt>
+File: Scrum.png Graphic file (type png)
+ <use Scrum.png>
+Package pdftex.def Info: Scrum.png used on input line 139.
+(pdftex.def)             Requested size: 420.38644pt x 273.81102pt.
+
+Overfull \hbox (2.13089pt too wide) in paragraph at lines 139--140
+[][] 
+ []
+
 [6
 
-] [7]
+] [7 <./Scrum.png (PNG copy)>] [8]
 Chapter 3.
-[8
+[9
 
-] [9]
+] [10]
 Chapter 4.
 
-Overfull \hbox (19.53728pt too wide) in paragraph at lines 167--168
+Overfull \hbox (19.53728pt too wide) in paragraph at lines 200--201
  \OT1/cmss/bx/n/10.95 GitHub.com[] \OT1/cmr/m/n/10.95 GitHub ist ein Por-tal, um Git Pro-jekte zu hosten. Es bi-etet eine ^^?ubersichtliche
  []
 
-[10
+[11
 
 ] (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.aux) ) 
 Here is how much of TeX's memory you used:
- 1745 strings out of 493117
- 27482 string characters out of 6135433
- 130106 words of memory out of 5000000
- 5239 multiletter control sequences out of 15000+600000
+ 3055 strings out of 493117
+ 47705 string characters out of 6135433
+ 154920 words of memory out of 5000000
+ 6488 multiletter control sequences out of 15000+600000
  9116 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,6n,39p,799b,266s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 46i,7n,39p,799b,259s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (10 pages, 103785 bytes).
+Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/.texpadtmp/1review.pdf (11 pages, 138648 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 47 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
