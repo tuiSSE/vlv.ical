@@ -34,3 +34,15 @@
 \contentsline {chapter}{\numberline {4}Glossar}{11}
 \contentsline {paragraph}{\nonumberline Git}{11}
 \contentsline {paragraph}{\nonumberline GitHub.com}{11}
+\contentsline {paragraph}{\nonumberline Product Owner}{11}
+\contentsline {paragraph}{\nonumberline ScrumMaster}{11}
+\contentsline {paragraph}{\nonumberline Stakeholders}{11}
+\contentsline {paragraph}{\nonumberline Requirements}{11}
+\contentsline {paragraph}{\nonumberline Product Backlog}{11}
+\contentsline {paragraph}{\nonumberline Increment}{11}
+\contentsline {paragraph}{\nonumberline Sprints}{11}
+\contentsline {paragraph}{\nonumberline Sprint Backlog}{11}
+\contentsline {paragraph}{\nonumberline Daily Scrum}{11}
+\contentsline {paragraph}{\nonumberline Sprint Review Meeting}{11}
+\contentsline {paragraph}{\nonumberline Burndown Charts}{11}
+\contentsline {paragraph}{\nonumberline Time-Boxes}{11}
