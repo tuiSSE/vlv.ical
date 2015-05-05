@@ -126,9 +126,16 @@ Die Software soll es ermöglichen, in der Ansicht für ein bestimmtes Semester e
 Die Software soll es aber auch ermöglichen, dass der Benutzer sich nach dem Warenkorbprinzip (siehe Online Shops) Veranstaltungen auswählen kann. Dies soll sowohl Semester-, als auch Studiengangübergreifend möglich sein.
 
 \chapter{Vorgehensmodell - SCRUM}
-Scrum kennt drei Rollen für direkt am Prozeß Beteiligte: Product Owner(stellt fachliche Anforderungen und priorisiert sie), ScrumMaster(managt den Prozeß und beseitigt Hindernisse) und Team (entwickelt das Produkt). Daneben gibt es als Beobachter und Ratgeber noch dieStakeholders.
+\section{Allgemeine Definition Scrum}
+
+Scrum kennt drei Rollen für direkt am Prozeß Beteiligte: Product Owner(stellt fachliche Anforderungen und priorisiert sie), ScrumMaster(managt den Prozeß und beseitigt Hindernisse) und Team (entwickelt das Produkt). Daneben gibt es als Beobachter und Ratgeber noch die Stakeholders.
 
 Die Anforderungen (Requirements) werden in einer Liste (Product Backlog) gepflegt, erweitert und priorisiert. Das Product Backlog ist ständig im Fluß. Um ein sinnvolles Arbeiten zu ermöglichen, wird monatlich vom Team in Kooperation mit dem Product Owner ein definiertes Arbeitspaket dem oberen, höher priorisierten Ende des Product Backlogs entnommen und komplett in Funktionalität umgesetzt (inkl. Test und notwendiger Dokumentation). Dieses Arbeitspaket, das Increment, wird während der laufenden Iteration, des sog. Sprints, nicht durch Zusatzanforderungen modifiziert, um seine Fertigstellung nicht zu gefährden. Alle anderen Teile des Product Backlogs können vom Product Owner in Vorbereitung für den nachfolgenden Sprint verändert bzw. neu priorisiert werden.
+
+\begin{figure}[hbt]
+    \includegraphics{http://www.torsten-horn.de/img/Scrum.png}
+    \caption{Scrum Vorgehensmodell}
+\end{figure}
 
 Das Arbeitspaket wird in kleinere Arbeitspakete (Tasks) heruntergebrochen und mit jeweils zuständigem Bearbeiter und täglich aktualisiertem Restaufwand in einer weiteren Liste, dem Sprint Backlog, festgehalten.  Während des Sprints arbeitet das Team konzentriert und ohne Störungen von außen daran, die Tasks aus dem Sprint Backlog in ein Increment of Potentially Shippable Functionality, also einen vollständig fertigen und potentiell produktiv einsetzbaren Anwendungsteil, umzusetzen. Das Team gleicht sich in einem täglichen, streng auf 15 Minuten begrenzten Informations-Meeting, dem Daily Scrum Meeting, ab, damit jeder weiß, woran der andere zuletzt gearbeitet hat, was er als nächstes vor hat und welche Probleme es evtl. gibt.
 
@@ -138,6 +145,29 @@ Der ScrumMaster sorgt während des gesamten Prozesses dafür, daß Regeln eingeh
 
 Im Kern basiert Scrum also auf einer inkrementellen Vorgehensweise, der Organisation von Entwicklungsabschnitten und Meetings in vordefinierten Zeitabschnitten (Time-Boxes) und der Erkenntnis, daß ein funktionierendes Produkt wichtiger ist als eine dreihundertseitige Spezifikation.
 
+Quelle: http://scrum-master.de/Was_ist_Scrum/Scrum_auf_einer_Seite_erklaert
+\section{Scrum in Bezug auf das Team}
+\paragraph{Entwurfsphase}
+\begin{itemize}
+\item Project Owner: Cem Kaygusuz
+\item ScrumMaster: Norris Sam Osarenkhoe und Erik Langenhan
+\item Entwicklerteam: Michael Hähnel, Tim Reinhold, Florian Raetz, Berk Bayraktar, Rajeethan Dhayaparan
+\item Stakeholder: Dr. Ing. Talph Maschotta und M. Sc. Thomas Dietrich
+\end{itemize}
+\paragraph{Implementierung}
+\begin{itemize}
+\item Project Owner: Erik Langenhan
+\item ScrumMaster: Norris Sam Osarenkhoe
+\item Entwicklerteam: Michael Hähnel, Tim Reinhold, Florian Raetz, Berk Bayraktar, Rajeethan Dhayaparan, Cem Kaygusuz
+\item Stakeholder: Dr. Ing. Talph Maschotta und M. Sc. Thomas Dietrich
+\end{itemize}
+\paragraph{Validierung}
+\begin{itemize}
+\item Project Owner: Michael Hähnel
+\item ScrumMaster: Berk Bayraktar
+\item Entwicklerteam: Tim Reinhold, Florian Raetz, Rajeethan Dayaparan, Norris Sam Osarenkhoe, Erik Langenhan, Cem Kaygusuz
+\item Stakeholder: Dr. Ing. Talph Maschotta und M. Sc. Thomas Dietrich
+\end{itemize}
 \chapter{Verwendete Technologien und Entwicklungswerkzeuge}
 \section{Codeverwaltung}
 \paragraph{Git \& GitHub}
@@ -213,12 +243,6 @@ Michael H\"ahnel \qquad
 Tim Reinhold
 }
 \end{center}
-
-\begin{figure}[hbt]
-  \includegraphics{}
-  \caption{}
-\end{figure}
-
 
 \newpage
 \tableofcontents
