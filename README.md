@@ -1,7 +1,8 @@
-# VLV.ical
+﻿# VLV.ical
 
 Javascript und Browser-Plugin zur Übertragung des Vorlesungsverzeichnisses der TU Ilmenau in den eigenen Kalender.
 
+Alle Informationen ohne Gewähr.
 
 ___
 
