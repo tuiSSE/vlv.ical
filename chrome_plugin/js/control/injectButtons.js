@@ -4,7 +4,10 @@ function injectDownloadButtons(subjects) {
   $("#downloadSelected").on('click', function(entryInfo){
     if (selectedEvents.length > 0) {
       try {
+        console.log(" ");
         download(selectedEvents);
+        console.log("__________");
+        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -18,7 +21,10 @@ function injectDownloadButtons(subjects) {
   $("#downloadAll").on('click', function(entryInfo){
     if (subjects.length > 0) {
       try {
+        console.log(" ");
         download(subjects);
+        console.log("__________");
+        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }
