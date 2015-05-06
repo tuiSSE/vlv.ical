@@ -5,6 +5,9 @@ function injectDownloadButtons(subjects) {
     if (selectedEvents.length > 0) {
       try {
         download(selectedEvents);
+        console.log("__________________");
+        console.log(" ");
+        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -19,6 +22,9 @@ function injectDownloadButtons(subjects) {
     if (subjects.length > 0) {
       try {
         download(subjects);
+        console.log("__________________");
+        console.log(" ");
+        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }

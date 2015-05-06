@@ -24,7 +24,7 @@ function init() {
 
   // all subjects the plugin can find on current page
   var subjects = getElements(getRootElement(entryInfo));
-  console.log(subjects);
+
 
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
