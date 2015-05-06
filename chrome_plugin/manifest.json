@@ -11,7 +11,8 @@
     "content_scripts": [
         {
             "matches": [
-                "http://www.tu-ilmenau.de/vlv/*"
+                "http://www.tu-ilmenau.de/vlv/*",
+                "https://www.tu-ilmenau.de/vlv/*"
             ],
             "js": [
                 "js/libs/jquery-2.1.3.min.js",
