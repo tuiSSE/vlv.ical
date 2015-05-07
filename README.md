@@ -2,7 +2,7 @@
 
 Javascript und Browser-Plugin zur Übertragung des Vorlesungsverzeichnisses der TU Ilmenau in den eigenen Kalender.
 
-Alle Informationen ohne Gewähr.
+Wir übernehmen keinerlei Haftung für die Richtigkeit der Informationen.
 
 ___
 
