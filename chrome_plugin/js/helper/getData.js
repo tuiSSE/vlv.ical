@@ -52,7 +52,7 @@ function getEventData(subject) {
     location: "",
     begin: "",
     end: ""
-  }
+  };
 
   event.name = getNameOfLecture(subject);
   event.speaker = getSpeakerOfLecture(subject);
