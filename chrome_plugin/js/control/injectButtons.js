@@ -7,9 +7,9 @@ function injectDownloadButtons(subjects) {
   var downloadSelected = $('<input type="button" id="downloadSelected" class="downloadButton" value="Download selected"/><a>&nbsp</a>');
   downloadSelected.insertBefore(subjects[0]);
   $("#downloadSelected").on('click', function(entryInfo){
-    if (selectedEvents.length > 0) {
+    if (selection.length > 0) {
       try {
-        download(selectedEvents);
+        download(selection);
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -32,6 +32,13 @@ function injectDownloadButtons(subjects) {
       toastr.warning("Keine Veranstaltungen gefunden.")
     };
   });
+  
+  var settingsTest= $('<input type="button" id="settingsTest" class="downloadButton" value="Test"/><p>&nbsp</p>');
+  settingsTest.insertBefore(subjects[0]);
+  $("#settingsTest").on('click', function(entryInfo){
+    console.log(localStorage.getItem('selection'));
+    toastr.info("Output", JSON.parse(localStorage.getItem('selection')));
+  });
 }
 
 /*
@@ -50,12 +57,14 @@ function injectAddButtons(subjects) {
   }
   $(".addButton").on('click', function(entryInfo){
     var object = this.parentNode.parentNode;
-    if (!containsObject(object, selectedEvents)) {
-      selectedEvents.push(object);
+    if (!containsObject(object, selection)) {
+      selection.push(object);
+      localStorage.selection = selection;
       object.style.background = '#BEE8BA';
       this.style.background = 'red';
     } else {
-      selectedEvents = removeFromList(selectedEvents, getObjectIndex(object, selectedEvents, object));
+      selection = removeFromList(selection, getObjectIndex(object, selection, object));
+      localStorage.selection = selection;
       object.style.background = 'white';
       this.style.background = '#44c767';
     }

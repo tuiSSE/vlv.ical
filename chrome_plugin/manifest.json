@@ -25,6 +25,8 @@
                 "js/helper/getData.js",
                 "js/helper/misc.js",
                 "js/helper/parseDate.js",
+                "js/helper/storage.js",
+                "js/control/updateSelection.js",
                 "js/control/injectButtons.js",
                 "js/init.js"
             ],
@@ -37,6 +39,7 @@
     "web_accessible_resources": ["resources/*"],
     "permissions": [
         "activeTab",
-        "tabs"
+        "tabs",
+        "storage"
     ]
 }
