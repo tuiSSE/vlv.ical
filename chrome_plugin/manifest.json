@@ -12,7 +12,9 @@
         {
             "matches": [
                 "http://www.tu-ilmenau.de/vlv/*",
-                "https://www.tu-ilmenau.de/vlv/*"
+                "https://www.tu-ilmenau.de/vlv/*",
+                // Seite für die Fachbeschreibungen
+                "http://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*"
             ],
             "js": [
                 "js/libs/jquery-2.1.3.min.js",

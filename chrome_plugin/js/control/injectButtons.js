@@ -58,3 +58,14 @@ function injectAddButtons(subjects) {
     }
   });
 }
+
+function addNewButon(subjects) {
+var einfügenbutton = document.createElement("button");
+einfügenbutton.href = "http://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*";
+
+// button an ein Objekt hängen
+var vorhandenesObjekt = document.getElementsByClassName("stupla_09");
+
+vorhandenesObjekt.insertBefore(einfügenbutton);
+
+}

@@ -28,4 +28,5 @@ function init() {
 
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
+  addNewButon(subjects);
 }
