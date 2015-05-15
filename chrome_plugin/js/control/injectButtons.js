@@ -61,7 +61,8 @@ function injectAddButtons(subjects) {
     }
   });
 }
-
+ 
+ // folgendes funktioniert nicht
 function addNewButon(subjects) {
 var einfügenbutton = document.createElement("button");
 einfügenbutton.href = "http://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*";
@@ -72,3 +73,8 @@ var vorhandenesObjekt = document.getElementsByClassName("stupla_09");
 vorhandenesObjekt.insertBefore(einfügenbutton);
 
 }
+// andere versuch ein button einzufügen
+var vorhandenesObjekt = document.getElementsByClassName("stupla_09");
+
+var downloadubung= $('<input type="button" id="downloadubung" <p>&nbsp</p>');
+  downloadubung.insertBefore(vorhandenesObjekt);
