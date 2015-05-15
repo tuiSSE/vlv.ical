@@ -1,13 +1,15 @@
+/*
+ * injects download buttons into the webpage
+ */
 function injectDownloadButtons(subjects) {
-  var downloadSelected= $('<input type="button" id="downloadSelected" class="downloadButton" value="Download selected"/><a>&nbsp</a>');
+  
+  // adds a download button that only downloads an array of selected objects
+  var downloadSelected = $('<input type="button" id="downloadSelected" class="downloadButton" value="Download selected"/><a>&nbsp</a>');
   downloadSelected.insertBefore(subjects[0]);
   $("#downloadSelected").on('click', function(entryInfo){
     if (selectedEvents.length > 0) {
       try {
         download(selectedEvents);
-        console.log("__________________");
-        console.log(" ");
-        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -16,15 +18,13 @@ function injectDownloadButtons(subjects) {
     };
   });
 
+  // adds a download button that downloads an array of all objects the plugin could find on the page
   var downloadAll= $('<input type="button" id="downloadAll" class="downloadButton" value="Download all"/><p>&nbsp</p>');
   downloadAll.insertBefore(subjects[0]);
   $("#downloadAll").on('click', function(entryInfo){
     if (subjects.length > 0) {
       try {
         download(subjects);
-        console.log("__________________");
-        console.log(" ");
-        console.log(" ");
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -34,6 +34,9 @@ function injectDownloadButtons(subjects) {
   });
 }
 
+/*
+ * injects buttons to add subjects to an array, like a shopping cart
+ */
 function injectAddButtons(subjects) {
   var i;
   for (i = 0; i < subjects.length; i++){

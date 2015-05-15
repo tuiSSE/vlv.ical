@@ -2,6 +2,51 @@
  * downloads the given events. takes an array as argument an concatenates it to a string to build an vCalendar formatted .ics file
  */
 function download(subjects) {
+  var cal = initCal();
+
+  try {
+    var i;
+    for (i = 0; i < subjects.length; i++) {
+      console.log(event);
+      var event = getEventData(subjects[i]);
+      cal = addEvent(cal, event);
+    }
+  } catch (e) {
+    console.log(e);
+    console.log(subjects[i]);
+  }
+
+  cal = closeCal(cal);
+  var str = cal.join('\n');
+  
+  var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
+  saveAs(dl, "calendar.ics");
+}
+
+/*
+ * adds a given event to a given calendar
+ */
+function addEvent(cal, event) {
+  cal.push('BEGIN:VEVENT');
+  cal.push('CREATED:20150425T221630Z');
+  cal.push('UID:' + uid());
+  cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
+  cal.push("LOCATION:" + event.location);
+  cal.push('TRANSP:OPAQUE');
+  cal.push('SUMMARY:' + event.name);
+  cal.push("DESCRIPTION:" + event.speaker);
+  cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
+  cal.push('DTSTAMP:20150425T221630Z');
+  cal.push('SEQUENCE:0');
+  cal.push('END:VEVENT');
+
+  return cal;
+}
+
+/*
+ * initializes a valid vCalendar
+ */
+function initCal() {
   var cal = [];
 
   cal.push('BEGIN:VCALENDAR');
@@ -28,46 +73,21 @@ function download(subjects) {
   cal.push('TZOFFSETTO:+0100');
   cal.push('END:STANDARD');
   cal.push('END:VTIMEZONE');
-
-  try {
-    var i;
-    for (i = 0; i < subjects.length; i++) {
-      console.log(event);
-      var event = getEventData(subjects[i]);
-      cal = addEvent(cal, event);
-    }
-  } catch (e) {
-    console.log(e);
-    console.log(subjects[i]);
-  }
-
-  cal.push('END:VCALENDAR');
-  var str = cal.join('\n');
-
-  console.log('Output: ');
-  console.log([str]);
-
-  var dl = new Blob([str], {type: "text/plain;charset=utf-8"});
-  saveAs(dl, "calendar.ics");
-}
-
-function addEvent(cal, event) {
-  cal.push('BEGIN:VEVENT');
-  cal.push('CREATED:20150425T221630Z');
-  cal.push('UID:' + uid());
-  cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
-  cal.push("LOCATION:" + event.location);
-  cal.push('TRANSP:OPAQUE');
-  cal.push('SUMMARY:' + event.name);
-  cal.push("DESCRIPTION:" + event.speaker);
-  cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
-  cal.push('DTSTAMP:20150425T221630Z');
-  cal.push('SEQUENCE:0');
-  cal.push('END:VEVENT');
-
+  
   return cal;
 }
 
+/*
+ * adds an end tag to a given calendar
+ */
+function closeCal(cal) {
+  cal.push('END:VCALENDAR');
+  return cal;
+}
+
+/*
+ * returns a unique identifier needed for calendar events
+ */
 function uid() {
   function S4() {
     return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
