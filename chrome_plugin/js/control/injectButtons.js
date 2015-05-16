@@ -36,8 +36,8 @@ function injectDownloadButtons(subjects) {
   var settingsTest= $('<input type="button" id="settingsTest" class="downloadButton" value="Test"/><p>&nbsp</p>');
   settingsTest.insertBefore(subjects[0]);
   $("#settingsTest").on('click', function(entryInfo){
-    console.log(localStorage.getItem('selection'));
-    toastr.info("Output", JSON.parse(localStorage.getItem('selection')));
+    saveObject('Test', this);
+    console.log(loadObject('Test'));
   });
 }
 
