@@ -13,8 +13,8 @@
             "matches": [
                 "http://www.tu-ilmenau.de/vlv/*",
                 "https://www.tu-ilmenau.de/vlv/*",
-                "http://wcms3.rz.tu-ilmenau.de/*",
-                "https://wcms3.rz.tu-ilmenau.de/*"
+                "http://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*",
+                "https://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*"
             ],
             "js": [
                 "js/libs/jquery-2.1.3.min.js",
