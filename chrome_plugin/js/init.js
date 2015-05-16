@@ -1,4 +1,3 @@
-fixDivHeight();
 var selectedEvents = [];
 
 /*
@@ -13,10 +12,22 @@ if (/vers=text/.test(self.location.href)) {
   }
 }
 
+console.log(self.location.href);
+if(/wcms3.rz.tu-ilmenau.de/.test(self.location.href)) {
+    try {
+      var subjects = [];
+      addNewButton();
+    } catch (e) {
+      console.log(e); 
+    }
+  }
+
 /*
  * initializes the plugin, loads the data, injects the buttons, etc
  */
 function init() {
+  fixDivHeight();
+  
   var entryInfo = {
       entryPoint: "stupla_fs09",
       rootElementLevel: 4
@@ -27,5 +38,4 @@ function init() {
 
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
-  addNewButon(subjects);
 }

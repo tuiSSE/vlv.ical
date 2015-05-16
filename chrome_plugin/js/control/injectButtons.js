@@ -62,19 +62,15 @@ function injectAddButtons(subjects) {
   });
 }
  
- // folgendes funktioniert nicht
-function addNewButon(subjects) {
-var einfügenbutton = document.createElement("button");
-einfügenbutton.href = "http://wcms3.rz.tu-ilmenau.de/~goettlich/elvvi/*";
+function addNewButton() {
+  var objects = document.getElementsByClassName("stupla_fs09");
 
-// button an ein Objekt hängen
-var vorhandenesObjekt = document.getElementsByClassName("stupla_09");
+  for (i in objects) {
+    console.log(objects[i]);
+  }
 
-vorhandenesObjekt.insertBefore(einfügenbutton);
-
+  for (i = 0; i < 2; i++) {
+    var button = $('<button class="downloadButton">Download</button>');
+    button.insertBefore(objects[i+7].childNodes[0]);
+  }
 }
-// andere versuch ein button einzufügen
-var vorhandenesObjekt = document.getElementsByClassName("stupla_09");
-
-var downloadubung= $('<input type="button" id="downloadubung" <p>&nbsp</p>');
-  downloadubung.insertBefore(vorhandenesObjekt);
