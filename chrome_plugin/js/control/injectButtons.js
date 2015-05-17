@@ -36,8 +36,10 @@ function injectDownloadButtons(subjects) {
   var settingsTest= $('<input type="button" id="settingsTest" class="downloadButton" value="Test"/><p>&nbsp</p>');
   settingsTest.insertBefore(subjects[0]);
   $("#settingsTest").on('click', function(entryInfo){
-    saveObject('Test', this);
-    console.log(loadObject('Test'));
+    var selection = loadObjects('selection');
+    saveObjects('Test', selection);
+    var objs = loadObjects('Test');
+    console.log(objs);
   });
 }
 
@@ -55,18 +57,14 @@ function injectAddButtons(subjects) {
     var r = $('<button class="addButton">' + '<img class="shoppingCart" src="' + chrome.extension.getURL('/resources/add.svg') + '"/>' +" " + name + '</button> <a>&nbsp</a>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
   }
-  $(".addButton").on('click', function(entryInfo){
+  
+  $(".addButton").on('click', function(){
     var object = this.parentNode.parentNode;
-    if (!containsObject(object, selection)) {
-      selection.push(object);
-      localStorage.selection = selection;
-      object.style.background = '#BEE8BA';
-      this.style.background = 'red';
+    var selection = loadObjects('selection');
+    if(!containsObject(object, selection)) {
+      addToCart(object);
     } else {
-      selection = removeFromList(selection, getObjectIndex(object, selection, object));
-      localStorage.selection = selection;
-      object.style.background = 'white';
-      this.style.background = '#44c767';
+      removeFromCart(object);
     }
   });
 }

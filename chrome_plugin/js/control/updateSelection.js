@@ -1,16 +1,28 @@
 function updateSelection(subjects) {
-      for(object in subjects){
-      	var selection = JSON.parse(localStorage.getItem(selection));
-      	if (!containsObject(object, selection)) {
-            selection.push(object);
-            localStorage.setItem('selection', selection);
-            object.style.background = '#BEE8BA';
-            this.style.background = 'red';
-          } else {
-            selection = removeFromList(selection, getObjectIndex(object, selection));
-            localStorage.setItem('selection', selection);
-            object.style.background = 'white';
-            this.style.background = '#44c767';
-          }
+      var selection = loadObjects('selection');
+      for (var i = 0; i < subjects.length; i++){
+         try {
+                if (containsObject(subjects[i], selection)) {
+                        subjects[i].style.background = '#BEE8BA';
+                } else {
+                        subjects[i].style.background = 'white';
+                }
+         } catch (e) {
+               console.log(e);
+         }
       }
+}
+
+function addToCart(object) {
+      var selection = loadObjects('selection');
+      selection.push(object);
+      saveObjects('selection', selection);
+      updateSelection(selection);
+}
+
+function removeFromCart(object) {
+      var selection = loadObjects('selection');
+      selection = removeFromList(selection, getObjectIndex(object, selection));
+      saveObjects('selection', selection);
+      updateSelection(subjects);
 }
