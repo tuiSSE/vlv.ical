@@ -26,9 +26,9 @@
                 "js/helper/misc.js",
                 "js/helper/parseDate.js",
                 "js/helper/storage.js",
-                "js/control/selection.js",
-                "js/control/selectionBox.js",
-                "js/control/injectButtons.js",
+                "js/inject/selection.js",
+                "js/inject/selectionBox.js",
+                "js/inject/buttons.js",
                 "js/init.js"
             ],
             "css": [
