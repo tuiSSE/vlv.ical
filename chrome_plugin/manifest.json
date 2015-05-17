@@ -33,9 +33,7 @@
             ],
             "css": [
                 "css/toastr.min.css",
-                "css/style.css",
-                "css/popup.css",
-                "css/pure-min.css"
+                "css/style.css"
             ]
         }
     ],
