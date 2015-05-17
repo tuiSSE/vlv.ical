@@ -30,6 +30,7 @@
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",
                 "js/inject/identifier.js",
+                "js/helper/lastUpdated.js",
                 "js/init.js"
             ],
             "css": [
