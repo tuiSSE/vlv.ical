@@ -37,14 +37,14 @@
 .downloadButton {
 	background-color:white;
 	border-radius:4px;
+	width: 150px;
 	border:2px solid lightgrey;
 	display:inline-block;
 	cursor:pointer;
 	color:black;
-	font-family:Arial;
-	font-size:13px;
+	font-size: 12px;
 	font-weight:bold;
-	padding:6px 24px;
+	padding:0px 5px;
 	text-decoration:none;
 }
 
@@ -96,4 +96,19 @@
 
 .selectionBoxItem:hover {
 	
+}
+
+.clearButton {
+	float: right;
+	display: inline-block;
+}
+
+#itemBox {
+	float: left;
+	display: inline-block;
+}
+
+#controlBox {
+	float: left;
+	display: inline-block;
 }

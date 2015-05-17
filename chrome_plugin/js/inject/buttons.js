@@ -4,8 +4,14 @@
 function injectDownloadButtons(subjects) {
   
   // adds a download button that only downloads an array of selected objects
-  var downloadSelected = $('<input type="button" id="downloadSelected" class="downloadButton" value="Download selected"/><a>&nbsp</a>');
-  downloadSelected.insertBefore(subjects[0]);
+  var downloadSelected = document.createElement('input');
+  downloadSelected.type = 'button';
+  downloadSelected.id = 'downloadSelected';
+  downloadSelected.className = 'downloadButton';
+  downloadSelected.value = 'Download Selected';
+
+  var box = $('#controlBox')[0];
+  box.appendChild(downloadSelected);
   var selection = loadObjects('selection');
   console.log(selection);
   $("#downloadSelected").on('click', function(entryInfo){
@@ -21,8 +27,18 @@ function injectDownloadButtons(subjects) {
   });
 
   // adds a download button that downloads an array of all objects the plugin could find on the page
-  var downloadAll= $('<input type="button" id="downloadAll" class="downloadButton" value="Download all"/><p>&nbsp</p>');
-  downloadAll.insertBefore(subjects[0]);
+  var br = document.createElement('br');
+  box.appendChild(br);
+  
+  var downloadAll = document.createElement('input');
+  downloadAll.type = 'button';
+  downloadAll.id = 'downloadAll';
+  downloadAll.className = 'downloadButton';
+  downloadAll.value = 'Download All';
+
+  var box = $('#controlBox')[0];
+  box.appendChild(downloadAll);
+  
   $("#downloadAll").on('click', function(entryInfo){
     if (subjects.length > 0) {
       try {
