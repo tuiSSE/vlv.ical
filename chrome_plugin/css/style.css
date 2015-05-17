@@ -101,6 +101,7 @@
 
 .clearButton {
 	float: right;
+	width: 40px;
 	background-color: orange;
 	color: white;
 	display: inline-block;
