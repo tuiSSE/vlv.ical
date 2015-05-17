@@ -37,8 +37,10 @@
 .downloadButton {
 	background-color:white;
 	border-radius:4px;
+	position: relative;
 	width: 125px;
 	height: 0.25in;
+	float: left;
 	border:2px solid lightgrey;
 	display:inline-block;
 	cursor:pointer;
@@ -76,6 +78,8 @@
 
 #selectionBox:hover {
 	transition: opacity 0.5s ease;
+	transition: height 0.5s ease;
+	height: 1in;
 	opacity: 0.999;
 }
 
@@ -100,8 +104,10 @@
 }
 
 .clearButton {
+	position: relative;
 	float: right;
 	width: 40px;
+	height: 100%;
 	background-color: orange;
 	color: white;
 	display: inline-block;

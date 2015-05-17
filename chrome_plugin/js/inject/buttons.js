@@ -56,8 +56,7 @@ function injectDownloadButtons(subjects) {
  * injects buttons to add subjects to an array, like a shopping cart
  */
 function injectAddButtons(subjects) {
-  var i;
-  for (i = 0; i < subjects.length; i++){
+  for (var i = 0; i < subjects.length; i++){
     var object = subjects[i];
     object.style.border = '2px solid grey';
     object.style.borderRadius = '4px';
