@@ -7,12 +7,11 @@ function highlightLastUpdated() {
 
         var rawLastUpdated = getLastUpdated(object);
         var year = rawLastUpdated.slice(6);
-        var month = rawLastUpdated.slice(3, rawLastUpdated.length - 3);
+        var month = rawLastUpdated.slice(3, (rawLastUpdated.length - 3)) - 1;
         var day = rawLastUpdated.slice(0, rawLastUpdated.length - 6);
         var lastUpdated = new Date('20' + year, month, day);
 
-        var twoWeeks = now;
-        twoWeeks.date = now.date - 14;
+        var twoWeeks = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 14);
         if (lastUpdated > twoWeeks) {
             object.style.border = '2px solid red';
             toastr.info('Es gab eine Änderung innerhalb der letzten 2 Wochen im Fach ' + getNameOfLecture(object), 'Änderung');
