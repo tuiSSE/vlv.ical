@@ -12,9 +12,9 @@ function injectDownloadButtons(subjects) {
 
   var box = $('#controlBox')[0];
   box.appendChild(downloadSelected);
-  var selection = loadObjects('selection');
-  console.log(selection);
+
   $("#downloadSelected").on('click', function(entryInfo){
+    var selection = loadObjects('selection');
     if (selection.length > 0) {
       try {
         download(selection);
