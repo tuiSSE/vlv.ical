@@ -29,6 +29,7 @@
                 "js/inject/selection.js",
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",
+                "js/inject/identifier.js",
                 "js/init.js"
             ],
             "css": [
