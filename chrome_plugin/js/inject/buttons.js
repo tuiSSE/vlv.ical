@@ -6,6 +6,8 @@ function injectDownloadButtons(subjects) {
   // adds a download button that only downloads an array of selected objects
   var downloadSelected = $('<input type="button" id="downloadSelected" class="downloadButton" value="Download selected"/><a>&nbsp</a>');
   downloadSelected.insertBefore(subjects[0]);
+  var selection = loadObjects('selection');
+  console.log(selection);
   $("#downloadSelected").on('click', function(entryInfo){
     if (selection.length > 0) {
       try {

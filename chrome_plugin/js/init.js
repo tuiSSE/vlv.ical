@@ -3,6 +3,8 @@ var entryInfo = {
   rootElementLevel: 4
 }
 
+save('selection_length', 0);
+
 var subjects = [];
 injectDiv();
 
