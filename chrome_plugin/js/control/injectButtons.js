@@ -32,15 +32,6 @@ function injectDownloadButtons(subjects) {
       toastr.warning("Keine Veranstaltungen gefunden.")
     };
   });
-  
-  var settingsTest= $('<input type="button" id="settingsTest" class="downloadButton" value="Test"/><p>&nbsp</p>');
-  settingsTest.insertBefore(subjects[0]);
-  $("#settingsTest").on('click', function(entryInfo){
-    var selection = loadObjects('selection');
-    saveObjects('Test', selection);
-    var objs = loadObjects('Test');
-    console.log(objs);
-  });
 }
 
 /*
@@ -80,4 +71,12 @@ function addNewButton() {
     var button = $('<button class="downloadButton">Download</button>');
     button.insertBefore(objects[i+7].childNodes[0]);
   }
+}
+
+function injectDiv() {
+  var div = $('<div class="emptyBox"><br><br><br><br></div>');
+  div.insertBefore(document.body.childNodes[0]);
+  
+  var box = $('<div class="selectionBox"></div>')
+  box.insertBefore(document.body.childNodes[0]);
 }
