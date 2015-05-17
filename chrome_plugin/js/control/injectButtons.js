@@ -72,11 +72,3 @@ function addNewButton() {
     button.insertBefore(objects[i+7].childNodes[0]);
   }
 }
-
-function injectDiv() {
-  var div = $('<div class="emptyBox"><br><br><br><br></div>');
-  div.insertBefore(document.body.childNodes[0]);
-  
-  var box = $('<div class="selectionBox"></div>')
-  box.insertBefore(document.body.childNodes[0]);
-}

@@ -32,6 +32,7 @@ if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
  * initializes the plugin, loads the data, injects the buttons, etc
  */
 function init() {
+  injectDiv();
   updateSelection(subjects);
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
