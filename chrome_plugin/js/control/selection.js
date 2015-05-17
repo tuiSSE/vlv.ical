@@ -1,17 +1,25 @@
 function updateSelection() {
-      var selection = loadObjects('selection');
-      for (var i = 0; i < subjects.length; i++){
-         try {
-                if (containsObject(subjects[i], selection)) {
-                        subjects[i].style.background = '#BEE8BA';
-                } else {
-                        subjects[i].style.background = 'white';
-                }
-         } catch (e) {
-               console.log(e);
-         }
+     var selection = loadObjects('selection');
+     try {
+            for (var i = 0; i < subjects.length; i++){
+               try {
+                      if (containsObject(subjects[i], selection)) {
+                              subjects[i].style.background = '#BEE8BA';
+                      } else {
+                              subjects[i].style.background = 'white';
+                      }
+               } catch (e) {
+                     console.log(e);
+               }
+            }
+      } catch (e) {
+            console.log(e);
+        }
+      try {
+            updateSelectionBox();
+      } catch (e) {
+            console.log(e);
       }
-      updateSelectionBox();
 }
 
 function addToCart(object) {

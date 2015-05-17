@@ -3,13 +3,16 @@ var entryInfo = {
   rootElementLevel: 4
 }
 
+var subjects = [];
+injectDiv();
+
 /*
  * checks, if current page is the text one and then initializes the plugin
  */
 if (/vers=text/.test(self.location.href)) {
   fixDivHeight();
   // all subjects the plugin can find on current page
-  var subjects = getElements(getRootElement(entryInfo));
+  subjects = getElements(getRootElement(entryInfo));
   
   try {
     init();
@@ -32,7 +35,6 @@ if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
  * initializes the plugin, loads the data, injects the buttons, etc
  */
 function init() {
-  injectDiv();
   updateSelection(subjects);
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);

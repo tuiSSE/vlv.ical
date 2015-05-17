@@ -3,7 +3,7 @@ function updateSelectionBox() {
 	var box = $('#selectionBox')[0];
 	box.innerHTML = '';
 	var clear = document.createElement('input');
-	clear.class = 'clearButton';
+	clear.className = 'clearButton';
 	clear.type = 'button';
 	clear.value = 'clear';
 	clear.onclick = clearSelectionBox;
@@ -12,6 +12,7 @@ function updateSelectionBox() {
 	for (var i = 0; i < selection.length; i++) {
 		var name = getNameOfLecture(selection[i]);
 		var element = document.createElement('input');
+		element.className = 'selectionBoxItem';
 		element.type = 'button';
 		element.value = name;
 		box.appendChild(element);
