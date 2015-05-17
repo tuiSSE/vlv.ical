@@ -67,9 +67,11 @@
 	position: fixed;
 	color: black;
 	background-color: white;
+	transition: opacity 0.5s ease;
 	opacity: 0.9;
-	filter: blur(10px);
+	filter: blur(20px);
 	width: 100%;
+	transition: height 0.5s ease;
 	height: 0.5in;
 	z-index:1000;
 	border: 5px;
