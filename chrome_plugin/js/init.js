@@ -3,7 +3,14 @@ var entryInfo = {
   rootElementLevel: 4
 }
 
-save('selection_length', 0);
+/*
+ * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
+ */
+try {
+  load('selection_length');
+} catch (e) {
+  save('selection_length', 0); 
+}
 
 var subjects = [];
 injectDiv();
