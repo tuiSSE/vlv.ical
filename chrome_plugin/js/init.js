@@ -1,14 +1,13 @@
-fixDivHeight();
-
-  var entryInfo = {
-    entryPoint: "stupla_fs09",
-    rootElementLevel: 4
-  }
+var entryInfo = {
+  entryPoint: "stupla_fs09",
+  rootElementLevel: 4
+}
 
 /*
  * checks, if current page is the text one and then initializes the plugin
  */
 if (/vers=text/.test(self.location.href)) {
+  fixDivHeight();
   // all subjects the plugin can find on current page
   var subjects = getElements(getRootElement(entryInfo));
   
@@ -20,7 +19,7 @@ if (/vers=text/.test(self.location.href)) {
   }
 }
 
-if(/wcms3.rz.tu-ilmenau.de/.test(self.location.href)) {
+if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
     try {
       var subjects = [];
       addNewButton();
