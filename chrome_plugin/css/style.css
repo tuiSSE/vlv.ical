@@ -39,16 +39,16 @@
 	border-radius:4px;
 	position: relative;
 	width: 125px;
-	height: 0.25in;
 	float: left;
-	border:2px solid lightgrey;
-	display:inline-block;
-	cursor:pointer;
-	color:black;
+	border: 2px solid lightgrey;
+	line-height: 0.2in;
+	display: table-cell;
+	cursor: pointer;
+	color: black;
 	font-size: 12px;
-	font-weight:bold;
-	padding:0px 5px;
-	text-decoration:none;
+	font-weight: bold;
+	padding: 0px 5px;
+	text-decoration: none;
 }
 
 .downloadButton:hover {
@@ -76,6 +76,7 @@
 	z-index:1000;
 	border: 5px;
 	border-color: #EFEFEF;
+	table-layout: fixed;
 }
 
 #selectionBox:hover {
@@ -97,6 +98,7 @@
 	padding: 2px 2px;
 	border:2px solid lightgrey;
 	border-radius: 5px;
+	line-height: 0.2in;
 	background-color: white;
 	text-decoration:none;
 }

@@ -13,6 +13,12 @@ function updateSelectionBox() {
   }
 }
 
+function injectEditDialogs() {
+  $('.addButton').on('click', function() {
+
+  });
+}
+
 function injectDiv() {
   var div = $('<div id="emptyBox"><br><br><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
