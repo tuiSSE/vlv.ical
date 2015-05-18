@@ -4,7 +4,7 @@ function updateSelection() {
             for (var i = 0; i < subjects.length; i++){
                try {
                       if (containsObject(subjects[i], selection)) {
-                              subjects[i].style.background = '#BEE8BA';
+                              subjects[i].style.background = '#e1f2f4';
                       } else {
                               subjects[i].style.background = 'white';
                       }

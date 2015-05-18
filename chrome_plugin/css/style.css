@@ -9,8 +9,8 @@
 .addButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #3dc21b;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	background-color:#44c767;
+	box-shadow:inset 0px 1px 0px 0px black;
+	background-color:orange;
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
 	border-radius:4px;
@@ -27,7 +27,8 @@
 	text-shadow:0px 1px 0px #2f6627;
 }
 .addButton:hover {
-	background-color:#5cbf2a;
+	transition: background-color 0.5s ease;
+	background-color: #f27107;
 }
 .addButton:active {
 	position:relative;
