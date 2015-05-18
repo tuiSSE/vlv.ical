@@ -78,12 +78,11 @@ function injectAddButtons(subjects) {
 function addNewButton() {
   var objects = document.getElementsByClassName("stupla_fs09");
 
-  for (i in objects) {
-    console.log(objects[i]);
-  }
+  var zeile = objects[8].parentNode;
+  console.log(zeile);
 
   for (i = 0; i < 2; i++) {
     var button = $('<button class="downloadButton">Download</button>');
-    button.insertBefore(objects[i+7].childNodes[0]);
+    button.insertBefore(objects[i+7].parentNode.childNodes[14]);
   }
 }
