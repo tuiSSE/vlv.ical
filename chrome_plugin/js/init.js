@@ -48,5 +48,5 @@ function init() {
   updateSelection(subjects);
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
-  highlightLastUpdated();
+  injectBorders();
 }

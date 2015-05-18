@@ -58,8 +58,6 @@ function injectDownloadButtons(subjects) {
 function injectAddButtons(subjects) {
   for (var i = 0; i < subjects.length; i++){
     var object = subjects[i];
-    object.style.border = '2px solid grey';
-    object.style.borderRadius = '4px';
     var name = subjects[i].childNodes[1].childNodes[0].data;
     subjects[i].childNodes[1].childNodes[0].data = null;
     var r = $('<button class="addButton">' + '<img class="shoppingCart" src="' + chrome.extension.getURL('/resources/add.svg') + '"/>' +" " + name + '</button> <a>&nbsp</a>');
