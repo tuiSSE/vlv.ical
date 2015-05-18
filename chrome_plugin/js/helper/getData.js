@@ -25,8 +25,8 @@ function getDayOfWeek(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
 }
 
-function getLocation(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[9].innerText.split(',').join('\\,');
+function getLocation(object, typ) {
+  return object.childNodes[5].childNodes[typ].childNodes[0].childNodes[9].innerText.split(',').join('\\,');
 }
 
 function getTime(object) {
@@ -45,7 +45,7 @@ function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
 
-function getEventData(subject) {
+function getEventData(subject, typ) {
   var event = {
     name: "",
     speaker: "",
@@ -56,7 +56,7 @@ function getEventData(subject) {
 
   event.name = getNameOfLecture(subject);
   event.speaker = getSpeakerOfLecture(subject);
-  event.location = getLocation(subject);
+  event.location = getLocation(subject, typ);
 
   var time = parseTime(getTime(subject), getDayOfWeek(subject));
   event.begin = time[0];

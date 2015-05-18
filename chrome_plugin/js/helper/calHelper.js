@@ -6,14 +6,41 @@ function download(subjects) {
 
   try {
     for (var i = 0; i < subjects.length; i++) {
-      var event = getEventData(subjects[i]);
+      var source = 3;
+      var event = getEventData(subjects[i], source);
       cal = addEvent(cal, event);
+      console.log(event);
     }
   } catch (e) {
-    console.log(e);
-    console.log(subjects[i]);
+      console.log(e);
+      console.log(subjects[i]);
+    
+    for (var n = i+1; i < subjects.length; n++) {
+      console.log(event);
+      var event = getEventData(subjects[n]);
+      cal = addEvent(cal, event);
+    }
+    
   }
+  
+    
+    for (var i = 0; i < subjects.length; i++) {
+      var source = 4;
+      
+      try {
+      var event = getEventData(subjects[i], source);
+      cal = addEvent(cal, event);
+      console.log(event);
+      
+        } catch (e) {
+           console.log(e);
+           console.log(subjects[i]);
+           toastr.info("Keine Übung zu " + getNameOfLecture(subjects[i]) + "gefunden!")
 
+      
+    }
+  }
+  
   cal = closeCal(cal);
   var str = cal.join('\n');
   
