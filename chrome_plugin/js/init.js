@@ -3,6 +3,9 @@ var entryInfo = {
   rootElementLevel: 4
 }
 
+// initializes the theme for popup dialogs
+vex.defaultOptions.className = 'vex-theme-top';
+
 /*
  * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
  */
@@ -48,5 +51,6 @@ function init() {
   updateSelection(subjects);
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);
-  highlightLastUpdated();
+  injectBorders();
+  injectEditDialogs();
 }

@@ -1,4 +1,4 @@
-function highlightLastUpdated() {
+function injectBorders() {
     var now = new Date();
     now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
@@ -14,7 +14,11 @@ function highlightLastUpdated() {
         var twoWeeks = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 14);
         if (lastUpdated > twoWeeks) {
             object.style.border = '2px solid red';
+            object.style.borderRadius = '4px';
             toastr.info('Es gab eine Änderung innerhalb der letzten 2 Wochen im Fach ' + getNameOfLecture(object), 'Änderung');
+        } else {
+            object.style.border = '2px solid grey';
+            object.style.borderRadius = '4px';
         }
     }
 }

@@ -13,6 +13,12 @@ function updateSelectionBox() {
   }
 }
 
+function injectEditDialogs() {
+  $('.addButton').on('click', function() {
+
+  });
+}
+
 function injectDiv() {
   var div = $('<div id="emptyBox"><br><br><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
@@ -21,6 +27,16 @@ function injectDiv() {
   box.insertBefore(document.body.childNodes[0]);
 
   box = $('#selectionBox')[0];
+  box.onmouseover = function() {
+    var obj = $('.clearButton')[0];
+    obj.style.transition = 'opacity 0.5s ease';
+    obj.style.opacity = 1;
+  };
+  box.onmouseout = function() {
+    var obj = $('.clearButton')[0];
+    obj.style.transition = 'opacity 0.5s ease';
+    obj.style.opacity = 0;
+  }
 
   var controlBox = document.createElement('div');
   controlBox.id = 'controlBox';
@@ -36,6 +52,7 @@ function injectDiv() {
   clear.value = 'clear';
   clear.onclick = clearSelectionBox;
   box.appendChild(clear);
+  $('.clearButton')[0].style.opacity = 0;
 
 }
 
