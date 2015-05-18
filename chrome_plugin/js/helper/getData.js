@@ -21,16 +21,16 @@ function getSpeakerOfLecture(object) {
   return object.childNodes[3].innerText.slice(12).split(',').join('\\,');
 }
 
-function getDayOfWeek(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
+function getDayOfWeek(object, typ) {
+  return object.childNodes[5].childNodes[typ].childNodes[0].childNodes[3].innerText;
 }
 
 function getLocation(object, typ) {
   return object.childNodes[5].childNodes[typ].childNodes[0].childNodes[9].innerText.split(',').join('\\,');
 }
 
-function getTime(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[7].innerText;
+function getTime(object, typ) {
+  return object.childNodes[5].childNodes[typ].childNodes[0].childNodes[7].innerText;
 }
 
 function getDates(object) {
@@ -58,7 +58,7 @@ function getEventData(subject, typ) {
   event.speaker = getSpeakerOfLecture(subject);
   event.location = getLocation(subject, typ);
 
-  var time = parseTime(getTime(subject), getDayOfWeek(subject));
+  var time = parseTime(getTime(subject, typ), getDayOfWeek(subject, typ));
   event.begin = time[0];
   event.end = time[1];
 
