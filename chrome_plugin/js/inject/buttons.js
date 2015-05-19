@@ -75,6 +75,8 @@ function injectAddButtons(subjects) {
   });
 }
  
+ //
+ 
 function addNewButton() {
   var objects = document.getElementsByClassName("stupla_fs09");
 
@@ -84,5 +86,28 @@ function addNewButton() {
   for (i = 0; i < 2; i++) {
     var button = $('<button class="downloadButton">Download</button>');
     button.insertBefore(objects[i+7].parentNode.childNodes[14]);
+    
+    var downloadSelected = document.createElement('input');
+  downloadSelected.type = 'button';
+  downloadSelected.id = 'downloadSelected';
+  downloadSelected.className = 'downloadButton';
+  downloadSelected.value = 'Download Selected';
+
+  var box = $('#controlBox')[0];
+  box.appendChild(downloadSelected);
+
+  $("#downloadSelected").on('click', function(entryInfo){
+    var selection = loadObjects('selection');
+    if (selection.length > 0) {
+      try {
+        download(selection);
+      } catch(e) {
+        toastr.error("Download failed!", e);
+      }
+    } else {
+      toastr.warning("Keine Veranstaltungen ausgewählt.")
+    };
+  });
+    
   }
 }
