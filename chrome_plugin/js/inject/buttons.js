@@ -87,27 +87,30 @@ function addNewButton() {
     var button = $('<button class="downloadButton">Download</button>');
     button.insertBefore(objects[i+7].parentNode.childNodes[14]);
     
-    var downloadSelected = document.createElement('input');
-  downloadSelected.type = 'button';
-  downloadSelected.id = 'downloadSelected';
-  downloadSelected.className = 'downloadButton';
-  downloadSelected.value = 'Download Selected';
+ var br = document.createElement('br');
+  box.appendChild(br);
+  
+  var downloadAll = document.createElement('input');
+  downloadAll.type = 'button';
+  downloadAll.id = 'downloadAll';
+  downloadAll.className = 'downloadButton';
+  downloadAll.value = 'Download All';
 
   var box = $('#controlBox')[0];
-  box.appendChild(downloadSelected);
-
-  $("#downloadSelected").on('click', function(entryInfo){
-    var selection = loadObjects('selection');
-    if (selection.length > 0) {
+  box.appendChild(downloadAll);
+  
+  $("#downloadAll").on('click', function(entryInfo){
+    if (subjects.length > 0) {
       try {
-        download(selection);
+        download(subjects);
       } catch(e) {
         toastr.error("Download failed!", e);
       }
     } else {
-      toastr.warning("Keine Veranstaltungen ausgewählt.")
+      toastr.warning("Keine Veranstaltungen gefunden.")
     };
   });
+}
     
   }
 }
