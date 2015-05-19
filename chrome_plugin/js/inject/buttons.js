@@ -87,30 +87,5 @@ function addNewButton() {
     var button = $('<button class="downloadButton">Download</button>');
     button.insertBefore(objects[i+7].parentNode.childNodes[14]);
     
- var br = document.createElement('br');
-  box.appendChild(br);
-  
-  var downloadAll = document.createElement('input');
-  downloadAll.type = 'button';
-  downloadAll.id = 'downloadAll';
-  downloadAll.className = 'downloadButton';
-  downloadAll.value = 'Download All';
-
-  var box = $('#controlBox')[0];
-  box.appendChild(downloadAll);
-  
-  $("#downloadAll").on('click', function(entryInfo){
-    if (subjects.length > 0) {
-      try {
-        download(subjects);
-      } catch(e) {
-        toastr.error("Download failed!", e);
-      }
-    } else {
-      toastr.warning("Keine Veranstaltungen gefunden.")
-    };
-  });
-}
-    
   }
 }
