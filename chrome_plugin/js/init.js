@@ -25,6 +25,7 @@ if (/vers=text/.test(self.location.href)) {
   fixDivHeight();
   // all subjects the plugin can find on current page
   subjects = getElements(getRootElement(entryInfo));
+  fixId();
   
   try {
     init();
@@ -47,7 +48,6 @@ if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
  * initializes the plugin, loads the data, injects the buttons, etc
  */
 function init() {
-  fixId();
   updateSelection(subjects);
   injectDownloadButtons(subjects);
   injectAddButtons(subjects);

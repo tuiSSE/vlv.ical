@@ -1,5 +1,13 @@
 function fixId() {
-	subjects[0].id = makeid();
+    var injectedIds = {};
+    var name = getNameOfLecture(subjects[0]);
+    try {
+        injectedIds = load('injectedIds');
+    } catch (e) {
+        injectedIds[name] = makeid();
+        save('injectedIds', injectedIds);
+    }
+	subjects[0].id = injectedIds[name];
 }
 
 function makeid()
