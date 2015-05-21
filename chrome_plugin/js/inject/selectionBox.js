@@ -1,7 +1,7 @@
 function updateSelectionBox() {
   var selection = loadObjects('selection');
-  var box = $('#itemBox')[0];
-  box.innerHTML = '';
+  var itemBox = $('#itemBox')[0];
+  itemBox.innerHTML = '';
 
   for (var i = 0; i < selection.length; i++) {
     var name = getNameOfLecture(selection[i]);
@@ -9,12 +9,12 @@ function updateSelectionBox() {
     element.className = 'selectionBoxItem';
     element.type = 'button';
     element.value = name;
-    box.appendChild(element);
+    itemBox.appendChild(element);
   }
 }
 
 function injectEditDialogs() {
-  $('.addButton').on('click', function() {
+  $('.addButton').on('click', function () {
 
   });
 }
@@ -23,37 +23,48 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var box = $('<div id="selectionBox"></div>')
+  var open = $('<div id="openSelectionBox"><br></div>')
+  open.insertBefore(document.body.childNodes[0]);
+
+  var box = $('<div id="selectionBox"><br></div>')
   box.insertBefore(document.body.childNodes[0]);
 
-  box = $('#selectionBox')[0];
-  box.onmouseover = function() {
-    var obj = $('.clearButton')[0];
-    obj.style.transition = 'opacity 0.5s ease';
-    obj.style.opacity = 1;
-  };
-  box.onmouseout = function() {
-    var obj = $('.clearButton')[0];
-    obj.style.transition = 'opacity 0.5s ease';
-    obj.style.opacity = 0;
+  open = $('#openSelectionBox')[0];
+  open.onclick = function () {
+    openBox();
+  }
+  
+  var downloadArea = $('<div id="downloadArea"></div>');
+  downloadArea.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  var itemBox = $('<div id="itemBox"><br></div>');
+  itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  var backButton = $('<div id="backButton"><center>close</center></div>');
+  backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  backButton = $('#backButton')[0];
+  backButton.onclick = function () {
+    closeBox(this.parentNode);
   }
 
-  var controlBox = document.createElement('div');
-  controlBox.id = 'controlBox';
-  box.appendChild(controlBox);
+  injectDownloadButtons();
+}
 
-  var itemBox = document.createElement('div');
-  itemBox.id = 'itemBox';
-  box.appendChild(itemBox);
+function openBox() {
+  var open = $('#openSelectionBox')[0];
+  open.style.display = 'none';
+  
+  var box = $('#selectionBox')[0];
+  box.style.display = 'block';
+}
 
-  var clear = document.createElement('input');
-  clear.className = 'clearButton';
-  clear.type = 'button';
-  clear.value = 'clear';
-  clear.onclick = clearSelectionBox;
-  box.appendChild(clear);
-  $('.clearButton')[0].style.opacity = 0;
-
+function closeBox() {
+  var open = $('#openSelectionBox')[0];
+  open.style.display = 'block';
+  
+  var box = $('#selectionBox')[0];
+  box.style.display = 'none';
 }
 
 function clearSelectionBox() {

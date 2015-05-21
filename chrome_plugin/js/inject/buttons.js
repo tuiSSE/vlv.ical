@@ -10,7 +10,7 @@ function injectDownloadButtons(subjects) {
   downloadSelected.className = 'downloadButton';
   downloadSelected.value = 'Download Selected';
 
-  var box = $('#controlBox')[0];
+  var box = $('#downloadArea')[0];
   box.appendChild(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
@@ -27,16 +27,13 @@ function injectDownloadButtons(subjects) {
   });
 
   // adds a download button that downloads an array of all objects the plugin could find on the page
-  var br = document.createElement('br');
-  box.appendChild(br);
-  
   var downloadAll = document.createElement('input');
   downloadAll.type = 'button';
   downloadAll.id = 'downloadAll';
   downloadAll.className = 'downloadButton';
   downloadAll.value = 'Download All';
 
-  var box = $('#controlBox')[0];
+  var box = $('#downloadArea')[0];
   box.appendChild(downloadAll);
   
   $("#downloadAll").on('click', function(entryInfo){

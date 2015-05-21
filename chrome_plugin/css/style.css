@@ -39,10 +39,10 @@
 	background-color:white;
 	border-radius:4px;
 	position: relative;
-	width: 125px;
+	width: 50%;
 	float: left;
 	border: 2px solid lightgrey;
-	line-height: 0.2in;
+	height: 100%;
 	display: table-cell;
 	cursor: pointer;
 	color: black;
@@ -67,24 +67,24 @@
 #selectionBox {
 	position: fixed;
 	color: black;
-	background-color: white;
-	transition: opacity 0.5s ease;
-	opacity: 0.9;
-	filter: blur(20px);
-	width: 100%;
+	background-color: lightgrey;
+	display: none;
+	transition: width 0.5s ease;
+	width: 3in;
+	z-index: 1000;
+	right: 0;
 	transition: height 0.5s ease;
-	height: 0.5in;
-	z-index:1000;
-	border: 5px;
-	border-color: #EFEFEF;
+	height: 100%;
 	table-layout: fixed;
 }
 
-#selectionBox:hover {
-	transition: opacity 0.5s ease;
-	transition: height 0.5s ease;
-	height: 1in;
-	opacity: 0.999;
+#openSelectionBox {
+	position: fixed;
+	background-color: orange;
+	z-index: 1000;
+	height: 0.5in;
+	width: 1in;
+	right: 0px;
 }
 
 .clearButton {
@@ -94,36 +94,48 @@
 }
 
 .selectionBoxItem {
-	display:inline-block;
-	margin: 5px;
-	padding: 2px 2px;
-	border:2px solid lightgrey;
-	border-radius: 5px;
-	line-height: 0.2in;
-	background-color: white;
-	text-decoration:none;
-}
-
-.selectionBoxItem:hover {
-	
-}
-
-.clearButton {
+	background-color:white;
+	border-radius:4px;
 	position: relative;
-	float: right;
-	width: 40px;
-	height: 100%;
-	background-color: #FF9313;
+	width: 100%;
+	height: 0.3in;
+	float: left;
+	border: 2px solid lightgrey;
+	display: block;
+	cursor: pointer;
+	color: black;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 0px 5px;
+	text-decoration: none;
+}
+
+#downloadArea {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 0.4in;
+	bottom: 0px;
+	clear: both;
+}
+
+#backButton {
+	position: absolute;
+	display: block;
+	font-size: 14px;
+	width: 100%;
+	height: 0.3in;
+	top: 0px;
+	clear: both;
+	background-color: red;
 	color: white;
-	display: inline-block;
+	font-family: sans-serif;
 }
 
 #itemBox {
-	float: left;
-	display: inline-block;
-}
-
-#controlBox {
-	float: left;
-	display: inline-block;
+	position: absolute;
+	display: block;
+	width: 100%;
+	clear: both;
+	top: 0.3in;
 }
