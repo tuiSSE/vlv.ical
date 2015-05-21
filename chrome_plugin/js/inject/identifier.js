@@ -25,8 +25,7 @@ function fixIds(objs) {
     }
 }
 
-function makeid()
-{
+function makeid() {
     var text = "nr";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 

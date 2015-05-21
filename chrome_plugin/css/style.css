@@ -21,7 +21,7 @@
 	min-width: 250px;
 	font-family:Arial;
 	font-size:13px;
-	font-weight:bold;
+	text-shadow: 2px;
 	padding:5px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
@@ -47,7 +47,6 @@
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
-	font-weight: bold;
 	padding: 0px 5px;
 	text-decoration: none;
 }
@@ -62,6 +61,10 @@
   display:inline-block;
   width:15px;
   height:15px;
+}
+
+.plusIcon {
+	vertical-align: center;
 }
 
 #selectionBox {
@@ -80,10 +83,9 @@
 
 #openSelectionBox {
 	position: fixed;
-	background-color: orange;
 	z-index: 1000;
 	height: 0.5in;
-	width: 1in;
+	width: 0.5in;
 	right: 0px;
 }
 
@@ -104,8 +106,8 @@
 	display: block;
 	cursor: pointer;
 	color: black;
-	font-size: 10px;
-	font-weight: bold;
+	font-size: 12px;
+	font-family: Arial;
 	padding: 0px 5px;
 	text-decoration: none;
 }
@@ -124,7 +126,7 @@
 	display: block;
 	font-size: 14px;
 	width: 100%;
-	height: 0.3in;
+	height: 0.25in;
 	top: 0px;
 	clear: both;
 	background-color: red;

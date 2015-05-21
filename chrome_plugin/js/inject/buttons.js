@@ -57,7 +57,7 @@ function injectAddButtons(subjects) {
     var object = subjects[i];
     var name = subjects[i].childNodes[1].childNodes[0].data;
     subjects[i].childNodes[1].childNodes[0].data = null;
-    var r = $('<button class="addButton">' + '<img class="shoppingCart" src="' + chrome.extension.getURL('/resources/add.svg') + '"/>' +" " + name + '</button> <a>&nbsp</a>');
+    var r = $('<button class="addButton">' + name + '</button> <a>&nbsp</a>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
   }
   

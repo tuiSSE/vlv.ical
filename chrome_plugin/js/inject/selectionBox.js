@@ -23,7 +23,7 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox"><br></div>')
+  var open = $('<div id="openSelectionBox"><img class="plusIcon" src="' + chrome.extension.getURL('/resources/add.svg') + '"/>' + '</div>')
   open.insertBefore(document.body.childNodes[0]);
 
   var box = $('<div id="selectionBox"><br></div>')
@@ -40,7 +40,7 @@ function injectDiv() {
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
 
-  var backButton = $('<div id="backButton"><center>close</center></div>');
+  var backButton = $('<div id="backButton"><center>hide</center></div>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   backButton = $('#backButton')[0];
@@ -53,18 +53,18 @@ function injectDiv() {
 
 function openBox() {
   var open = $('#openSelectionBox')[0];
-  open.style.display = 'none';
+  $(open).fadeOut();
   
   var box = $('#selectionBox')[0];
-  box.style.display = 'block';
+  $(box).fadeIn();
 }
 
 function closeBox() {
   var open = $('#openSelectionBox')[0];
-  open.style.display = 'block';
+  $(open).fadeIn();
   
   var box = $('#selectionBox')[0];
-  box.style.display = 'none';
+  $(box).fadeOut();
 }
 
 function clearSelectionBox() {
