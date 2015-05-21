@@ -1,7 +1,7 @@
 {
     "name": "VLV.ical",
     "description": "export events from VLV as *.ics",
-    "version": "0.3",
+    "version": "0.4",
     "manifest_version": 2,
     "browser_action": {
         "default_title": "VLV.ical",
