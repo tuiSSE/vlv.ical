@@ -47,7 +47,7 @@ function parseTime(raw, day) {
   var rawPeriod = raw[0].match(/[0-9]+/g).map(function(n) {
                     return +(n);
                   });
-  console.log(rawPeriod);
+  console.log(rawPeriod[0]);
   
   var hours = [];
   hours[0] = rawTime[0].split('.');

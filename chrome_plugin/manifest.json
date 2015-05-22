@@ -21,6 +21,7 @@
                 "js/libs/FileSaver.min.js",
                 "js/libs/toastr.min.js",
                 "js/libs/vex.combined.min.js",
+                "js/libs/moment.js",
                 "js/helper/calHelper.js",
                 "js/helper/fixDiv.js",
                 "js/helper/getData.js",
