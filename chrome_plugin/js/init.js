@@ -54,5 +54,7 @@ function init() {
   updateSelection(subjects);
 }
 
-// Set moment locale to DE
+/*
+ * @class moment // sets locale to german
+ */
 moment.locale("de");

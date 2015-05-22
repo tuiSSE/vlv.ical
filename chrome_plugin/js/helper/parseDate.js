@@ -1,4 +1,4 @@
-function getDate(w, y, day) {
+function getDate(w, y, day) { // Function still needed?
     var simple = new Date(y, 0, 1 + (w - 1) * 7);
     var date = simple;
     var dow = simple.getDay();
@@ -41,20 +41,19 @@ function getDate(w, y, day) {
 }
 
 
-// TODO: get week and year
+// TODO: Get Time Span
 function parseTime(raw, day) {
+  var hours = [];
   var date;
   var month;
   var year;
+  // RegEx to check Dates
+  var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
   
   var rawTime = raw[1].split(" ");
  
-  var hours = [];
   hours[0] = rawTime[0].split('.');
   hours[1] = rawTime[2].split('.');
-  
-  // RegEx to check Dates
-  var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
   
   // Check if Regular Date
   if(raw[0].match(dateEx)){
