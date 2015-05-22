@@ -9,8 +9,8 @@
 .addButton {
 	-moz-box-shadow:inset 0px 1px 0px 0px #3dc21b;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	background-color:#44c767;
+	box-shadow:inset 0px 1px 0px 0px black;
+	background-color:orange;
 	-moz-border-radius:4px;
 	-webkit-border-radius:4px;
 	border-radius:4px;
@@ -21,13 +21,14 @@
 	min-width: 250px;
 	font-family:Arial;
 	font-size:13px;
-	font-weight:bold;
+	text-shadow: 2px;
 	padding:5px 20px;
 	text-decoration:none;
 	text-shadow:0px 1px 0px #2f6627;
 }
 .addButton:hover {
-	background-color:#5cbf2a;
+	transition: background-color 0.5s ease;
+	background-color: #f27107;
 }
 .addButton:active {
 	position:relative;
@@ -37,15 +38,17 @@
 .downloadButton {
 	background-color:white;
 	border-radius:4px;
-	border:2px solid lightgrey;
-	display:inline-block;
-	cursor:pointer;
-	color:black;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
+	position: relative;
+	width: 50%;
+	float: left;
+	border: 2px solid lightgrey;
+	height: 100%;
+	display: table-cell;
+	cursor: pointer;
+	color: black;
+	font-size: 12px;
+	padding: 0px 5px;
+	text-decoration: none;
 }
 
 .downloadButton:hover {
@@ -60,22 +63,30 @@
   height:15px;
 }
 
+.plusIcon {
+	vertical-align: center;
+}
+
 #selectionBox {
 	position: fixed;
 	color: black;
-	background-color: white;
-	opacity: 0.7;
-	filter: blur(10px);
-	width: 100%;
-	height: 0.5in;
-	z-index:1000;
-	border: 5px;
-	border-color: #EFEFEF;
+	background-color: lightgrey;
+	display: none;
+	transition: width 0.5s ease;
+	width: 3in;
+	z-index: 1000;
+	right: 0;
+	transition: height 0.5s ease;
+	height: 100%;
+	table-layout: fixed;
 }
 
-#selectionBox:hover {
-	transition: opacity 0.5s ease;
-	opacity: 1;
+#openSelectionBox {
+	position: fixed;
+	z-index: 1000;
+	height: 0.5in;
+	width: 0.5in;
+	right: 0px;
 }
 
 .clearButton {
@@ -85,15 +96,48 @@
 }
 
 .selectionBoxItem {
-	display:inline-block;
-	margin: 5px;
-	padding: 2px 2px;
-	border:2px solid lightgrey;
-	border-radius: 5px;
-	background-color: white;
-	text-decoration:none;
+	background-color:white;
+	border-radius:4px;
+	position: relative;
+	width: 100%;
+	height: 0.3in;
+	float: left;
+	border: 2px solid lightgrey;
+	display: block;
+	cursor: pointer;
+	color: black;
+	font-size: 12px;
+	font-family: Arial;
+	padding: 0px 5px;
+	text-decoration: none;
 }
 
-.selectionBoxItem:hover {
-	
+#downloadArea {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 0.4in;
+	bottom: 0px;
+	clear: both;
+}
+
+#backButton {
+	position: absolute;
+	display: block;
+	font-size: 14px;
+	width: 100%;
+	height: 0.25in;
+	top: 0px;
+	clear: both;
+	background-color: red;
+	color: white;
+	font-family: sans-serif;
+}
+
+#itemBox {
+	position: absolute;
+	display: block;
+	width: 100%;
+	clear: both;
+	top: 0.3in;
 }

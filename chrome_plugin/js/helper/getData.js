@@ -14,7 +14,12 @@ function getElements(root) {
 
 function getNameOfLecture(object) {
     var name = object.childNodes[1].innerText;
-    return name.slice(0, (name.length - 12));
+    if (name.slice(name.length - 12) == " Beschreibung") {
+      result = name.slice(0, (name.length - 12));
+    } else {
+      result = name;
+    }
+    return result;
 }
 
 function getSpeakerOfLecture(object) {
