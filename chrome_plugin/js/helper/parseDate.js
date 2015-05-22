@@ -41,7 +41,7 @@ function getDate(w, y, day) { // Function still needed?
 }
 
 
-// TODO: Get Time Span
+// TODO: Clean Up Code
 function parseTime(raw, day) {
   var time =[];
   var hours = [], 
