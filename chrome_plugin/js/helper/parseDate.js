@@ -43,32 +43,46 @@ function getDate(w, y, day) {
 
 // TODO: get week and year
 function parseTime(raw, day) {
-  var rawTime = raw[1].split(" ");
-  var rawPeriod = raw[0].match(/[0-9]+/g).map(function(n) {
-                    return +(n);
-                  });
-  console.log(rawPeriod[0]);
+  var date;
+  var month;
+  var year;
   
+  var rawTime = raw[1].split(" ");
+ 
   var hours = [];
   hours[0] = rawTime[0].split('.');
   hours[1] = rawTime[2].split('.');
-
-  var time =[];
-  try {
-    var dt = getDate(18, 2015, day);
-  } catch(e) { console.log(e); }
-
-  var year = dt.getFullYear().toString();
-
-  var month = dt.getMonth() + 1;
-  if (month < 10) {
-    month = '0' + month.toString();
+  
+  // RegEx to check Dates
+  var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
+  
+  // Check if Regular Date
+  if(raw[0].match(dateEx)){
+    var regularDate = moment(raw[0], "DD.MM.YYYY");
+    
+    // assign to time string
+      year = regularDate.format('YYYY');
+      month = regularDate.format('MM');
+      date = regularDate.format('DD');
+  } else {
+    var cWeektoDate;
+    var rawPeriod = raw[0].match(/[0-9]+/g)
+                            .map(function(n) { return +(n); } );
+    for (var i = 0; i < rawPeriod.length; i++) {
+      cWeektoDate = moment().isoWeek(rawPeriod[i]);
+      cWeektoDate.day(day);
+    }
+    // assign to time string
+      year = cWeektoDate.format('YYYY');
+      month = cWeektoDate.format('MM');
+      date = cWeektoDate.format('DD');
   }
-
-  var date = dt.getDate().toString();
+ 
+  var time =[];
 
   time[0] = new String(year + month + date + 'T' + hours[0][0] + hours[0][1] + '00');
   time[1] = new String(year + month + date + 'T' + hours[1][0] + hours[1][1] + '00');
+  console.log(time);
 
   return time;
 }

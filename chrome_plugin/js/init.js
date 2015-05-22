@@ -53,3 +53,6 @@ function init() {
   injectEditDialogs();
   updateSelection(subjects);
 }
+
+// Set moment locale to DE
+moment.locale("de");
