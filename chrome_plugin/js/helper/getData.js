@@ -57,8 +57,10 @@ function getEventData(subject) {
   event.name = getNameOfLecture(subject);
   event.speaker = getSpeakerOfLecture(subject);
   event.location = getLocation(subject);
+  
+  var timeData = [getDates(subject), getTime(subject)];
 
-  var time = parseTime(getTime(subject), getDayOfWeek(subject));
+  var time = parseTime(timeData, getDayOfWeek(subject));
   event.begin = time[0];
   event.end = time[1];
 

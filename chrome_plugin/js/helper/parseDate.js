@@ -43,10 +43,15 @@ function getDate(w, y, day) {
 
 // TODO: get week and year
 function parseTime(raw, day) {
-  raw = raw.split(" ");
+  var rawTime = raw[1].split(" ");
+  var rawPeriod = raw[0].match(/[0-9]+/g).map(function(n) {
+                    return +(n);
+                  });
+  console.log(rawPeriod);
+  
   var hours = [];
-  hours[0] = raw[0].split('.');
-  hours[1] = raw[2].split('.');
+  hours[0] = rawTime[0].split('.');
+  hours[1] = rawTime[2].split('.');
 
   var time =[];
   try {
