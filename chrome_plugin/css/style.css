@@ -87,12 +87,14 @@
 	height: 0.5in;
 	width: 0.5in;
 	right: 0px;
+	cursor: pointer;
 }
 
 .clearButton {
 	height: 0.5in;
 	background-color: #EFEFEF;
 	border: 2px;
+	cursor: pointer;
 }
 
 .selectionBoxItem {
@@ -132,6 +134,7 @@
 	background-color: red;
 	color: white;
 	font-family: sans-serif;
+	cursor: pointer;
 }
 
 #itemBox {

@@ -1,15 +1,12 @@
 function updateSelectionBox() {
   var itemBox = $('#itemBox')[0];
-  itemBox.innerHTML = '';
+  itemBox.innerHTML = '<br>';
 
   try {
     var items = load('selection');
     for (var i = 0; i < items.length; i++) {
-      var element = document.createElement('input');
-      element.className = 'selectionBoxItem';
-      element.type = 'button';
-      element.value = items[i];
-      itemBox.appendChild(element);
+      var element = $('<div class="selectionBoxItem">' + items[i] + '<br></div>')
+      element.insertBefore($('#itemBox')[0].childNodes[0]);
     }
   } catch(e) {
     console.log("Could not update selection.");

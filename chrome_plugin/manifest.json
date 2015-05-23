@@ -27,6 +27,7 @@
                 "js/helper/misc.js",
                 "js/helper/parseDate.js",
                 "js/helper/storage.js",
+                "js/helper/download.js",
                 "js/inject/selection.js",
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",

@@ -51,17 +51,17 @@ function getLastUpdated(object) {
 }
 
 function getEventData(subject) {
-  var event = {
+  var data = {
     name: "",
-    speaker: "",
+    comment: "",
     location: "",
     begin: "",
     end: ""
   };
 
-  event.name = getNameOfLecture(subject);
-  event.speaker = getSpeakerOfLecture(subject);
-  event.location = getLocation(subject);
+  data.name = getNameOfLecture(subject);
+  data.comment = getSpeakerOfLecture(subject);
+  data.location = getLocation(subject);
 
   var time = parseTime(getTime(subject), getDayOfWeek(subject));
   event.begin = time[0];
