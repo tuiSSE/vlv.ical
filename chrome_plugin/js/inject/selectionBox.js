@@ -71,7 +71,7 @@ function closeBox() {
 }
 
 function clearSelectionBox() {
-  var selection = loadObjects('selection');
+  var selection = load('selection');
   selection = [];
   saveObjects('selection', selection);
   updateSelection();
