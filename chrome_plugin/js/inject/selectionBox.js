@@ -23,7 +23,7 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox"><img class="plusIcon" src="' + chrome.extension.getURL('/resources/add.svg') + '"/>' + '</div>')
+  var open = $('<div id="openSelectionBox">VLV.ical</div>')
   open.insertBefore(document.body.childNodes[0]);
 
   var box = $('<div id="selectionBox"><br></div>')

@@ -84,8 +84,14 @@
 #openSelectionBox {
 	position: fixed;
 	z-index: 1000;
+	background-color: darkorange;
+	color: white;
+	font-family: arial;
+	font-size: 16px;
+	vertical-align: middle;
+	text-align: center;
 	height: 0.5in;
-	width: 0.5in;
+	width: 1in;
 	right: 0px;
 	cursor: pointer;
 }
@@ -134,6 +140,7 @@
 	color: white;
 	font-family: sans-serif;
 	cursor: pointer;
+	vertical-align: middle;
 }
 
 #itemBox {
