@@ -84,6 +84,8 @@
 	transition: height 0.5s ease;
 	height: 100%;
 	table-layout: fixed;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 #openSelectionBox {
@@ -99,6 +101,7 @@
 	width: 1in;
 	right: 0px;
 	cursor: pointer;
+	border-bottom-left-radius: 5px;
 }
 
 .clearButton {
@@ -137,6 +140,8 @@
 	height: 0.4in;
 	bottom: 0px;
 	clear: both;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 #backButton {
@@ -152,6 +157,8 @@
 	font-family: sans-serif;
 	cursor: pointer;
 	vertical-align: middle;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 #itemBox {
