@@ -26,7 +26,8 @@ function openEditDialog(id) {
   var data = load(id);
   bootbox.dialog({
                 title: id,
-                message: 
+                message:
+                    '<label>Diese Daten werden in deinen Kalender übernommen</label>' +
                     '<form> ' +
                     '<input type="hidden" id="editId" value="' + id + '">' +
                     '<div class="col-md-6"> ' +
