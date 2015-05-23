@@ -99,18 +99,17 @@
 
 .selectionBoxItem {
 	background-color:white;
-	border-radius:4px;
 	position: relative;
-	width: 100%;
+	width: 95%;
 	height: 0.3in;
-	float: left;
+	float: center;
 	border: 2px solid lightgrey;
 	display: block;
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
 	font-family: Arial;
-	padding: 0px 5px;
+	padding: 0px 5px 0px 5px;
 	text-decoration: none;
 }
 

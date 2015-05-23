@@ -53,18 +53,18 @@ function injectDiv() {
 
 function openBox() {
   var open = $('#openSelectionBox')[0];
-  $(open).fadeOut();
+  $(open).hide("slide");
   
   var box = $('#selectionBox')[0];
-  $(box).fadeIn();
+  $(box).show("slide");
 }
 
 function closeBox() {
   var open = $('#openSelectionBox')[0];
-  $(open).fadeIn();
+  $(open).show("slide");
   
   var box = $('#selectionBox')[0];
-  $(box).fadeOut();
+  $(box).hide("slide");
 }
 
 function clearSelectionBox() {
