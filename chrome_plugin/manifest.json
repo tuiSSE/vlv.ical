@@ -37,8 +37,6 @@
             ],
             "css": [
                 "css/toastr.min.css",
-                "css/vex-theme-default.css",
-                "css/vex-theme-top.css",
                 "css/style.css"
             ]
         }
