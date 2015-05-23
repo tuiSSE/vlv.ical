@@ -9,10 +9,10 @@ function updateSelectionBox() {
       var element = $('<div class="selectionBoxItem">' + 
                         item.name + 
                         '<br><hr><div class="itemDetail">' + 
-                        item.location + '<br>' + 
-                        item.comment + '<br>' +
-                        item.begin + '<br>' + 
-                        item.end + '<br>' +
+                        'location: ' + item.location + '<br>' + 
+                        'comment: ' + item.comment + '<br>' +
+                        'begin: ' + item.begin + '<br>' + 
+                        'end: ' + item.end + '<br>' +
                         '<br></div></div>')
       element.insertBefore($('#itemBox')[0].childNodes[i]);
     }
