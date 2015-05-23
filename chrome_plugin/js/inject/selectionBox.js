@@ -5,8 +5,16 @@ function updateSelectionBox() {
   try {
     var items = load('selection');
     for (var i = 0; i < items.length; i++) {
-      var element = $('<div class="selectionBoxItem">' + items[i] + '<br></div>')
-      element.insertBefore($('#itemBox')[0].childNodes[0]);
+      var item = load(items[i]);
+      var element = $('<div class="selectionBoxItem">' + 
+                        item.name + 
+                        '<br><hr><div class="itemDetail">' + 
+                        item.location + '<br>' + 
+                        item.comment + '<br>' +
+                        item.begin + '<br>' + 
+                        item.end + '<br>' +
+                        '<br></div></div>')
+      element.insertBefore($('#itemBox')[0].childNodes[i]);
     }
   } catch(e) {
     console.log("Could not update selection.");

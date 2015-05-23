@@ -107,16 +107,21 @@
 	background-color:white;
 	position: relative;
 	width: 95%;
-	height: 0.3in;
+	height: 1in;
 	float: center;
 	border: 2px solid lightgrey;
 	display: block;
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
+	text-align: center;
 	font-family: Arial;
 	padding: 0px 5px 0px 5px;
 	text-decoration: none;
+}
+
+.itemDetail {
+	
 }
 
 #downloadArea {
