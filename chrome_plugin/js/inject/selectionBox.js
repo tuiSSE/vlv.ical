@@ -6,7 +6,7 @@ function updateSelectionBox() {
     var items = load('selection');
     for (var i = 0; i < items.length; i++) {
       var item = load(items[i]);
-      var element = $('<div class="selectionBoxItem">' + 
+      var element = $('<div class="selectionBoxItem ">' + 
                         item.name + 
                         '<br><hr><div class="itemDetail">' + 
                         'location: ' + item.location + '<br>' + 

@@ -36,8 +36,8 @@
                 "js/init.js"
             ],
             "css": [
-                "bootstrap.min.css",
-                "bootstrap-theme.min.css",
+                "css/bootstrap.min.css",
+                "css/bootstrap-theme.min.css",
                 "css/toastr.min.css",
                 "css/style.css"
             ]
