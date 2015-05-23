@@ -10,9 +10,9 @@ vex.defaultOptions.className = 'vex-theme-top';
  * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
  */
 try {
-  load('selection_length');
+  load('selection');
 } catch (e) {
-  save('selection_length', 0); 
+  save('selection', []); 
 }
 
 var subjects = [];

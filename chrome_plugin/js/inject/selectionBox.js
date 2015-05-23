@@ -1,21 +1,24 @@
 function updateSelectionBox() {
-  var selection = loadObjects('selection');
   var itemBox = $('#itemBox')[0];
   itemBox.innerHTML = '';
 
-  for (var i = 0; i < selection.length; i++) {
-    var name = getNameOfLecture(selection[i]);
-    var element = document.createElement('input');
-    element.className = 'selectionBoxItem';
-    element.type = 'button';
-    element.value = name;
-    itemBox.appendChild(element);
+  try {
+    var items = load('selection');
+    for (var i = 0; i < items.length; i++) {
+      var element = document.createElement('input');
+      element.className = 'selectionBoxItem';
+      element.type = 'button';
+      element.value = items[i];
+      itemBox.appendChild(element);
+    }
+  } catch(e) {
+    console.log("Could not update selection.");
+    console.log(e);
   }
 }
 
 function injectEditDialogs() {
   $('.addButton').on('click', function () {
-
   });
 }
 

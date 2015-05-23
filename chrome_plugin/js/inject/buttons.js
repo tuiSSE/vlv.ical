@@ -63,8 +63,8 @@ function injectAddButtons(subjects) {
   
   $(".addButton").on('click', function(){
     var object = this.parentNode.parentNode;
-    var selection = loadObjects('selection');
-    if(!containsObject(object, selection)) {
+    var selection = load('selection');
+    if(!containsObject(getNameOfLecture(object), selection)) {
       addToCart(object);
     } else {
       removeFromCart(object);
