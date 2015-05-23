@@ -6,14 +6,14 @@ function updateSelectionBox() {
     var items = load('selection');
     for (var i = 0; i < items.length; i++) {
       var item = load(items[i]);
-      var element = $('<div class="selectionBoxItem">' + 
+      var element = $('<button id="' +
+                        item.name +
+                        '" class="selectionBoxItem">' +
                         item.name + 
-                        '<br><hr><div class="itemDetail">' + 
-                        'location: ' + item.location + '<br>' + 
-                        'comment: ' + item.comment + '<br>' +
-                        'begin: ' + item.begin + '<br>' + 
-                        'end: ' + item.end + '<br>' +
-                        '<br></div></div>')
+                        '</button>');
+      $(element).on('click', function() {
+          openEditDialog(this.id);
+      })
       element.insertBefore($('#itemBox')[0].childNodes[i]);
     }
   } catch(e) {
@@ -22,9 +22,63 @@ function updateSelectionBox() {
   }
 }
 
-function injectEditDialogs() {
-  $('.addButton').on('click', function () {
-  });
+function openEditDialog(id) {
+  var data = load(id);
+  bootbox.dialog({
+                title: id,
+                message: 
+                    '<form> ' +
+                    '<input type="hidden" id="editId" value="' + id + '">' +
+                    '<div class="col-md-6"> ' +
+                    'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md"> ' +
+                    '</div> ' +
+                    '<div class="col-md-6"> ' +
+                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.location + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '<div class="col-md-6"> ' +
+                    'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '<div class="col-md-6"> ' +
+                    'Beginn: <input id="editBegin" name="begin" type="text" value="' + data.begin + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '<div class="col-md-6"> ' +
+                    'Ende: <input id="editEnd" name="end" type="text" value="' + data.end + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '</form>',
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                          try {
+                            var id = $('#editId')[0].value;
+                            var data = load(id);
+                          } catch (e) {
+                            toastr.error(e, 'Error');
+                          }
+                          
+                          try {
+                            data.name = $('#editName')[0].value;
+                            data.location = $('#editLocation')[0].value;
+                            data.comment = $('#editComment')[0].value;
+                            data.begin = $('#editBegin')[0].value;
+                            data.end = $('#editEnd')[0].value;
+                          } catch(e) {
+                            toastr.error(e, 'Error');
+                          }
+                          
+                          try {
+                            save(id, data);
+                          } catch(e) {
+                            toastr.error(e, 'Error');
+                          }
+                          
+                        }
+                    }
+                },
+                keyboard: false
+            }
+        );
 }
 
 function injectDiv() {
@@ -40,7 +94,7 @@ function injectDiv() {
   open = $('#openSelectionBox')[0];
   open.onclick = function () {
     openBox();
-  }
+  };
   
   var downloadArea = $('<div id="downloadArea"></div>');
   downloadArea.insertBefore($('#selectionBox')[0].childNodes[0]);
@@ -54,7 +108,7 @@ function injectDiv() {
   backButton = $('#backButton')[0];
   backButton.onclick = function () {
     closeBox(this.parentNode);
-  }
+  };
 
   injectDownloadButtons();
 }

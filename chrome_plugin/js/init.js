@@ -47,6 +47,5 @@ if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
 function init() {
   injectAddButtons(subjects);
   injectBorders();
-  injectEditDialogs();
   updateSelection(subjects);
 }
