@@ -21,6 +21,7 @@
                 "js/libs/FileSaver.min.js",
                 "js/libs/toastr.min.js",
                 "js/libs/vex.combined.min.js",
+                "js/libs/bootstrap.min.js",
                 "js/helper/calHelper.js",
                 "js/helper/fixDiv.js",
                 "js/helper/getData.js",
@@ -37,6 +38,8 @@
             ],
             "css": [
                 "css/toastr.min.css",
+                "css/bootstrap.min.css",
+                "css/bootstrap-theme.min.css",
                 "css/style.css"
             ]
         }
