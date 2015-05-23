@@ -14,8 +14,8 @@ function getElements(root) {
 
 function getNameOfLecture(object) {
     var name = object.childNodes[1].innerText;
-    if (name.slice(name.length - 12) == " Beschreibung") {
-      result = name.slice(0, (name.length - 12));
+    if (name.slice(name.length - 12) == "Beschreibung") {
+      result = name.slice(0, (name.length - 15));
     } else {
       result = name;
     }
