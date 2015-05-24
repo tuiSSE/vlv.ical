@@ -26,7 +26,7 @@ function getSpeakerOfLecture(object) {
   return object.childNodes[3].innerText.slice(12).split(',').join('\\,');
 }
 
-function getDayOfWeek(object) {
+function getDayOfWeek2(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
 }
 
@@ -48,6 +48,38 @@ function getTargetGroup(object) {
 
 function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
+}
+
+function getTimeOfObject(object) {
+  return object.innerHTML.match(/[0-2][0-9].[0-5][0-9] - [0-2][0-9].[0-5][0-9]/g);
+}
+
+function getDayOfWeek(object) {
+  var result = "";
+  
+  if (object.innerHTML.match(/Montag/g).length > 0) {
+    result = object.innerHTML.match(/Montag/g);
+    
+  } else if (object.innerHTML.match(/Dienstag/g).length > 0) {
+    result = object.innerHTML.match(/Dienstag/g);
+    
+  } else if (object.innerHTML.match(/Mittwoch/g).length > 0) {
+    result = object.innerHTML.match(/Mittwoch/g);
+    
+  } else if (object.innerHTML.match(/Donnerstag/g).length > 0) {
+    result = object.innerHTML.match(/Donnerstag/g);
+    
+  } else if (object.innerHTML.match(/Freitag/g).length > 0) {
+    result = object.innerHTML.match(/Freitag/g);
+    
+  } else if (object.innerHTML.match(/Samstag/g).length > 0) {
+    result = object.innerHTML.match(/Samstag/g);
+    
+  } else if (object.innerHTML.match(/Sonntag/g).length > 0) {
+    result = object.innerHTML.match(/Sonntag/g);
+  }
+  
+  return result;
 }
 
 function getEventData(subject) {
@@ -76,7 +108,7 @@ function getTypeOfContents(obj) {
   var result = {
     lectures : false,
     lessons : false,
-    exam : false
+    exams : false
   };
   
   if ($(obj).find('[axis="Vorlesungen:"]').length > 0) {
@@ -88,8 +120,98 @@ function getTypeOfContents(obj) {
   }
   
   if ($(obj).find('[axis="Klausur:"]').length > 0) {
-    result.exam = true;
+    result.exams = true;
   }
   
   return result;
+}
+
+function getData(obj) {
+  var type = getTypeOfContents(obj);
+  var data = {
+    name : "",
+    speaker : "",
+    lectures : [],
+    lessons : [],
+    exams : []
+  };
+  
+  data.name = getNameOfLecture(obj);
+  data.speaker = getSpeakerOfLecture(obj);
+  
+  if (type.lectures) {
+    var rawLectures = $(obj).find('[axis="Vorlesungen:"]');
+    data.lectures = getLectures(rawLectures);
+  }
+  
+  if (type.lessons) {
+    var rawLessons = $(obj).find('[axis="Übungen:"]');
+    data.lessons = getLessons(rawLessons);
+  }
+  
+  if (type.exams) {
+    var rawExams = $(obj).find('[axis="Klausur:"]');
+    data.exams = getExams(rawExams);
+  }
+  
+  return data;
+}
+
+function getLectures(objs) {
+  var data = [];
+  
+  for (var i = 0; i < objs.length; i++) {
+    var obj = objs[i].parentNode;
+    var event = {
+      location : "",
+      begin : "",
+      end : "",
+      repeat : "",
+      targetGroup : "",
+      lastUpdated : ""
+    };
+    
+     var time = getTimeOfObject(obj);
+     var dayOfWeek = getDayOfWeek(obj);
+    
+  }
+  
+  return data;
+}
+
+function getLessons(objs) {
+  var data = [];
+  
+  for (var i = 0; i < objs.length; i++) {
+    var event = {
+      location : "",
+      begin : "",
+      end : "",
+      repeat : "",
+      targetGroup : "",
+      lastUpdated : ""
+    };
+    
+    
+  }
+  
+  return data;
+}
+
+function getExams(objs) {
+  var data = [];
+  
+  for (var i = 0; i < objs.length; i++) {
+    var event = {
+      location : "",
+      begin : "",
+      end : "",
+      repeat : "",
+      targetGroup : "",
+      lastUpdated : ""
+    };
+    
+  }
+  
+  return data;
 }

@@ -48,6 +48,7 @@ function init() {
   injectAddButtons(subjects);
   injectBorders();
   updateSelection(subjects);
+  getData(subjects[3]);
 }
 
 /*
