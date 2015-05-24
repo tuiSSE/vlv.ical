@@ -71,3 +71,25 @@ function getEventData(subject) {
 
   return data;
 }
+
+function getTypeOfContents(obj) {
+  var result = {
+    lectures : false,
+    lessons : false,
+    exam : false
+  };
+  
+  if ($(obj).find('[axis="Vorlesungen:"]').length > 0) {
+    result.lectures = true;
+  }
+  
+  if ($(obj).find('[axis="Übungen:"]').length > 0) {
+    result.lessons = true;
+  }
+  
+  if ($(obj).find('[axis="Klausur:"]').length > 0) {
+    result.exam = true;
+  }
+  
+  return result;
+}
