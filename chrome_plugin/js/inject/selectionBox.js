@@ -4,7 +4,7 @@ function updateSelectionBox() {
   itemBox.innerHTML = '';
 
   for (var i = 0; i < selection.length; i++) {
-    var name = getNameOfLecture(selection[i]);
+    var name = getNameOfLecture(selection[i]).replace('Beschreibung','');
     var element = document.createElement('input');
     element.className = 'selectionBoxItem';
     element.type = 'button';
@@ -39,8 +39,11 @@ function injectDiv() {
 
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
-
-  var backButton = $('<div id="backButton"><center>hide</center></div>');
+  
+  var boxHeader = $('<div id="boxHeader"><p>MY SELECTION:</p></div>');
+  boxHeader.insertBefore($('#selectionBox')[0].childNodes[0]);
+  
+  var backButton = $('<div id="backButton">click here to hide</div>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   backButton = $('#backButton')[0];

@@ -1,3 +1,9 @@
+html, * {
+	text-align: left;
+	margin: 0;
+	border: none;
+	text-decoration: none;
+}
 #container {
     margin-left:    5px;
     margin-top:     5px;
@@ -35,24 +41,35 @@
 	top:1px;
 }
 
-.downloadButton {
-	background-color:white;
-	border-radius:4px;
-	position: relative;
-	width: 50%;
-	float: left;
-	border: 2px solid lightgrey;
-	height: 100%;
-	display: table-cell;
-	cursor: pointer;
-	color: black;
-	font-size: 12px;
-	padding: 0px 5px;
-	text-decoration: none;
+.primary-btn {
+	background-color:#7dcf85;
+	color: white;
+	padding: 1.2em;
 }
 
-.downloadButton:hover {
-  color: grey;
+.primary-btn:hover {
+  background: #a2dda8;
+}
+
+.default-btn {
+	background-color:#fff;
+	color: black;
+	padding: 1em;
+}
+
+.default-btn:hover {
+  background: #e0e6ef;
+}
+
+.downloadButton {
+	position: relative;
+	width: 100%;
+	float: left;
+	display: block;
+	cursor: pointer;
+	font-size: 12px;
+	text-align: center;
+	text-decoration: none;
 }
 
 .shoppingCart {
@@ -70,10 +87,12 @@
 #selectionBox {
 	position: fixed;
 	color: black;
-	background-color: lightgrey;
+	background-color: white;
+	border-left: 1px solid #ccc;
+	box-shadow: -5px 0 5px -5px #333;
 	display: none;
 	transition: width 0.5s ease;
-	width: 3in;
+	width: 25em;
 	z-index: 1000;
 	right: 0;
 	transition: height 0.5s ease;
@@ -97,39 +116,47 @@
 
 .selectionBoxItem {
 	background-color:white;
-	border-radius:4px;
 	position: relative;
 	width: 100%;
-	height: 0.3in;
 	float: left;
-	border: 2px solid lightgrey;
+	border: none;
+	border-bottom: 1px solid #e0e6ef;
 	display: block;
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
 	font-family: Arial;
-	padding: 0px 5px;
+	padding: 1em;
 	text-decoration: none;
+	overflow: hidden;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+.selectionBoxItem:hover {
+	background-color:#e0e6ef;
 }
 
 #downloadArea {
 	position: absolute;
 	display: block;
 	width: 100%;
-	height: 0.4in;
 	bottom: 0px;
 	clear: both;
 }
 
 #backButton {
-	position: absolute;
+	position: relative;
 	display: block;
 	font-size: 14px;
 	width: 100%;
-	height: 0.25in;
-	top: 0px;
+	height: 1.5em;
+	line-height: 1.5em;
 	clear: both;
-	background-color: red;
+	font-weight: 300;
+	background-color: #ea6a68;
+	cursor: pointer;
+	text-align: center;
 	color: white;
 	font-family: sans-serif;
 }
@@ -139,5 +166,20 @@
 	display: block;
 	width: 100%;
 	clear: both;
-	top: 0.3in;
+}
+
+#boxHeader {
+	background: #435779;
+	border: none;
+	border-bottom: 1px solid #e0e6ef;
+}
+
+#boxHeader p {
+	text-align: center;
+	color: white;
+	margin: 0;
+	line-height: 4em;
+	font-size: 1.25em;
+	font-weight: 300;
+	text-transform: capitalize;
 }
