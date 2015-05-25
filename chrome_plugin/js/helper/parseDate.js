@@ -1,4 +1,4 @@
-function getDate(w, y, day) {
+function getDate(w, y, day) { // Function still needed?
     var simple = new Date(y, 0, 1 + (w - 1) * 7);
     var date = simple;
     var dow = simple.getDay();
@@ -41,29 +41,57 @@ function getDate(w, y, day) {
 }
 
 
-// TODO: get week and year
+// TODO: Clean Up Code
 function parseTime(raw, day) {
-  raw = raw.split(" ");
-  var hours = [];
-  hours[0] = raw[0].split('.');
-  hours[1] = raw[2].split('.');
-
   var time =[];
-  try {
-    var dt = getDate(18, 2015, day);
-  } catch(e) { console.log(e); }
-
-  var year = dt.getFullYear().toString();
-
-  var month = dt.getMonth() + 1;
-  if (month < 10) {
-    month = '0' + month.toString();
+  var hours = [], 
+      date = [], 
+      month = [], 
+      year = [], 
+      eventSpan = [];
+  // RegEx to check Dates
+  var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
+  
+  var rawTime = raw[1].split(" ");
+ 
+  hours[0] = rawTime[0].split('.');
+  hours[1] = rawTime[2].split('.');
+  
+  // Check if Regular Date
+  if(raw[0].match(dateEx)){
+    var regularDate = moment(raw[0], "DD.MM.YYYY");
+    
+    // assign to time string
+      year[0] = regularDate.format('YYYY');
+      month[0] = regularDate.format('MM');
+      date[0] = regularDate.format('DD');
+      
+      time[0] = new String(year[0] + month[0] + date[0] + 'T' + hours[0][0] + hours[0][1] + '00');
+      time[1] = new String(year[0] + month[0] + date[0] + 'T' + hours[1][0] + hours[1][1] + '00');
+  } 
+  else {
+    var cWeektoDate;
+    var rawPeriod = raw[0].match(/[0-9]+/g)
+                            .map(function(n) { return +(n); } );
+    for (var i = 0; i < rawPeriod.length; i++) {
+      cWeektoDate = moment().isoWeek(rawPeriod[i]);
+      cWeektoDate.day(day);
+      eventSpan.push(cWeektoDate);
+    }
+    // assign to time string
+      year[0] = eventSpan[0].format('YYYY');
+      month[0] = eventSpan[0].format('MM');
+      date[0] = eventSpan[0].format('DD');
+      
+      year[1] = eventSpan[eventSpan.length - 1].format('YYYY');
+      month[1] = eventSpan[eventSpan.length - 1].format('MM');
+      date[1] = eventSpan[eventSpan.length - 1].format('DD');
+      
+      time[0] = new String(year[0] + month[0] + date[0] + 'T' + hours[0][0] + hours[0][1] + '00');
+      time[1] = new String(year[1] + month[1] + date[1] + 'T' + hours[1][0] + hours[1][1] + '00');
   }
-
-  var date = dt.getDate().toString();
-
-  time[0] = new String(year + month + date + 'T' + hours[0][0] + hours[0][1] + '00');
-  time[1] = new String(year + month + date + 'T' + hours[1][0] + hours[1][1] + '00');
+ 
+  console.log(time);
 
   return time;
 }

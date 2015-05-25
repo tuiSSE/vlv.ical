@@ -5,9 +5,7 @@ function download(subjects) {
   var cal = initCal();
 
   try {
-    var i;
-    for (i = 0; i < subjects.length; i++) {
-      console.log(event);
+    for (var i = 0; i < subjects.length; i++) {
       var event = getEventData(subjects[i]);
       cal = addEvent(cal, event);
     }

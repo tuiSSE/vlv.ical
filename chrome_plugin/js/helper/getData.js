@@ -14,7 +14,12 @@ function getElements(root) {
 
 function getNameOfLecture(object) {
     var name = object.childNodes[1].innerText;
-    return name.slice(0, (name.length - 12));
+    if (name.slice(name.length - 12) == " Beschreibung") {
+      result = name.slice(0, (name.length - 12));
+    } else {
+      result = name;
+    }
+    return result;
 }
 
 function getSpeakerOfLecture(object) {
@@ -57,8 +62,10 @@ function getEventData(subject) {
   event.name = getNameOfLecture(subject);
   event.speaker = getSpeakerOfLecture(subject);
   event.location = getLocation(subject);
+  
+  var timeData = [getDates(subject), getTime(subject)];
 
-  var time = parseTime(getTime(subject), getDayOfWeek(subject));
+  var time = parseTime(timeData, getDayOfWeek(subject));
   event.begin = time[0];
   event.end = time[1];
 
