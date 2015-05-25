@@ -50,14 +50,14 @@ function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
 
-function getDataByQuery(text, query) {
+function getDataByQuery(object, query) {
   var result = "";
   
   if (object.innerHTML.match(query) != undefined) {
     result = object.innerHTML.match(query);
   }
   
-  return result;
+  return result[0];
 }
 
 function getEventData(subject) {
@@ -142,6 +142,9 @@ function getLectures(objs) {
     var obj = objs[i].parentNode;
     var event = {
       location : "",
+      time : "",
+      date : "",
+      dayOfWeek : "",
       begin : "",
       end : "",
       repeat : "",
@@ -149,10 +152,13 @@ function getLectures(objs) {
       lastUpdated : ""
     };
     
-     var time = getTimeOfObject(obj);
+    event.time = getDataByQuery(obj, /[0-2][0-9].[0-5][0-9] - [0-2][0-9].[0-5][0-9]/g);
+    event.date = getDataByQuery(obj, /[0-3][0-9].[0-1][0-9].20[0-9][0-9]|[0-9][0-9].- [0-9][0-9]. KW|[UG] ([0-9][0-9].- [0-9][0-9]. KW)/g);
+    event.dayOfWeek = getDataByQuery(obj, /Montag|Dienstag|Mittwoch|Donnerstag|Freitag|Samstag|Sonntag/g);
+    event.lastUpdated = getDataByQuery(obj, /Geändert am: [0-3][0-9].[0-2][0-9].[0-9][0-9]/g).slice(13);
     
+    data.push(event);
   }
-  
   return data;
 }
 

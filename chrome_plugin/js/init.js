@@ -48,7 +48,14 @@ function init() {
   injectAddButtons(subjects);
   injectBorders();
   updateSelection(subjects);
-  getData(subjects[3]);
+  
+  for (var i = 0; i < subjects.length; i++) {
+    try {
+      console.log(getData(subjects[i])); 
+    } catch(e) {
+      console.log(e);
+    }
+  }
 }
 
 /*
