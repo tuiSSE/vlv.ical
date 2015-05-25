@@ -14,16 +14,7 @@ function injectDownloadButtons(subjects) {
   box.appendChild(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
-    var selection = loadObjects('selection');
-    if (selection.length > 0) {
-      try {
-        download(selection);
-      } catch(e) {
-        toastr.error("Download failed!", e);
-      }
-    } else {
-      toastr.warning("Keine Veranstaltungen ausgewählt.")
-    };
+    downloadSelection();
   });
 
   // adds a download button that downloads an array of all objects the plugin could find on the page
@@ -39,7 +30,7 @@ function injectDownloadButtons(subjects) {
   $("#downloadAll").on('click', function(entryInfo){
     if (subjects.length > 0) {
       try {
-        download(subjects);
+        downloadAll(subjects);
       } catch(e) {
         toastr.error("Download failed!", e);
       }
@@ -63,8 +54,8 @@ function injectAddButtons(subjects) {
   
   $(".addButton").on('click', function(){
     var object = this.parentNode.parentNode;
-    var selection = loadObjects('selection');
-    if(!containsObject(object, selection)) {
+    var selection = load('selection');
+    if(!containsObject(getNameOfLecture(object), selection)) {
       addToCart(object);
     } else {
       removeFromCart(object);

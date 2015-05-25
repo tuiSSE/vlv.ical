@@ -1,5 +1,6 @@
 function injectBorders() {
     var now = new Date();
+    var changed = [];
     now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
     for (var i = 0; i < subjects.length; i++) {
@@ -15,10 +16,18 @@ function injectBorders() {
         if (lastUpdated > twoWeeks) {
             object.style.border = '2px solid red';
             object.style.borderRadius = '4px';
-            toastr.info('Es gab eine Änderung innerhalb der letzten 2 Wochen im Fach ' + getNameOfLecture(object), 'Änderung');
+            changed.push(getNameOfLecture(object));
         } else {
             object.style.border = '2px solid grey';
             object.style.borderRadius = '4px';
         }
+    }
+    
+    if (changed.length <= 3) {
+        for (var i = 0; i < changed.length; i++) {
+            toastr.info('Es gab eine Änderung innerhalb der letzten 2 Wochen im Fach ' + changed[i], 'Änderung');
+        }
+    } else {
+        toastr.info('Es gab eine Änderung innerhalb der letzten 2 Wochen in mehr als 3 Fächern', 'Änderung');
     }
 }

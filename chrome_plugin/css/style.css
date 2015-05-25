@@ -1,3 +1,8 @@
+* {
+   font-size: 12px;
+   line-height: 1.5;
+}
+
 #container {
     margin-left:    5px;
     margin-top:     5px;
@@ -79,37 +84,53 @@
 	transition: height 0.5s ease;
 	height: 100%;
 	table-layout: fixed;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 #openSelectionBox {
 	position: fixed;
 	z-index: 1000;
-	height: 0.5in;
-	width: 0.5in;
+	background-color: darkorange;
+	color: white;
+	font-family: arial;
+	font-size: 17px;
+	vertical-align: middle;
+	text-align: center;
+	height: 0.3in;
+	width: 1in;
 	right: 0px;
+	cursor: pointer;
+	border-bottom-left-radius: 5px;
 }
 
 .clearButton {
 	height: 0.5in;
 	background-color: #EFEFEF;
 	border: 2px;
+	cursor: pointer;
 }
 
 .selectionBoxItem {
 	background-color:white;
-	border-radius:4px;
 	position: relative;
-	width: 100%;
-	height: 0.3in;
-	float: left;
+	width: 95%;
+	height: 1in;
+	float: center;
 	border: 2px solid lightgrey;
 	display: block;
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
+	text-align: center;
 	font-family: Arial;
-	padding: 0px 5px;
+	padding: 0px 5px 0px 5px;
 	text-decoration: none;
+}
+
+.itemDetail {
+	font-size: 10px;
+	text-align: left;
 }
 
 #downloadArea {
@@ -119,6 +140,8 @@
 	height: 0.4in;
 	bottom: 0px;
 	clear: both;
+	border-bottom-left-radius: 5px;
+	border-top-left-radius: 5px;
 }
 
 #backButton {
@@ -132,12 +155,19 @@
 	background-color: red;
 	color: white;
 	font-family: sans-serif;
+	cursor: pointer;
+	vertical-align: middle;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
 }
 
 #itemBox {
 	position: absolute;
 	display: block;
 	width: 100%;
+	height: 95%;
 	clear: both;
-	top: 0.3in;
+	top: 0.25in;
+	bottom: 0.25;
+	overflow: scroll;
 }
