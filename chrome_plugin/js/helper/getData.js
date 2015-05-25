@@ -26,7 +26,7 @@ function getSpeakerOfLecture(object) {
   return object.childNodes[3].innerText.slice(12).split(',').join('\\,');
 }
 
-function getDayOfWeek2(object) {
+function getDayOfWeek(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
 }
 
@@ -50,33 +50,11 @@ function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
 
-function getTimeOfObject(object) {
-  return object.innerHTML.match(/[0-2][0-9].[0-5][0-9] - [0-2][0-9].[0-5][0-9]/g);
-}
-
-function getDayOfWeek(object) {
+function getDataByQuery(text, query) {
   var result = "";
   
-  if (object.innerHTML.match(/Montag/g).length > 0) {
-    result = object.innerHTML.match(/Montag/g);
-    
-  } else if (object.innerHTML.match(/Dienstag/g).length > 0) {
-    result = object.innerHTML.match(/Dienstag/g);
-    
-  } else if (object.innerHTML.match(/Mittwoch/g).length > 0) {
-    result = object.innerHTML.match(/Mittwoch/g);
-    
-  } else if (object.innerHTML.match(/Donnerstag/g).length > 0) {
-    result = object.innerHTML.match(/Donnerstag/g);
-    
-  } else if (object.innerHTML.match(/Freitag/g).length > 0) {
-    result = object.innerHTML.match(/Freitag/g);
-    
-  } else if (object.innerHTML.match(/Samstag/g).length > 0) {
-    result = object.innerHTML.match(/Samstag/g);
-    
-  } else if (object.innerHTML.match(/Sonntag/g).length > 0) {
-    result = object.innerHTML.match(/Sonntag/g);
+  if (object.innerHTML.match(query) != undefined) {
+    result = object.innerHTML.match(query);
   }
   
   return result;
@@ -172,7 +150,6 @@ function getLectures(objs) {
     };
     
      var time = getTimeOfObject(obj);
-     var dayOfWeek = getDayOfWeek(obj);
     
   }
   
