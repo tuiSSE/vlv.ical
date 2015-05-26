@@ -66,8 +66,8 @@ function getEventData(subject) {
   data.location = getLocation(subject);
 
   var time = parseTime(timeData, getDayOfWeek(subject));
-  event.begin = time[0];
-  event.end = time[1];
+  data.begin = time[0];
+  data.end = time[1];
 
-  return event;
+  return data;
 }

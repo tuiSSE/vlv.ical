@@ -14,8 +14,10 @@ function saveToCart(obj) {
   data.name = getNameOfLecture(obj);
   data.location = getLocation(obj);
   data.comment = getSpeakerOfLecture(obj);
+  
+  var timeData = [getDates(obj), getTime(obj)];
 
-  var time = parseTime(getTime(obj), getDayOfWeek(obj));
+  var time = parseTime(timeData, getDayOfWeek(obj));
   data.begin = time[0];
   data.end = time[1];
 
