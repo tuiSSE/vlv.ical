@@ -22,12 +22,15 @@
                 "js/libs/toastr.min.js",
                 "js/libs/vex.combined.min.js",
                 "js/libs/moment.js",
+                "js/libs/bootstrap.min.js",
+                "js/libs/bootbox.min.js",
                 "js/helper/calHelper.js",
                 "js/helper/fixDiv.js",
                 "js/helper/getData.js",
                 "js/helper/misc.js",
                 "js/helper/parseDate.js",
                 "js/helper/storage.js",
+                "js/helper/download.js",
                 "js/inject/selection.js",
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",
@@ -37,8 +40,8 @@
             ],
             "css": [
                 "css/toastr.min.css",
-                "css/vex-theme-default.css",
-                "css/vex-theme-top.css",
+                "css/bootstrap.min.css",
+                "css/bootstrap-theme.min.css",
                 "css/style.css"
             ]
         }

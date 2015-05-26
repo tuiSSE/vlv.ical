@@ -3,7 +3,9 @@ html, * {
 	margin: 0;
 	border: none;
 	text-decoration: none;
+	font-size: 12px;
 }
+
 #container {
     margin-left:    5px;
     margin-top:     5px;
@@ -103,15 +105,24 @@ html, * {
 #openSelectionBox {
 	position: fixed;
 	z-index: 1000;
-	height: 0.5in;
-	width: 0.5in;
+	background-color: darkorange;
+	color: white;
+	font-family: arial;
+	font-size: 17px;
+	vertical-align: middle;
+	text-align: center;
+	height: 0.3in;
+	width: 1in;
 	right: 0px;
+	cursor: pointer;
+	border-bottom-left-radius: 5px;
 }
 
 .clearButton {
 	height: 0.5in;
 	background-color: #EFEFEF;
 	border: 2px;
+	cursor: pointer;
 }
 
 .selectionBoxItem {
@@ -137,6 +148,11 @@ html, * {
 	background-color:#e0e6ef;
 }
 
+.itemDetail {
+	font-size: 10px;
+	text-align: left;
+}
+
 #downloadArea {
 	position: absolute;
 	display: block;
@@ -159,12 +175,14 @@ html, * {
 	text-align: center;
 	color: white;
 	font-family: sans-serif;
+	cursor: pointer;
 }
 
 #itemBox {
 	position: absolute;
 	display: block;
 	width: 100%;
+	height: 95%;
 	clear: both;
 }
 

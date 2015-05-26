@@ -1,9 +1,9 @@
 function updateSelection() {
-     var selection = loadObjects('selection');
+     var selection = load('selection');
      try {
             for (var i = 0; i < subjects.length; i++){
                try {
-                      if (containsObject(subjects[i], selection)) {
+                      if (containsObject(getNameOfLecture(subjects[i]), selection)) {
                             
                               subjects[i].style.background = '#e1f2f4';
 
@@ -25,15 +25,11 @@ function updateSelection() {
 }
 
 function addToCart(object) {
-      var selection = loadObjects('selection');
-      selection.push(object);
-      saveObjects('selection', selection);
+      saveToCart(object);
       updateSelection();
 }
 
 function removeFromCart(object) {
-      var selection = loadObjects('selection');
-      selection = removeFromList(selection, getObjectIndex(object, selection));
-      saveObjects('selection', selection);
+      deleteFromCart(object);
       updateSelection();
 }
