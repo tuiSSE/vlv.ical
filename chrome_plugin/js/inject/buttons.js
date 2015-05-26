@@ -7,7 +7,7 @@ function injectDownloadButtons(subjects) {
   var downloadSelected = document.createElement('input');
   downloadSelected.type = 'button';
   downloadSelected.id = 'downloadSelected';
-  downloadSelected.className = 'downloadButton';
+  downloadSelected.className = 'downloadButton primary-btn';
   downloadSelected.value = 'Download Selected';
 
   var box = $('#downloadArea')[0];
@@ -21,7 +21,7 @@ function injectDownloadButtons(subjects) {
   var downloadAll = document.createElement('input');
   downloadAll.type = 'button';
   downloadAll.id = 'downloadAll';
-  downloadAll.className = 'downloadButton';
+  downloadAll.className = 'downloadButton default-btn';
   downloadAll.value = 'Download All';
 
   var box = $('#downloadArea')[0];

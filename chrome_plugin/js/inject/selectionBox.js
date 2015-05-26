@@ -102,8 +102,11 @@ function injectDiv() {
 
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
-
-  var backButton = $('<div id="backButton"><center>hide</center></div>');
+  
+  var boxHeader = $('<div id="boxHeader"><p>MY SELECTION:</p></div>');
+  boxHeader.insertBefore($('#selectionBox')[0].childNodes[0]);
+  
+  var backButton = $('<div id="backButton">click here to hide</div>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   backButton = $('#backButton')[0];

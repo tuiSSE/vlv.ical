@@ -19,7 +19,6 @@ function injectBorders() {
             changed.push(getNameOfLecture(object));
         } else {
             object.style.border = '2px solid grey';
-            object.style.borderRadius = '4px';
         }
     }
     

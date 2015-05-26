@@ -69,6 +69,7 @@ function parseTime(raw, day) {
       time[0] = new String(year[0] + month[0] + date[0] + 'T' + hours[0][0] + hours[0][1] + '00');
       time[1] = new String(year[0] + month[0] + date[0] + 'T' + hours[1][0] + hours[1][1] + '00');
   } 
+  // Transform 'week of year' to Date
   else {
     var cWeektoDate;
     var rawPeriod = raw[0].match(/[0-9]+/g)
