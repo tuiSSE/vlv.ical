@@ -15,34 +15,31 @@ html, * {
 }
 
 .addButton {
-	-moz-box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #3dc21b;
-	box-shadow:inset 0px 1px 0px 0px black;
-	background-color:orange;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	border:0px solid #18ab29;
+	background-color:#435779;
 	display:inline-block;
 	cursor:pointer;
-	color:#ffffff;
+	color:white;
 	min-width: 250px;
 	font-family:Arial;
 	font-size:13px;
-	text-shadow: 2px;
 	padding:5px 20px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #2f6627;
+
 }
 .addButton:hover {
-	transition: background-color 0.5s ease;
-	background-color: #f27107;
+	transition: background-color 0.8s ease;
+	background-color: #7dcf85;
+	color: white;
 }
 .addButton:active {
 	position:relative;
 	top:1px;
+	
 }
-
+.addButton.active {
+	background-color: #7dcf85;
+	color: white;
+}
 .primary-btn {
 	background-color:#7dcf85;
 	color: white;
@@ -105,7 +102,7 @@ html, * {
 #openSelectionBox {
 	position: fixed;
 	z-index: 1000;
-	background-color: darkorange;
+	background-color: #435779;
 	color: white;
 	font-family: arial;
 	font-size: 17px;

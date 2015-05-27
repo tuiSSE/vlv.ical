@@ -5,7 +5,7 @@ function updateSelection() {
                try {
                       if (containsObject(getNameOfLecture(subjects[i]), selection)) {
                             
-                              subjects[i].style.background = '#e1f2f4';
+                              subjects[i].style.background = '#e0e6ef';
 
                       } else {
                               subjects[i].style.background = 'white';

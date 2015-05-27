@@ -53,6 +53,7 @@ function injectAddButtons(subjects) {
   }
   
   $(".addButton").on('click', function(){
+    $(this).toggleClass('active');
     var object = this.parentNode.parentNode;
     var selection = load('selection');
     if(!containsObject(getNameOfLecture(object), selection)) {
