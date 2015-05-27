@@ -32,6 +32,10 @@ if (/vers=text/.test(self.location.href)) {
   }
 }
 
+if (/vers=graph/.test(self.location.href)) {
+  fixDivHeight();
+}
+
 if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
     try {
       var subjects = [];
