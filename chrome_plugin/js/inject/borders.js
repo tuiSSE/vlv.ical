@@ -15,7 +15,6 @@ function injectBorders() {
         var twoWeeks = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 14);
         if (lastUpdated > twoWeeks) {
             object.style.border = '2px solid red';
-            object.style.borderRadius = '4px';
             changed.push(getNameOfLecture(object));
         } else {
             object.style.border = '2px solid grey';
