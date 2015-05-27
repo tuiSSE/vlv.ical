@@ -3,6 +3,7 @@
  */
 function saveToCart(obj) {
   var data = {
+    id: "",
     name: "",
     link: [],
     location: "",
@@ -11,6 +12,7 @@ function saveToCart(obj) {
     comment: "",
   }
 
+  data.id = getNameOfLecture(obj);
   data.name = getNameOfLecture(obj);
   data.location = getLocation(obj);
   data.comment = getSpeakerOfLecture(obj);
@@ -29,7 +31,7 @@ function saveToCart(obj) {
   try {
     items = load('selection');
   } catch (e) { }
-  items.push(data.name);
+  items.push(data.id);
 
   save('selection', items);
 }

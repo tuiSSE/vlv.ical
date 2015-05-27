@@ -7,7 +7,7 @@ function updateSelectionBox() {
     for (var i = 0; i < items.length; i++) {
       var item = load(items[i]);
       var element = $('<button id="' +
-                        item.name +
+                        item.id +
                         '" class="selectionBoxItem">' +
                         item.name + 
                         '</button>');
@@ -73,6 +73,8 @@ function openEditDialog(id) {
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
+                          
+                          updateSelectionBox();
                           
                         }
                     }
