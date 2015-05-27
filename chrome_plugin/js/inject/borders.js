@@ -17,7 +17,7 @@ function injectBorders() {
             object.style.border = '2px solid #0596A6';
             changed.push(getNameOfLecture(object));
         } else {
-            object.style.border = '2px solid #e0e6ef';
+            object.style.border = '2px solid #435779';
         }
     }
     
