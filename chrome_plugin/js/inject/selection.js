@@ -6,9 +6,11 @@ function updateSelection() {
                       if (containsObject(getNameOfLecture(subjects[i]), selection)) {
                             
                               subjects[i].style.background = '#e0e6ef';
+                              subjects[i].childNodes[1].childNodes[0].className = 'addButton active';
 
                       } else {
                               subjects[i].style.background = 'white';
+                              subjects[i].childNodes[1].childNodes[0].className = 'addButton';
                       }
                } catch (e) {
                      console.log(e);
