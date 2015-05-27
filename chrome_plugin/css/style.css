@@ -105,7 +105,7 @@ html, * {
 #openSelectionBox {
 	position: fixed;
 	z-index: 1000;
-	background-color: darkorange;
+	background-color: #435779;
 	color: white;
 	font-family: arial;
 	font-size: 17px;
