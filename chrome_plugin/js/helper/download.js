@@ -16,7 +16,10 @@ function downloadAll(subjects) {
 
   cal = closeCal(cal);
   var str = cal.join('\n');
-
+  
+  str = str.replace(/,/g, "\\,");
+  console.log(str);
+  
   var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
   saveAs(dl, "calendar.ics");
 }
@@ -33,9 +36,12 @@ function downloadSelection() {
       
       cal = closeCal(cal);
       var str = cal.join('\n');
-
+      
+      str = str.replace(/,/g, "\\,");
+      console.log(str);
+     
       var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
-      saveAs(dl, "calendar.ics");
+     saveAs(dl, "calendar.ics");
     } catch (e) {
       toastr.error("Download failed!", e);
     }

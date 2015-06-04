@@ -23,7 +23,7 @@ function getNameOfLecture(object) {
 }
 
 function getSpeakerOfLecture(object) {
-  return object.childNodes[3].innerText.slice(12).split(',').join('\\,');
+  return object.childNodes[3].innerText.slice(12);
 }
 
 function getDayOfWeek(object) {
@@ -31,7 +31,7 @@ function getDayOfWeek(object) {
 }
 
 function getLocation(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[9].innerText.split(',').join('\\,');
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[9].innerText;
 }
 
 function getTime(object) {
