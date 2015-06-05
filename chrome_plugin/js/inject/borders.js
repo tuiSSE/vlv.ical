@@ -14,7 +14,9 @@ function injectBorders() {
 
         var twoWeeks = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 14);
         if (lastUpdated > twoWeeks) {
-            object.style.border = '2px solid #0596A6';
+            object.style.border = '2px solid #435779';
+            object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].style.background = '#ea6a68';
+            object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].style.color = 'white';
             changed.push(getNameOfLecture(object));
         } else {
             object.style.border = '2px solid #435779';
