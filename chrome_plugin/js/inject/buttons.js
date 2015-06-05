@@ -22,7 +22,7 @@ function injectDownloadButtons(subjects) {
   downloadAll.type = 'button';
   downloadAll.id = 'downloadAll';
   downloadAll.className = 'downloadButton default-btn';
-  downloadAll.value = 'Download All';
+  downloadAll.value = 'Select All';
 
   var box = $('#downloadArea')[0];
   box.appendChild(downloadAll);
