@@ -1,8 +1,3 @@
-var entryInfo = {
-  entryPoint: "stupla_fs09",
-  rootElementLevel: 4
-}
-
 /*
  * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
  */
@@ -21,7 +16,7 @@ injectDiv();
 if (/vers=text/.test(self.location.href)) {
   fixDivHeight();
   // all subjects the plugin can find on current page
-  subjects = getElements(getRootElement(entryInfo));
+  subjects = getElements(getRootElement());
   fixIds(subjects);
   
   try {

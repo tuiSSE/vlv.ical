@@ -1,8 +1,8 @@
 /*
  * returns the root element, which is the highest element on the page we work with
  */
-function getRootElement(entryInfo) {
-  return $(document.getElementsByClassName(entryInfo.entryPoint)[0]).parents().eq(entryInfo.rootElementLevel)[0];
+function getRootElement() {
+  return $(document.getElementsByClassName("stupla_fs09")[0]).parents().eq(4)[0];
 }
 
 /*
