@@ -91,13 +91,15 @@ Um pro Key mehr Informationen abspeichern zu können, bieten sich die Funktionen
 ##### Beispiel
 ~~~js
 var writeData = {
-    id: "Test123",
+    id: "123",
     name: "Datensatz1",
 }
 
+//Speichern
 localStorage.setItem(writeData.id, JSON.stringify(writeData));
 
-var readData = JSON.parse(localStorage['Datensatz1']);
+//Laden
+var readData = JSON.parse(localStorage['123']);
 
 console.log(readData);
 ~~~
