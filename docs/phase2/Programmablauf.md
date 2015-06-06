@@ -36,3 +36,45 @@ Dieses noch leere Objekt wird nun nach und nach mit Informationen gefüllt:
 
 Die werte `name`, `location`, `begin`, `end` und `comment` sind durch den Nutzer später durch einen modalen Dialog änderbar.
 
+### Datenextraktion
+Der Aufbau einer Veranstaltung im VLV sieht aus wie folgt:
+
+~~~html
+<div id="nr562E99540764C6FAB44F232FB3CA3A61">
+	<p class="stupla_bold">Einführung in ERP-Systeme <a href="http://wcms3.rz.tu-ilmenau.de/%7Egoettlich/elvvi/sommer/list/fachseite.php?fid=562E99540764C6FAB44F232FB3CA3A60" target="_blank" title="Beschreibung von Einführung in ERP-Systeme (neues Fenster)">Beschreibung</a></p>
+	<p>Lesende(r): Prof. Nissen, Fak. WM</p>
+	<table border="1" cellspacing="0" summary="Liste der Veranstaltungen" width="99%">
+		<thead>
+			<tr>
+				<th class="stupla_fs09" scope="col">&nbsp;</th>
+				<th class="stupla_fs09" scope="col" axis="Tag">Wochentag</th>
+				<th class="stupla_fs09" scope="col" axis="Zeitraum/Datum">Zeitraum/ Datum</th>
+				<th class="stupla_fs09" scope="col" axis="Uhrzeit">Uhrzeit</th>
+				<th class="stupla_fs09" scope="col" axis="Raum">Raum</th>
+				<th class="stupla_fs09" scope="col" axis="Zielgruppe">Zielgruppe</th>
+				<th class="stupla_fs09" scope="col" axis="Änderungsdatum">Änderungsdatum</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr valign="top">
+				<th class="stupla_fs09" axis="Klausur:" scope="rowgroup" width="10%">Klausur:</th>
+				<td width="10%">Mittwoch</td>
+				<td width="10%">05.08.2015</td>
+				<td width="10%">17.00 - 18.00</td>
+				<td width="20%">H-Hs</td>
+				<td width="20%">WI 4.FS 1, WI 4.FS 2</td>
+				<td width="20%">Geändert am: 28.05.15</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+~~~
+
+Haben wir den Elternknoten (`<div id="nr...></div>`), so können wir die Kindknoten leicht auslesen. Dies erfolgt beispielsweise durch einen Aufruf wie: 
+
+~~~js
+object.childNodes[3].innerText.slice(12)
+~~~
+
+Das `object` wäre hierbei unser oberster Elternknoten. Von diesem aus wird das 3. Kindelement aufgerufen, davon dann der Wert `innerText` (da man sonst auch die HTML-Tags bekommt, welche wir nicht wollen). Abschließend wird durch `slice(12)` noch das vorhergehende `Lesende(r): ` abgeschnitten, damit wir als Ergebnis nur einen String mit dem Inhalt `Prof. Nissen, Fak. WM` erhalten.
+
