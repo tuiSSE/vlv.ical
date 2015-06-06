@@ -97,7 +97,7 @@ var writeData = {
 
 localStorage.setItem(writeData.id, JSON.stringify(writeData));
 
-var readData = JSON.parse(localStorage['Datensatz1'])
+var readData = JSON.parse(localStorage['Datensatz1']);
 
 console.log(readData);
 ~~~
