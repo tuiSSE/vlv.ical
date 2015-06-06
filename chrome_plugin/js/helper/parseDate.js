@@ -49,13 +49,16 @@ function parseTime(raw, day) {
       month = [], 
       year = [], 
       eventSpan = [];
+  // Handle when no time given
+  raw[1] = raw[1] === undefined ? raw[1] : '00.00 - 00.00';
+  
   // RegEx to check Dates
   var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
   
   var rawTime = raw[1].split(" ");
- 
   hours[0] = rawTime[0].split('.');
   hours[1] = rawTime[2].split('.');
+  
   
   // Check if Regular Date
   if(raw[0].match(dateEx)){
@@ -72,13 +75,31 @@ function parseTime(raw, day) {
   // Transform 'week of year' to Date
   else {
     var cWeektoDate;
-    var rawPeriod = raw[0].match(/[0-9]+/g)
+    var periodArr = raw[0].split(',');
+    /*for (var j = 0; j < periodArr.length; j++) {
+      periodArr[j] = periodArr[j].match(/[0-9]+/g)
                             .map(function(n) { return +(n); } );
-    for (var i = 0; i < rawPeriod.length; i++) {
-      cWeektoDate = moment().isoWeek(rawPeriod[i]);
-      cWeektoDate.day(day);
-      eventSpan.push(cWeektoDate);
-    }
+      
+      for (var i = 0; i < periodArr[j].length; i++) {
+        cWeektoDate = moment().isoWeek(periodArr[i]);
+        cWeektoDate.day(day);
+        eventSpan.push(cWeektoDate);
+      }
+    }*/
+    
+    periodArr.forEach(function(period, idx, pArr){
+      period = period.match(/[0-9]+/g).map(function(n) { return +(n); } );
+      period.forEach(function(p, i, arr){
+        arr[i] = moment().isoWeek(p).day(day);
+      });
+      eventSpan.push(period);
+      //console.log(pArr);
+    });
+    console.log(eventSpan);
+    /*var rawPeriod = raw[0].match(/[0-9]+/g)
+                            .map(function(n) { return +(n); } );
+                            console.log(rawPeriod);*/
+    
     // assign to time string
       year[0] = eventSpan[0].format('YYYY');
       month[0] = eventSpan[0].format('MM');
