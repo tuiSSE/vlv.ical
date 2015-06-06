@@ -88,7 +88,7 @@ Jeder moderne Browser unterstützt diese Art der Speicherung. Die Objekte bleibe
 
 Um pro Key mehr Informationen abspeichern zu können, bieten sich die Funktionen `JSON.stringify()` und `JSON.parse()` an. Erstere wandelt ein JSON Objekt in einen String um und zweitere in umgekehrte Richtung. 
 
-#### Beispiel
+##### Beispiel
 ~~~js
 var writeData = {
     id: "Test123",
@@ -102,3 +102,5 @@ var readData = JSON.parse(localStorage['Datensatz1'])
 console.log(readData);
 ~~~
 Dieser kleine Ablauf erzeugt ein JSON Objekt, welches eine ID und einen Namen besitzt. Dieses wird dann in den Local Storage geschrieben, indem es in einen String umgewandelt wird und unter dem Key 'Test123' abgespeichert wird. Durch `JSON.parse()` wird der gelesene String wieder in ein JSON Objekt umgewandelt und kann dann in der Konsole ausgegeben und als Objekt betrachtet werden.
+
+Dies kann erweitert werden, sodass auch komplexere Objekte, wie z.B. ein Array von JSON Objekten abgespeichert werden können.
