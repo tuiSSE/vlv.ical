@@ -11,3 +11,27 @@ Da die Überprüfung, ob es sich um die Textversion handelt, positiv ausfällt, 
 Nun ist die Initialisierung abgeschlossen und der weitere Programmablauf wird durch die Interaktionen des Nutzers bestimmt.
 
 ### Auswahl einer Veranstaltung
+Wird eine Veranstaltung zum Warenkorb hinzugefügt, so wird eine Funktion namens `saveToCart()` aufgerufen. Diese Funktion erzeugt ein leeres JSON Objekt nach folgendem Aufbau:
+
+~~~js
+{
+	id: "",
+	name: "",
+	link: [],
+	location: "",
+	begin: "",
+	end: "",
+	comment: ""
+}
+~~~
+
+Dieses noch leere Objekt wird nun nach und nach mit Informationen gefüllt:
+- `id`: Die eindeutige ID des Container-Objekts (ein div Objekt) dieser Veranstaltung
+- `name`: Der Name der Veranstaltung
+- `link`: Der DOM-Pfad zu dem Container-Objekt dieser Veranstaltung (um später wieder auf das ursprüngliche Objekt schließen zu können)
+- `location`: Der Ort, an dem die Veranstaltung stattfinden wird
+- `begin`: Der Startzeitpunkt, an dem die Veranstaltung beginnt
+- `end`: Der Endzeitpunkt, an dem die Veranstaltung endet
+- `comment`: Ein Kommentar zu der Veranstaltung, in dem wir die/den Lesende(n) einfügen
+
+Die werte `name`, `location`, `begin`, `end` und `comment` sind durch den Nutzer später durch einen modalen Dialog auch 
