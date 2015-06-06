@@ -106,3 +106,42 @@ console.log(readData);
 Dieser kleine Ablauf erzeugt ein JSON Objekt, welches eine ID und einen Namen besitzt. Dieses wird dann in den Local Storage geschrieben, indem es in einen String umgewandelt wird und unter dem Key `Test123` abgespeichert wird. Durch `JSON.parse()` wird der gelesene String wieder in ein JSON Objekt umgewandelt und kann dann in der Konsole ausgegeben und als Objekt betrachtet werden.
 
 Dies kann erweitert werden, sodass auch komplexere Objekte, wie z.B. ein Array von JSON Objekten abgespeichert werden können.
+
+### Download der Kalenderdatei
+Da eine gültige Kalenderdatei nach dem vCalendar Format lediglich eine Textdatei ist, die bestimmten Regeln folgt, ist es sehr einfach, eine solche in Javascript zu bauen. Zu diesem Zweck erzeugen wir einen Array, der nach und nach mit Informationen ergänzt wird. Ein Feld des Arrays entspricht einer Zeile der fertigen Datei.
+
+~~~js
+var cal = [];
+
+cal.push('BEGIN:VCALENDAR');
+
+/* hier werden einige für den Standard wichtige Informationen
+der Übersichtlichkeit wegen übersprungen */
+
+//Jede Veranstaltung wird hier in einer Schleife durchlaufen
+for (element in events) {
+	cal.push('BEGIN:VEVENT');
+	
+	/* hier werden die Informationen nach selbigem Prinzip eingefügt */
+	
+	cal.push('END:VEVENT');
+}
+
+cal.push('END:VCALENDAR');
+
+var fertigerString = cal.join('\n');
+
+var fertigeDatei = new Blob([fertigerString], { type: "text/plain;charset=utf-8" });
+
+//saveAs() Funktion wird durch eine eingebundene Bibliothek bereitgestellt
+saveAs(fertigeDatei, "calendar.ics");
+~~~
+
+Nachdem die letzte Zeile (`END:VCALENDAR`) hinzugefügt wurde, wird der Array mittels `.join("\n")` zusammengefügt. Zwischen allen Feldern wird allerdings zusätzlich noch ein Zeilenumbruch eingefügt. Dieser fertige String wird dann in einen Blob umgewandelt, welcher wiederum dann mit angegebenen Dateinamen als Datei heruntergeladen wird in das Downloadverzeichnis des Nutzers.
+
+___
+
+## Glossar
+- **local Storage**: Ein lokaler Speicher, der mit HTML5 eingeführt wurde. Er ist in allen modernen Browsern verfügbar und ermöglicht eine persistente Speicherung von Informationen über das Schließen einer Seite hinaus.
+- **JSON**: Die JavaScript Object Notation ist ein kompaktes Datenformat in einer einfach lesbaren Textform zum Zweck des Datenaustauschs zwischen Anwendungen.
+- **BLOB**: Binary Large Objects (BLOBs) sind große binäre Objekte. Dies dient uns dazu aus einem String eine Datei zu erstellen.
