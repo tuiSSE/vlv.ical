@@ -74,18 +74,7 @@ function parseTime(raw, day) {
   } 
   // Transform 'week of year' to Date
   else {
-    var cWeektoDate;
     var periodArr = raw[0].split(',');
-    /*for (var j = 0; j < periodArr.length; j++) {
-      periodArr[j] = periodArr[j].match(/[0-9]+/g)
-                            .map(function(n) { return +(n); } );
-      
-      for (var i = 0; i < periodArr[j].length; i++) {
-        cWeektoDate = moment().isoWeek(periodArr[i]);
-        cWeektoDate.day(day);
-        eventSpan.push(cWeektoDate);
-      }
-    }*/
     
     periodArr.forEach(function(period, idx, pArr){
       period = period.match(/[0-9]+/g).map(function(n) { return +(n); } );
@@ -93,12 +82,8 @@ function parseTime(raw, day) {
         arr[i] = moment().isoWeek(p).day(day);
       });
       eventSpan.push(period);
-      //console.log(pArr);
     });
     console.log(eventSpan);
-    /*var rawPeriod = raw[0].match(/[0-9]+/g)
-                            .map(function(n) { return +(n); } );
-                            console.log(rawPeriod);*/
     
     // assign to time string
       year[0] = eventSpan[0].format('YYYY');
