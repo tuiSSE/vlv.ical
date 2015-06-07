@@ -80,6 +80,41 @@ object.childNodes[3].innerText.slice(12)
 Das `object` wäre hierbei unser oberster Elternknoten. Von diesem aus wird das 3. Kindelement aufgerufen, davon dann der Wert `innerText` (da man sonst auch die HTML-Tags bekommt, welche wir nicht wollen). Abschließend wird durch `slice(12)` noch das vorhergehende `Lesende(r): ` abgeschnitten, damit wir als Ergebnis nur einen String mit dem Inhalt `Prof. Nissen, Fak. WM` erhalten.
 Analog dazu erfolgt das Auslesen der restlichen Informationen, wobei gegebenenfalls Informationen, wie die Uhrzeit und Datum vorher noch geparsed werden müssen.
 
+### Parsen der Veranstaltungsinformationen aus dem Vorlesungsverzeichnis
+
+Das Vorlesungsverzeichnis hat bei seinen einzelnen Veranstaltungen eine gleichbleibende Struktur (siehe oberen HTML-Ausschnitt des Vorlesungsverzeichnis der Veranstaltung Einführung in ERP-Systeme). Der Beginn des Auslesens wird mit dem mitteilen eines Einstiegspunkt in der Datei GetData.js in der Methode getRootElement() festgelegt. 
+~~~js
+function getRootElement() {
+  return $(document.getElementsByClassName("stupla_fs09")[0]).parents().eq(4)[0];
+}
+~~~
+In dieser Methode wird der übergreifende DIV-Container in dem sich die einzelnen Veranstaltungsdetails befinden ausgewählt. Praktisch der erste mit dem wir arbeiten. Es wird das Skript nach Elementen der Klasse „stupla_fs09“ durchsucht und deren übergreifender Elternknoten ausgewählt.
+Im nächsten Schritt werden die einzelnen Details Name der Veranstaltung, Lesender, Wochentag, Uhrzeit, Raum, Zielgruppen und Änderungsdatum durch einzelne Funktionen zurückgegeben. Hierbei wird der übergreifende Elternknoten auf die einzelnen Arrays der Kindknoten heruntergebrochen. Im unteren Beispiel der Wochentag durch die Methode getDayOfWeek(object). !!! Kann die Zahlen nicht logisch zuordnen, bräuchte hier vielleicht nochmal Hilfe oder wir lassen es weg!!
+~~~js
+ function getDayOfWeek(object) {
+  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
+}
+
+function getEventData(subject) {
+  var data = {
+    name: "",
+    comment: "",
+    location: "",
+    begin: "",
+    end: ""
+  };
+
+data.name = getNameOfLecture(subject);
+data.location = getLocation(subject);
+...
+}
+~~~
+In der Funktion getEventData(subject) (siehe oben) wird dann im Verfahren eines Key-Value-Stores, wie bereits im Punkt Datenextraktion erwähnt, in json-Dateitypen den einzelnen Keys (name, comment, location, begin, end) ein durch die Funktionen zurückgegebener Wert zugewiesen. Dies sind auch die einzigen Informationen einer Veranstaltung die der externen Kalenderapplikation durch die ics-Datei mitgeteilt werden. Die Informationen Zielgruppe und Änderungsdatum fallen hier raus.
+
+#### Zeit und Datum parsen
+
+Aufgrund des in der ics-Datei erlaubten Formats muss die Zeit und der Wochentag, sowie die Wiederholungen der Kalenderwochen in einen auf die Uhrzeit genauen Start- und Endtermin konvertiert werden. Dies erfolgt in der Datei parseDate.js . !Wird noch vervollständigt!
+
 ### Speicherung der Daten im Local Storage des Browsers
 Damit wir diese Informationen nach einem Schließen des Browserfensters nicht verlieren, speichern wir diese dann im local Storage ab.
 Jeder moderne Browser unterstützt diese Art der Speicherung. Die Objekte bleiben so lange erhalten, bis man sie explizit löscht. Implementiert ist dieser Storage durch einen simplen Key-Value-Storage, der es erlaubt zu einem beliebigen Key einen beliebigen Value zu speichern, wobei der Value aber nur in Form eines Strings abgespeichert werden kann.
