@@ -25,6 +25,7 @@ function addEvents(cal, event) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:20150425T221630Z');
     cal.push('UID:' + uid());
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
     cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     cal.push('SUMMARY:' + event.name);
