@@ -197,6 +197,17 @@ Verbinden von  beliebig  vielen GitHub Repositories auf einem Board ist möglich
 ####Anpassbare Workflow
 Das Board kann geändert werden, um es an den Arbeitsablauf  an zu passen.
 
+###Bewertung unseres Vorgehensmodell: Scrum
+
+Scrum ist ein sehr agiles Vorgehensmodell. es setzt nicht auf die klassischen Phasen der Softwareentwicklung.
+Die Ziele sind aber dieselben: Produkterfolg im Sinne der Interessen der Stakeholder, Prozesserfolg als termintreue Sprints. 
+Durch den Einsatz des Product Owner ist die Zufriedenheit des Auftraggebers gesichert. Weiter kann der der Product Owner User Storys im Backlog streichen oder bestätigen um so Individuelle und kurzfristige Wünsche zu realisieren. Das Ergebnis ist das Release Backlog. Der Product Owner ist somit Bestandteil des Produkterfolges. Für uns ist der Product Owner unser Betreuer. Scrum stellt somit die Zufriedenheit des Betreuers sicher, was nur im Interesse des Teams seien kann.
+
+Ferner liegt ein Vorteil von Scrum im Prozesserfolg. Durch die Organisation in Sprints mit von uns angepassten Terminen (Milestones)  haben wir zu jedem Zeitpunkt eine lauffähige Software die während der Dauer der Entwicklung weiter ergänzt und verbessert werden kann. Die Aufgabe des Scrum Masters ist es hier das Release Backlog in Sprints aufzuteilen. Die Sprintmeetings helfen uns ein gemeinsamen Konsens über etwaige Probleme zu finden und fördern so die Teamarbeit.  Ein „Feature freeze“ soll es in Scrum nicht geben. 
+
+Scrum ist für uns also ein großer Erfolg. Zunächst weil wir nur geringe praktische Erfahrung in der Softwareentwicklung haben und so auf Probleme die in der Entwicklungsphase nicht erkannt worden sind zu reagieren, aber auch weil wir als junges Team die Möglichkeit haben in Zusammenarbeit mit dem Product Owner die Software während der Entwicklung selber mit mitzugestalten. Abschließend lässt sich also sagen, dass Scrum für ein gut gewähltes Vorgehensmodell ist, da es ein sehr agilen und dynamischen Charakter hat.
+
+
 
 ___
 
