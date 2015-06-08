@@ -197,22 +197,6 @@ Verbinden von  beliebig  vielen GitHub Repositories auf einem Board ist möglich
 ####Anpassbare Workflow
 Das Board kann geändert werden, um es an den Arbeitsablauf  an zu passen.
 
-###Milestones 
-
-####Download All entfernen
-Der Button DownloadAll sollte entfernt werden. Stattdessen sollte es eine Funktion 'select all' geben, die alle Elemente mit einem Klick in den Warenkorb legt.
-
-####Richtigen Warenkorb implementieren
-Den Warenkorb richtig umsetzen, d.h. der Warenkorb soll verfügbar sein, auch wenn man die Seite neu lädt und auf andere Unterseiten des VLV wechselt. (über Local Storage, Cookies, o.ä.)
-
-####Refactoring der getData.js
-Die Funktionen müssen so umgebaut werden, dass die Struktur reingegeben wird, sodass die Funktionen sowohl für Vorlesungen, Übungen, als später auch für andere Seiten funktionieren.
-
-####Download Buttons auf Detailansicht
-Der Benutzer soll die Möglichkeit haben, auf der Detailansicht (Beschreibung) einzelne Termine direkt herunterzuladen.
-
-####Critical: Terminzeiten falsch
-Beginn und Ende liegen mehr als 2 Monate auseinander, statt Wiederholungen.
 
 ___
 
