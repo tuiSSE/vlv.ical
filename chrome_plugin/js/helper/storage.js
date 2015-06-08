@@ -5,11 +5,11 @@ function saveToCart(obj) {
   var data = {
     id: "",
     name: "",
-    link: [],
     location: "",
     begin: "",
     end: "",
     comment: "",
+     link: []
   }
 
   data.id = getNameOfLecture(obj);
