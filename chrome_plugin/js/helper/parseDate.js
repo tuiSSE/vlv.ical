@@ -81,24 +81,15 @@ function parseTime(raw, day) {
       period = period.match(/[0-9]+/g).map(function(n) { return +(n); } );
       period.forEach(function(p, i, arr){
         // create date object with moment
-        arr[i] = moment().isoWeek(p).day(day).hour(hours[i][0]).minute(hours[i][1]).second(0);
-        console.log(arr[i].format('YYYYMMDD'+'T'+'HHmmss'))
+        arr[i] = moment().isoWeek(p).day(day).hour(hours[i][0]).minute(hours[i][1]).second(0).format('YYYYMMDD'+'T'+'HHmmss');
       });
       eventSpan.push(period);
     });
-    console.log(eventSpan);
     
     // assign to time string
-      year[0] = eventSpan[0].format('YYYY');
-      month[0] = eventSpan[0].format('MM');
-      date[0] = eventSpan[0].format('DD');
-      
-      year[1] = eventSpan[eventSpan.length - 1].format('YYYY');
-      month[1] = eventSpan[eventSpan.length - 1].format('MM');
-      date[1] = eventSpan[eventSpan.length - 1].format('DD');
-      
-      time[0] = new String(year[0] + month[0] + date[0] + 'T' + hours[0][0] + hours[0][1] + '00');
-      time[1] = new String(year[1] + month[1] + date[1] + 'T' + hours[1][0] + hours[1][1] + '00');
+    eventSpan.forEach(function(event) {
+      time.push(event);
+    });
   }
  
   console.log(time);
