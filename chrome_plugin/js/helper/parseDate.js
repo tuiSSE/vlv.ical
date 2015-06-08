@@ -42,7 +42,7 @@ function getDate(w, y, day) { // Function still needed?
 
 
 // TODO: Clean Up Code
-function parseTime(raw, day) {
+function parseTime(raw, day) { 
   var time =[];
   var hours = [], 
       date = [], 
@@ -50,7 +50,7 @@ function parseTime(raw, day) {
       year = [], 
       eventSpan = [];
   // Handle when no time given
-  raw[1] = raw[1] === undefined ? raw[1] : '00.00 - 00.00';
+  raw[1] = raw[1] !== undefined ? raw[1] : '00.00 - 00.00';
   
   // RegEx to check Dates
   var dateEx = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/;
@@ -59,6 +59,7 @@ function parseTime(raw, day) {
   hours[0] = rawTime[0].split('.');
   hours[1] = rawTime[2].split('.');
   
+  console.log(hours[0]);
   
   // Check if Regular Date
   if(raw[0].match(dateEx)){
@@ -79,7 +80,8 @@ function parseTime(raw, day) {
     periodArr.forEach(function(period, idx, pArr){
       period = period.match(/[0-9]+/g).map(function(n) { return +(n); } );
       period.forEach(function(p, i, arr){
-        arr[i] = moment().isoWeek(p).day(day);
+        // create date object with moment
+        arr[i] = moment().isoWeek(p).day(day).hour(hours[i][0]).minute(hours[i][1]).second(0);
       });
       eventSpan.push(period);
     });
