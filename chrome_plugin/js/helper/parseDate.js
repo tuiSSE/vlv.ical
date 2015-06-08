@@ -59,8 +59,6 @@ function parseTime(raw, day) {
   hours[0] = rawTime[0].split('.');
   hours[1] = rawTime[2].split('.');
   
-  console.log(hours[0]);
-  
   // Check if Regular Date
   if(raw[0].match(dateEx)){
     var regularDate = moment(raw[0], "DD.MM.YYYY");
@@ -86,7 +84,7 @@ function parseTime(raw, day) {
       eventSpan.push(period);
     });
     
-    // assign to time string
+    // assign to time var
     eventSpan.forEach(function(event) {
       time.push(event);
     });

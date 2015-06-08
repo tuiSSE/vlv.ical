@@ -5,10 +5,20 @@ function downloadAll(subjects) {
   var cal = initCal();
 
   try {
-    for (var i = 0; i < subjects.length; i++) {
-      var event = getEventData(subjects[i]);
-      cal = addEvent(cal, event);
-    }
+    subjects.forEach(function(subject, i, subArray){
+      var event = getEventData(subject);
+      
+      if(event.seq !== undefined && event.seq.length !== 0){
+          event.seq.forEach(function(ev, i, eventArray){
+            item.begin = ev[0];
+            item.end = ev[1];
+            
+            cal = addEvents(cal, ev);
+          });
+      } else {
+        cal = addEvent(cal, event);
+      }
+    });
   } catch (e) {
     console.log(e);
     console.log(subjects[i]);
@@ -30,9 +40,21 @@ function downloadSelection() {
     try {
       var cal = initCal();
       
-      for (var i = 0; i < items.length; i++) {
-        cal = addEvent(cal, load(items[i]));
-      }
+      items.forEach(function(item, i, iArray){
+        var tmp = load(item);
+   
+        if(tmp.seq !== undefined && tmp.seq.length !== 0){
+          tmp.seq.forEach(function(event, i, eventArray){
+            tmp.begin = event[0];
+            tmp.end = event[1];
+            
+            cal = addEvents(cal, tmp);
+          });
+        } else {
+          cal = addEvent(cal, load(item));
+        }
+        
+      });
       
       cal = closeCal(cal);
       var str = cal.join('\n');

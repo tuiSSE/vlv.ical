@@ -56,7 +56,8 @@ function getEventData(subject) {
     comment: "",
     location: "",
     begin: "",
-    end: ""
+    end: "",
+    seq:[]
   };
   
   var timeData = [getDates(subject), getTime(subject)];
@@ -66,8 +67,14 @@ function getEventData(subject) {
   data.location = getLocation(subject);
 
   var time = parseTime(timeData, getDayOfWeek(subject));
-  data.begin = time[0];
-  data.end = time[1];
+  
+  
+  if(!Array.isArray(time[0])){
+    data.begin = time[0];
+    data.end = time[1];
+  } else {
+    data.seq = time;
+  }
 
   return data;
 }
