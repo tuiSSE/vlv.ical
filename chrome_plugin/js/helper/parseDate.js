@@ -82,6 +82,7 @@ function parseTime(raw, day) {
       period.forEach(function(p, i, arr){
         // create date object with moment
         arr[i] = moment().isoWeek(p).day(day).hour(hours[i][0]).minute(hours[i][1]).second(0);
+        console.log(arr[i].format('YYYYMMDD'+'T'+'HHmmss'))
       });
       eventSpan.push(period);
     });
