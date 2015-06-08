@@ -31,11 +31,11 @@ Die werte `name`, `location`, `begin`, `end` und `comment` sind durch den Nutzer
 ### Datenextraktion
 Der Aufbau einer Veranstaltung im VLV sieht aus wie folgt:
 
-![](res/dataExtraction2.jpg)
+![](res/dataExtraction1.jpg)
 
 Haben wir den Elternknoten (`<div id="nr...></div>`), so können wir die Kindknoten leicht auslesen. Dies erfolgt beispielsweise durch einen Aufruf wie: 
 
-![](res/dataExtraction2)
+![](res/dataExtraction2.jpg)
 
 Das `object` wäre hierbei unser oberster Elternknoten. Von diesem aus wird das 3. Kindelement aufgerufen, davon dann der Wert `innerText` (da man sonst auch die HTML-Tags bekommt, welche wir nicht wollen). Abschließend wird durch `slice(12)` noch das vorhergehende `Lesende(r): ` abgeschnitten, damit wir als Ergebnis nur einen String mit dem Inhalt `Prof. Nissen, Fak. WM` erhalten.
 Analog dazu erfolgt das Auslesen der restlichen Informationen, wobei gegebenenfalls Informationen, wie die Uhrzeit und Datum vorher noch geparsed werden müssen.
