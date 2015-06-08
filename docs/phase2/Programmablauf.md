@@ -1,4 +1,5 @@
 # 2. Review
+Dieses Dokument und dessen Inhalt knüpfen an Sachverhalte des ersten Review-Dokuments an.
 
 ## Technischer Hintergrund
 
