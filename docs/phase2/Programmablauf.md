@@ -15,17 +15,7 @@ Nun ist die Initialisierung abgeschlossen und der weitere Programmablauf wird du
 ### Auswahl einer Veranstaltung
 Wird eine Veranstaltung zum Warenkorb hinzugefügt, so wird eine Funktion namens `saveToCart()` aufgerufen. Diese Funktion erzeugt ein leeres JSON Objekt nach folgendem Aufbau:
 
-~~~js
-{
-	id: "",
-	name: "",
-	link: [],
-	location: "",
-	begin: "",
-	end: "",
-	comment: ""
-}
-~~~
+![](res/selection.jpg)
 
 Dieses noch leere Objekt wird nun nach und nach mit Informationen gefüllt:
 - `id`: Die eindeutige ID des Container-Objekts (ein div Objekt) dieser Veranstaltung
@@ -41,42 +31,11 @@ Die werte `name`, `location`, `begin`, `end` und `comment` sind durch den Nutzer
 ### Datenextraktion
 Der Aufbau einer Veranstaltung im VLV sieht aus wie folgt:
 
-~~~html
-<div id="nr562E99540764C6FAB44F232FB3CA3A61">
-	<p class="stupla_bold">Einführung in ERP-Systeme <a href="http://wcms3.rz.tu-ilmenau.de/%7Egoettlich/elvvi/sommer/list/fachseite.php?fid=562E99540764C6FAB44F232FB3CA3A60" target="_blank" title="Beschreibung von Einführung in ERP-Systeme (neues Fenster)">Beschreibung</a></p>
-	<p>Lesende(r): Prof. Nissen, Fak. WM</p>
-	<table border="1" cellspacing="0" summary="Liste der Veranstaltungen" width="99%">
-		<thead>
-			<tr>
-				<th class="stupla_fs09" scope="col">&nbsp;</th>
-				<th class="stupla_fs09" scope="col" axis="Tag">Wochentag</th>
-				<th class="stupla_fs09" scope="col" axis="Zeitraum/Datum">Zeitraum/ Datum</th>
-				<th class="stupla_fs09" scope="col" axis="Uhrzeit">Uhrzeit</th>
-				<th class="stupla_fs09" scope="col" axis="Raum">Raum</th>
-				<th class="stupla_fs09" scope="col" axis="Zielgruppe">Zielgruppe</th>
-				<th class="stupla_fs09" scope="col" axis="Änderungsdatum">Änderungsdatum</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr valign="top">
-				<th class="stupla_fs09" axis="Klausur:" scope="rowgroup" width="10%">Klausur:</th>
-				<td width="10%">Mittwoch</td>
-				<td width="10%">05.08.2015</td>
-				<td width="10%">17.00 - 18.00</td>
-				<td width="20%">H-Hs</td>
-				<td width="20%">WI 4.FS 1, WI 4.FS 2</td>
-				<td width="20%">Geändert am: 28.05.15</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
-~~~
+![](res/dataExtraction2.jpg)
 
 Haben wir den Elternknoten (`<div id="nr...></div>`), so können wir die Kindknoten leicht auslesen. Dies erfolgt beispielsweise durch einen Aufruf wie: 
 
-~~~js
-object.childNodes[3].innerText.slice(12)
-~~~
+![](res/dataExtraction2)
 
 Das `object` wäre hierbei unser oberster Elternknoten. Von diesem aus wird das 3. Kindelement aufgerufen, davon dann der Wert `innerText` (da man sonst auch die HTML-Tags bekommt, welche wir nicht wollen). Abschließend wird durch `slice(12)` noch das vorhergehende `Lesende(r): ` abgeschnitten, damit wir als Ergebnis nur einen String mit dem Inhalt `Prof. Nissen, Fak. WM` erhalten.
 Analog dazu erfolgt das Auslesen der restlichen Informationen, wobei gegebenenfalls Informationen, wie die Uhrzeit und Datum vorher noch geparsed werden müssen.
@@ -85,34 +44,13 @@ Analog dazu erfolgt das Auslesen der restlichen Informationen, wobei gegebenenfa
 
 Das Vorlesungsverzeichnis hat bei seinen einzelnen Veranstaltungen eine gleichbleibende Struktur (siehe oberen HTML-Ausschnitt des Vorlesungsverzeichnis der Veranstaltung Einführung in ERP-Systeme). Der Beginn des Auslesens wird mit dem mitteilen eines Einstiegspunkt in der Datei GetData.js in der Methode getRootElement() festgelegt. 
 
-~~~js
-function getRootElement() {
-  return $(document.getElementsByClassName("stupla_fs09")[0]).parents().eq(4)[0];
-}
-~~~
+![](res/getData1.jpg)
 
 In dieser Methode wird der übergreifende DIV-Container in dem sich die einzelnen Veranstaltungsdetails befinden ausgewählt. Praktisch der erste mit dem wir arbeiten. Es wird das Skript nach Elementen der Klasse `stupla_fs09` durchsucht und deren übergreifender Elternknoten ausgewählt.
 Im nächsten Schritt werden die einzelnen Details Name der Veranstaltung, Lesender, Wochentag, Uhrzeit, Raum, Zielgruppen und Änderungsdatum durch einzelne Funktionen zurückgegeben. Hierbei wird der übergreifende Elternknoten auf die einzelnen Arrays der Kindknoten heruntergebrochen. Im unteren Beispiel wird der Wochentag durch die Methode getDayOfWeek(object) zurückgegeben. Als Input bekommt die Methode den Elternknoten und durchläuft dann eine Kette aus Kindknoten, bis es zum richtigen Knoten gelangt, der den Wochentag beinhaltet. Den Inhalt dessen liefert das Attribut `.innerText`.
 
-~~~js
- function getDayOfWeek(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
-}
+![](res/getData2.jpg)
 
-function getEventData(subject) {
-  var data = {
-    name: "",
-    comment: "",
-    location: "",
-    begin: "",
-    end: ""
-  };
-
-data.name = getNameOfLecture(subject);
-data.location = getLocation(subject);
-...
-}
-~~~
 In der Funktion getEventData(subject) (siehe oben) wird dann den einzelnen Keys (`name`, `comment`, `location`, `begin`, `end`) des JSON Objektes `data` ein durch die Funktionen zurückgegebener Wert zugewiesen. Dies sind die Informationen einer Veranstaltung, die der externen Kalenderapplikation in Form einer ics-Datei mitgeteilt werden. Die Informationen Zielgruppe und Änderungsdatum fallen hier heraus.
 
 #### Zeit und Datum parsen
@@ -128,20 +66,9 @@ Jeder moderne Browser unterstützt diese Art der Speicherung. Die Objekte bleibe
 Um pro Key mehr Informationen abspeichern zu können, bieten sich die Funktionen `JSON.stringify()` und `JSON.parse()` an. Erstere wandelt ein JSON Objekt in einen String um und zweitere in umgekehrte Richtung. 
 
 ##### Beispiel
-~~~js
-var writeData = {
-    id: "123",
-    name: "Datensatz1",
-}
 
-//Speichern
-localStorage.setItem(writeData.id, JSON.stringify(writeData));
+![](res/localStorageExample.jpg)
 
-//Laden
-var readData = JSON.parse(localStorage['123']);
-
-console.log(readData);
-~~~
 Dieser kleine Ablauf erzeugt ein JSON Objekt, welches eine ID und einen Namen besitzt. Dieses wird dann in den Local Storage geschrieben, indem es in einen String umgewandelt wird und unter dem Key `Test123` abgespeichert wird. Durch `JSON.parse()` wird der gelesene String wieder in ein JSON Objekt umgewandelt und kann dann in der Konsole ausgegeben und als Objekt betrachtet werden.
 
 Dies kann erweitert werden, sodass auch komplexere Objekte, wie z.B. ein Array von JSON Objekten abgespeichert werden können.
@@ -149,32 +76,7 @@ Dies kann erweitert werden, sodass auch komplexere Objekte, wie z.B. ein Array v
 ### Download der Kalenderdatei
 Da eine gültige Kalenderdatei nach dem vCalendar Format lediglich eine Textdatei ist, die bestimmten Regeln folgt, ist es sehr einfach, eine solche in Javascript zu bauen. Zu diesem Zweck erzeugen wir einen Array, der nach und nach mit Informationen ergänzt wird. Ein Feld des Arrays entspricht einer Zeile der fertigen Datei.
 
-~~~js
-var cal = [];
-
-cal.push('BEGIN:VCALENDAR');
-
-/* hier werden einige für den Standard wichtige Informationen
-der Übersichtlichkeit wegen übersprungen */
-
-//Jede Veranstaltung wird hier in einer Schleife durchlaufen
-for (element in events) {
-	cal.push('BEGIN:VEVENT');
-	
-	/* hier werden die Informationen nach selbigem Prinzip eingefügt */
-	
-	cal.push('END:VEVENT');
-}
-
-cal.push('END:VCALENDAR');
-
-var fertigerString = cal.join('\n');
-
-var fertigeDatei = new Blob([fertigerString], { type: "text/plain;charset=utf-8" });
-
-//saveAs() Funktion wird durch eine eingebundene Bibliothek bereitgestellt
-saveAs(fertigeDatei, "calendar.ics");
-~~~
+![](res/downloadCal.jpg)
 
 Nachdem die letzte Zeile (`END:VCALENDAR`) hinzugefügt wurde, wird der Array mittels `.join("\n")` zusammengefügt. Zwischen allen Feldern wird allerdings zusätzlich noch ein Zeilenumbruch eingefügt. Dieser fertige String wird dann in einen Blob umgewandelt. Dieser wird anschließend mit angegebenem Dateinamen als .ics Datei heruntergelden.
 
