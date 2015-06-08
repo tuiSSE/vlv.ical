@@ -83,13 +83,16 @@ Analog dazu erfolgt das Auslesen der restlichen Informationen, wobei gegebenenfa
 ### Parsen der Veranstaltungsinformationen aus dem Vorlesungsverzeichnis
 
 Das Vorlesungsverzeichnis hat bei seinen einzelnen Veranstaltungen eine gleichbleibende Struktur (siehe oberen HTML-Ausschnitt des Vorlesungsverzeichnis der Veranstaltung Einführung in ERP-Systeme). Der Beginn des Auslesens wird mit dem mitteilen eines Einstiegspunkt in der Datei GetData.js in der Methode getRootElement() festgelegt. 
+
 ~~~js
 function getRootElement() {
   return $(document.getElementsByClassName("stupla_fs09")[0]).parents().eq(4)[0];
 }
 ~~~
-In dieser Methode wird der übergreifende DIV-Container in dem sich die einzelnen Veranstaltungsdetails befinden ausgewählt. Praktisch der erste mit dem wir arbeiten. Es wird das Skript nach Elementen der Klasse „stupla_fs09“ durchsucht und deren übergreifender Elternknoten ausgewählt.
-Im nächsten Schritt werden die einzelnen Details Name der Veranstaltung, Lesender, Wochentag, Uhrzeit, Raum, Zielgruppen und Änderungsdatum durch einzelne Funktionen zurückgegeben. Hierbei wird der übergreifende Elternknoten auf die einzelnen Arrays der Kindknoten heruntergebrochen. Im unteren Beispiel der Wochentag durch die Methode getDayOfWeek(object). !!! Kann die Zahlen nicht logisch zuordnen, bräuchte hier vielleicht nochmal Hilfe oder wir lassen es weg!!
+
+In dieser Methode wird der übergreifende DIV-Container in dem sich die einzelnen Veranstaltungsdetails befinden ausgewählt. Praktisch der erste mit dem wir arbeiten. Es wird das Skript nach Elementen der Klasse `stupla_fs09` durchsucht und deren übergreifender Elternknoten ausgewählt.
+Im nächsten Schritt werden die einzelnen Details Name der Veranstaltung, Lesender, Wochentag, Uhrzeit, Raum, Zielgruppen und Änderungsdatum durch einzelne Funktionen zurückgegeben. Hierbei wird der übergreifende Elternknoten auf die einzelnen Arrays der Kindknoten heruntergebrochen. Im unteren Beispiel der Wochentag durch die Methode getDayOfWeek(object) zurückgegeben. Als Input bekommt die Methode den Elternknoten und durchläuft dann eine Kette aus Kindknoten, bis es zum richtigen Knoten gelangt, der den Wochentag beinhaltet. Den Inhalt dessen liefert das Attribut `.innerText`.
+
 ~~~js
  function getDayOfWeek(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
@@ -109,7 +112,7 @@ data.location = getLocation(subject);
 ...
 }
 ~~~
-In der Funktion getEventData(subject) (siehe oben) wird dann im Verfahren eines Key-Value-Stores, wie bereits im Punkt Datenextraktion erwähnt, in json-Dateitypen den einzelnen Keys (name, comment, location, begin, end) ein durch die Funktionen zurückgegebener Wert zugewiesen. Dies sind auch die einzigen Informationen einer Veranstaltung die der externen Kalenderapplikation durch die ics-Datei mitgeteilt werden. Die Informationen Zielgruppe und Änderungsdatum fallen hier raus.
+In der Funktion getEventData(subject) (siehe oben) wird dann den einzelnen Keys (`name`, `comment`, `location`, `begin`, `end`) des JSON Objektes `data` ein durch die Funktionen zurückgegebener Wert zugewiesen. Dies sind die Informationen einer Veranstaltung, die der externen Kalenderapplikation in Form einer ics-Datei mitgeteilt werden. Die Informationen Zielgruppe und Änderungsdatum fallen hier heraus.
 
 #### Zeit und Datum parsen
 
