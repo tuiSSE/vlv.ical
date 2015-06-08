@@ -177,6 +177,43 @@ saveAs(fertigeDatei, "calendar.ics");
 
 Nachdem die letzte Zeile (`END:VCALENDAR`) hinzugefügt wurde, wird der Array mittels `.join("\n")` zusammengefügt. Zwischen allen Feldern wird allerdings zusätzlich noch ein Zeilenumbruch eingefügt. Dieser fertige String wird dann in einen Blob umgewandelt. Dieser wird anschließend mit angegebenem Dateinamen als .ics Datei heruntergelden.
 
+###Waffle.io
+
+Waffle erstellt eine vollständige Projektmanagementlösung von vorhandenen GitHub Themen.
+Das Waffle Bord zeigt die  GitHub Issues und Pull Requests in Echtzeit. Waffle achtet auf die Aktionen im Arbeitsablauf um zu wissen, wann  die Arbeit beendet ist und aktualisiert den  Status automatisch.
+Jeder kann einem öffentlichen Waffle Bord zu sehen.  
+Hinzufügen eines Waffle Abzeichen auf Readme lassen die Mitwirkenden wissen, was bearbeitet werden muss und was schon fertig ist. 
+Waffle ist mit dem GitHub-Repository integriert, so dass die Issues an dem Board standardmäßig organisiert werden. Das  spart Zeit und Arbeit. Waffle  hilft die laufenden Arbeiten zu visualisieren und zu priorisieren.
+
+####Real-time
+Änderungen an dem Bord werden angezeigt ohne dass die Seite neu geladen werden muss.
+
+####Milestones
+Organisieren der Issues in Milestones  dient zur einfacheren Planung und Verfolgung. 
+
+####Multiple Repos on a single Board
+Verbinden von  beliebig  vielen GitHub Repositories auf einem Board ist möglich.
+
+####Anpassbare Workflow
+Das Board kann geändert werden, um es an den Arbeitsablauf  an zu passen.
+
+###Milestones 
+
+####Download All entfernen
+Der Button DownloadAll sollte entfernt werden. Stattdessen sollte es eine Funktion 'select all' geben, die alle Elemente mit einem Klick in den Warenkorb legt.
+
+####Richtigen Warenkorb implementieren
+Den Warenkorb richtig umsetzen, d.h. der Warenkorb soll verfügbar sein, auch wenn man die Seite neu lädt und auf andere Unterseiten des VLV wechselt. (über Local Storage, Cookies, o.ä.)
+
+####Refactoring der getData.js
+Die Funktionen müssen so umgebaut werden, dass die Struktur reingegeben wird, sodass die Funktionen sowohl für Vorlesungen, Übungen, als später auch für andere Seiten funktionieren.
+
+####Download Buttons auf Detailansicht
+Der Benutzer soll die Möglichkeit haben, auf der Detailansicht (Beschreibung) einzelne Termine direkt herunterzuladen.
+
+####Critical: Terminzeiten falsch
+Beginn und Ende liegen mehr als 2 Monate auseinander, statt Wiederholungen.
+
 ___
 
 ## Glossar
