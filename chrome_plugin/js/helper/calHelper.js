@@ -31,7 +31,7 @@ function addEvents(cal, event) {
     cal.push('SUMMARY:' + event.name);
     cal.push("DESCRIPTION:" + event.speaker);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.end);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.until);
     cal.push('DTSTAMP:20150425T221630Z');
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');

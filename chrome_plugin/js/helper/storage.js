@@ -9,6 +9,7 @@ function saveToCart(obj) {
     location: "",
     begin: "",
     end: "",
+    until: "",
     seq: [],
     comment: "",
   }

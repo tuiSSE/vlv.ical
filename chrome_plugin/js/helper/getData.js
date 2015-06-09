@@ -57,6 +57,7 @@ function getEventData(subject) {
     location: "",
     begin: "",
     end: "",
+    until: "",
     seq:[]
   };
   

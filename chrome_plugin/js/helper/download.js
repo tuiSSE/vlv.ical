@@ -46,7 +46,8 @@ function downloadSelection() {
         if(tmp.seq !== undefined && tmp.seq.length !== 0){
           tmp.seq.forEach(function(event, i, eventArray){
             tmp.begin = event[0];
-            tmp.end = event[1];
+            tmp.end = event[2];
+            tmp.until = event[1];
             
             cal = addEvents(cal, tmp);
           });

@@ -79,6 +79,9 @@ function parseTime(raw, day) {
       period = period.match(/[0-9]+/g).map(function(n) { return +(n); } );
       period.forEach(function(p, i, arr){
         // create date object with moment
+        if(i === 0){
+          arr[arr.length] = moment().isoWeek(p).day(day).hour(hours[1][0]).minute(hours[1][1]).second(0).format('YYYYMMDD'+'T'+'HHmmss');
+        }
         arr[i] = moment().isoWeek(p).day(day).hour(hours[i][0]).minute(hours[i][1]).second(0).format('YYYYMMDD'+'T'+'HHmmss');
       });
       eventSpan.push(period);
