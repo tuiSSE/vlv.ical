@@ -42,9 +42,15 @@ function downloadSelection() {
       
       items.forEach(function(item, i, iArray){
         var tmp = load(item);
-   
+        /*
+         * Check if data.seq is not an empty array
+         * Then iterate over it
+         */
         if(tmp.seq !== undefined && tmp.seq.length !== 0){
           tmp.seq.forEach(function(event, i, eventArray){
+            /*
+             * Get data.seq[Begin, End, Until] items
+             */
             tmp.begin = event[0];
             tmp.end = event[2];
             tmp.until = event[1];

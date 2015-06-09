@@ -69,7 +69,9 @@ function getEventData(subject) {
 
   var time = parseTime(timeData, getDayOfWeek(subject));
   
-  
+  /*
+   * When time[0] is not an array, the event is non-repeating
+   */
   if(!Array.isArray(time[0])){
     data.begin = time[0];
     data.end = time[1];
