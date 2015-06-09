@@ -8,6 +8,8 @@ function saveToCart(obj) {
     location: "",
     begin: "",
     end: "",
+    until: "",
+    seq: [],
     comment: "",
      link: []
   }
@@ -20,8 +22,15 @@ function saveToCart(obj) {
   var timeData = [getDates(obj), getTime(obj)];
 
   var time = parseTime(timeData, getDayOfWeek(obj));
-  data.begin = time[0];
-  data.end = time[1];
+  
+  if(!Array.isArray(time[0])){
+    data.begin = time[0];
+    data.end = time[1];
+  } else {
+    data.seq = time;
+  }
+  
+  console.log(data);
 
   data.link = getDomPath(obj);
 
