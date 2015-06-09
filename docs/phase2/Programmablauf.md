@@ -61,7 +61,14 @@ In der Funktion getEventData(subject) (siehe oben) wird dann den einzelnen Keys 
 
 #### Zeit und Datum parsen
 
-Aufgrund des in der ics-Datei erlaubten Formats muss die Zeit und der Wochentag, sowie die Wiederholungen der Kalenderwochen in einen auf die Uhrzeit genauen Start- und Endtermin konvertiert werden. Dies erfolgt in der Datei parseDate.js . !Wird noch vervollständigt!
+Aufgrund des in der ics-Datei erlaubten Formats muss die Zeit und der Wochentag, sowie die Wiederholungen der Kalenderwochen in einen auf die Uhrzeit genauen Start- und Endtermin konvertiert werden. Dies erfolgt in der Datei parseDate.js.
+
+Die Datei bekommt den Tag sowie die Zeitspanne der Veranstaltung im Rohformat übergeben. Diese Daten werden unterschieden in zwei Kategorien:
+
+* präzise Datumsangabe
+* Angabe als Kalendarwoche
+
+Diese Daten werden bereinigt, geprüft und mithilfe einer Bibliothek in Objekte umgewandelt. Dies erlaubt eine einfache Weiterverwendung bis zur Abspeicherung.
 
 ### Speicherung der Daten im Local Storage des Browsers
 Damit wir diese Informationen nach einem Schließen des Browserfensters nicht verlieren, speichern wir diese dann im local Storage ab.
