@@ -4,6 +4,9 @@ Dieses Dokument und dessen Inhalt knüpfen an Sachverhalte des ersten Review-Dok
 ## Technischer Hintergrund
 
 ### Initialisierung
+
+![](res/init1.png)
+
 Der Einstieg in die Programmlogik befindet sich in der Datei namens `init.js`. Diese initialisiert das Programm, indem es benötigte Variablen entweder aus dem Speicher liest, oder diese leer erzeugt, wie zum Beispiel ein Array für den "Warenkorb". Im Anschluss erzeugt es die Seitenleiste für den Warenkorb, der auf allen Seiten des VLV vorhanden sein wird. Es folgen dann einige Überprüfungen, die je nachdem auf welcher Unterseite man sich befindet, bestimmte Elemente erzeugen und Funktionen aufrufen. Im Folgenden bezieht sich der gesamte Ablauf auf die Textansicht eines bestimmten Studienganges.
 
 ![Text Version des VLV](res/VLV_textVersion.jpg)
@@ -13,6 +16,9 @@ Anhand des Arrays der Veranstaltungen werden auf dieser Seite nun Buttons eingef
 Nun ist die Initialisierung abgeschlossen und der weitere Programmablauf wird durch die Interaktionen des Nutzers bestimmt.
 
 ### Auswahl einer Veranstaltung
+
+![](res/warenkorb.png)
+
 Wird eine Veranstaltung zum Warenkorb hinzugefügt, so wird eine Funktion namens `saveToCart()` aufgerufen. Diese Funktion erzeugt ein leeres JSON Objekt nach folgendem Aufbau:
 
 ![](res/selection.jpg)
@@ -74,6 +80,9 @@ Dieser kleine Ablauf erzeugt ein JSON Objekt, welches eine ID und einen Namen be
 Dies kann erweitert werden, sodass auch komplexere Objekte, wie z.B. ein Array von JSON Objekten abgespeichert werden können.
 
 ### Download der Kalenderdatei
+
+![](res/download.png)
+
 Da eine gültige Kalenderdatei nach dem vCalendar Format lediglich eine Textdatei ist, die bestimmten Regeln folgt, ist es sehr einfach, eine solche in Javascript zu bauen. Zu diesem Zweck erzeugen wir einen Array, der nach und nach mit Informationen ergänzt wird. Ein Feld des Arrays entspricht einer Zeile der fertigen Datei.
 
 ![](res/downloadCal.jpg)
