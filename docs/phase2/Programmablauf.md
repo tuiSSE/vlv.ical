@@ -68,7 +68,7 @@ Die Datei bekommt den Tag sowie die Zeitspanne der Veranstaltung im Rohformat ü
 * präzise Datumsangabe
 * Angabe als Kalendarwoche
 
-Diese Daten werden bereinigt, geprüft und mithilfe einer Bibliothek in Objekte umgewandelt. Dies erlaubt eine einfache Weiterverwendung bis zur Abspeicherung.
+Diese Daten werden bereinigt, geprüft und mithilfe einer Bibliothek in Objekte umgewandelt. Dies geschieht innerhalb der Funktion ```parseTime()```, welche ein ein- oder mehrdimensionales Array zurückgibt. Dies erlaubt eine einfache Weiterverwendung bis zur Abspeicherung. 
 
 ### Speicherung der Daten im Local Storage des Browsers
 Damit wir diese Informationen nach einem Schließen des Browserfensters nicht verlieren, speichern wir diese dann im local Storage ab.
