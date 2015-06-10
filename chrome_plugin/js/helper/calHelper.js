@@ -9,7 +9,7 @@ function addEvent(cal, event) {
     cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     cal.push('SUMMARY:' + event.name);
-    cal.push("DESCRIPTION:" + event.speaker);
+    cal.push("DESCRIPTION:" + event.comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
     cal.push('DTSTAMP:20150425T221630Z');
     cal.push('SEQUENCE:0');
@@ -29,7 +29,7 @@ function addEvents(cal, event) {
     cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     cal.push('SUMMARY:' + event.name);
-    cal.push("DESCRIPTION:" + event.speaker);
+    cal.push("DESCRIPTION:" + event.comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
     cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.until);
     cal.push('DTSTAMP:20150425T221630Z');
