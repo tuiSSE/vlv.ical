@@ -10,14 +10,14 @@ function saveToCart(obj) {
     end: "",
     until: "",
     seq: [],
-    comment: "",
+    speaker: "",
      link: []
   }
 
   data.id = getNameOfLecture(obj);
   data.name = getNameOfLecture(obj);
   data.location = getLocation(obj);
-  data.comment = getSpeakerOfLecture(obj);
+  data.speaker = getSpeakerOfLecture(obj);
   
   var timeData = [getDates(obj), getTime(obj)];
 
