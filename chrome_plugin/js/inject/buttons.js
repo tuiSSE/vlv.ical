@@ -29,11 +29,24 @@ function injectSelectAllButton() {
   box.appendChild(selectAll);
   
   $("#selectAll").on('click', function(entryInfo){
+    var bool = load('selection').length < subjects.length;
     for (var i = 0; i < subjects.length; i++) {
       var object = subjects[i];
-      if(!containsObject(getNameOfLecture(object), load('selection'))) {
-        addToCart(object);
+      if (bool) {
+        if(!containsObject(getNameOfLecture(object), load('selection'))) {
+          addToCart(object);
+        }
+      } else {
+        if(containsObject(getNameOfLecture(object), load('selection'))) {
+          deleteFromCart(object);
+          updateSelection();
+        }
       }
+    }
+    if (bool) {
+      $('#selectAll')[0].value = 'Deselect All';
+    } else {
+      $('#selectAll')[0].value = 'Select All';
     }
   });
 }
