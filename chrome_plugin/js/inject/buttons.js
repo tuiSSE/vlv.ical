@@ -14,7 +14,27 @@ function injectDownloadButtons() {
   box.appendChild(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
-    downloadSelection();
+    bootbox.dialog({
+                title: 'Download',
+                message:
+                    '<form> ' +
+                    '<div class="col-md-6"> ' +
+                    'Name: <input id="editFileName" name="name" type="text" value="' + 'calendar' + '" class="form-control input-md"> ' +
+                    '</div> ' +
+                    '</form>',
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                          var filename = $('#editFileName')[0].value;
+                          downloadSelection(filename);
+                        }
+                    }
+                },
+                keyboard: false
+            }
+        );
   });
 }
 
