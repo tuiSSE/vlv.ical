@@ -24,6 +24,9 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
+  var date = data.begin.slice(6, 8) + '.' + data.begin.slice(4, 6) + '.' + data.begin.slice(0, 4);
+  var begin = data.begin.slice(9, 11) + ':' + data.begin.slice(11, 13);
+  var end = data.end.slice(9, 11) + ':' + data.end.slice(11, 13);
   bootbox.dialog({
                 title: data.origName,
                 message:
@@ -40,10 +43,16 @@ function openEditDialog(id) {
                     'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
-                    'Beginn: <input id="editBegin" name="begin" type="text" value="' + data.begin + '" class="form-control input-md"> ' +
+                    'Datum: <input id="editDate" name="begin" type="text" value="' + date + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
-                    'Ende: <input id="editEnd" name="end" type="text" value="' + data.end + '" class="form-control input-md"> ' +
+                    'Beginn: <input id="editBeginTime" name="begin" type="text" value="' + begin + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '<div class="col-md-6"> ' +
+                    'Ende: <input id="editEndTime" name="end" type="text" value="' + end + '" class="form-control input-md"> ' +
+                    '</div>' +
+                    '<div class="col-md-6"> ' +
+                    'Wiederholung: <input id="editRepeat" name="end" type="text" value="' + 'not yet implemented' + '" class="form-control input-md"> ' +
                     '</div>' +
                     '</form>',
                 buttons: {
@@ -62,8 +71,17 @@ function openEditDialog(id) {
                             data.name = $('#editName')[0].value;
                             data.location = $('#editLocation')[0].value;
                             data.comment = $('#editComment')[0].value;
-                            data.begin = $('#editBegin')[0].value;
-                            data.end = $('#editEnd')[0].value;
+                            
+                            var date = $('#editDate')[0].value;
+                            var beginTime = $('#editBeginTime')[0].value;
+                            var endTime = $('#editEndTime')[0].value;
+                            
+                            date = date.slice(6) + date.slice(3, 5) + date.slice(0, 2);
+                            beginTime = beginTime.slice(0, 2) + beginTime.slice(3, 5) + '00';
+                            endTime = endTime.slice(0, 2) + endTime.slice(3, 5) + '00';
+                            
+                            data.begin = date + 'T' + beginTime;
+                            data.end = date + 'T' + endTime;
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
