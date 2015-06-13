@@ -43,11 +43,6 @@ function injectSelectAllButton() {
         }
       }
     }
-    if (bool) {
-      $('#selectAll')[0].value = 'Deselect All';
-    } else {
-      $('#selectAll')[0].value = 'Select All';
-    }
   });
 }
 
