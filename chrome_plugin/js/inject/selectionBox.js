@@ -76,7 +76,27 @@ function openEditDialog(id) {
                             var beginTime = $('#editBeginTime')[0].value;
                             var endTime = $('#editEndTime')[0].value;
                             
-                            date = date.slice(6) + date.slice(3, 5) + date.slice(0, 2);
+                            var bool = false;
+                            if (beginTime.match(/^[0-2][0-9]:[0-5][0-9]$/g) != null
+                             && endTime.match(/^[0-2][0-9]:[0-5][0-9]$/g) != null
+                             && date.match(/^[0-3][0-9].[0-2][0-9].[0-9][0-9][0-9][0-9]$/g)) {
+                              bool = true;
+                            }
+                            
+                            var tmpDate = date.split('.');
+                            if (tmpDate[0].length == 2 && tmpDate[1].length == 2) {
+                              date = date.slice(6) + date.slice(3, 5) + date.slice(0, 2);
+                              
+                            } else if (tmpDate[0].length == 2 && tmpDate[1].length == 1) {
+                              date = date.slice(5) + '0' + date.slice(3, 4) + date.slice(0, 2);
+                              
+                            } else if (tmpDate[0].length == 1 && tmpDate[1].length == 2) {
+                              date = date.slice(5) + date.slice(2, 4) + '0' + date.slice(0, 1);
+
+                            } else if (tmpDate[0].length == 1 && tmpDate[1].length == 1) {
+                              date = date.slice(4) + '0' + date.slice(2, 3) + '0' + date.slice(0, 1);
+                            }
+                            
                             beginTime = beginTime.slice(0, 2) + beginTime.slice(3, 5) + '00';
                             endTime = endTime.slice(0, 2) + endTime.slice(3, 5) + '00';
                             
@@ -87,7 +107,11 @@ function openEditDialog(id) {
                           }
                           
                           try {
-                            save(id, data);
+                            if (bool) {
+                              save(id, data);
+                            } else {
+                              toastr.info('Zeitangaben waren nicht korrekt.');
+                            }
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
