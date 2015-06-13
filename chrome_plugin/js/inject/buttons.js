@@ -8,7 +8,7 @@ function injectDownloadButtons() {
   downloadSelected.type = 'button';
   downloadSelected.id = 'downloadSelected';
   downloadSelected.className = 'downloadButton primary-btn';
-  downloadSelected.value = 'Download Selected';
+  downloadSelected.value = 'Download';
 
   var box = $('#downloadArea')[0];
   box.appendChild(downloadSelected);
