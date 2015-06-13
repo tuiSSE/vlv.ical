@@ -9,7 +9,14 @@ function getRootElement() {
  * returns an array of all events present on the page
  */
 function getElements(root) {
-  return root.getElementsByTagName('div');
+  var elements = root.getElementsByTagName('div');
+  var result = [];
+  for (var i = 0; i < elements.length; i++) {
+    if (elements[i].childNodes[5].childNodes[3].childNodes[0].innerText.match(/mündliche Prüfung/g) == null) {
+      result.push(elements[i]);
+    }
+  }
+  return result;
 }
 
 function getIdOfLecture(object) {

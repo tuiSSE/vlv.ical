@@ -1,4 +1,5 @@
 function injectBorders() {
+    var subjects = getRootElement().getElementsByTagName('div');
     var now = new Date();
     var changed = [];
     now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
