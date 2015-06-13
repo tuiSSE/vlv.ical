@@ -29,7 +29,6 @@ function injectSelectAllButton() {
   box.appendChild(selectAll);
   
   $("#selectAll").on('click', function(entryInfo){
-    console.log("Test");
     for (var i = 0; i < subjects.length; i++) {
       var object = subjects[i];
       if(!containsObject(getNameOfLecture(object), load('selection'))) {
