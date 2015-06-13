@@ -117,6 +117,7 @@ function injectDiv() {
   };
 
   injectDownloadButtons();
+  injectSelectAllButton();
 }
 
 function openBox() {

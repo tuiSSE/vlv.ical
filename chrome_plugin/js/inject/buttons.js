@@ -1,7 +1,7 @@
 /*
  * injects download buttons into the webpage
  */
-function injectDownloadButtons(subjects) {
+function injectDownloadButtons() {
   
   // adds a download button that only downloads an array of selected objects
   var downloadSelected = document.createElement('input');
@@ -16,27 +16,26 @@ function injectDownloadButtons(subjects) {
   $("#downloadSelected").on('click', function(entryInfo){
     downloadSelection();
   });
+}
 
-  // adds a download button that downloads an array of all objects the plugin could find on the page
-  var downloadAll = document.createElement('input');
-  downloadAll.type = 'button';
-  downloadAll.id = 'downloadAll';
-  downloadAll.className = 'downloadButton default-btn';
-  downloadAll.value = 'Select All';
+function injectSelectAllButton() {
+  var selectAll = document.createElement('input');
+  selectAll.type = 'button';
+  selectAll.id = 'selectAll';
+  selectAll.className = 'downloadButton default-btn';
+  selectAll.value = 'Select All';
 
   var box = $('#downloadArea')[0];
-  box.appendChild(downloadAll);
+  box.appendChild(selectAll);
   
-  $("#downloadAll").on('click', function(entryInfo){
-    if (subjects.length > 0) {
-      try {
-        downloadAll(subjects);
-      } catch(e) {
-        toastr.error("Download failed!", e);
+  $("#selectAll").on('click', function(entryInfo){
+    console.log("Test");
+    for (var i = 0; i < subjects.length; i++) {
+      var object = subjects[i];
+      if(!containsObject(getNameOfLecture(object), load('selection'))) {
+        addToCart(object);
       }
-    } else {
-      toastr.warning("Keine Veranstaltungen gefunden.")
-    };
+    }
   });
 }
 
