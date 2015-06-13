@@ -53,3 +53,8 @@ function init() {
  * @class moment // sets locale to german
  */
 moment.locale("de");
+
+/**
+ * prevent toastr duplicates
+ */
+ toastr.options.preventDuplicates = true;
