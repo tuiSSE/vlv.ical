@@ -25,7 +25,7 @@ function updateSelectionBox() {
 function openEditDialog(id) {
   var data = load(id);
   bootbox.dialog({
-                title: id,
+                title: data.origName,
                 message:
                     '<label>Diese Daten werden in deinen Kalender übernommen</label>' +
                     '<form> ' +

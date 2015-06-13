@@ -33,11 +33,11 @@ function injectSelectAllButton() {
     for (var i = 0; i < subjects.length; i++) {
       var object = subjects[i];
       if (bool) {
-        if(!containsObject(getNameOfLecture(object), load('selection'))) {
+        if(!containsObject(getIdOfLecture(object), load('selection'))) {
           addToCart(object);
         }
       } else {
-        if(containsObject(getNameOfLecture(object), load('selection'))) {
+        if(containsObject(getIdOfLecture(object), load('selection'))) {
           deleteFromCart(object);
           updateSelection();
         }
@@ -67,7 +67,7 @@ function injectAddButtons(subjects) {
     $(this).toggleClass('active');
     var object = this.parentNode.parentNode;
     var selection = load('selection');
-    if(!containsObject(getNameOfLecture(object), selection)) {
+    if(!containsObject(getIdOfLecture(object), selection)) {
       addToCart(object);
     } else {
       removeFromCart(object);

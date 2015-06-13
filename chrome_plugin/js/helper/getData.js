@@ -12,6 +12,10 @@ function getElements(root) {
   return root.getElementsByTagName('div');
 }
 
+function getIdOfLecture(object) {
+  return object.id;
+}
+
 function getNameOfLecture(object) {
     var name = object.childNodes[1].innerText;
     if (name.slice(name.length - 12) == "Beschreibung") {

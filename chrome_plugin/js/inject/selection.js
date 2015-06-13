@@ -3,7 +3,7 @@ function updateSelection() {
      try {
             for (var i = 0; i < subjects.length; i++){
                try {
-                      if (containsObject(getNameOfLecture(subjects[i]), selection)) {
+                      if (containsObject(getIdOfLecture(subjects[i]), selection)) {
                             
                               subjects[i].style.background = '#e0e6ef';
                               subjects[i].childNodes[1].childNodes[0].className = 'addButton active';

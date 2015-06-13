@@ -5,6 +5,7 @@ function saveToCart(obj) {
   var data = {
     id: "",
     name: "",
+    origName: "",
     location: "",
     begin: "",
     end: "",
@@ -14,8 +15,9 @@ function saveToCart(obj) {
      link: []
   }
 
-  data.id = getNameOfLecture(obj);
+  data.id = getIdOfLecture(obj);
   data.name = getNameOfLecture(obj);
+  data.origName = data.name;
   data.location = getLocation(obj);
   data.comment = getSpeakerOfLecture(obj);
   
@@ -29,12 +31,10 @@ function saveToCart(obj) {
   } else {
     data.seq = time;
   }
-  
-  console.log(data);
 
   data.link = getDomPath(obj);
 
-  save(data.name, data);
+  save(data.id, data);
 
   var items = [];
   try {
@@ -50,14 +50,14 @@ function saveToCart(obj) {
  */
 function deleteFromCart(obj) {
   try {
-    var name = getNameOfLecture(obj);
+    var id = getIdOfLecture(obj);
     var items = load('selection');
-    var i = items.indexOf(name);
+    var i = items.indexOf(id);
     
-    items = removeFromList(items, i, name);
+    items = removeFromList(items, i, id);
     save('selection', items);
     
-    localStorage.removeItem(name);
+    localStorage.removeItem(id);
   } catch (e) {
     console.log("Error: trying to delete a non existing object.");
     console.log(e);
