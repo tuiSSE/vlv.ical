@@ -19,7 +19,7 @@ function injectDownloadButtons() {
                 message:
                     '<form> ' +
                     '<div class="col-md-6"> ' +
-                    'Name: <input id="editFileName" name="name" type="text" value="' + 'calendar' + '" class="form-control input-md"> ' +
+                    'Dateiname: <input id="editFileName" name="name" type="text" value="' + 'calendar' + '" class="form-control input-md"> ' +
                     '</div> ' +
                     '</form>',
                 buttons: {
