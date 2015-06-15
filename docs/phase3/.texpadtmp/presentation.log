@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  15 JUN 2015 15:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.11.6)  15 JUN 2015 15:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -584,6 +584,19 @@ LaTeX Font Info:    Try loading font information for LY1+ptm on input line 100.
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 ))) (/usr/local/texlive/2014/texmf-dist/tex/latex/marvosym/marvosym.sty
 Package: marvosym 2011/07/20 v2.2 Martin Vogel's Symbols font definitions
+)
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 7.78497pt
+(hyperref)                replaced by space on input line 26.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                \hskip 7.78497pt
+(hyperref)                replaced by space on input line 26.
+
+(/usr/local/texlive/2014/texmf-dist/tex/latex/ucs/data/uni-0.def
+File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 ) (/Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/phase3/.texpadtmp/presentation.aux)
 \openout1 = `presentation.aux'.
 
@@ -763,15 +776,15 @@ Package rerunfilecheck Info: File `presentation.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 43.
  ) 
 Here is how much of TeX's memory you used:
- 17379 strings out of 493117
- 328064 string characters out of 6135433
- 398503 words of memory out of 5000000
- 20440 multiletter control sequences out of 15000+600000
+ 17869 strings out of 493117
+ 333156 string characters out of 6135433
+ 402229 words of memory out of 5000000
+ 20927 multiletter control sequences out of 15000+600000
  12601 words of font info for 22 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,11n,55p,420b,522s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,11n,55p,420b,540s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2014/texmf-dist/fonts/enc/dvips/ly1/texnansi.enc}</usr/local/texlive/2014/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb>
-Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/phase3/.texpadtmp/presentation.pdf (2 pages, 9392 bytes).
+Output written on /Users/el/Documents/Uni/Bachelor/4FS/SWP/vlv.ical/docs/phase3/.texpadtmp/presentation.pdf (2 pages, 11816 bytes).
 PDF statistics:
  35 PDF objects out of 1000 (max. 8388607)
  22 compressed objects within 1 object stream
