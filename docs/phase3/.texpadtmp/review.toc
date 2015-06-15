@@ -1,0 +1,7 @@
+\contentsline {chapter}{\numberline {1}Einleitung}{3}
+\contentsline {chapter}{\numberline {2}Funktionen}{4}
+\contentsline {chapter}{\numberline {3}Architektur}{5}
+\contentsline {chapter}{\numberline {4}Ver\IeC {\"o}ffentlichung}{6}
+\contentsline {chapter}{\numberline {5}Bewertung des Projekterfolges}{7}
+\contentsline {chapter}{\numberline {6}Bewertung des Vorgehens}{8}
+\contentsline {chapter}{\numberline {7}Glossar}{9}
