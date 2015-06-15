@@ -12,7 +12,8 @@ function getElements(root) {
   var elements = root.getElementsByTagName('div');
   var result = [];
   for (var i = 0; i < elements.length; i++) {
-    if (elements[i].childNodes[5].childNodes[3].childNodes[0].innerText.match(/mündliche Prüfung/g) == null) {
+    if (getDayOfWeek(elements[i]) != null &&
+        getTime(elements[i]) != "  -  ") {
       result.push(elements[i]);
     }
   }
