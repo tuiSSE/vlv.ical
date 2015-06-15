@@ -1,3 +1,7 @@
+try {
+  fixDivHeight();
+} catch(e) {};
+
 /*
  * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
  */
@@ -14,7 +18,6 @@ injectDiv();
  * checks, if current page is the text one and then initializes the plugin
  */
 if (/vers=text/.test(self.location.href)) {
-  fixDivHeight();
   // all subjects the plugin can find on current page
   subjects = getElements(getRootElement());
   fixIds(subjects);
@@ -25,10 +28,6 @@ if (/vers=text/.test(self.location.href)) {
     console.log("Failed to initialize");
     console.log(e);
   }
-}
-
-if (/vers=graph/.test(self.location.href)) {
-  fixDivHeight();
 }
 
 if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
