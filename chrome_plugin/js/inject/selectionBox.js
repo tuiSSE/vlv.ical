@@ -74,7 +74,6 @@ function openEditDialog(id) {
                             
                             var date = $('#editDate')[0].value;
                             date = date.split("-").join('');
-                            console.log(date);
                             
                             var beginTime = $('#editBeginTime')[0].value;
                             var endTime = $('#editEndTime')[0].value;
