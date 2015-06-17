@@ -24,7 +24,7 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
-  var date = data.begin.slice(6, 8) + '.' + data.begin.slice(4, 6) + '.' + data.begin.slice(0, 4);
+  var date = data.begin.slice(0, 4) + '-' + data.begin.slice(4, 6) + '-' + data.begin.slice(6, 8);
   var begin = data.begin.slice(9, 11) + ':' + data.begin.slice(11, 13);
   var end = data.end.slice(9, 11) + ':' + data.end.slice(11, 13);
   bootbox.dialog({
@@ -43,13 +43,13 @@ function openEditDialog(id) {
                     'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
-                    'Datum: <input id="editDate" name="begin" type="text" value="' + date + '" class="form-control input-md"> ' +
+                    'Datum: <input id="editDate" name="begin" type="date" value="' + date + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
-                    'Beginn: <input id="editBeginTime" name="begin" type="text" value="' + begin + '" class="form-control input-md"> ' +
+                    'Beginn: <input id="editBeginTime" name="begin" type="time" value="' + begin + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
-                    'Ende: <input id="editEndTime" name="end" type="text" value="' + end + '" class="form-control input-md"> ' +
+                    'Ende: <input id="editEndTime" name="end" type="time" value="' + end + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
                     'Wiederholung: <input id="editRepeat" name="end" type="text" value="' + 'not yet implemented' + '" class="form-control input-md"> ' +
@@ -73,29 +73,11 @@ function openEditDialog(id) {
                             data.comment = $('#editComment')[0].value;
                             
                             var date = $('#editDate')[0].value;
+                            date = date.split("-").join('');
+                            console.log(date);
+                            
                             var beginTime = $('#editBeginTime')[0].value;
                             var endTime = $('#editEndTime')[0].value;
-                            
-                            var bool = false;
-                            if (beginTime.match(/^[0-2][0-9]:[0-5][0-9]$/g) != null
-                             && endTime.match(/^[0-2][0-9]:[0-5][0-9]$/g) != null
-                             && date.match(/^[0-3][0-9].[0-2][0-9].[0-9][0-9][0-9][0-9]$/g)) {
-                              bool = true;
-                            }
-                            
-                            var tmpDate = date.split('.');
-                            if (tmpDate[0].length == 2 && tmpDate[1].length == 2) {
-                              date = date.slice(6) + date.slice(3, 5) + date.slice(0, 2);
-                              
-                            } else if (tmpDate[0].length == 2 && tmpDate[1].length == 1) {
-                              date = date.slice(5) + '0' + date.slice(3, 4) + date.slice(0, 2);
-                              
-                            } else if (tmpDate[0].length == 1 && tmpDate[1].length == 2) {
-                              date = date.slice(5) + date.slice(2, 4) + '0' + date.slice(0, 1);
-
-                            } else if (tmpDate[0].length == 1 && tmpDate[1].length == 1) {
-                              date = date.slice(4) + '0' + date.slice(2, 3) + '0' + date.slice(0, 1);
-                            }
                             
                             beginTime = beginTime.slice(0, 2) + beginTime.slice(3, 5) + '00';
                             endTime = endTime.slice(0, 2) + endTime.slice(3, 5) + '00';
@@ -107,11 +89,7 @@ function openEditDialog(id) {
                           }
                           
                           try {
-                            if (bool) {
                               save(id, data);
-                            } else {
-                              toastr.info('Zeitangaben waren nicht korrekt.');
-                            }
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
