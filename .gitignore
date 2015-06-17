@@ -8,3 +8,8 @@
 ehthumbs.db
 Thumbs.db
 *.pdf
+*.aux
+*.fdb_latexmk
+*.log
+*.synctex.gz
+*.toc
