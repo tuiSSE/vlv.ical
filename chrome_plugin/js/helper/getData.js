@@ -61,35 +61,3 @@ function getTargetGroup(object) {
 function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
-
-function getEventData(subject) {
-  var data = {
-    name: "",
-    comment: "",
-    location: "",
-    begin: "",
-    end: "",
-    until: "",
-    seq:[]
-  };
-  
-  var timeData = [getDates(subject), getTime(subject)];
-
-  data.name = getNameOfLecture(subject);
-  data.comment = getSpeakerOfLecture(subject);
-  data.location = getLocation(subject);
-
-  var time = parseTime(timeData, getDayOfWeek(subject));
-  
-  /*
-   * When time[0] is not an array, the event is non-repeating
-   */
-  if(!Array.isArray(time[0])){
-    data.begin = time[0];
-    data.end = time[1];
-  } else {
-    data.seq = time;
-  }
-
-  return data;
-}
