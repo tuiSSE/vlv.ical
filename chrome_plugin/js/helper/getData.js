@@ -61,3 +61,20 @@ function getTargetGroup(object) {
 function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
+
+function getTypes(object) {
+  var result = [];
+
+  var query = $(object).find('tbody');
+  for (var i = 0; i < query.length; i++) {
+    var obj = query[i].childNodes[0];
+    var type = $(obj.childNodes[1]).attr('axis');
+
+    result[i] = {
+      "type": type,
+      "link": obj
+    }
+  }
+
+  return result;
+}
