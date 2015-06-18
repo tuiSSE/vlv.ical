@@ -30,7 +30,7 @@ function openEditDialog(id) {
                 message:
                     '<form class="form-horizontal"> ' +
                     '<input type="hidden" id="editId" value="' + id + '">' +
-                    'Index <input id="editIndex" name="index" type="number" min="0" max="' + data.objects.length + '" value="' + 0 + '" class="form-control input-md"> ' +
+                    'Index <input id="editIndex" name="index" type="number" min="0" max="' + (data.objects.length - 1) + '" value="' + 0 + '" class="form-control input-md"> ' +
                     '</form>',
                 buttons: {
                     success: {
@@ -59,10 +59,10 @@ function openEditDialogDetail(id, index) {
                 title: data.origName,
                 message:
                     '<label>Diese Daten werden in deinen Kalender übernommen</label>' +
-                    '<form class="edit-form"> ' +
+                    '<form class="edit-form" role="form" data-toggle="validator"> ' +
                     '<input type="hidden" id="editId" value="' + id + '">' +
                     '<div class="form-group"> ' +
-                    'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md"> ' +
+                    'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md" data-minlength="5" required> ' +
                     '</div> ' +
                     '<div class="form-group"> ' +
                     'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[i].location + '" class="form-control input-md"> ' +
