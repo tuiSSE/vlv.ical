@@ -27,7 +27,7 @@ function saveToCart(obj) {
       var time = parseTime(timeData, obj.dayOfWeek);
       var begin;
       var end;
-      var until;
+      var until = null;
 
       if(!Array.isArray(time[0])){
       begin     = time[0];

@@ -14,7 +14,7 @@ function downloadSelection(filename) {
          * @return {[type]}               [description]
          */
         tmp.objects.forEach(function(event, i, eventArray){
-          if(tmp.objects[i].until.length !== 0){
+          if(tmp.objects[i].until !== null){
             /*
              * Get data.seq[Begin, End, Until] items
              */           
@@ -35,6 +35,7 @@ function downloadSelection(filename) {
      saveAs(dl, filename + ".ics");
     } catch (e) {
       toastr.error("Download failed!", e);
+      console.log(e);
     }
   } else {
       toastr.warning("Keine Veranstaltungen ausgewählt.")
