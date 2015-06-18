@@ -37,7 +37,7 @@ function openEditDialog(id) {
                     'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md"> ' +
                     '</div> ' +
                     '<div class="col-md-6"> ' +
-                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.location + '" class="form-control input-md"> ' +
+                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[0].location + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
                     'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
