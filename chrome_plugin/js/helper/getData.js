@@ -69,7 +69,6 @@ function getData(object) {
   for (var i = 0; i < raw.length; i++) {
     var type = raw[i];
     var events = [];
-    console.log(type.type);
 
     for (var j = 0; j < type.objs.length; j++) {
       var obj = type.objs[j];
