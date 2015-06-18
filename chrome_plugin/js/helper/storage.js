@@ -12,49 +12,43 @@ function saveToCart(obj) {
   }
   var dataObjects;
 
+  var objData = getData(obj);
 
   data.id = getIdOfLecture(obj);
   data.name = getNameOfLecture(obj);
   data.origName = data.name;
   data.comment = getSpeakerOfLecture(obj);
   
-  var timeData = [getDates(obj), getTime(obj)];
-  var time = parseTime(timeData, getDayOfWeek(obj));
-  
-  if(!Array.isArray(time[0])){
-    dataObjects = { type: "",
-                    location: "", 
-                    begin: "",
-                    end: "",
-                    until: "",
-                    weekly: "1" }
-    dataObjects.location  = getLocation(obj);
-    dataObjects.begin     = time[0];
-    dataObjects.end       = time[1];
+  for (var i = 0; i < objData.length; i++) {
+    for (var j = 0; j < objData[i].events.length; j++) {
+      var obj = objData[i].events[j];
 
-    data.objects.push(dataObjects);
+      var timeData = [obj.dates, obj.time];
+      var time = parseTime(timeData, obj.dayOfWeek);
+      var begin;
+      var end;
+      var until;
 
-    console.log(data.objects[0]);
-  } else {
-    time.forEach(function(event, i, eventArray){
-      dataObjects = { type: "",
-                      location: "", 
-                      begin: "",
-                      end: "",
-                      until: "",
-                      weekly: "1" }
-      /*
-       * Get time[[Begin, Until, End]] items
-       */
-      dataObjects.location  = getLocation(obj);
-      dataObjects.begin = event[0];
-      dataObjects.end   = event[2];
-      dataObjects.until = event[1];
+      if(!Array.isArray(time[0])){
+      begin     = time[0];
+      end       = time[1];
 
+      } else {
+        time.forEach(function(event, i, eventArray){
+          begin = event[0];
+          end   = event[2];
+          until = event[1];
+        });
+      }
+
+      dataObjects = { type: objData[i].type,
+                    location: obj.location, 
+                    begin: begin,
+                    end:   end,
+                    until: until,
+                    weekly: "1" };
       data.objects.push(dataObjects);
-
-      console.log(data.objects[i]);
-    });
+    }
   }
 
   data.link = getDomPath(obj);

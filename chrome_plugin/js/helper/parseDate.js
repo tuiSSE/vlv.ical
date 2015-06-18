@@ -49,8 +49,6 @@ function parseTime(raw, day) {
       time.push(event);
     });
   }
- 
-  console.log(time);
 
   return time;
 }

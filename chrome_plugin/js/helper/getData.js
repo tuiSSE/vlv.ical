@@ -42,20 +42,8 @@ function getDayOfWeek(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
 }
 
-function getLocation(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[9].innerText;
-}
-
 function getTime(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[7].innerText;
-}
-
-function getDates(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[5].innerText;
-}
-
-function getTargetGroup(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[11].innerText;
 }
 
 function getLastUpdated(object) {
@@ -74,11 +62,11 @@ function getData(object) {
       var obj = type.objs[j];
       var tmpData = {
         "dayOfWeek": obj.childNodes[3].innerText,
-        "dates": obj.childNodes[5].innterText,
+        "dates": obj.childNodes[5].innerText,
         "time": obj.childNodes[7].innerText,
         "location": obj.childNodes[9].innerText,
         "targetGroup": obj.childNodes[11].innerText,
-        "lastUpdated": obj.childNodes[13].innerText
+        "lastUpdated": obj.childNodes[13].innerText.slice(13)
       };
 
       events.push(tmpData);
