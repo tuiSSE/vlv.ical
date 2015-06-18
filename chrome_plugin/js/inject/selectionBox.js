@@ -24,9 +24,9 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
-  var date = data.begin.slice(0, 4) + '-' + data.begin.slice(4, 6) + '-' + data.begin.slice(6, 8);
-  var begin = data.begin.slice(9, 11) + ':' + data.begin.slice(11, 13);
-  var end = data.end.slice(9, 11) + ':' + data.end.slice(11, 13);
+  var date = data.objects[0].begin.slice(0, 4) + '-' + data.objects[0].begin.slice(4, 6) + '-' + data.objects[0].begin.slice(6, 8);
+  var begin = data.objects[0].begin.slice(9, 11) + ':' + data.objects[0].begin.slice(11, 13);
+  var end = data.objects[0].end.slice(9, 11) + ':' + data.objects[0].end.slice(11, 13);
   bootbox.dialog({
                 title: data.origName,
                 message:
