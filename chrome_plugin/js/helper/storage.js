@@ -6,31 +6,55 @@ function saveToCart(obj) {
     id: "",
     name: "",
     origName: "",
-    objects: [{ type: "",
-                location: "", 
-                begin: "",
-                end: "",
-                until: "",
-                weekly: "1" }],
+    objects: [], // gets dataObjects
     comment: "",
     link: []
   }
+  var dataObjects;
+
 
   data.id = getIdOfLecture(obj);
   data.name = getNameOfLecture(obj);
   data.origName = data.name;
-  data.location = getLocation(obj);
   data.comment = getSpeakerOfLecture(obj);
   
   var timeData = [getDates(obj), getTime(obj)];
-
   var time = parseTime(timeData, getDayOfWeek(obj));
   
   if(!Array.isArray(time[0])){
-    data.begin = time[0];
-    data.end = time[1];
+    dataObjects = { type: "",
+                    location: "", 
+                    begin: "",
+                    end: "",
+                    until: "",
+                    weekly: "1" }
+    dataObjects.location  = getLocation(obj);
+    dataObjects.begin     = time[0];
+    dataObjects.end       = time[1];
+
+    data.objects.push(dataObjects);
+
+    console.log(data.objects[0]);
   } else {
-    data.seq = time;
+    time.forEach(function(event, i, eventArray){
+      dataObjects = { type: "",
+                      location: "", 
+                      begin: "",
+                      end: "",
+                      until: "",
+                      weekly: "1" }
+      /*
+       * Get time[[Begin, Until, End]] items
+       */
+      dataObjects.location  = getLocation(obj);
+      dataObjects.begin = event[0];
+      dataObjects.end   = event[2];
+      dataObjects.until = event[1];
+
+      data.objects.push(dataObjects);
+
+      console.log(data.objects[i]);
+    });
   }
 
   data.link = getDomPath(obj);
