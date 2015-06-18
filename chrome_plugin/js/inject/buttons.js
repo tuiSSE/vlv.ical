@@ -24,7 +24,7 @@ function injectSelectAllButton() {
   selectAll.type = 'button';
   selectAll.id = 'selectAll';
   selectAll.className = 'downloadButton default-btn';
-  selectAll.value = 'Select All';
+  selectAll.value = 'Select All / Unselect All';
 
   var box = $('#downloadArea')[0];
   box.appendChild(selectAll);
