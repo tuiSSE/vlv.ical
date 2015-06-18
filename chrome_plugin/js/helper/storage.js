@@ -6,13 +6,14 @@ function saveToCart(obj) {
     id: "",
     name: "",
     origName: "",
-    location: "",
-    begin: "",
-    end: "",
-    until: "",
-    seq: [],
+    objects: [{ type: "",
+                location: "", 
+                begin: "",
+                end: "",
+                until: "",
+                weekly: "1" }],
     comment: "",
-     link: []
+    link: []
   }
 
   data.id = getIdOfLecture(obj);
