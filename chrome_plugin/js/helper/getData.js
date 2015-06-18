@@ -62,17 +62,60 @@ function getLastUpdated(object) {
   return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
 }
 
+function getData(object) {
+  var data = [];
+  var raw = getTypes(object);
+
+  for (var i = 0; i < raw.length; i++) {
+    var type = raw[i];
+    var events = [];
+    console.log(type.type);
+
+    for (var j = 0; j < type.objs.length; j++) {
+      var obj = type.objs[j];
+      var tmpData = {
+        "dayOfWeek": obj.childNodes[3].innerText,
+        "dates": obj.childNodes[5].innterText,
+        "time": obj.childNodes[7].innerText,
+        "location": obj.childNodes[9].innerText,
+        "targetGroup": obj.childNodes[11].innerText,
+        "lastUpdated": obj.childNodes[13].innerText
+      };
+
+      events.push(tmpData);
+    }
+
+    var tmpTypeData = {
+      "type": type.type,
+      "events": events
+    };
+
+    data.push(tmpTypeData);
+
+  }
+  return data;
+}
+
 function getTypes(object) {
   var result = [];
 
-  var query = $(object).find('tbody');
-  for (var i = 0; i < query.length; i++) {
-    var obj = query[i].childNodes[0];
-    var type = $(obj.childNodes[1]).attr('axis');
+  var tbodies = $(object).find('tbody');
+  for (var i = 0; i < tbodies.length; i++) {
+    var obj = tbodies[i];
+    var type = $(obj.childNodes[0].childNodes[1]).attr('axis');
+    var count = 0;
+    var objs = [];
+
+    var objs = $(obj).find('tr');
+    var objects = [];
+    for (var j = 0; j < objs.length; j++) {
+      objects.push(objs[j]);
+    }
 
     result[i] = {
       "type": type,
-      "link": obj
+      "count": count,
+      "objs": objects
     }
   }
 

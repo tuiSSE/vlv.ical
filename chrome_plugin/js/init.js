@@ -3,7 +3,7 @@ try {
 } catch(e) {};
 
 /*
- * checks if a selection_length is available in storage. if not, it breaks a lot of things. if none is present, it is saved in localStorage
+ * checks if a selection is available in storage. if not, it breaks a lot of things. if none is present, an empty one is saved to localStorage
  */
 try {
   load('selection');
@@ -20,6 +20,7 @@ injectDiv();
 if (/vers=text/.test(self.location.href)) {
   // all subjects the plugin can find on current page
   subjects = getElements(getRootElement());
+  getData(subjects[5]);
   fixIds(subjects);
   
   try {
