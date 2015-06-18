@@ -28,12 +28,9 @@ function openEditDialog(id) {
   bootbox.dialog({
                 title: data.origName,
                 message:
-                    '<form> ' +
+                    '<form class="form-horizontal"> ' +
                     '<input type="hidden" id="editId" value="' + id + '">' +
-                    '<div class="col-md-6"> ' +
                     'Index <input id="editIndex" name="index" type="number" min="0" max="' + data.objects.length + '" value="' + 0 + '" class="form-control input-md"> ' +
-                    '</select>' +
-                    '</div> ' +
                     '</form>',
                 buttons: {
                     success: {
@@ -62,28 +59,28 @@ function openEditDialogDetail(id, index) {
                 title: data.origName,
                 message:
                     '<label>Diese Daten werden in deinen Kalender übernommen</label>' +
-                    '<form> ' +
+                    '<form class="edit-form"> ' +
                     '<input type="hidden" id="editId" value="' + id + '">' +
-                    '<div class="col-md-6"> ' +
+                    '<div class="form-group"> ' +
                     'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md"> ' +
                     '</div> ' +
-                    '<div class="col-md-6"> ' +
+                    '<div class="form-group"> ' +
                     'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[i].location + '" class="form-control input-md"> ' +
                     '</div>' +
-                    '<div class="col-md-6"> ' +
+                    '<div class="form-group"> ' +
                     'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
                     '</div>' +
-                    '<div class="col-md-6"> ' +
-                    'Datum: <input id="editDate" name="begin" type="date" value="' + date + '" class="form-control input-md"> ' +
+                    '<div class="form-group"> ' +
+                    'Datum: <input id="editDate" name="date" type="date" value="' + date + '" class="form-control input-md"> ' +
                     '</div>' +
-                    '<div class="col-md-6"> ' +
+                    '<div class="form-group"> ' +
                     'Beginn: <input id="editBeginTime" name="begin" type="time" value="' + begin + '" class="form-control input-md"> ' +
                     '</div>' +
-                    '<div class="col-md-6"> ' +
+                    '<div class="form-group"> ' +
                     'Ende: <input id="editEndTime" name="end" type="time" value="' + end + '" class="form-control input-md"> ' +
                     '</div>' +
-                    '<div class="col-md-6"> ' +
-                    'Wiederholung: <input id="editRepeat" name="end" type="text" value="' + 'not yet implemented' + '" class="form-control input-md"> ' +
+                    '<div class="form-group"> ' +
+                    'Wiederholung: <input id="editRepeat" name="repetition" type="text" value="' + 'not yet implemented' + '" class="form-control input-md"> ' +
                     '</div>' +
                     '</form>',
                 buttons: {

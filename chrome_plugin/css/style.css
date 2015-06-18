@@ -198,3 +198,7 @@ html, * {
 	font-weight: 300;
 	text-transform: capitalize;
 }
+
+.edit-form {
+	display:block;
+}
