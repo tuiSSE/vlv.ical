@@ -1,16 +1,16 @@
 /*
  * adds a given event to a given calendar
  */
-function addEvent(cal, event) {
+function addEvent(cal, event, i) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:20150425T221630Z');
     cal.push('UID:' + uid());
-    cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
-    cal.push("LOCATION:" + event.location);
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
+    cal.push("LOCATION:" + event.objects[i].location);
     cal.push('TRANSP:OPAQUE');
     cal.push('SUMMARY:' + event.name);
     cal.push("DESCRIPTION:" + event.comment);
-    cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
     cal.push('DTSTAMP:20150425T221630Z');
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
@@ -21,17 +21,17 @@ function addEvent(cal, event) {
 /*
  * adds an event with multiple dates to a given calendar
  */
-function addEvents(cal, event) {
+function addEvents(cal, event, i) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:20150425T221630Z');
     cal.push('UID:' + uid());
-    cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
-    cal.push("LOCATION:" + event.location);
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
+    cal.push("LOCATION:" + event.objects[i].location);
     cal.push('TRANSP:OPAQUE');
     cal.push('SUMMARY:' + event.name);
     cal.push("DESCRIPTION:" + event.comment);
-    cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.until);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until);
     cal.push('DTSTAMP:20150425T221630Z');
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');

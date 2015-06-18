@@ -6,25 +6,23 @@ function downloadSelection(filename) {
       
       items.forEach(function(item, i, iArray){
         var tmp = load(item);
-        /*
-         * Check if data.seq is not an empty array
-         * Then iterate over it
+        /**
+         * Iterate over data.objects
+         * @param  {[type]} event         [Element in data.objects]
+         * @param  {[type]} i             [Index of the iterations element]
+         * @param  {[type]} eventArray){                       if(tmp.objects[i].until.length ! [description]
+         * @return {[type]}               [description]
          */
-        if(tmp.seq !== undefined && tmp.seq.length !== 0){
-          tmp.seq.forEach(function(event, i, eventArray){
+        tmp.objects.forEach(function(event, i, eventArray){
+          if(tmp.objects[i].until.length !== 0){
             /*
              * Get data.seq[Begin, End, Until] items
-             */
-            tmp.begin = event[0];
-            tmp.end = event[2];
-            tmp.until = event[1];
-            
-            cal = addEvents(cal, tmp);
-          });
-        } else {
-          cal = addEvent(cal, load(item));
-        }
-        
+             */           
+            cal = addEvents(cal, tmp, i);
+          } else {
+            cal = addEvent(cal, load(item), i);
+          }
+        }); 
       });
       
       cal = closeCal(cal);
