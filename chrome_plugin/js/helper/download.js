@@ -17,8 +17,14 @@ function downloadSelection(filename) {
           if(tmp.objects[i].until !== null){
             /*
              * Get data.seq[Begin, End, Until] items
-             */           
-            cal = addEvents(cal, tmp, i);
+             */
+            if (!Array.isArray(tmp.objects[i].begin)) {
+              cal = addEvents(cal, tmp, i);
+            } else {
+              for (var j = 0; j < tmp.objects[i].begin.length; j++) {
+                  cal = addEventsWithBreak(cal, tmp, i, j);
+              }
+            }
           } else {
             cal = addEvent(cal, load(item), i);
           }

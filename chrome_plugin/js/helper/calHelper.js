@@ -40,6 +40,27 @@ function addEvents(cal, event, i) {
 }
 
 /*
+ * adds an event with multiple dates and a break to a given calendar
+ */
+function addEventsWithBreak(cal, event, i, j) {
+    cal.push('BEGIN:VEVENT');
+    cal.push('CREATED:20150425T221630Z');
+    cal.push('UID:' + uid());
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end[j]);
+    cal.push("LOCATION:" + event.objects[i].location);
+    cal.push('TRANSP:OPAQUE');
+    cal.push('SUMMARY:' + event.name);
+    cal.push("DESCRIPTION:" + event.comment);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin[j]);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until[j]);
+    cal.push('DTSTAMP:20150425T221630Z');
+    cal.push('SEQUENCE:0');
+    cal.push('END:VEVENT');
+  
+  return cal;
+}
+
+/*
  * initializes a valid vCalendar
  */
 function initCal() {

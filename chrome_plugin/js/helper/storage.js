@@ -34,10 +34,13 @@ function saveToCart(obj) {
       end       = time[1];
 
       } else {
+        begin = [];
+        end = [];
+        until = [];
         time.forEach(function(event, i, eventArray){
-          begin = event[0];
-          end   = event[2];
-          until = event[1];
+          begin.push(event[0]);
+          end.push(event[2]);
+          until.push(event[1]);
         });
       }
 
