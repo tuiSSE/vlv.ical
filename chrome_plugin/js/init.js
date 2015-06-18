@@ -20,7 +20,6 @@ injectDiv();
 if (/vers=text/.test(self.location.href)) {
   // all subjects the plugin can find on current page
   subjects = getElements(getRootElement());
-  getData(subjects[5]);
   fixIds(subjects);
   
   try {
