@@ -24,9 +24,40 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
-  var date = data.objects[0].begin.slice(0, 4) + '-' + data.objects[0].begin.slice(4, 6) + '-' + data.objects[0].begin.slice(6, 8);
-  var begin = data.objects[0].begin.slice(9, 11) + ':' + data.objects[0].begin.slice(11, 13);
-  var end = data.objects[0].end.slice(9, 11) + ':' + data.objects[0].end.slice(11, 13);
+
+  bootbox.dialog({
+                title: data.origName,
+                message:
+                    '<form> ' +
+                    '<input type="hidden" id="editId" value="' + id + '">' +
+                    '<div class="col-md-6"> ' +
+                    'Index <input id="editIndex" name="index" type="number" min="0" max="' + data.objects.length + '" value="' + 0 + '" class="form-control input-md"> ' +
+                    '</select>' +
+                    '</div> ' +
+                    '</form>',
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                          var id = $('#editId')[0].value;
+                          var index = $('#editIndex')[0].value;
+
+                          openEditDialogDetail(id, index);
+                        }
+                    }
+                },
+                keyboard: false
+            }
+        );
+}
+
+function openEditDialogDetail(id, index) {
+  var data = load(id);
+  var i = index;
+  var date = data.objects[i].begin.slice(0, 4) + '-' + data.objects[i].begin.slice(4, 6) + '-' + data.objects[i].begin.slice(6, 8);
+  var begin = data.objects[i].begin.slice(9, 11) + ':' + data.objects[i].begin.slice(11, 13);
+  var end = data.objects[i].end.slice(9, 11) + ':' + data.objects[i].end.slice(11, 13);
   bootbox.dialog({
                 title: data.origName,
                 message:
@@ -37,7 +68,7 @@ function openEditDialog(id) {
                     'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md"> ' +
                     '</div> ' +
                     '<div class="col-md-6"> ' +
-                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[0].location + '" class="form-control input-md"> ' +
+                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[i].location + '" class="form-control input-md"> ' +
                     '</div>' +
                     '<div class="col-md-6"> ' +
                     'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
