@@ -56,6 +56,9 @@ function saveToCart(obj) {
             case "Vorlesungen:":
               type = "Vorlesung";
               break;
+            case "Vorlesungen (Fakultativ):":
+              type = "Vorlesung";
+              break;
             case "Übungen:":
               type = "Übung";
               break;
