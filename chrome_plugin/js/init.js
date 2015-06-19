@@ -13,6 +13,7 @@ try {
 
 var subjects = [];
 injectDiv();
+updateSelectionBox();
 
 /*
  * checks, if current page is the text one and then initializes the plugin
