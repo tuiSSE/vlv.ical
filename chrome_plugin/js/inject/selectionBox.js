@@ -60,16 +60,19 @@ function openEditDialogDetail(id, index) {
   $('#editId').val( id );
   $('#editName').val( data.name );
   $('#editLocation').val( data.objects[i].location );
-  $('#editComment').val( data.comment );
+  $('#editComment').val( data.objects[i].comment );
   $('#editDate').val( date );
   $('#editBeginTime').val( begin );
   $('#editEndTime').val( end );
   $('#editRepeat').val( 'not yet implemented' );
-  var editForm = $('#editForm').clone();
+  var clonedForm = null;
+  var origForm = $('#editForm');
 
   bootbox.dialog({
                 title: data.origName,
-                message: editForm,
+                message: $('#editForm'),
+                backdrop: true,
+                closeButton: false,
                 buttons: {
                     success: {
                         label: "Save",
@@ -98,11 +101,13 @@ function openEditDialogDetail(id, index) {
                             
                             data.begin = date + 'T' + beginTime;
                             data.end = date + 'T' + endTime;
+                            clonedForm = $('#editForm');
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
                           
                           try {
+                              $('#formArea').prepend(clonedForm);
                               save(id, data);
                           } catch(e) {
                             toastr.error(e, 'Error');
@@ -111,6 +116,17 @@ function openEditDialogDetail(id, index) {
                           updateSelectionBox();
                           
                         }
+                    },
+                    cancel: {
+                      label: "Cancel",
+                      className: "btn-danger",
+                      callback: function(){
+                        try {
+                          $('#formArea').prepend(origForm);
+                        } catch(e) {
+                          console.log(e);
+                        }
+                      }
                     }
                 },
                 keyboard: false
