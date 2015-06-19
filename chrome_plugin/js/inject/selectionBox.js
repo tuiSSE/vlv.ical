@@ -82,19 +82,20 @@ function openEditDialogDetail(id, index) {
                             var id = $('#editId')[0].value;
                             var data = load(id);
                           } catch (e) {
+                            $('#formArea').prepend(origForm);
                             toastr.error(e, 'Error');
                           }
                           
                           try {
-                            data.name = $('#editName')[0].value;
-                            data.location = $('#editLocation')[0].value;
-                            data.comment = $('#editComment')[0].value;
+                            data.name = isEmpty($('#editName')[0].value);
+                            data.location = isEmpty($('#editLocation')[0].value);
+                            data.comment = isEmpty($('#editComment')[0].value);
                             
-                            var date = $('#editDate')[0].value;
+                            var date = isEmpty($('#editDate')[0].value);
                             date = date.split("-").join('');
                             
-                            var beginTime = $('#editBeginTime')[0].value;
-                            var endTime = $('#editEndTime')[0].value;
+                            var beginTime = isEmpty($('#editBeginTime')[0].value);
+                            var endTime = isEmpty($('#editEndTime')[0].value);
                             
                             beginTime = beginTime.slice(0, 2) + beginTime.slice(3, 5) + '00';
                             endTime = endTime.slice(0, 2) + endTime.slice(3, 5) + '00';
@@ -104,12 +105,14 @@ function openEditDialogDetail(id, index) {
                             clonedForm = $('#editForm');
                           } catch(e) {
                             toastr.error(e, 'Error');
+                            return false;
                           }
                           
                           try {
                               $('#formArea').prepend(clonedForm);
                               save(id, data);
                           } catch(e) {
+                            $('#formArea').prepend(origForm);
                             toastr.error(e, 'Error');
                           }
 

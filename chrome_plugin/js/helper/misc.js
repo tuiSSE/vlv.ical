@@ -32,3 +32,23 @@ function containsObject(object, list) {
 
     return false;
 }
+
+/**
+ * Helper to check if a Var is Empty/Defined
+ */
+function isEmpty(v) {
+  if(v && typeof v !== 'undefined') {
+    return v;
+  } else {
+    throw new UserException("Variable " + v + "is empty or not defined!");
+  }
+}
+
+/**
+ * [UserException Builder to throw an Error Message]
+ * @param {[str]} message [Error Message to Display]
+ */
+function UserException(message) {
+   this.message = message;
+   this.name = "UserException";
+}

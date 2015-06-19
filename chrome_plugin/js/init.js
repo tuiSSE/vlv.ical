@@ -61,11 +61,11 @@ moment.locale("de");
  toastr.options.preventDuplicates = true;
 
 /**
-* Append container and include edit-form
+* Append container and include editForm
 */
 try {
   $('body').prepend('<div id="formArea" style="display: none;"></div>');
-  $('#formArea').load(chrome.extension.getURL("partial/edit-form.html"));
+  $('#formArea').load(chrome.extension.getURL("partials/edit-form.html"));
 } catch(e) {
   console.log(e);
 }
