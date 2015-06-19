@@ -65,8 +65,9 @@ function openEditDialogDetail(id, index) {
   $('#editBeginTime').val( begin );
   $('#editEndTime').val( end );
   $('#editRepeat').val( 'not yet implemented' );
-  var clonedForm = null;
-  var origForm = $('#editForm');
+
+  var clonedForm = null; // Holds the edited Form
+  var origForm = $('#editForm'); // Copy of the Form before Edit
 
   bootbox.dialog({
                 title: data.origName,
@@ -105,7 +106,7 @@ function openEditDialogDetail(id, index) {
                             clonedForm = $('#editForm');
                           } catch(e) {
                             toastr.error(e, 'Error');
-                            return false;
+                            return false;   // Prevent the Modal from closing
                           }
                           
                           try {
