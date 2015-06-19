@@ -46,7 +46,10 @@
             ]
         }
     ],
-    "web_accessible_resources": ["resources/*"],
+    "web_accessible_resources": [
+        "resources/*",
+        "partial/*"
+    ],
     "permissions": [
         "activeTab",
         "tabs",

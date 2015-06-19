@@ -29,16 +29,16 @@ function openEditDialog(id) {
                 title: data.origName,
                 message:
                     '<form class="form-horizontal"> ' +
-                    '<input type="hidden" id="editId" value="' + id + '">' +
-                    'Index <input id="editIndex" name="index" type="number" min="0" max="' + (data.objects.length - 1) + '" value="' + 0 + '" class="form-control input-md"> ' +
+                    '<input type="hidden" id="editSelectId" value="' + id + '">' +
+                    'Index <input id="editSelectIndex" name="index" type="number" min="0" max="' + (data.objects.length - 1) + '" value="' + 0 + '" class="form-control input-md"> ' +
                     '</form>',
                 buttons: {
                     success: {
                         label: "Save",
                         className: "btn-success",
                         callback: function () {
-                          var id = $('#editId')[0].value;
-                          var index = $('#editIndex')[0].value;
+                          var id = $('#editSelectId')[0].value;
+                          var index = $('#editSelectIndex')[0].value;
 
                           openEditDialogDetail(id, index);
                         }
@@ -55,34 +55,20 @@ function openEditDialogDetail(id, index) {
   var date = data.objects[i].begin.slice(0, 4) + '-' + data.objects[i].begin.slice(4, 6) + '-' + data.objects[i].begin.slice(6, 8);
   var begin = data.objects[i].begin.slice(9, 11) + ':' + data.objects[i].begin.slice(11, 13);
   var end = data.objects[i].end.slice(9, 11) + ':' + data.objects[i].end.slice(11, 13);
+  
+  // assign the values of the object
+  $('#editId').val( id );
+  $('#editName').val( data.name );
+  $('#editLocation').val( data.objects[i].location );
+  $('#editComment').val( data.comment );
+  $('#editDate').val( date );
+  $('#editBeginTime').val( begin );
+  $('#editEndTime').val( end );
+  $('#editRepeat').val( 'not yet implemented' );
+
   bootbox.dialog({
                 title: data.origName,
-                message:
-                    '<label>Diese Daten werden in deinen Kalender übernommen</label>' +
-                    '<form class="edit-form" role="form" data-toggle="validator"> ' +
-                    '<input type="hidden" id="editId" value="' + id + '">' +
-                    '<div class="form-group"> ' +
-                    'Name: <input id="editName" name="name" type="text" value="' + data.name + '" class="form-control input-md" data-minlength="5" required> ' +
-                    '</div> ' +
-                    '<div class="form-group"> ' +
-                    'Ort: <input id="editLocation" name="location" type="text" value="' + data.objects[i].location + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '<div class="form-group"> ' +
-                    'Kommentar: <input id="editComment" name="comment" type="text" value="' + data.comment + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '<div class="form-group"> ' +
-                    'Datum: <input id="editDate" name="date" type="date" value="' + date + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '<div class="form-group"> ' +
-                    'Beginn: <input id="editBeginTime" name="begin" type="time" value="' + begin + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '<div class="form-group"> ' +
-                    'Ende: <input id="editEndTime" name="end" type="time" value="' + end + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '<div class="form-group"> ' +
-                    'Wiederholung: <input id="editRepeat" name="repetition" type="text" value="' + 'not yet implemented' + '" class="form-control input-md"> ' +
-                    '</div>' +
-                    '</form>',
+                message: $('#editForm').clone(),
                 buttons: {
                     success: {
                         label: "Save",
