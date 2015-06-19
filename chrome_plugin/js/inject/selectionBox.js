@@ -65,10 +65,11 @@ function openEditDialogDetail(id, index) {
   $('#editBeginTime').val( begin );
   $('#editEndTime').val( end );
   $('#editRepeat').val( 'not yet implemented' );
+  var editForm = $('#editForm').clone();
 
   bootbox.dialog({
                 title: data.origName,
-                message: $('#editForm').clone(),
+                message: editForm,
                 buttons: {
                     success: {
                         label: "Save",
@@ -106,7 +107,7 @@ function openEditDialogDetail(id, index) {
                           } catch(e) {
                             toastr.error(e, 'Error');
                           }
-                          
+
                           updateSelectionBox();
                           
                         }
