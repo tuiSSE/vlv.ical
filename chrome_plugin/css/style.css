@@ -199,6 +199,6 @@ html, * {
 	text-transform: capitalize;
 }
 
-#edit-form {
-	display:block;
+#editForm {
+	overflow: scroll;
 }

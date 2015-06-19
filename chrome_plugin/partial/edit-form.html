@@ -1,25 +1,32 @@
-<form id="editForm" method="post">
-     <legend>Diese Daten werden in deinen Kalender übernommen</legend>
+<form id="editForm" role="form">
+     <p class="lead text-muted">Diese Daten werden in deinen Kalender übernommen</p>
      <input type="hidden" id="editId">
-     <div class="form-group"> 
-          Name: <input id="editName" name="name" type="text" class="form-control input-md"> 
+     <div class="form-group">
+          <label for="name">Name</label>
+          <input id="editName" name="name" type="text" class="form-control input-md" required> 
      </div> 
-     <div class="form-group"> 
-          Ort: <input id="editLocation" name="location" type="text" class="form-control input-md">
+     <div class="form-group">
+          <label for="location">Ort</label>
+          <input id="editLocation" name="location" type="text" class="form-control input-md">
      </div>
      <div class="form-group"> 
-          Kommentar: <input id="editComment" name="comment" type="text" class="form-control input-md"> 
+          <label for="comment">Kommentar</label>
+          <input id="editComment" name="comment" type="text" class="form-control input-md"> 
      </div>
      <div class="form-group"> 
-          Datum: <input id="editDate" name="date" type="date" class="form-control input-md"> 
+          <label for="date">Datum</label>
+          <input id="editDate" name="date" type="date" class="form-control input-md"> 
      </div>
      <div class="form-group"> 
-          Beginn: <input id="editBeginTime" name="begin" type="time" class="form-control input-md"> 
+          <label for="begin">Beginn</label>
+          <input id="editBeginTime" name="begin" type="time" class="form-control input-md"> 
      </div>
      <div class="form-group"> 
-          Ende: <input id="editEndTime" name="end" type="time" class="form-control input-md"> 
+          <label for="end">Ende</label>
+          <input id="editEndTime" name="end" type="time" class="form-control input-md"> 
      </div>
      <div class="form-group"> 
-          Wiederholung: <input id="editRepeat" name="repetition" type="text" class="form-control input-md"> 
+          <label for="repeat">Wiederholung</label>
+          <input id="editRepeat" name="repeat" type="text" class="form-control input-md"> 
      </div>
 </form>
