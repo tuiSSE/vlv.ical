@@ -7,7 +7,6 @@ function saveToCart(obj) {
     name: "",
     origName: "",
     objects: [], // gets dataObjects
-    comment: "",
     link: []
   }
   var dataObjects;
@@ -17,7 +16,7 @@ function saveToCart(obj) {
   data.id = getIdOfLecture(obj);
   data.name = getNameOfLecture(obj);
   data.origName = data.name;
-  data.comment = getSpeakerOfLecture(obj);
+  var comment = getSpeakerOfLecture(obj);
   
   for (var i = 0; i < objData.length; i++) {
     for (var j = 0; j < objData[i].events.length; j++) {
@@ -44,12 +43,55 @@ function saveToCart(obj) {
         });
       }
 
+      /*
+       * has to be outsourced to some kind of setting
+       */
+      var setTypeName = true;
+
+      var typeName;
+      if (setTypeName) {
+        var type;
+        if (objData[i].type !== undefined) {
+          switch(objData[i].type) {
+            case "Vorlesungen:":
+              type = "Vorlesung";
+              break;
+            case "Übungen:":
+              type = "Übung";
+              break;
+            case "Klausur:":
+              type = "Klausur";
+              break;
+            case "Seminar:":
+              type = "Seminar";
+              break;
+            case "Seminare (Fakultativ):":
+              type = "Seminar (Fakultativ)";
+              break;
+            case "Praktika:":
+              type = "Praktikum";
+              break;
+            default:
+              type = objData[i].type;
+              break;
+          }
+        } else {
+          type = "";
+        }
+
+        typeName = data.name + " " + type;
+      } else {
+        typeName = data.name;
+      }
+
       dataObjects = { type: objData[i].type,
+                    name: typeName,
                     location: obj.location, 
                     begin: begin,
                     end:   end,
                     until: until,
-                    weekly: "1" };
+                    weekly: "1",
+                    comment:  comment};
       data.objects.push(dataObjects);
     }
   }
