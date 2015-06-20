@@ -39,8 +39,13 @@ function openEditDialog(id) {
                         callback: function () {
                           var id = $('#editSelectId')[0].value;
                           var index = $('#editSelectIndex')[0].value;
+                          var data = load(id);
 
-                          openEditDialogDetail(id, index);
+                          if(data.objects[i].begin.length > 1) {
+                            console.log('Houston, wir haben ein Problem!');
+                          } else {
+                            openEditDialogDetail(id, index);
+                          }
                         }
                     }
                 },
