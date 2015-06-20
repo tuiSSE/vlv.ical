@@ -7,20 +7,22 @@ function addDownloadButtonDetailPage() {
     var tr = $(tbodies[i]).find('tr');
     for (var j = 0; j < tr.length; j++) {
     	var obj = tr[j];
-    	var button = $('<button class="downloadDetail primary-btn">Download</button>');
-    	button.insertBefore(obj.childNodes[obj.childNodes.length-1]);
+      obj.className = "detailTr";
     }
   }
 
-  $('.downloadDetail').on('mouseover', function() {
-  	this.parentNode.style.background = "#a2dda8";
+  $('.detailTr').on('mouseover', function() {
+  	this.style.background = "#a2dda8";
+    var label = $('<label class="downloadDetail">Download</label>');
+    label.insertBefore(this.childNodes[this.childNodes.length-1]);
   });
 
-  $('.downloadDetail').on('mouseout', function() {
-  	this.parentNode.style.background = "white";
+  $('.detailTr').on('mouseout', function() {
+  	this.style.background = "white";
+    $('.downloadDetail').remove();
   });
 
-  $('.downloadDetail').on('click', function() {
-	downloadDetail(this.parentNode);
+  $('.detailTr').on('click', function() {
+	downloadDetail(this);
   });
 }

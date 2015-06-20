@@ -88,14 +88,19 @@ html, * {
 }
 
 .downloadDetail {
-	background-color:#a2dda8;
+	position: relative;
 	display:inline-block;
 	cursor:pointer;
 	color:white;
 	font-family:Arial;
-	font-size:13px;
-	padding:8px 20px;
+	font-size:12px;
+	padding:5px 10px;
 	text-decoration:none;
+}
+
+.detailTr {
+	cursor:pointer;
+	height: 10px;
 }
 
 #selectAll {
