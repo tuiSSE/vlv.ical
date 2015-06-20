@@ -174,15 +174,6 @@ function injectDiv() {
   };
 
   injectDownloadButtons();
-  injectSelectAllButton();
-
-  var boxWidth = $('#openSelectionBox').css('width');
-  var pageWidth = $('#page').css('width');
-  boxWidth = 2.5 * parseInt(boxWidth.slice(0, boxWidth.length-2));
-  pageWidth = parseInt(pageWidth.slice(0, pageWidth.length-2));
-  if (pageWidth > (995 + boxWidth)) {
-    openBox();
-  }
 }
 
 function openBox() {
