@@ -3,7 +3,7 @@
  */
 function addEvent(cal, event, i) {
     cal.push('BEGIN:VEVENT');
-    cal.push('CREATED:20150425T221630Z');
+    cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
     cal.push("LOCATION:" + event.objects[i].location);
@@ -11,7 +11,7 @@ function addEvent(cal, event, i) {
     cal.push('SUMMARY:' + event.objects[i].name);
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
-    cal.push('DTSTAMP:20150425T221630Z');
+    cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
   
@@ -23,7 +23,7 @@ function addEvent(cal, event, i) {
  */
 function addEvents(cal, event, i) {
     cal.push('BEGIN:VEVENT');
-    cal.push('CREATED:20150425T221630Z');
+    cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
     cal.push("LOCATION:" + event.objects[i].location);
@@ -32,7 +32,7 @@ function addEvents(cal, event, i) {
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
     cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until);
-    cal.push('DTSTAMP:20150425T221630Z');
+    cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
   
@@ -44,7 +44,7 @@ function addEvents(cal, event, i) {
  */
 function addEventsWithBreak(cal, event, i, j) {
     cal.push('BEGIN:VEVENT');
-    cal.push('CREATED:20150425T221630Z');
+    cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end[j]);
     cal.push("LOCATION:" + event.objects[i].location);
@@ -53,7 +53,7 @@ function addEventsWithBreak(cal, event, i, j) {
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin[j]);
     cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until[j]);
-    cal.push('DTSTAMP:20150425T221630Z');
+    cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
   
@@ -100,6 +100,27 @@ function initCal() {
 function closeCal(cal) {
   cal.push('END:VCALENDAR');
   return cal;
+}
+
+function getCurrentTimestamp() {
+  var tst = "20150425T221630Z";
+
+  var date = new Date();
+  var year = date.getFullYear();
+
+  var month = date.getMonth() + 1;
+  if (month < 10) {
+    month = "0" + month;
+  }
+
+  var day = date.getDate();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  var str = year + month + day + "T" + hours + minutes + seconds + "Z";
+
+  return str;
 }
 
 /*
