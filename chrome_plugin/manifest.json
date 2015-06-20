@@ -33,6 +33,7 @@
                 "js/helper/parseDate.js",
                 "js/helper/storage.js",
                 "js/helper/download.js",
+                "js/helper/checkPage.js",
                 "js/inject/selection.js",
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",

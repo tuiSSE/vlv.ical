@@ -11,6 +11,15 @@ try {
   save('selection', []); 
 }
 
+/*
+ * same as above for settings
+ */
+try {
+  load('settings');
+} catch (e) {
+  save('settings', []); 
+}
+
 var subjects = [];
 injectDiv();
 updateSelectionBox();
@@ -24,7 +33,11 @@ if (/vers=text/.test(self.location.href)) {
   fixIds(subjects);
   
   try {
-    init();
+    if (checkPageStructure()) {
+      init();
+    } else {
+      toastr.error("Site structure seems to have changed. Plugin could not be initialized correctly.")
+    }
   } catch (e) {
     console.log("Failed to initialize");
     console.log(e);
