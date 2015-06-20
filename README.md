@@ -1,6 +1,6 @@
 ﻿# VLV.ical
 
-Javascript und Browser-Plugin zur Übertragung des Vorlesungsverzeichnisses der TU Ilmenau in den eigenen Kalender.
+VLV.ical ist ein Plugin für Google-Chrome, welches den Export einer .ics Datei aus dem Vorlesungsverzeichnis der TU Ilmenau ermöglicht.
 
 Wir übernehmen keinerlei Haftung für die Richtigkeit der Informationen.
 
