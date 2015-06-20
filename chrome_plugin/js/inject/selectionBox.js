@@ -64,7 +64,7 @@ function openEditDialogDetail(id, index) {
   $('#editDate').val( date );
   $('#editBeginTime').val( begin );
   $('#editEndTime').val( end );
-  $('#editRepeat').val( 'not yet implemented' );
+  $('#editRepeat').val( data.objects[i].weekly );
 
   var clonedForm = null; // Holds the edited Form
   var origForm = $('#editForm'); // Copy of the Form before Edit
@@ -103,6 +103,10 @@ function openEditDialogDetail(id, index) {
                             
                             data.begin = date + 'T' + beginTime;
                             data.end = date + 'T' + endTime;
+
+                            var weekly = $('#editRepeat')[0].value;
+                            data.objects[i].weekly = weekly;
+
                             clonedForm = $('#editForm');
                           } catch(e) {
                             toastr.error(e, 'Error');

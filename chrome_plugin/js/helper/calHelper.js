@@ -31,7 +31,7 @@ function addEvents(cal, event, i) {
     cal.push('SUMMARY:' + event.objects[i].name);
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
@@ -52,7 +52,7 @@ function addEventsWithBreak(cal, event, i, j) {
     cal.push('SUMMARY:' + event.objects[i].name);
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin[j]);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=1;UNTIL=' + event.objects[i].until[j]);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until[j]);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
