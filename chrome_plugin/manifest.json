@@ -34,10 +34,12 @@
                 "js/helper/storage.js",
                 "js/helper/download.js",
                 "js/helper/checkPage.js",
+                "js/helper/downloadDetail.js",
                 "js/inject/selection.js",
                 "js/inject/selectionBox.js",
                 "js/inject/buttons.js",
                 "js/inject/identifier.js",
+                "js/inject/detailPage.js",
                 "js/inject/borders.js",
                 "js/init.js"
             ],

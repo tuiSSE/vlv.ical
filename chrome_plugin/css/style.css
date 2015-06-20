@@ -87,6 +87,17 @@ html, * {
  	vertical-align: center;
 }
 
+.downloadDetail {
+	background-color:#a2dda8;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:13px;
+	padding:8px 20px;
+	text-decoration:none;
+}
+
 #selectAll {
 	position: relative;
 	color: white;
