@@ -139,7 +139,9 @@ function openEditDialogDetail(id, index) {
 }
 
 function injectDiv() {
-  var div = $('<div id="emptyBox"><br><br><br><br></div>');
+  var page = $('#page')[0];
+
+  var div = $('<div id="emptyBox"><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
   var open = $('<div id="openSelectionBox">VLV.ical</div>')
@@ -151,7 +153,7 @@ function injectDiv() {
   open = $('#openSelectionBox')[0];
   open.onclick = function () {
     openBox();
-  };
+    };
   
   var downloadArea = $('<div id="downloadArea"></div>');
   downloadArea.insertBefore($('#selectionBox')[0].childNodes[0]);
@@ -168,18 +170,36 @@ function injectDiv() {
   backButton = $('#backButton')[0];
   backButton.onclick = function () {
     closeBox(this.parentNode);
+    page.style.width = "100%";
   };
 
   injectDownloadButtons();
   injectSelectAllButton();
+
+  var boxWidth = $('#openSelectionBox').css('width');
+  var pageWidth = $('#page').css('width');
+  boxWidth = 2.5 * parseInt(boxWidth.slice(0, boxWidth.length-2));
+  pageWidth = parseInt(pageWidth.slice(0, pageWidth.length-2));
+  if (pageWidth > (995 + boxWidth)) {
+    openBox();
+  }
 }
 
 function openBox() {
+
   var open = $('#openSelectionBox')[0];
   $(open).hide("slide");
   
   var box = $('#selectionBox')[0];
   $(box).show("slide");
+
+  var boxWidth = $('#openSelectionBox').css('width');
+  var pageWidth = $('#page').css('width');
+  boxWidth = 2.5 * parseInt(boxWidth.slice(0, boxWidth.length-2));
+  pageWidth = parseInt(pageWidth.slice(0, pageWidth.length-2));
+  if (pageWidth > (995 + boxWidth)) {
+    $('#page')[0].style.width = (pageWidth - boxWidth) + "px";
+  }
 }
 
 function closeBox() {

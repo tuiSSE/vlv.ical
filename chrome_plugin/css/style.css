@@ -6,6 +6,10 @@ html, * {
 	font-size: 12px;
 }
 
+#page {
+	transition: width 0.5s ease;
+}
+
 #container {
     margin-left:    5px;
     margin-top:     5px;
@@ -91,7 +95,7 @@ html, * {
 	box-shadow: -5px 0 5px -5px #333;
 	display: none;
 	transition: width 0.5s ease;
-	width: 25em;
+	width: 20em;
 	z-index: 1000;
 	right: 0;
 	transition: height 0.5s ease;
