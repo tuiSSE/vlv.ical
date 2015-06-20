@@ -134,13 +134,6 @@ html, * {
 	border-bottom-left-radius: 5px;
 }
 
-.clearButton {
-	height: 0.5in;
-	background-color: #EFEFEF;
-	border: 2px;
-	cursor: pointer;
-}
-
 .selectionBoxItem {
 	background-color:white;
 	position: relative;
@@ -167,6 +160,29 @@ html, * {
 .itemDetail {
 	font-size: 10px;
 	text-align: left;
+}
+
+#deleteCart {
+	position: relative;
+	display: block;
+	font-size: 14px;
+	width: 100%;
+	height: 1.5em;
+	line-height: 1.5em;
+	clear: both;
+	font-weight: 300;
+	background-color: #ea6a68;
+	cursor: pointer;
+	text-align: center;
+	color: white;
+	font-family: sans-serif;
+	cursor: pointer;
+}
+
+#deleteCart:hover {
+	transition: opacity 0.8s ease;
+	opacity: 0.7;
+
 }
 
 #downloadArea {

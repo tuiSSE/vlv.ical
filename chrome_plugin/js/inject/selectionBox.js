@@ -160,8 +160,21 @@ function injectDiv() {
 
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  var deleteCart = $('<div id="deleteCart">Empty Cart</div>');
+  deleteCart.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  deleteCart = $('#deleteCart')[0];
+  deleteCart.onclick = function () {
+    bootbox.confirm("Do you want to empty your cart?", function(result) {
+      if (result) {
+        save('selection', []);
+        updateSelection();
+      }
+    });
+  }
   
-  var boxHeader = $('<div id="boxHeader"><p>MY SELECTION:</p></div>');
+  var boxHeader = $('<div id="boxHeader"><p>VLVical</p></div>');
   boxHeader.insertBefore($('#selectionBox')[0].childNodes[0]);
   
   var backButton = $('<div id="backButton">click here to hide</div>');
