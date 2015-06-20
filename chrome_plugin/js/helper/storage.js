@@ -4,15 +4,23 @@
 function saveToCart(obj) {
   var data = convertData(obj);
 
-  save(data.id, data);
+  if (data.origName !== "" &&
+      data.objects[0].begin !== undefined &&
+      data.objects[0].begin !== [] &&
+      data.objects[0].end !== undefined &&
+      data.objects[0].end !== []) {
+    save(data.id, data);
 
-  var items = [];
-  try {
-    items = load('selection');
-  } catch (e) { }
-  items.push(data.id);
+    var items = [];
+    try {
+      items = load('selection');
+    } catch (e) { }
+    items.push(data.id);
 
-  save('selection', items);
+    save('selection', items);
+  } else {
+    toastr.error("Beim Lesen der Veranstaltung ist ein Fehler aufgetreten.");
+  }
 }
 
 /*
