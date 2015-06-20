@@ -1,3 +1,29 @@
+/*
+ * @class moment // sets locale to german
+ */
+moment.locale("de");
+
+/**
+ * toastr options
+ */
+toastr.options = {
+  "closeButton": true,
+  "debug": false,
+  "newestOnTop": true,
+  "progressBar": false,
+  "positionClass": "toast-bottom-left",
+  "preventDuplicates": true,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "5000",
+  "extendedTimeOut": "1000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+
 try {
   fixDivHeight();
 } catch(e) {};
@@ -36,7 +62,7 @@ if (/vers=text/.test(self.location.href)) {
     if (checkPageStructure()) {
       init();
     } else {
-      toastr.error("Site structure seems to have changed. Plugin could not be initialized correctly.")
+      toastr.error("Site structure seems to have changed. Site manipulation has been disabled.")
     }
   } catch (e) {
     console.log("Failed to initialize");
@@ -62,16 +88,6 @@ function init() {
   updateSelection(subjects);
   checkLastUpdated();
 }
-
-/*
- * @class moment // sets locale to german
- */
-moment.locale("de");
-
-/**
- * prevent toastr duplicates
- */
- toastr.options.preventDuplicates = true;
 
 /**
 * Append container and include editForm
