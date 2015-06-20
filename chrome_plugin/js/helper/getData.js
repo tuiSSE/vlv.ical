@@ -133,6 +133,7 @@ function convertData(obj) {
 
       var timeData = [obj.dates, obj.time];
       var time = parseTime(timeData, obj.dayOfWeek);
+      var repeat = parseIntervall(obj.dates);
       var begin;
       var end;
       var until = null;
@@ -202,7 +203,7 @@ function convertData(obj) {
                     begin: begin,
                     end:   end,
                     until: until,
-                    weekly: 1,
+                    weekly: repeat,
                     lastUpdated: obj.lastUpdated,
                     comment:  comment};
       data.objects.push(dataObjects);

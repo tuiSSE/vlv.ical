@@ -1,3 +1,11 @@
+function parseIntervall(raw) {
+  if(raw[0].charAt(0) === "G" || raw[0].charAt(0) === "U") {
+    return 2;
+  } else {
+    return 1;
+  }
+}
+
 // TODO: Clean Up Code
 function parseTime(raw, day) { 
   var time =[];

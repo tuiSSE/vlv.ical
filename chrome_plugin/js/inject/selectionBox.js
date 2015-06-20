@@ -109,6 +109,7 @@ function openEditDialogDetail(id, index) {
 
                             clonedForm = $('#editForm');
                           } catch(e) {
+                            console.error(e.name+": "+e.message);
                             toastr.error(e, 'Error');
                             return false;   // Prevent the Modal from closing
                           }

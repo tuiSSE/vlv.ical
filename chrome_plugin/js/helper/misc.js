@@ -40,15 +40,6 @@ function isEmpty(v) {
   if(v && typeof v !== 'undefined') {
     return v;
   } else {
-    throw new UserException("Variable " + v + "is empty or not defined!");
+    throw new Error("Variable " + v + "is empty or not defined!");
   }
-}
-
-/**
- * [UserException Builder to throw an Error Message]
- * @param {[str]} message [Error Message to Display]
- */
-function UserException(message) {
-   this.message = message;
-   this.name = "UserException";
 }
