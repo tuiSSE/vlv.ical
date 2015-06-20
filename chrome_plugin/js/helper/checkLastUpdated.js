@@ -24,7 +24,6 @@ function isOutdated(cartItem, origItem) {
 	for (var i = cartItem.objects.length - 1; i >= 0; i--) {
 		var a = cartItem.objects[i].lastUpdated;
 		var b = origItem.objects[i].lastUpdated;
-		console.log(a + " ___ " + b);
 		if (compareLastUpdated(a, b)) {
 			result = true;
 			break loop;
