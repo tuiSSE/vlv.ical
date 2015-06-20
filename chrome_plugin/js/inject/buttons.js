@@ -20,14 +20,9 @@ function injectDownloadButtons() {
 }
 
 function injectSelectAllButton() {
-  var selectAll = document.createElement('input');
-  selectAll.type = 'button';
-  selectAll.id = 'selectAll';
-  selectAll.className = 'downloadButton default-btn';
-  selectAll.value = 'Select All / Unselect All';
-
-  var box = $('#downloadArea')[0];
-  box.appendChild(selectAll);
+  var selectAll = $('<button id="selectAll" class="selectAll">Select All / Unselect All</input>');
+  selectAll.insertBefore(subjects[0]);
+  $('<p>&nbsp;</p>').insertBefore(subjects[0]);
   
   $("#selectAll").on('click', function(entryInfo){
     var bool = load('selection').length < subjects.length;

@@ -84,7 +84,22 @@ html, * {
 }
 
 .plusIcon {
-	vertical-align: center;
+ 	vertical-align: center;
+}
+
+#selectAll {
+	position: relative;
+	color: white;
+	background-color: #7dcf85; 
+	height: 2em;
+	width: 15em;
+	display: inline-block;
+	cursor: pointer;
+	font-family:Arial;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px 20px;
+	text-decoration: none;
 }
 
 #selectionBox {
