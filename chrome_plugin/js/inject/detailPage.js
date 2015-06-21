@@ -1,11 +1,21 @@
 function addDownloadButtonDetailPage() {
   var tbodies = $(document.body).find('tbody');
+  var hasValidContent = false;
 
   for (var i = 0; i < tbodies.length; i++) {
     var tr = $(tbodies[i]).find('tr');
     for (var j = 0; j < tr.length; j++) {
     	var obj = tr[j];
-      obj.className = "detailTr";
+      var data = getDetailData(obj);
+
+      if (data.name !== "" &&
+          (data.begin instanceof String || data.begin instanceof Array) &&
+          (data.end instanceof String || data.end instanceof Array)) {
+        obj.className = "detailTr";
+        if (!hasValidContent) {
+          hasValidContent = true;
+        }
+      }
     }
   }
 
@@ -22,6 +32,8 @@ function addDownloadButtonDetailPage() {
 	 downloadDetail(this);
   });
 
-  var infoBox = $('<div class="detailInfoBox">Click on event to download</div>');
-  infoBox.insertBefore(document.body);
+  if (hasValidContent) {
+    var infoBox = $('<div class="detailInfoBox">Click on event to download</div>');
+      infoBox.insertBefore(document.body);
+    }
 }
