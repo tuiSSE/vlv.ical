@@ -25,13 +25,7 @@ function getIdOfLecture(object) {
 }
 
 function getNameOfLecture(object) {
-    var name = object.childNodes[1].innerText;
-    if (name.slice(name.length - 12) == "Beschreibung") {
-      result = name.slice(0, (name.length - 15));
-    } else {
-      result = name;
-    }
-    return result;
+    return object.childNodes[1].childNodes[0].innerText;
 }
 
 function getSpeakerOfLecture(object) {
