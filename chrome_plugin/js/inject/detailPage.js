@@ -1,7 +1,5 @@
 function addDownloadButtonDetailPage() {
-  var objects = document.getElementsByClassName("stupla_fs09");
-  var parent = objects[8].parentNode.parentNode.parentNode;
-  var tbodies = $(parent).find('tbody');
+  var tbodies = $(document.body).find('tbody');
 
   for (var i = 0; i < tbodies.length; i++) {
     var tr = $(tbodies[i]).find('tr');
