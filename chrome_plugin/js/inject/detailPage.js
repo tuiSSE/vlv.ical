@@ -29,7 +29,9 @@ function addDownloadButtonDetailPage() {
   });
 
   $('.detailTr').on('click', function() {
-	 downloadDetail(this);
+    bootbox.confirm("Wollen sie den ausgewählten Termin herunterladen?", function(result) {
+         downloadDetail(this);
+    }); 
   });
 
   if (hasValidContent) {
