@@ -1,6 +1,20 @@
 /*
  * injects download buttons into the webpage
  */
+ 
+ function getDatetoString(){
+   var year = getYear();
+   var month = getMonth() + 1;
+   var day = getDate();
+   
+   var yearString = year.toString();
+   var monthString = month.toString();
+   var dayString = day.toString();
+   
+   var dateString = yearString + monthString + dayString;
+   return dateString;
+ }
+ 
 function injectDownloadButtons() {
   
   // adds a download button that only downloads an array of selected objects
@@ -14,7 +28,7 @@ function injectDownloadButtons() {
   box.appendChild(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
-    var filename = "calendar";
+    var filename = "vlv_ical_export_" + getDatetoString();
     downloadSelection(filename);
   });
 }
