@@ -300,7 +300,7 @@ html, * {
 
 li .cd-item-remove {
   position: absolute;
-  bottom: 25%;
+  top: 19%;
   right: 1em;
   width: 32px;
   height: 32px;
