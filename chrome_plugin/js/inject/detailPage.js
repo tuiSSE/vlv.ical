@@ -13,8 +13,6 @@ function addDownloadButtonDetailPage() {
 
   $('.detailTr').on('mouseover', function() {
   	this.style.background = "#a2dda8";
-    var label = $('<label class="downloadDetail">Download</label>');
-    label.insertBefore(this.childNodes[this.childNodes.length-1]);
   });
 
   $('.detailTr').on('mouseout', function() {
@@ -23,6 +21,9 @@ function addDownloadButtonDetailPage() {
   });
 
   $('.detailTr').on('click', function() {
-	downloadDetail(this);
+	 downloadDetail(this);
   });
+
+  var infoBox = $('<div class="detailInfoBox">Click on event to download</div>');
+  infoBox.insertBefore(document.body);
 }

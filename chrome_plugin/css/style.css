@@ -96,11 +96,29 @@ html, * {
 	font-size:12px;
 	padding:5px 10px;
 	text-decoration:none;
+	vertical-align: center;
 }
 
 .detailTr {
 	cursor:pointer;
-	height: 10px;
+	height: 3em;
+}
+
+.detailInfoBox {
+	position: fixed;
+	z-index: 1000;
+	background: rgba(162,221,168,1);
+	color: white;
+	font-family: arial;
+	font-size: 14px;
+	vertical-align: middle;
+	text-align: center;
+	height: 0.3in;
+	width: 20%;
+	left: 40%;
+	margin: 0 auto;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 #selectAll {
