@@ -3,15 +3,20 @@
  */
  
  function getDatetoString(){
-   var year = getYear();
-   var month = getMonth() + 1;
-   var day = getDate();
+  var now = new Date();
+
+   var year = now.getFullYear();
    
-   var yearString = year.toString();
-   var monthString = month.toString();
-   var dayString = day.toString();
+   var month = now.getMonth() + 1;
+   if (month < 10) {
+    month = "0" + month;
+   }
+
+   var day = now.getDate();
+   var hours = now.getHours();
+   var minutes = now.getMinutes();
    
-   var dateString = yearString + monthString + dayString;
+   var dateString = year + month + day + "_" + hours + minutes;
    return dateString;
  }
  
