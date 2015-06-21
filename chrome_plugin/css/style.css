@@ -156,7 +156,7 @@ html, * {
 	box-shadow: -5px 0 5px -5px #333;
 	display: none;
 	transition: width 0.5s ease;
-	width: 20em;
+	width: 25em;
 	z-index: 1000;
 	right: 0;
 	transition: height 0.5s ease;
@@ -179,15 +179,30 @@ html, * {
 	cursor: pointer;
 	border-bottom-left-radius: 5px;
 }
+#itemBox {
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 95%;
+	clear: both;
+}
+
+#itemBox li {
+	position: relative;
+	line-height:1.5em;
+	list-style-type: none;
+	margin: 0;
+	paddin: 0;
+	border: none;
+	border-bottom: 1px solid #e0e6ef;
+	clear: both;
+}
 
 .selectionBoxItem {
 	background-color:white;
+	width:80%;
 	position: relative;
-	width: 100%;
-	float: left;
-	border: none;
-	border-bottom: 1px solid #e0e6ef;
-	display: block;
+	display: inline;
 	cursor: pointer;
 	color: black;
 	font-size: 12px;
@@ -197,10 +212,6 @@ html, * {
 	overflow: hidden;
 	word-wrap: break-word;
 	white-space: pre-wrap;
-}
-
-.selectionBoxItem:hover {
-	background-color:#e0e6ef;
 }
 
 .itemDetail {
@@ -256,13 +267,6 @@ html, * {
 	cursor: pointer;
 }
 
-#itemBox {
-	position: absolute;
-	display: block;
-	width: 100%;
-	height: 95%;
-	clear: both;
-}
 
 #boxHeader {
 	background: #435779;
@@ -282,4 +286,33 @@ html, * {
 
 #editForm {
 	overflow: scroll;
+}
+
+/**
+ * 
+ */
+@media only screen and (min-width: 1200px) {
+	#itemBox .cd-item-remove {
+	  right: 1em;
+	}
+}
+
+
+li .cd-item-remove {
+  position: absolute;
+  bottom: 25%;
+  right: 1em;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: url("chrome-extension://__MSG_@@extension_id__/resources/cd-remove-item.svg") no-repeat center center;
+}
+li .cd-item-remove:hover {
+  background-color: #e0e6ef;
+}
+li .cd-img-replace {
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
 }

@@ -11,11 +11,24 @@ function updateSelectionBox() {
                         '" class="selectionBoxItem">' +
                         item.name + 
                         '</button>');
+      var removeButton = $('<button name="'+ item.id +
+                           '" class="cd-item-remove cd-img-replace">Remove</button>');
+
+      element.insertBefore($('#itemBox')[0].childNodes[i]);
+      $(element).wrap('<li></li>');
+      (element).after(removeButton);
+
       $(element).on('click', function() {
           openEditDialog(this.id);
-      })
-      element.insertBefore($('#itemBox')[0].childNodes[i]);
+      });
     }
+    // Delete a chosen Object
+    var id = null;
+    $('#itemBox li .cd-item-remove').on('click', function() {
+      id = this.name;
+      var item = load(id);
+      removeFromCart(item);
+    });
   } catch(e) {
     console.log("Could not update selection.");
     console.log(e);
