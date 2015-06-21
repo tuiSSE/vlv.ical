@@ -342,17 +342,17 @@ function injectDiv() {
   open.onclick = function () {
     openBox();
     };
-  
+
   var downloadArea = $('<div id="downloadArea"></div>');
   downloadArea.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  var deleteCart = $('<div id="deleteCart">Empty Cart</div>');
+  $('#downloadArea').prepend(deleteCart);
 
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
 
-  var deleteCart = $('<div id="deleteCart">Empty Cart</div>');
-  deleteCart.insertBefore($('#selectionBox')[0].childNodes[0]);
-
-  deleteCart = $('#deleteCart')[0];
+  deleteCart = $('#deleteCart');
   deleteCart.onclick = function () {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
       if (result) {

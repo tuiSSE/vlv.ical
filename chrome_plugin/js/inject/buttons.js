@@ -29,8 +29,8 @@ function injectDownloadButtons() {
   downloadSelected.className = 'downloadButton primary-btn';
   downloadSelected.value = 'Download';
 
-  var box = $('#downloadArea')[0];
-  box.appendChild(downloadSelected);
+  var box = $('#downloadArea');
+  box.prepend(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
     var filename = "vlv_ical_export_" + getDatetoString();
