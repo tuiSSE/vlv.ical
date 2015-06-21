@@ -385,13 +385,6 @@ function openBox() {
   var box = $('#selectionBox')[0];
   $(box).show("slide");
 
-  var boxWidth = $('#openSelectionBox').css('width');
-  var pageWidth = $('#page').css('width');
-  boxWidth = 2.5 * parseInt(boxWidth.slice(0, boxWidth.length-2));
-  pageWidth = parseInt(pageWidth.slice(0, pageWidth.length-2));
-  if (pageWidth > (995 + boxWidth)) {
-    $('#page')[0].style.width = (pageWidth - boxWidth) + "px";
-  }
 }
 
 function closeBox() {
