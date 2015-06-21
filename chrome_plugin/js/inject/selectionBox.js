@@ -352,15 +352,14 @@ function injectDiv() {
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
 
-  deleteCart = $('#deleteCart');
-  deleteCart.onclick = function () {
+  $(deleteCart).on('click', function () {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
       if (result) {
         save('selection', []);
         updateSelection();
       }
     });
-  }
+  });
   
   var boxHeader = $('<div id="boxHeader"><p>VLVical</p></div>');
   boxHeader.insertBefore($('#selectionBox')[0].childNodes[0]);
