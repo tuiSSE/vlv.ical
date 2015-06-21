@@ -22,7 +22,7 @@ function downloadDetail(obj) {
       str = str.replace(/,/g, "\\,");
       console.log(str);
 
-      var filename = data.name.split(" ").join("_");
+      var filename = data.name.split(" ").join("_") + '_' + getDatetoString();
      
       var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
       saveAs(dl, filename + ".ics");
