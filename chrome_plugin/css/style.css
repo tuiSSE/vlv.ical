@@ -121,6 +121,18 @@ html, * {
 	border-bottom-right-radius: 5px;
 }
 
+.moreInfoButton {
+	background-color: rgba(162,221,168,1);
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:13px;
+	padding:5px 20px;
+	margin: 0px 5px;
+	text-decoration:none;
+}
+
 #selectAll {
 	position: relative;
 	color: white;

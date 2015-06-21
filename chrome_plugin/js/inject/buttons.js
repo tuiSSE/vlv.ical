@@ -50,8 +50,13 @@ function injectAddButtons(subjects) {
     var object = subjects[i];
     var name = subjects[i].childNodes[1].childNodes[0].data;
     subjects[i].childNodes[1].childNodes[0].data = null;
-    var r = $('<button class="addButton">' + name + '</button> <a>&nbsp</a>');
+    var r = $('<button class="addButton">' + name + '</button>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
+
+    var oldElement = object.childNodes[1].childNodes[2];
+    var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
+    newElement.insertBefore(oldElement);
+    $(object.childNodes[1].childNodes[3]).remove();
   }
   
   $(".addButton").on('click', function(){
