@@ -1,25 +1,6 @@
 /*
  * injects download buttons into the webpage
  */
- 
- function getDatetoString(){
-  var now = new Date();
-
-   var year = now.getFullYear();
-   
-   var month = now.getMonth() + 1;
-   if (month < 10) {
-    month = "0" + month;
-   }
-
-   var day = now.getDate();
-   var hours = now.getHours();
-   var minutes = now.getMinutes();
-   
-   var dateString = year + month + day + "_" + hours + minutes;
-   return dateString;
- }
- 
 function injectDownloadButtons() {
   
   // adds a download button that only downloads an array of selected objects
