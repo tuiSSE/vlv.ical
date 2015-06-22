@@ -51,7 +51,7 @@ function injectAddButtons(subjects) {
     var object = subjects[i];
     var name = subjects[i].childNodes[1].childNodes[0].data;
     subjects[i].childNodes[1].childNodes[0].data = null;
-    var r = $('<button class="addButton">' + name + '</button>');
+    var r = $('<button class="addButton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ' + name + '</button>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
 
     var oldElement = object.childNodes[1].childNodes[2];
