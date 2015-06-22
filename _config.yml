@@ -1,6 +1,7 @@
 # Site settings
 title: VLVical
 email: nrrsso@gmail.com
+baseUrl: /vlv.ical
 url: http://vlvical.github.io/vlv.ical
 description: "Ein Plugin für einen entspannten Semesteranfang."
 
