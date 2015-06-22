@@ -1,0 +1,38 @@
+# Site settings
+title: VLVical
+email: norris.sam-osarenkhoe@tu-ilmenau.de
+url: http://vlvical.github.io/vlv.ical/
+description: "Ein Plugin für einen entspannten Semesteranfang."
+
+# Contact form: comment the line below if you want to stick with the default PHP contact form
+contact: static
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: 18bc9c #80B3FF
+  secondary: 2c3e50 #FD6E8A
+  secondary-dark: 233140 #A2122F
+
+# Footer settings
+footer:
+  copyright: Softwareprojekt Gruppe-14
+  location: TU Ilmenau
+  social: Für Codenasen
+  credits: Das Team
+
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+social:
+  - title: github
+    url: https://github.com/vlvical/vlv.ical
+
+# Postal address (add as many lines as necessary)
+address:
+  - line: Ehrenbergstraße 29
+  - line: 98693 Ilmenau
+
+# Credits content
+credits: 'Gebaut mit <3, einer Menge Javascript und HTML5'
+
+# Build settings
+markdown: kramdown
+permalink: pretty
