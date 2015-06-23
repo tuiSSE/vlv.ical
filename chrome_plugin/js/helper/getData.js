@@ -98,16 +98,22 @@ function getData(object) {
 
     for (var j = 0; j < type.objs.length; j++) {
       var obj = type.objs[j];
-      var tmpData = {
-        "dayOfWeek": obj.childNodes[3].innerText,
-        "dates": obj.childNodes[5].innerText,
-        "time": obj.childNodes[7].innerText,
-        "location": obj.childNodes[9].innerText,
-        "targetGroup": obj.childNodes[11].innerText,
-        "lastUpdated": obj.childNodes[13].innerText.slice(13)
-      };
 
-      events.push(tmpData);
+      var dates = obj.childNodes[5].innerText;
+      if (dates.match(/[0-9][0-9].[0-9][0-9]/g) !== null ||
+          dates.match(/KW/g) !== null) {
+
+        var tmpData = {
+          "dayOfWeek": obj.childNodes[3].innerText,
+          "dates": obj.childNodes[5].innerText,
+          "time": obj.childNodes[7].innerText,
+          "location": obj.childNodes[9].innerText,
+          "targetGroup": obj.childNodes[11].innerText,
+          "lastUpdated": obj.childNodes[13].innerText.slice(13)
+        };
+
+        events.push(tmpData);
+      }
     }
 
     var tmpTypeData = {

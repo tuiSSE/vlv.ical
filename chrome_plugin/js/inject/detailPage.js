@@ -8,12 +8,14 @@ function addDownloadButtonDetailPage() {
     	var obj = tr[j];
       var data = getDetailData(obj);
 
-      if (data.name !== "" &&
-          (data.begin instanceof String || data.begin instanceof Array) &&
-          (data.end instanceof String || data.end instanceof Array)) {
-        obj.className = "detailTr";
-        if (!hasValidContent) {
-          hasValidContent = true;
+      if (data !== null && data !== undefined) {
+        if (data.name !== "" &&
+            (data.begin instanceof String || data.begin instanceof Array) &&
+            (data.end instanceof String || data.end instanceof Array)) {
+          obj.className = "detailTr";
+          if (!hasValidContent) {
+            hasValidContent = true;
+          }
         }
       }
     }
