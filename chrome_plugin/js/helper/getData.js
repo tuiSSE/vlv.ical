@@ -125,82 +125,87 @@ function convertData(obj) {
     for (var j = 0; j < objData[i].events.length; j++) {
       var obj = objData[i].events[j];
 
-      var timeData = [obj.dates, obj.time];
-      var time = parseTime(timeData, obj.dayOfWeek);
-      var repeat = parseIntervall(obj.dates);
-      var begin;
-      var end;
-      var until = null;
+      if (obj.dayOfWeek !== ' ' &&
+          obj.time !== '  -  ' &&
+          obj.dates !== '') {
 
-      if(!Array.isArray(time[0])){
-      begin     = time[0];
-      end       = time[1];
+        var timeData = [obj.dates, obj.time];
+        var time = parseTime(timeData, obj.dayOfWeek);
+        var repeat = parseIntervall(obj.dates);
+        var begin;
+        var end;
+        var until = null;
 
-      } else {
-        begin = [];
-        end = [];
-        until = [];
-        time.forEach(function(event, i, eventArray){
-          begin.push(event[0]);
-          end.push(event[2]);
-          until.push(event[1]);
-        });
-      }
+        if(!Array.isArray(time[0])){
+        begin     = time[0];
+        end       = time[1];
 
-      /*
-       * has to be outsourced to some kind of setting
-       */
-      var setTypeName = true;
-
-      var typeName;
-      if (setTypeName) {
-        var type;
-        if (objData[i].type !== undefined) {
-          switch(objData[i].type) {
-            case "Vorlesungen:":
-              type = "Vorlesung";
-              break;
-            case "Vorlesungen (Fakultativ):":
-              type = "Vorlesung";
-              break;
-            case "Übungen:":
-              type = "Übung";
-              break;
-            case "Klausur:":
-              type = "Klausur";
-              break;
-            case "Seminar:":
-              type = "Seminar";
-              break;
-            case "Seminare (Fakultativ):":
-              type = "Seminar (Fakultativ)";
-              break;
-            case "Praktika:":
-              type = "Praktikum";
-              break;
-            default:
-              type = objData[i].type;
-              break;
-          }
         } else {
-          type = "";
+          begin = [];
+          end = [];
+          until = [];
+          time.forEach(function(event, i, eventArray){
+            begin.push(event[0]);
+            end.push(event[2]);
+            until.push(event[1]);
+          });
         }
 
-        typeName = data.name + " " + type;
-      } else {
-        typeName = data.name;
-      }
+        /*
+         * has to be outsourced to some kind of setting
+         */
+        var setTypeName = true;
 
-      dataObjects = { type: objData[i].type,
-                    name: typeName,
-                    location: obj.location, 
-                    begin: begin,
-                    end:   end,
-                    until: until,
-                    weekly: repeat,
-                    lastUpdated: obj.lastUpdated,
-                    comment:  comment};
-      data.objects.push(dataObjects);
+        var typeName;
+        if (setTypeName) {
+          var type;
+          if (objData[i].type !== undefined) {
+            switch(objData[i].type) {
+              case "Vorlesungen:":
+                type = "Vorlesung";
+                break;
+              case "Vorlesungen (Fakultativ):":
+                type = "Vorlesung";
+                break;
+              case "Übungen:":
+                type = "Übung";
+                break;
+              case "Klausur:":
+                type = "Klausur";
+                break;
+              case "Seminar:":
+                type = "Seminar";
+                break;
+              case "Seminare (Fakultativ):":
+                type = "Seminar (Fakultativ)";
+                break;
+              case "Praktika:":
+                type = "Praktikum";
+                break;
+              default:
+                type = objData[i].type;
+                break;
+            }
+          } else {
+            type = "";
+          }
+
+          typeName = data.name + " " + type;
+        } else {
+          typeName = data.name;
+        }
+
+        dataObjects = { type: objData[i].type,
+                      name: typeName,
+                      location: obj.location, 
+                      begin: begin,
+                      end:   end,
+                      until: until,
+                      weekly: repeat,
+                      lastUpdated: obj.lastUpdated,
+                      comment:  comment};
+        data.objects.push(dataObjects);
+      }
     }
   }
   return data;
