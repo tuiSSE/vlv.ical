@@ -11,12 +11,21 @@ function getRootElement() {
 function getElements(root) {
   var elements = root.getElementsByTagName('div');
   var result = [];
+
   for (var i = 0; i < elements.length; i++) {
-    if (getDayOfWeek(elements[i]) != null &&
-        getTime(elements[i]) != "  -  ") {
-      result.push(elements[i]);
+
+    try {
+      if (getDayOfWeek(elements[i]) != null &&
+          getTime(elements[i]) != "  -  ") {
+        result.push(elements[i]);
+      }
+    } catch(e) {
+        console.log("Failed to read subject");
+        console.log(e);
+        console.log(elements[i]);
     }
   }
+
   return result;
 }
 
@@ -29,19 +38,55 @@ function getNameOfLecture(object) {
 }
 
 function getSpeakerOfLecture(object) {
-  return object.childNodes[3].innerText.slice(12);
+  var speaker;
+  var data = object.childNodes[3].innerText;
+
+  if (data !== null) {
+    if (data.indexOf('Lesende(r):') !== -1) {
+    speaker = data.slice(12);
+
+    } else {
+      speaker = "";
+    }
+  } else {
+    speaker = "";
+  }
+  console.log(speaker);
+  return speaker;
 }
 
 function getDayOfWeek(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
+  var day;
+  try{
+    day = object.childNodes[5].childNodes[3].childNodes[0].childNodes[3].innerText;
+  } catch(e) {
+    var data = getData(object);
+    day = data[0].events[0].dayOfWeek;
+  }
+
+  return day;
 }
 
 function getTime(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[7].innerText;
+  var time;
+  try {
+    time = object.childNodes[5].childNodes[3].childNodes[0].childNodes[7].innerText
+  } catch(e) {
+    var data = getData(object);
+    time = data[0].events[0].time;
+  }
+  return time;
 }
 
 function getLastUpdated(object) {
-  return object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
+  var lastUpdated;
+  try {
+    lastUpdated = object.childNodes[5].childNodes[3].childNodes[0].childNodes[13].innerText.slice(13);
+  } catch(e) {
+    var data = getData(object);
+    lastUpdated = data[0].events[0].lastUpdated;
+  }
+  return lastUpdated;
 }
 
 function getData(object) {
