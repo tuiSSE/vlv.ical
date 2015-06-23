@@ -174,6 +174,8 @@ html, * {
 	width: 100%;
 	height: 95%;
 	clear: both;
+	overflow: scroll;
+  	padding-bottom: 7em;
 }
 
 #itemBox li {
