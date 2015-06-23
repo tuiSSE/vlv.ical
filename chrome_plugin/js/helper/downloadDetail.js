@@ -33,42 +33,47 @@ function downloadDetail(obj) {
 }
 
 function getDetailData(obj) {
-	var name = obj.parentNode.parentNode.parentNode.childNodes[1].innerText;
-	var dayOfWeek = obj.childNodes[3].innerText;
-	var time = obj.childNodes[7].innerText;
-	var dates = obj.childNodes[5].innerText;
-	var location = obj.childNodes[9].innerText;
+  var dates = obj.childNodes[5].innerText;
+  if (dates.match(/[0-9][0-9].[0-9][0-9]/g) !== null ||
+          dates.match(/KW/g) !== null) {
 
-	var timeData = [dates, time];
-    var time = parseTime(timeData, dayOfWeek);
-    var begin;
-    var end;
-    var until = null;
-    var weekly = 1;
+  	var name = obj.parentNode.parentNode.parentNode.childNodes[1].innerText;
+  	var dayOfWeek = obj.childNodes[3].innerText;
+  	var time = obj.childNodes[7].innerText;
+  	var dates = obj.childNodes[5].innerText;
+  	var location = obj.childNodes[9].innerText;
 
-    if(!Array.isArray(time[0])){
-    begin     = time[0];
-    end       = time[1];
+  	var timeData = [dates, time];
+      var time = parseTime(timeData, dayOfWeek);
+      var begin;
+      var end;
+      var until = null;
+      var weekly = 1;
 
-    } else {
-      begin = [];
-      end = [];
-      until = [];
-      time.forEach(function(event, i, eventArray){
-        begin.push(event[0]);
-        end.push(event[2]);
-        until.push(event[1]);
-      });
-    }
+      if(!Array.isArray(time[0])){
+      begin     = time[0];
+      end       = time[1];
 
-	return {
-		"name": name,
-		"location": location,
-		"begin": begin,
-		"end": end,
-		"until": until,
-		"weekly": weekly
-	}
+      } else {
+        begin = [];
+        end = [];
+        until = [];
+        time.forEach(function(event, i, eventArray){
+          begin.push(event[0]);
+          end.push(event[2]);
+          until.push(event[1]);
+        });
+      }
+
+  	return {
+  		"name": name,
+  		"location": location,
+  		"begin": begin,
+  		"end": end,
+  		"until": until,
+  		"weekly": weekly
+  	}
+  }
 }
 
 /*

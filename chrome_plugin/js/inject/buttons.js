@@ -21,7 +21,7 @@ function injectDownloadButtons() {
 
 function injectSelectAllButton() {
   var selectAll = $('<button id="selectAll" class="selectAll">Select All / Unselect All</input>');
-  selectAll.insertBefore(subjects[0]);
+  selectAll.insertBefore(getRootElement().getElementsByTagName('div')[0]);
   $('<p>&nbsp;</p>').insertBefore(subjects[0]);
   
   $("#selectAll").on('click', function(entryInfo){

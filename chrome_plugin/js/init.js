@@ -47,22 +47,33 @@ try {
 }
 
 var subjects = [];
-injectDiv();
-updateSelectionBox();
+
+try {
+  injectDiv();
+  updateSelectionBox();
+} catch(e) {
+  console.log("Div injecting failed.");
+  console.log(e);
+}
 
 /*
  * checks, if current page is the text one and then initializes the plugin
  */
 if (/vers=text/.test(self.location.href)) {
   // all subjects the plugin can find on current page
-  subjects = getElements(getRootElement());
-  fixIds(subjects);
-  
+  try{
+    subjects = getElements(getRootElement());
+    fixIds(subjects);
+  } catch(e) {
+    console.log("Could not read any subjects.");
+    console.log(e);
+  }
+
   try {
     if (checkPageStructure()) {
       init();
     } else {
-      toastr.error("Site structure seems to have changed. Site manipulation has been disabled.")
+      toastr.error("Site structure seems to have changed. Site manipulation has been disabled.");
     }
   } catch (e) {
     console.log("Failed to initialize");
