@@ -38,7 +38,7 @@ function addDownloadButtonDetailPage() {
   });
 
   if (hasValidContent) {
-    var infoBox = $('<div class="detailInfoBox">Click on event to download</div>');
-      infoBox.insertBefore(document.body);
+      $('#openSelectionBox').remove();
+      $('#emptyBox').prepend('<div class="detailInfoBox"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Click on event to Download</div>');
     }
 }

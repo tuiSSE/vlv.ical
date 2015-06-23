@@ -105,20 +105,24 @@ html, * {
 }
 
 .detailInfoBox {
-	position: fixed;
+	position: relative;
 	z-index: 1000;
 	background: rgba(162,221,168,1);
 	color: white;
 	font-family: arial;
-	font-size: 14px;
+	font-size: 16px;
 	vertical-align: middle;
 	text-align: center;
-	height: 0.3in;
-	width: 20%;
-	left: 40%;
-	margin: 0 auto;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	height: 50px;
+	line-height: 50px;
+	float:right;
+	padding:0 1.5em;
+}
+
+.detailInfoBox span {
+	font-size: 20px;
+	position: relative;
+	top: 4px;
 }
 
 .moreInfoButton {
