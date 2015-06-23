@@ -51,7 +51,6 @@ function getSpeakerOfLecture(object) {
   } else {
     speaker = "";
   }
-  console.log(speaker);
   return speaker;
 }
 
