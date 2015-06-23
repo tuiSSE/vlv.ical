@@ -164,21 +164,6 @@ html, * {
 	table-layout: fixed;
 }
 
-#openSelectionBox {
-	position: fixed;
-	z-index: 1000;
-	background-color: #435779;
-	color: white;
-	font-family: arial;
-	font-size: 17px;
-	vertical-align: middle;
-	text-align: center;
-	height: 0.3in;
-	width: 1in;
-	right: 0px;
-	cursor: pointer;
-	border-bottom-left-radius: 5px;
-}
 #itemBox {
 	position: absolute;
 	display: block;
@@ -282,6 +267,54 @@ html, * {
 	font-size: 1.25em;
 	font-weight: 300;
 	text-transform: capitalize;
+}
+
+#emptyBox {
+	position: fixed;
+	height: 50px;
+	width: 100%;
+	z-index: 100;
+	background:#2c3e50;
+}
+
+#openSelectionBox {
+	position: relative;
+	z-index: 1000;
+	background: #1a242f;
+	color: white;
+	font-family: arial;
+	font-size: 17px;
+	vertical-align: middle;
+	text-align: center;
+	height: 50px;
+	line-height: 50px;
+	width: 7em;
+	float: right;
+	padding:0 1em;
+	cursor: pointer;
+	border-bottom-left-radius: 5px;
+}
+
+#openSelectionBox span {
+	font-size: 1em;
+}
+
+#pluginLogo {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 1em;
+	color: white;
+	font-size: 18px;
+	float: left;
+}
+
+#pluginLogo span {
+	font-size: 14px;
+	color: #45617D;
+}
+
+#page_margins {
+	padding-top: 60px;
 }
 
 #editForm {

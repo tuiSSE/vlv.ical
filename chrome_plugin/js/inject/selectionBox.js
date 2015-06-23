@@ -332,8 +332,10 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox">VLV.ical</div>')
-  open.insertBefore(document.body.childNodes[0]);
+  var open = $('<div id="openSelectionBox"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>')
+  var logo = $('<div id="pluginLogo">VLV.ical <span> - Plugin aktiv</span></div>');
+  $('#emptyBox').prepend(open);
+  $('#emptyBox').prepend(logo);
 
   var box = $('<div id="selectionBox"><br></div>')
   box.insertBefore(document.body.childNodes[0]);
