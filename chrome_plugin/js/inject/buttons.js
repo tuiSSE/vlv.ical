@@ -56,10 +56,12 @@ function injectAddButtons(subjects) {
     var r = $('<button class="addButton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ' + name + '</button>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
 
-    var oldElement = object.childNodes[1].childNodes[2];
-    var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
-    newElement.insertBefore(oldElement);
-    $(object.childNodes[1].childNodes[3]).remove();
+    try {
+      var oldElement = object.childNodes[1].childNodes[2];
+      var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
+      newElement.insertBefore(oldElement);
+      $(object.childNodes[1].childNodes[3]).remove();
+    } catch(e) {};
   }
   
   $(".addButton").on('click', function(){
