@@ -39,7 +39,9 @@ function injectSelectAllButton() {
         }
       }
     }
-    openBox();
+    if (bool) {
+      openBox();
+    }
   });
 }
 
@@ -66,6 +68,7 @@ function injectAddButtons(subjects) {
     var selection = load('selection');
     if(!containsObject(getIdOfLecture(object), selection)) {
       addToCart(object);
+      openBox();
     } else {
       removeFromCart(object);
     }
