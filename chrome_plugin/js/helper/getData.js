@@ -89,6 +89,29 @@ function getLastUpdated(object) {
 }
 
 function getData(object) {
+  var data;
+  var cache = load('dataCache');
+
+  if (cache != []) {
+    if (!containsObject(object, cache)) {
+      data = getNewData(object);
+      cache.push(object.id);
+      save('dataCache', cache);
+      save('data_' + object.id, data);
+    } else {
+      data = load('data_' + object.id);
+    }
+  } else {
+      data = getNewData(object);
+      cache.push(object.id);
+      save('dataCache', cache);
+      save('data_' + object.id, data);
+  }
+
+  return data;
+}
+
+function getNewData(object) {
   var data = [];
   var raw = getTypes(object);
 

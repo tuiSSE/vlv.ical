@@ -29,6 +29,12 @@ try {
 } catch(e) {};
 
 /*
+ * Reset Cache on load
+ */
+ save('dataCache', []);
+ clearDataWithPrefix('data_');
+
+/*
  * checks if a selection is available in storage. if not, it breaks a lot of things. if none is present, an empty one is saved to localStorage
  */
 try {

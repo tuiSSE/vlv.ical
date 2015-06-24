@@ -358,6 +358,7 @@ function injectDiv() {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
       if (result) {
         save('selection', []);
+        clearDataWithPrefix('nr');
         updateSelection();
       }
     });
