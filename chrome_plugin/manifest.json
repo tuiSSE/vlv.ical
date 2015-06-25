@@ -3,11 +3,6 @@
     "description": "export events from VLV as *.ics",
     "version": "0.6",
     "manifest_version": 2,
-    "browser_action": {
-        "default_title": "VLV.ical",
-        "default_icon": "resources/icon.png",
-        "default_popup": "popup.html"
-    },
     "content_scripts": [
         {
             "matches": [
