@@ -222,7 +222,7 @@ html, * {
 #deleteCart {
 	width: 50px;
 	height: 50px;
-	float:right;
+	float:left;
 	background-color: #ea6a68;
 	cursor: pointer;
 	text-align: center;
@@ -255,7 +255,7 @@ html, * {
 	z-index: 1000;
 	height: 50px;
 	width:auto;
-	float:left;
+	float:right;
 	padding: 0 25%;
 	font-family: arial;
 	color: white;

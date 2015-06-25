@@ -355,7 +355,7 @@ function injectDiv() {
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   var deleteCart = $('<div id="deleteCart"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></div>');
-  $('.cart-header').append(deleteCart);
+  $('.cart-header').prepend(deleteCart);
 
   $(deleteCart).on('click', function () {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
