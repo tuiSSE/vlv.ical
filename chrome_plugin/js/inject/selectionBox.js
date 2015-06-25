@@ -354,6 +354,9 @@ function injectDiv() {
   var backButton = $('<header class="cart-header"><div id="backButton"><p><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</p></div></header>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
+  /*
+   * Insert Trash Button
+   */
   var deleteCart = $('<div id="deleteCart"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></div>');
   $('.cart-header').prepend(deleteCart);
 
@@ -366,7 +369,10 @@ function injectDiv() {
       }
     });
   });
-  var oldText;
+  
+  /*
+   * Hover Effect for Trash Symbol
+   */
   $(deleteCart).on('mouseenter', function () {
     $(this).find('span').remove();
     $(this).append('<p>Empty</p>');
