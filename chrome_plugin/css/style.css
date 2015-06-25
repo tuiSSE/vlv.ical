@@ -154,6 +154,7 @@ html, * {
 
 #selectionBox {
 	position: fixed;
+	padding-top: 50px;
 	color: black;
 	background-color: white;
 	border-left: 1px solid #ccc;
@@ -161,7 +162,7 @@ html, * {
 	display: none;
 	transition: width 0.5s ease;
 	width: 25em;
-	z-index: 1000;
+	z-index: 90;
 	right: 0;
 	transition: height 0.5s ease;
 	height: 100%;
@@ -214,9 +215,11 @@ html, * {
 .cart-header {
 	position: relative;
 	height:50px;
-	width: 100%;
+	min-width: 9em;
+	max-width: 25em;
+	float: right;
 	overflow:hidden;
-	background: #1a242f;
+	background: #ea6a68;
 }
 
 #deleteCart {
@@ -301,16 +304,16 @@ html, * {
 	background: #1a242f;
 	color: white;
 	font-family: arial;
+	overflow: none;
 	font-size: 17px;
 	vertical-align: middle;
 	text-align: center;
 	height: 50px;
 	line-height: 50px;
-	width: 7em;
+	width: 8em;
 	float: right;
 	padding:0 1em;
 	cursor: pointer;
-	border-bottom-left-radius: 5px;
 }
 
 .cart-icon {

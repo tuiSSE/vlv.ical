@@ -332,7 +332,7 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>')
+  var open = $('<header class="cart-header"><div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div></header>')
   var logo = $('<div id="pluginLogo">VLV.ical <span> - Plugin aktiv</span></div>');
   $('#emptyBox').prepend(open);
   $('#emptyBox').prepend(logo);
@@ -351,14 +351,15 @@ function injectDiv() {
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
   
-  var backButton = $('<header class="cart-header"><div id="backButton"><p><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</p></div></header>');
-  backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
+  //var backButton = $('<header class="cart-header"><div id="backButton"><p><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</p></div></header>');
+  //backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   /*
    * Insert Trash Button
    */
   var deleteCart = $('<div id="deleteCart"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></div>');
   $('.cart-header').prepend(deleteCart);
+  $(deleteCart).hide();
 
   $(deleteCart).on('click', function () {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
@@ -383,31 +384,34 @@ function injectDiv() {
     $(this).append('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>');
   });
 
-  backButton = $('#backButton')[0];
-  backButton.onclick = function () {
-    closeBox(this.parentNode);
-    page.style.width = "100%";
-  };
+  //backButton = $('#backButton')[0];
+  //backButton.onclick = function () {
+  //  closeBox(this.parentNode);
+  //};
 
   injectDownloadButtons();
 }
 
 function openBox() {
-
-  var open = $('#openSelectionBox')[0];
-  $(open).hide("slide");
-  
+  open = $('#openSelectionBox')[0];
+  open.innerHTML = '<span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen';
+  open.onclick = function () {
+    closeBox();
+    };
   var box = $('#selectionBox')[0];
   $(box).show("slide");
-
+  $('#deleteCart').show("slide");
 }
 
 function closeBox() {
-  var open = $('#openSelectionBox')[0];
-  $(open).show("slide");
-  
+  open = $('#openSelectionBox')[0];
+  open.innerHTML = '<span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen';
+  open.onclick = function () {
+    openBox();
+    };
   var box = $('#selectionBox')[0];
   $(box).hide("slide");
+  $("#deleteCart").hide("slide");
 }
 
 function clearSelectionBox() {
