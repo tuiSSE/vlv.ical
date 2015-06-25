@@ -364,10 +364,7 @@ function injectDiv() {
     });
   });
   
-  var boxHeader = $('<div id="boxHeader"><p>VLVical</p></div>');
-  boxHeader.insertBefore($('#selectionBox')[0].childNodes[0]);
-  
-  var backButton = $('<div id="backButton">click here to hide</div>');
+  var backButton = $('<div id="backButton"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</div>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   backButton = $('#backButton')[0];
