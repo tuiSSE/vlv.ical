@@ -166,6 +166,7 @@ html, * {
 	transition: height 0.5s ease;
 	height: 100%;
 	table-layout: fixed;
+	overflow:hidden;
 }
 
 #itemBox {
@@ -210,15 +211,18 @@ html, * {
 	text-align: left;
 }
 
-#deleteCart {
+.cart-header {
 	position: relative;
-	display: block;
-	font-size: 14px;
+	height:50px;
 	width: 100%;
-	height: 1.5em;
-	line-height: 1.5em;
-	clear: both;
-	font-weight: 300;
+	overflow:hidden;
+	background: #1a242f;
+}
+
+#deleteCart {
+	width: 50px;
+	height: 50px;
+	float:right;
 	background-color: #ea6a68;
 	cursor: pointer;
 	text-align: center;
@@ -227,10 +231,15 @@ html, * {
 	cursor: pointer;
 }
 
-#deleteCart:hover {
-	transition: opacity 0.8s ease;
-	opacity: 0.7;
+#deleteCart	span, #deleteCart p {
+	font-size: 18px;
+	line-height: 50px;
+	font-weight: 300;
+}
 
+#deleteCart	p {
+	font-size: 16px;
+	text-align: center;
 }
 
 #downloadArea {
@@ -244,18 +253,23 @@ html, * {
 #backButton {
 	position: relative;
 	z-index: 1000;
-	background: #1a242f;
-	color: white;
+	height: 50px;
+	width:auto;
+	float:left;
+	padding: 0 25%;
 	font-family: arial;
-	font-size: 17px;
+	color: white;
 	vertical-align: middle;
 	text-align: center;
-	height: 50px;
 	line-height: 50px;
-	width: 100%;
 	cursor: pointer;
+	overflow: auto;
 }
 
+#backButton p {
+	font-size: 17px;
+	text-align: center;
+}
 
 #boxHeader {
 	background: #435779;

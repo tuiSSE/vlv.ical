@@ -348,11 +348,14 @@ function injectDiv() {
   var downloadArea = $('<div id="downloadArea"></div>');
   downloadArea.insertBefore($('#selectionBox')[0].childNodes[0]);
 
-  var deleteCart = $('<div id="deleteCart">Empty Cart</div>');
-  $('#downloadArea').prepend(deleteCart);
-
   var itemBox = $('<div id="itemBox"><br></div>');
   itemBox.insertBefore($('#selectionBox')[0].childNodes[0]);
+  
+  var backButton = $('<header class="cart-header"><div id="backButton"><p><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</p></div></header>');
+  backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
+
+  var deleteCart = $('<div id="deleteCart"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></div>');
+  $('.cart-header').append(deleteCart);
 
   $(deleteCart).on('click', function () {
     bootbox.confirm("Do you want to empty your cart?", function(result) {
@@ -363,9 +366,16 @@ function injectDiv() {
       }
     });
   });
-  
-  var backButton = $('<div id="backButton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</div>');
-  backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
+  var oldText;
+  $(deleteCart).on('mouseenter', function () {
+    $(this).find('span').remove();
+    $(this).append('<p>Empty</p>');
+  });
+
+  $(deleteCart).on('mouseleave', function () {
+    $(this).find('p').remove();
+    $(this).append('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>');
+  });
 
   backButton = $('#backButton')[0];
   backButton.onclick = function () {
