@@ -58,10 +58,15 @@ function injectAddButtons(subjects) {
 
     try {
       var oldElement = object.childNodes[1].childNodes[2];
-      var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
-      newElement.insertBefore(oldElement);
-      $(object.childNodes[1].childNodes[3]).remove();
-    } catch(e) {};
+      if (oldElement != undefined) {
+        var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
+        newElement.insertBefore(oldElement);
+        $(object.childNodes[1].childNodes[3]).remove();
+      }
+    } catch(e) {
+      console.log("Inject Buttons could not be injected.")
+      console.log(e);
+    };
   }
   
   $(".addButton").on('click', function(){
