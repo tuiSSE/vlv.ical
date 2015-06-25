@@ -332,7 +332,7 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>')
+  var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>')
   var logo = $('<div id="pluginLogo">VLV.ical <span> - Plugin aktiv</span></div>');
   $('#emptyBox').prepend(open);
   $('#emptyBox').prepend(logo);
@@ -364,7 +364,7 @@ function injectDiv() {
     });
   });
   
-  var backButton = $('<div id="backButton"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</div>');
+  var backButton = $('<div id="backButton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</div>');
   backButton.insertBefore($('#selectionBox')[0].childNodes[0]);
 
   backButton = $('#backButton')[0];

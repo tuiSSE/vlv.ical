@@ -299,7 +299,7 @@ html, * {
 	border-bottom-left-radius: 5px;
 }
 
-#openSelectionBox span {
+.cart-icon {
 	font-size: 1em;
 }
 
