@@ -272,8 +272,8 @@ function openEditDialogDetail(id, index) {
                           
                           try {
                             data.name = isEmpty($('#editName')[0].value);
-                            data.location = isEmpty($('#editLocation')[0].value);
-                            data.comment = isEmpty($('#editComment')[0].value);
+                            data.objects[i].location = isEmpty($('#editLocation')[0].value);
+                            data.objects[i].comment = isEmpty($('#editComment')[0].value);
                             
                             var date = isEmpty($('#editDate')[0].value);
                             date = date.split("-").join('');
@@ -284,8 +284,8 @@ function openEditDialogDetail(id, index) {
                             beginTime = beginTime.slice(0, 2) + beginTime.slice(3, 5) + '00';
                             endTime = endTime.slice(0, 2) + endTime.slice(3, 5) + '00';
                             
-                            data.begin = date + 'T' + beginTime;
-                            data.end = date + 'T' + endTime;
+                            data.objects[i].begin = date + 'T' + beginTime;
+                            data.objects[i].end = date + 'T' + endTime;
 
                             var weekly = $('#editRepeat')[0].value;
                             data.objects[i].weekly = weekly;
