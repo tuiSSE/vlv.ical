@@ -290,6 +290,25 @@ function openEditDialogDetailMulti(id, index) {
                           console.log(e);
                         }
                       }
+                    },
+                    reset: {
+                      label: "Reset",
+                      className: "btn-primary pull-left",
+                      callback: function() {
+                        try {
+                           
+                            $('#editName').val( oldName );
+                            $('#editLocation').val( oldLocation);
+                            $('#editComment').val( oldComment);
+                            $('#editDate').val( oldDate );
+                            $('#editBeginTime').val( oldBegin );
+                            $('#editEndTime').val( oldEnd );
+                            $('#editRepeat').val( oldRepeat );
+                          return false;
+                        } catch (e) {
+                          console.log(e);
+                        }
+                      }
                     }
                 },
                 keyboard: false
@@ -309,13 +328,23 @@ function openEditDialogDetail(id, index) {
   
   // assign the values of the object
   $('#editId').val( id );
-  $('#editName').val( data.name );
-  $('#editLocation').val( data.objects[i].location );
-  $('#editComment').val( data.objects[i].comment );
-  $('#editDate').val( date );
-  $('#editBeginTime').val( begin );
-  $('#editEndTime').val( end );
-  $('#editRepeat').val( data.objects[i].weekly );
+  var theName = $('#editName').val( data.name );
+  var theLocation = $('#editLocation').val( data.objects[i].location );
+  var theComment = $('#editComment').val( data.objects[i].comment );
+  var theDate = $('#editDate').val( date );
+  var theBegin = $('#editBeginTime').val( begin );
+  var theEnd = $('#editEndTime').val( end );
+  var theRepeat = $('#editRepeat').val( data.objects[i].weekly );
+
+// get initial values for reseting 
+
+  var oldName = theName.val();
+  var oldLocation = theLocation.val();
+  var oldComment = theComment.val();
+  var oldDate = theDate.val();
+  var oldBegin = theBegin.val();
+  var oldEnd = theEnd.val();
+  var oldRepeat = theRepeat.val();
 
   var clonedForm = null; // Holds the edited Form
   var origForm = $('#editForm'); // Copy of the Form before Edit
