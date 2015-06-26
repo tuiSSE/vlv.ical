@@ -332,10 +332,40 @@ function injectDiv() {
   var div = $('<div id="emptyBox"><br><br></div>');
   div.insertBefore(document.body.childNodes[0]);
 
-  var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>')
+  var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>');
+  var settings = $('<div id="settings-button"><span class="cart-icon glyphicons glyphicons-settings"></span>Einstellungen</div>')
   var logo = $('<div id="pluginLogo">VLV.ical <span> - Plugin aktiv</span></div>');
   $('#emptyBox').prepend(open);
+  $('#emptyBox').prepend(settings);
   $('#emptyBox').prepend(logo);
+
+  $(settings).on('click', function() {
+    bootbox.dialog({
+                title: "Einstellungen",
+                message: $('#settingsForm'),
+                backdrop: true,
+                closeButton: true,
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                          console.log("pressed save");
+                          
+                        }
+                    },
+                    cancel: {
+                      label: "Cancel",
+                      className: "btn-danger",
+                      callback: function(){
+                        console.log("pressed cancel");
+                      }
+                    }
+                },
+                keyboard: false
+            }
+        );
+  });
 
   var box = $('<div id="selectionBox"><br></div>')
   box.insertBefore(document.body.childNodes[0]);

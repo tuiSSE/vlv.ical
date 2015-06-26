@@ -206,6 +206,18 @@ html, * {
 	white-space: pre-wrap;
 }
 
+#settings-button {
+	color: white;
+	height: 50px;
+	line-height: 50px;
+	float: left;
+	margin-left: 5em;
+	padding: 0 1em;
+	cursor: pointer;
+	text-decoration: none;
+	font-size: 16px;
+}
+
 .itemDetail {
 	font-size: 10px;
 	text-align: left;
