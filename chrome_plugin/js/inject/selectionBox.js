@@ -340,31 +340,7 @@ function injectDiv() {
   $('#emptyBox').prepend(logo);
 
   $(settings).on('click', function() {
-    bootbox.dialog({
-                title: "Einstellungen",
-                message: $('#settingsForm'),
-                backdrop: true,
-                closeButton: true,
-                buttons: {
-                    success: {
-                        label: "Save",
-                        className: "btn-success",
-                        callback: function () {
-                          console.log("pressed save");
-                          
-                        }
-                    },
-                    cancel: {
-                      label: "Cancel",
-                      className: "btn-danger",
-                      callback: function(){
-                        console.log("pressed cancel");
-                      }
-                    }
-                },
-                keyboard: false
-            }
-        );
+    openSettingsDialog();
   });
 
   var box = $('<div id="selectionBox"><br></div>')
@@ -445,4 +421,60 @@ function clearSelectionBox() {
   selection = [];
   saveObjects('selection', selection);
   updateSelection();
+}
+
+function openSettingsDialog() {
+  var settings = load('settings');
+    $('body').prepend('<div id="settingsDialog"></div>');
+    $('#settingsDialog').load(chrome.extension.getURL("partials/settings-form.html"));
+
+    $('#setUpdatePeriod').val(settings.highlightUpdatesPeriod);
+    console.log($('#setUpdatePeriod'));
+    bootbox.dialog({
+                title: "Einstellungen",
+                message: getSettingsForm(),
+                backdrop: true,
+                closeButton: false,
+                buttons: {
+                    success: {
+                        label: "Save",
+                        className: "btn-success",
+                        callback: function () {
+                          try {
+                            clonedForm = $('#editForm');
+                            settings.highlightUpdatesPeriod = parseInt($('#setUpdatePeriod')[0].value);
+
+                            save('settings', settings);
+                            $('#formArea div:nth-child(1)').prepend(clonedForm);
+                          } catch(e) {
+
+                            console.log("Saving settings failed!");
+                            console.log(e);
+                          }
+                        }
+                    },
+                    cancel: {
+                      label: "Cancel",
+                      className: "btn-danger",
+                      callback: function(){
+                        try {
+
+                        } catch(e) {
+                          console.log(e);
+                        }
+                      }
+                    }
+                },
+                keyboard: false
+            }
+        );
+}
+
+function getSettingsForm() {
+  var settings = load('settings');
+  var form = '<form id="settingsForm" role="form"><div class="form-group">' +
+                    '<label for="updatePeriod">In welchem Zeitraum sollen aktualisierte Veranstaltungen hervorgehoben werden? (in Tagen)</label>' +
+                    '<input id="setUpdatePeriod" name="name" type="number" class="form-control input-md" value=' + settings.highlightUpdatesPeriod + ' required>' +
+              '</div></form>';
+  return form;
 }
