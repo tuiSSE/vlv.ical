@@ -469,7 +469,7 @@ function openSettingsDialog() {
 function getSettingsForm() {
   var settings = load('settings');
   var form = '<form id="settingsForm" role="form"><div class="form-group">' +
-                    '<label for="setUpdatePeriod">In welchem Zeitraum sollen aktualisierte Veranstaltungen hervorgehoben werden? (in Tagen)</label>' +
+                    '<label for="setUpdatePeriod">Größe des Zeitraums, in dem aktualisierte Veranstaltungen hervorgehoben werden (in Tagen)</label>' +
                     '<input id="setUpdatePeriod" type="number" class="form-control input-md" value=' + settings.highlightUpdatesPeriod + ' required>' +
                     '<label for="addTypeToName">Soll an den Veranstaltungsnamen der Typ angehangen werden? (Vorlesung, Übung, Seminar, etc.)</label>' +
                     '<input id="addTypeToName" type="checkbox" class="form-control input-md">' +
