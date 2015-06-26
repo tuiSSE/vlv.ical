@@ -2,13 +2,19 @@
  * adds a given event to a given calendar
  */
 function addEvent(cal, event, i) {
+    var addTypeToName = load('settings').addTypeToName;
+
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
     cal.push("LOCATION:" + event.objects[i].location);
     cal.push('TRANSP:OPAQUE');
-    cal.push('SUMMARY:' + event.objects[i].name);
+    if (addTypeToName) {
+      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+    } else {
+      cal.push('SUMMARY:' + event.objects[i].name);
+    }
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
@@ -22,13 +28,19 @@ function addEvent(cal, event, i) {
  * adds an event with multiple dates to a given calendar
  */
 function addEvents(cal, event, i) {
+    var addTypeToName = load('settings').addTypeToName;
+
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
     cal.push("LOCATION:" + event.objects[i].location);
     cal.push('TRANSP:OPAQUE');
-    cal.push('SUMMARY:' + event.objects[i].name);
+    if (addTypeToName) {
+      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+    } else {
+      cal.push('SUMMARY:' + event.objects[i].name);
+    }
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
     cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until);
@@ -43,13 +55,19 @@ function addEvents(cal, event, i) {
  * adds an event with multiple dates and a break to a given calendar
  */
 function addEventsWithBreak(cal, event, i, j) {
+    var addTypeToName = load('settings').addTypeToName;
+
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
     cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end[j]);
     cal.push("LOCATION:" + event.objects[i].location);
     cal.push('TRANSP:OPAQUE');
-    cal.push('SUMMARY:' + event.objects[i].name);
+    if (addTypeToName) {
+      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+    } else {
+      cal.push('SUMMARY:' + event.objects[i].name);
+    }
     cal.push("DESCRIPTION:" + event.objects[i].comment);
     cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin[j]);
     cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until[j]);

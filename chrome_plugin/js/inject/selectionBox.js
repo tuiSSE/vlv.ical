@@ -424,12 +424,7 @@ function clearSelectionBox() {
 }
 
 function openSettingsDialog() {
-  var settings = load('settings');
-    $('body').prepend('<div id="settingsDialog"></div>');
-    $('#settingsDialog').load(chrome.extension.getURL("partials/settings-form.html"));
-
-    $('#setUpdatePeriod').val(settings.highlightUpdatesPeriod);
-    console.log($('#setUpdatePeriod'));
+    var settings = load('settings');
     bootbox.dialog({
                 title: "Einstellungen",
                 message: getSettingsForm(),
@@ -443,6 +438,7 @@ function openSettingsDialog() {
                           try {
                             clonedForm = $('#editForm');
                             settings.highlightUpdatesPeriod = parseInt($('#setUpdatePeriod')[0].value);
+                            settings.addTypeToName = $("#addTypeToName").is(":checked");
 
                             save('settings', settings);
                             $('#formArea div:nth-child(1)').prepend(clonedForm);
@@ -473,8 +469,12 @@ function openSettingsDialog() {
 function getSettingsForm() {
   var settings = load('settings');
   var form = '<form id="settingsForm" role="form"><div class="form-group">' +
-                    '<label for="updatePeriod">In welchem Zeitraum sollen aktualisierte Veranstaltungen hervorgehoben werden? (in Tagen)</label>' +
-                    '<input id="setUpdatePeriod" name="name" type="number" class="form-control input-md" value=' + settings.highlightUpdatesPeriod + ' required>' +
+                    '<label for="setUpdatePeriod">In welchem Zeitraum sollen aktualisierte Veranstaltungen hervorgehoben werden? (in Tagen)</label>' +
+                    '<input id="setUpdatePeriod" type="number" class="form-control input-md" value=' + settings.highlightUpdatesPeriod + ' required>' +
+                    '<label for="addTypeToName">Soll an den Veranstaltungsnamen der Typ angehangen werden? (Vorlesung, Übung, Seminar, etc.)</label>' +
+                    '<input id="addTypeToName" type="checkbox" class="form-control input-md">' +
               '</div></form>';
-  return form;
+  $(document.body).prepend(form);
+  $('#addTypeToName').prop('checked', settings.addTypeToName);
+  return $('#settingsForm');
 }

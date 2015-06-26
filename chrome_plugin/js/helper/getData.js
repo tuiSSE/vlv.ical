@@ -225,7 +225,7 @@ function convertData(obj) {
         }
 
         dataObjects = { type: objData[i].type,
-                      name: typeName,
+                      name: data.name,
                       location: obj.location, 
                       begin: begin,
                       end:   end,

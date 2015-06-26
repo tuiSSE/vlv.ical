@@ -47,7 +47,8 @@ try {
  * try to load settings, if that fails, defaultSettings are set
  */
 var defaultSettings = {
-  "highlightUpdatesPeriod": 14
+  "highlightUpdatesPeriod": 14,
+  "addTypeToName": false
 };
 
 try {
