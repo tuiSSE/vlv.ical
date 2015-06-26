@@ -224,50 +224,6 @@ function convertData(obj) {
           });
         }
 
-        /*
-         * has to be outsourced to some kind of setting
-         */
-        var setTypeName = true;
-
-        var typeName;
-        if (setTypeName) {
-          var type;
-          if (objData[i].type !== undefined) {
-            switch(objData[i].type) {
-              case "Vorlesungen:":
-                type = "Vorlesung";
-                break;
-              case "Vorlesungen (Fakultativ):":
-                type = "Vorlesung";
-                break;
-              case "Übungen:":
-                type = "Übung";
-                break;
-              case "Klausur:":
-                type = "Klausur";
-                break;
-              case "Seminar:":
-                type = "Seminar";
-                break;
-              case "Seminare (Fakultativ):":
-                type = "Seminar (Fakultativ)";
-                break;
-              case "Praktika:":
-                type = "Praktikum";
-                break;
-              default:
-                type = objData[i].type;
-                break;
-            }
-          } else {
-            type = "";
-          }
-
-          typeName = data.name + " " + type;
-        } else {
-          typeName = data.name;
-        }
-
         dataObjects = { type: objData[i].type,
                       name: typeName,
                       location: obj.location, 
