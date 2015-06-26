@@ -374,12 +374,12 @@ function injectDiv() {
    * Hover Effect for Trash Symbol
    */
   $(deleteCart).on('mouseenter', function () {
-    $(this).find('span').remove();
+    $(this).find('span').fadeOut(500, function() { $(this).remove(); });
     $(this).append('<p>Empty</p>');
   });
 
   $(deleteCart).on('mouseleave', function () {
-    $(this).find('p').remove();
+    $(this).find('p').fadeOut(500, function() { $(this).remove(); });
     $(this).append('<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>');
   });
 

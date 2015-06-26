@@ -173,7 +173,7 @@ html, * {
 	position: absolute;
 	display: block;
 	width: 100%;
-	height: 86.5%;
+	height: 89%;
 	clear: both;
 	overflow: scroll;
   	padding-bottom: 0;
@@ -254,7 +254,6 @@ html, * {
 	position: relative;
 	z-index: 1000;
 	height: 50px;
-	width:auto;
 	float:right;
 	padding: 0 25%;
 	font-family: arial;
@@ -263,7 +262,7 @@ html, * {
 	text-align: center;
 	line-height: 50px;
 	cursor: pointer;
-	overflow: auto;
+	overflow: hidden;
 }
 
 #backButton p {
