@@ -439,6 +439,7 @@ function openSettingsDialog() {
                             clonedForm = $('#editForm');
                             settings.highlightUpdatesPeriod = parseInt($('#setUpdatePeriod')[0].value);
                             settings.addTypeToName = $("#addTypeToName").is(":checked");
+                            settings.separateByType = $("#separateByType").is(":checked");
 
                             save('settings', settings);
                             $('#formArea div:nth-child(1)').prepend(clonedForm);
@@ -473,8 +474,11 @@ function getSettingsForm() {
                     '<input id="setUpdatePeriod" type="number" class="form-control input-md" value=' + settings.highlightUpdatesPeriod + ' required>' +
                     '<label for="addTypeToName">Soll an den Veranstaltungsnamen der Typ angehangen werden? (Vorlesung, Übung, Seminar, etc.)</label>' +
                     '<input id="addTypeToName" type="checkbox" class="form-control input-md">' +
+                    '<label for="separateByType">Sollen die Veranstaltungsarten separat heruntergeladen werden?</label>' +
+                    '<input id="separateByType" type="checkbox" class="form-control input-md">' +
               '</div></form>';
   $(document.body).prepend(form);
   $('#addTypeToName').prop('checked', settings.addTypeToName);
+  $('#separateByType').prop('checked', settings.separateByType);
   return $('#settingsForm');
 }

@@ -48,11 +48,25 @@ try {
  */
 var defaultSettings = {
   "highlightUpdatesPeriod": 14,
-  "addTypeToName": false
+  "addTypeToName": false,
+  "separateByType": false
 };
 
 try {
   var tmpSettings = load('settings');
+  var tmpSettings2 = {};
+
+  for (var key in defaultSettings) {
+    if (tmpSettings[key] == null || tmpSettings[key] == undefined) {
+      tmpSettings2[key] = defaultSettings[key];
+    } else {
+      tmpSettings2[key] = tmpSettings[key];
+    }
+  }
+
+  console.log(tmpSettings);
+  console.log(tmpSettings2);
+  save('settings', tmpSettings2);
 } catch (e) {
   save('settings', defaultSettings); 
 }
