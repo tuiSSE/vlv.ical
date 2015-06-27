@@ -42,21 +42,37 @@ function openEditDialog(id) {
               '<tbody id="editTableBody"></tbody></table> ';
 
   $('#formArea').append(table);
+
+  var date,
+      begin,
+      end,
+      type;
+
   console.log(data.objects.length);
   for (var i = 0; i < data.objects.length; i++) {
     if(Array.isArray(data.objects[i].begin)){
       var length = data.objects[i].begin.length;
-      console.log(length);
-
       for (var j = 0; j < length; j++) {
+        date = data.objects[i].begin[j].slice(0, 4) + '-' + data.objects[i].begin[j].slice(4, 6) + '-' + data.objects[i].begin[j].slice(6, 8);
+        begin = data.objects[i].begin[j].slice(9, 11) + ':' + data.objects[i].begin[j].slice(11, 13);
+        end = data.objects[i].end[j].slice(9, 11) + ':' + data.objects[i].end[j].slice(11, 13);
+        type = data.objects[i].type;
         var row = '<tr><th scope="row">' + (i + 1) + '</th>' +
-                  '<td>Mark</td>' +
-                  '<td>Otto</td>' +
-                  '<td>12</td></tr>';
+                  '<td>' + type + '</td>' +
+                  '<td>' + date + '</td>' +
+                  '<td>' + begin + ' - ' + end + '</td></tr>';
         $('#editTableBody').append(row);
       }
     } else {
-      console.log('Hi');
+      date = data.objects[i].begin.slice(0, 4) + '-' + data.objects[i].begin.slice(4, 6) + '-' + data.objects[i].begin.slice(6, 8);
+      begin = data.objects[i].begin.slice(9, 11) + ':' + data.objects[i].begin.slice(11, 13);
+      end = data.objects[i].end.slice(9, 11) + ':' + data.objects[i].end.slice(11, 13);
+      type = data.objects[i].type;
+      var row = '<tr><th scope="row">' + (i + 1) + '</th>' +
+                '<td>' + type + '</td>' +
+                '<td>' + date + '</td>' +
+                '<td>' + begin + ' - ' + end + '</td></tr>';
+      $('#editTableBody').append(row);
     }
   };
   bootbox.dialog({
