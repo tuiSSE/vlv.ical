@@ -37,19 +37,31 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
-  var table = '<table id="chooseEditItemTable" class="table table-hover">' +
+  var table = '<table id="editItemTable" class="table table-hover">' +
               '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th></tr></thead>' +
-              '<tbody></tbody></table> ';
+              '<tbody id="editTableBody"></tbody></table> ';
 
   $('#formArea').append(table);
+  console.log(data.objects.length);
+  for (var i = 0; i < data.objects.length; i++) {
+    if(Array.isArray(data.objects[i].begin)){
+      var length = data.objects[i].begin.length;
+      console.log(length);
 
-  var length = data.objects[i].begin.length;
-  for (var j = 0; j < length; j++) {
-    
-  }
+      for (var j = 0; j < length; j++) {
+        var row = '<tr><th scope="row">' + (i + 1) + '</th>' +
+                  '<td>Mark</td>' +
+                  '<td>Otto</td>' +
+                  '<td>12</td></tr>';
+        $('#editTableBody').append(row);
+      }
+    } else {
+      console.log('Hi');
+    }
+  };
   bootbox.dialog({
                 title: data.origName,
-                message: $('#chooseEditItemTable'),
+                message: $('#editItemTable'),
                 buttons: {
                     success: {
                         label: "Save",
