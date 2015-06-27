@@ -37,23 +37,28 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
+  var table = '<table id="chooseEditItemTable" class="table table-hover">' +
+              '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th></tr></thead>' +
+              '<tbody></tbody></table> ';
 
+  $('#formArea').append(table);
+
+  var length = data.objects[i].begin.length;
+  for (var j = 0; j < length; j++) {
+    
+  }
   bootbox.dialog({
                 title: data.origName,
-                message:
-                    '<form class="form-horizontal"> ' +
-                    '<input type="hidden" id="editSelectId" value="' + id + '">' +
-                    'Index <input id="editSelectIndex" name="index" type="number" min="0" max="' + (data.objects.length - 1) + '" value="' + 0 + '" class="form-control input-md"> ' +
-                    '</form>',
+                message: $('#chooseEditItemTable'),
                 buttons: {
                     success: {
                         label: "Save",
                         className: "btn-success",
                         callback: function () {
                           var id = $('#editSelectId')[0].value;
-                          var index = $('#editSelectIndex')[0].value;
-                          var data = load(id);
+                          var index = $('#editSelectIndex')[0].value - 1;
                           var begin = data.objects[index].begin;
+                          console.log(data);
 
                           if(Array.isArray(begin)) {
                             openEditDialogDetailMulti(id, index);
