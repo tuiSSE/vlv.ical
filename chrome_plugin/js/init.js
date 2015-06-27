@@ -63,9 +63,7 @@ try {
       tmpSettings2[key] = tmpSettings[key];
     }
   }
-
-  console.log(tmpSettings);
-  console.log(tmpSettings2);
+  
   save('settings', tmpSettings2);
 } catch (e) {
   save('settings', defaultSettings); 
