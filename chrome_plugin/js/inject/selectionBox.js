@@ -46,9 +46,9 @@ function openEditDialog(id) {
   var date,
       begin,
       end,
-      type;
+      type,
+      index;
 
-  console.log(data.objects.length);
   for (var i = 0; i < data.objects.length; i++) {
     if(Array.isArray(data.objects[i].begin)){
       var length = data.objects[i].begin.length;
@@ -75,23 +75,35 @@ function openEditDialog(id) {
       $('#editTableBody').append(row);
     }
   };
+
+  $('#editTableBody tr').on('click', function(){
+    $('tr').each(function(){ // this might be bad, need to reconsider
+      $(this).removeClass('success');
+    });
+    $(this).addClass('success');
+    index = parseInt($(this).find('th').text()) - 1;
+  });
+  
   bootbox.dialog({
                 title: data.origName,
                 message: $('#editItemTable'),
                 buttons: {
                     success: {
-                        label: "Save",
+                        label: "Edit",
                         className: "btn-success",
                         callback: function () {
-                          var id = $('#editSelectId')[0].value;
-                          var index = $('#editSelectIndex')[0].value - 1;
-                          var begin = data.objects[index].begin;
-                          console.log(data);
+                          try {
+                            var begin = data.objects[index].begin;
+                            console.log(data);
 
-                          if(Array.isArray(begin)) {
-                            openEditDialogDetailMulti(id, index);
-                          } else {
-                            openEditDialogDetail(id, index);
+                            if(Array.isArray(begin)) {
+                                openEditDialogDetailMulti(id, index);
+                              } else {
+                                openEditDialogDetail(id, index);
+                              }
+                          } catch(e) {
+                            toastr.error(e, 'Error');
+                            return false;
                           }
                         }
                     }
