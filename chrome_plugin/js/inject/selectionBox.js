@@ -53,7 +53,7 @@ function openEditDialog(id) {
     if(Array.isArray(data.objects[i].begin)){
       var length = data.objects[i].begin.length;
       for (var j = 0; j < length; j++) {
-        date = data.objects[i].begin[j].slice(0, 4) + '-' + data.objects[i].begin[j].slice(4, 6) + '-' + data.objects[i].begin[j].slice(6, 8);
+        date = data.objects[i].begin[j].slice(6, 8) + '.' + data.objects[i].begin[j].slice(4, 6) + '.' + data.objects[i].begin[j].slice(0, 4);
         begin = data.objects[i].begin[j].slice(9, 11) + ':' + data.objects[i].begin[j].slice(11, 13);
         end = data.objects[i].end[j].slice(9, 11) + ':' + data.objects[i].end[j].slice(11, 13);
         type = data.objects[i].type;
@@ -64,7 +64,7 @@ function openEditDialog(id) {
         $('#editTableBody').append(row);
       }
     } else {
-      date = data.objects[i].begin.slice(0, 4) + '-' + data.objects[i].begin.slice(4, 6) + '-' + data.objects[i].begin.slice(6, 8);
+      date = data.objects[i].begin.slice(6, 8) + '.' + data.objects[i].begin.slice(4, 6) + '.' + data.objects[i].begin.slice(0, 4);
       begin = data.objects[i].begin.slice(9, 11) + ':' + data.objects[i].begin.slice(11, 13);
       end = data.objects[i].end.slice(9, 11) + ':' + data.objects[i].end.slice(11, 13);
       type = data.objects[i].type;
@@ -83,7 +83,7 @@ function openEditDialog(id) {
     $(this).addClass('success');
     index = parseInt($(this).find('th').text()) - 1;
   });
-  
+
   bootbox.dialog({
                 title: data.origName,
                 message: $('#editItemTable'),
@@ -331,9 +331,6 @@ function openEditDialogDetail(id, index) {
                             
                             data.objects[i].begin = date + 'T' + beginTime;
                             data.objects[i].end = date + 'T' + endTime;
-
-                            var weekly = $('#editRepeat')[0].value;
-                            data.objects[i].weekly = weekly;
 
                             clonedForm = $('#editForm');
                           } catch(e) {
