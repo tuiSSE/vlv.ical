@@ -346,6 +346,10 @@ html, * {
 	padding-top: 60px;
 }
 
+#editTableBody tr:hover {
+	cursor: pointer;
+}
+
 #editForm {
 	overflow: scroll;
 }
