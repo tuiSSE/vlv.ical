@@ -37,19 +37,28 @@ function updateSelectionBox() {
 
 function openEditDialog(id) {
   var data = load(id);
-  var table = '<table id="editItemTable" class="table table-hover">' +
-              '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th></tr></thead>' +
-              '<tbody id="editTableBody"></tbody></table> ';
-
-  $('#formArea').append(table);
-
   var date,
       begin,
       end,
       type,
       index;
+  /*
+   * Inject Table into DOM
+   */
+  var table = '<table id="editItemTable" class="table table-hover">' +
+              '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th></tr></thead>' +
+              '<tbody id="editTableBody"></tbody></table> ';
+  $('#formArea').append(table);
 
+  /*
+   * Iterate over Objects of an Event
+   */
   for (var i = 0; i < data.objects.length; i++) {
+    /*
+     * Check if begin is an Array,
+     * If True, Event could have multiple dates
+     * If False, Event is unique
+     */
     if(Array.isArray(data.objects[i].begin)){
       var length = data.objects[i].begin.length;
       for (var j = 0; j < length; j++) {
@@ -74,8 +83,14 @@ function openEditDialog(id) {
                 '<td>' + begin + ' - ' + end + '</td></tr>';
       $('#editTableBody').append(row);
     }
+
   };
 
+  /*
+   * Color the clicked Table Row
+   * Fetch the # Number of the corresponding Row
+   * Save it into {int} index
+   */
   $('#editTableBody tr').on('click', function(){
     $('tr').each(function(){ // this might be bad, need to reconsider
       $(this).removeClass('success');
