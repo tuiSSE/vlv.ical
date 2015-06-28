@@ -19,7 +19,7 @@ function updateSelectionBox() {
       /* highlight element, if it was changed through edit dialog */
       console.log(item.changed);
       if (item.changed) {
-        $(element).css("background-color", "red");
+        $(element).css("background-color", "#FBCA04");
       }
       
       $(element).wrap('<li></li>');
