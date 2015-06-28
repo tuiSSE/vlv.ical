@@ -120,6 +120,7 @@ function init() {
   injectSelectAllButton();
   injectAddButtons(subjects);
   injectBorders();
+  highlightUpdated();
   updateSelection(subjects);
   checkLastUpdated();
 }

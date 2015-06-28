@@ -1,4 +1,4 @@
-function injectBorders() {
+function highlightUpdated() {
     var now = new Date();
     now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     var settingsPeriod = load('settings').highlightUpdatesPeriod;
@@ -33,6 +33,18 @@ function injectBorders() {
             }  
         } catch(e) {
             console.log("Highlighting updates failed.");
+            console.log(e);
+        }
+    }
+}
+
+function injectBorders() {
+    var elements = getRootElement().getElementsByTagName('div');
+    for (var i = 0; i < elements.length; i++) {
+        try {
+            var object = elements[i];
+            object.style.border = '2px solid #435779'; 
+        } catch(e) {
             console.log(e);
         }
     }
