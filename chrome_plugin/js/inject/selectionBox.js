@@ -41,12 +41,13 @@ function openEditDialog(id) {
       begin,
       end,
       type,
+      repeat,
       index;
   /*
    * Inject Table into DOM
    */
   var table = '<table id="editItemTable" class="table table-hover">' +
-              '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th></tr></thead>' +
+              '<thead><tr><th>#</th><th>Typ</th><th>Datum</th><th>Uhrzeit</th><th>Wiederholung</th></tr></thead>' +
               '<tbody id="editTableBody"></tbody></table> ';
   $('#formArea').append(table);
 
@@ -66,10 +67,12 @@ function openEditDialog(id) {
         begin = data.objects[i].begin[j].slice(9, 11) + ':' + data.objects[i].begin[j].slice(11, 13);
         end = data.objects[i].end[j].slice(9, 11) + ':' + data.objects[i].end[j].slice(11, 13);
         type = data.objects[i].type;
+        repeat = data.objects[i].weekly;
         var row = '<tr><th scope="row">' + (i + 1) + '</th>' +
                   '<td>' + type + '</td>' +
                   '<td>' + date + '</td>' +
-                  '<td>' + begin + ' - ' + end + '</td></tr>';
+                  '<td>' + begin + ' - ' + end + '</td>' +
+                  '<td>' + repeat + ' Wöchentlich</td></tr>';
         $('#editTableBody').append(row);
       }
     } else {
@@ -80,7 +83,8 @@ function openEditDialog(id) {
       var row = '<tr><th scope="row">' + (i + 1) + '</th>' +
                 '<td>' + type + '</td>' +
                 '<td>' + date + '</td>' +
-                '<td>' + begin + ' - ' + end + '</td></tr>';
+                '<td>' + begin + ' - ' + end + '</td>' +
+                '<td>Einmalig</td></tr>';
       $('#editTableBody').append(row);
     }
 
@@ -150,7 +154,7 @@ function openEditDialogDetailMulti(id, index) {
   
   // assign the values of the object
   $('#editMultiId').val( id );
-  $('#multiName').val( data.name );
+  $('#multiName').val( data.objects[i].name );
   $('#multiLocation').val( data.objects[i].location );
   $('#multiComment').val( data.objects[i].comment );
 
@@ -158,8 +162,11 @@ function openEditDialogDetailMulti(id, index) {
   var clonedForm = null; // Holds the edited Form
 
   for (var j = 0; j < length; j++) {
-    var addedInputs = '<div class="form-group">' +
-                      '<label for="date'+ j +'">Datum</label>' +
+    var addedInputs = '<div class="panel panel-default">' +
+                      '<div class="panel-heading">Zeitraum '+ (j + 1) +'</div>' +
+                      '<div class="panel-body">' +
+                      '<div class="form-group">' +
+                      '<label for="date'+ j +'">Startdatum f&uuml;r Zeitraum '+ (j + 1) +'</label>' +
                       '<input id="multiDate'+ j +'" name="date'+ j +'" type="date" class="form-control input-md">' +
                       '</div>' +
                       '<div class="form-group">' +
@@ -169,9 +176,11 @@ function openEditDialogDetailMulti(id, index) {
                       '<div class="form-group">' +
                       '<label for="end'+ j +'">Ende</label>' +
                       '<input id="multiEndTime'+ j +'" name="end'+ j +'" type="time" class="form-control input-md">' +
+                      '</div>' +
+                      '</div>' + 
                       '</div>';
 
-    $('.form-group #multiComment').parent().after(addedInputs);
+    $('.form-group #multiRepeat').parent().before(addedInputs);
 
     $('#multiDate' + j).val( date[j] );
     $('#multiBeginTime' + j).val( begin[j] );
@@ -200,9 +209,10 @@ function openEditDialogDetailMulti(id, index) {
                           }
                           
                           try {
-                            data.name = isEmpty($('#multiName')[0].value);
-                            data.location = isEmpty($('#multiLocation')[0].value);
-                            data.comment = isEmpty($('#multiComment')[0].value);
+                            data.objects[i].name = isEmpty($('#multiName').val());
+                            data.objects[i].location = isEmpty($('#multiLocation').val());
+                            data.objects[i].comment = isEmpty($('#multiComment').val());
+                            data.objects[i].weekly = isEmpty($('#multiRepeat').val());
                             
                             var date = [],
                                 beginTime = [],
@@ -231,33 +241,15 @@ function openEditDialogDetailMulti(id, index) {
                           
                           try {
                               for (var j = 0; j < length; j++) {
-                                $('[for="date'+ j +'"]').parent().remove();
-                                $('[name="date'+ j +'"]').remove();
-                                $('[for="date'+ j +'"]').remove();
-
-                                $('[for="begin'+ j +'"]').parent().remove();
-                                $('[name="begin'+ j +'"]').remove();
-                                $('[for="begin'+ j +'"]').remove();
-
-                                $('[for="end'+ j +'"]').parent().remove();
-                                $('[name="end'+ j +'"]').remove();
-                                $('[for="end'+ j +'"]').remove();
+                                $('.panel-default').empty();
+                                $('.panel-default').remove();
                               }
                               $('#formArea div:nth-child(2)').prepend(clonedForm);
                               save(id, data);
                           } catch(e) {
                             for (var j = 0; j < length; j++) {
-                                $('[for="date'+ j +'"]').parent().remove();
-                                $('[name="date'+ j +'"]').remove();
-                                $('[for="date'+ j +'"]').remove();
-
-                                $('[for="begin'+ j +'"]').parent().remove();
-                                $('[name="begin'+ j +'"]').remove();
-                                $('[for="begin'+ j +'"]').remove();
-
-                                $('[for="end'+ j +'"]').parent().remove();
-                                $('[name="end'+ j +'"]').remove();
-                                $('[for="end'+ j +'"]').remove();
+                                $('.panel-default').empty();
+                                $('.panel-default').remove();
                               }
                             $('#formArea div:nth-child(2)').prepend(origForm);
                             toastr.error(e, 'Error');
@@ -273,17 +265,8 @@ function openEditDialogDetailMulti(id, index) {
                       callback: function(){
                         try {
                           for (var j = 0; j < length; j++) {
-                                $('[for="date'+ j +'"]').parent().remove();
-                                $('[name="date'+ j +'"]').remove();
-                                $('[for="date'+ j +'"]').remove();
-
-                                $('[for="begin'+ j +'"]').parent().remove();
-                                $('[name="begin'+ j +'"]').remove();
-                                $('[for="begin'+ j +'"]').remove();
-
-                                $('[for="end'+ j +'"]').parent().remove();
-                                $('[name="end'+ j +'"]').remove();
-                                $('[for="end'+ j +'"]').remove();
+                                $('.panel-default').empty();
+                                $('.panel-default').remove();
                               }
                           $('#formArea div:nth-child(2)').prepend(origForm);
                         } catch(e) {

@@ -354,6 +354,15 @@ html, * {
 	overflow: scroll;
 }
 
+#multiRepeat {
+	min-width: 5em;
+}
+
+.inputSideText {
+	font-size: 2em;
+	padding: 1em;
+}
+
 /**
  * 
  */
