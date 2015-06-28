@@ -37,8 +37,10 @@ html, * {
 }
 .addButton:active {
 	position:relative;
-	top:1px;
-	
+	top:1px;	
+}
+.addButton:focus {
+	outline: 0;
 }
 .addButton.active {
 	background-color: #7dcf85;
@@ -48,6 +50,10 @@ html, * {
 	background-color:#7dcf85;
 	color: white;
 	padding: 1.2em;
+}
+
+.primary-btn:focus {
+	outline: 0;
 }
 
 .primary-btn:hover {
@@ -64,6 +70,10 @@ html, * {
   background: #e0e6ef;
 }
 
+.default-btn:focus {
+	outline: 0;
+}
+
 .downloadButton {
 	position: relative;
 	width: 100%;
@@ -73,6 +83,10 @@ html, * {
 	font-size: 16px;
 	text-align: center;
 	text-decoration: none;
+}
+
+.downloadButton:focus {
+	outline: 0;
 }
 
 .shoppingCart {
@@ -137,6 +151,10 @@ html, * {
 	text-decoration:none;
 }
 
+.moreInfoButton:focus {
+	outline: 0;
+}
+
 #selectAll {
 	position: relative;
 	color: white;
@@ -150,6 +168,10 @@ html, * {
 	text-align: center;
 	padding: 5px 20px;
 	text-decoration: none;
+}
+
+#selectAll:focus {
+	outline: 0;
 }
 
 #selectionBox {
@@ -204,6 +226,10 @@ html, * {
 	overflow: hidden;
 	word-wrap: break-word;
 	white-space: pre-wrap;
+}
+
+.selectionBoxItem:focus {
+	outline: 0;
 }
 
 #settings-button {
@@ -361,6 +387,10 @@ html, * {
 .inputSideText {
 	font-size: 2em;
 	padding: 1em;
+}
+
+.btn:focus {
+	outline: 0;
 }
 
 /**
