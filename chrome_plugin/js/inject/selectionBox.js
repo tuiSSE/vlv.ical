@@ -15,6 +15,13 @@ function updateSelectionBox() {
                            '" class="cd-item-remove cd-img-replace">Remove</button>');
 
       element.insertBefore($('#itemBox')[0].childNodes[i]);
+      
+      /* highlight element, if it was changed through edit dialog */
+      console.log(item.changed);
+      if (item.changed) {
+        $(element).css("background-color", "red");
+      }
+      
       $(element).wrap('<li></li>');
       (element).after(removeButton);
 
@@ -245,6 +252,11 @@ function openEditDialogDetailMulti(id, index) {
                                 $('.panel-default').remove();
                               }
                               $('#formArea div:nth-child(2)').prepend(clonedForm);
+                              
+                              if (JSON.stringify(load(id)).localeCompare(JSON.stringify(data)) != 0) {
+                                data.changed = true;
+                              }
+                              
                               save(id, data);
                           } catch(e) {
                             for (var j = 0; j < length; j++) {
@@ -344,6 +356,9 @@ function openEditDialogDetail(id, index) {
                           
                           try {
                               $('#formArea div:nth-child(1)').prepend(clonedForm);
+                              if (JSON.stringify(load(id)).localeCompare(JSON.stringify(data) != 0)) {
+                                data.changed = true;
+                              }
                               save(id, data);
                           } catch(e) {
                             $('#formArea div:nth-child(1)').prepend(origForm);

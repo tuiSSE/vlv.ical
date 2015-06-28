@@ -182,7 +182,8 @@ function convertData(obj) {
     name: "",
     origName: "",
     objects: [], // gets dataObjects
-    link: []
+    link: [],
+    changed: false
   }
   var dataObjects;
 
