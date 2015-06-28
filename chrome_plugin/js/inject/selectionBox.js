@@ -108,14 +108,19 @@ function openEditDialog(id) {
                         className: "btn-success",
                         callback: function () {
                           try {
-                            var begin = data.objects[index].begin;
-                            console.log(data);
+                            if (data.objects[index] !== undefined) {
+                              var begin = data.objects[index].begin;
+                              console.log(data);
 
-                            if(Array.isArray(begin)) {
-                                openEditDialogDetailMulti(id, index);
-                              } else {
-                                openEditDialogDetail(id, index);
-                              }
+                              if(Array.isArray(begin)) {
+                                  openEditDialogDetailMulti(id, index);
+                                } else {
+                                  openEditDialogDetail(id, index);
+                                }
+                            } else {
+                              toastr.info("Es wurde kein Termin ausgewählt.");
+                              return false;
+                            }
                           } catch(e) {
                             toastr.error(e, 'Error');
                             return false;
