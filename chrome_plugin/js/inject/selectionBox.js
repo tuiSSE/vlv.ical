@@ -16,6 +16,7 @@ function updateSelectionBox() {
 
       element.insertBefore($('#itemBox')[0].childNodes[i]);
       
+      /* Wrap element inside li to apply styles to row */
       $(element).wrap('<li></li>');
       (element).after(removeButton);
 
