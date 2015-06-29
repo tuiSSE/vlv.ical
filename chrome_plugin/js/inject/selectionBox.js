@@ -145,6 +145,8 @@ function openEditDialogDetailMulti(id, index) {
       begin = [],
       end = [];
 
+  $('body').css('overflow', 'hidden'); // hide body
+
   var length = data.objects[i].begin.length;
   for (var j = 0; j < length; j++) {
     date.push(data.objects[i].begin[j].slice(0, 4) + '-' + data.objects[i].begin[j].slice(4, 6) + '-' + data.objects[i].begin[j].slice(6, 8));
@@ -200,6 +202,7 @@ function openEditDialogDetailMulti(id, index) {
                         className: "btn-success",
                         callback: function () {
                           var i = index;
+
                           try {
                             var id = $('#editMultiId')[0].value;
                             var data = load(id);
@@ -256,7 +259,7 @@ function openEditDialogDetailMulti(id, index) {
                           }
 
                           updateSelectionBox();
-                          
+                          $('body').css('overflow', 'auto');
                         }
                     },
                     cancel: {
@@ -268,6 +271,7 @@ function openEditDialogDetailMulti(id, index) {
                                 $('.panel-default').empty();
                                 $('.panel-default').remove();
                               }
+                          $('body').css('overflow', 'auto');
                           $('#formArea div:nth-child(2)').prepend(origForm);
                         } catch(e) {
                           console.log(e);
@@ -283,6 +287,9 @@ function openEditDialogDetailMulti(id, index) {
 function openEditDialogDetail(id, index) {
   var data = load(id);
   var i = index;
+  
+  $('body').css('overflow', 'hidden');
+
   var date = data.objects[i].begin.slice(0, 4) + '-' + data.objects[i].begin.slice(4, 6) + '-' + data.objects[i].begin.slice(6, 8);
   var begin = data.objects[i].begin.slice(9, 11) + ':' + data.objects[i].begin.slice(11, 13);
   var end = data.objects[i].end.slice(9, 11) + ':' + data.objects[i].end.slice(11, 13);
@@ -349,7 +356,7 @@ function openEditDialogDetail(id, index) {
                             $('#formArea div:nth-child(1)').prepend(origForm);
                             toastr.error(e, 'Error');
                           }
-
+                          $('body').css('overflow', 'auto');
                           updateSelectionBox();
                           
                         }
@@ -359,6 +366,7 @@ function openEditDialogDetail(id, index) {
                       className: "btn-danger",
                       callback: function(){
                         try {
+                          $('body').css('overflow', 'auto');
                           $('#formArea div:nth-child(1)').prepend(origForm);
                         } catch(e) {
                           console.log(e);
@@ -426,7 +434,7 @@ function injectDiv() {
    */
   $(deleteCart).on('mouseenter', function () {
     $(this).find('span').fadeOut(500, function() { $(this).remove(); });
-    $(this).append('<p>Empty</p>');
+    $(this).append('<p>Clear</p>');
   });
 
   $(deleteCart).on('mouseleave', function () {
