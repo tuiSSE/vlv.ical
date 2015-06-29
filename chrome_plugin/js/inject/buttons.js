@@ -14,8 +14,14 @@ function injectDownloadButtons() {
   box.prepend(downloadSelected);
 
   $("#downloadSelected").on('click', function(entryInfo){
-    var filename = "vlv_ical_export_" + getDatetoString();
-    downloadSelection(filename);
+    var settings = load('settings');
+
+    if (settings.separateByType) {
+      downloadSeparateFiles();
+    } else {
+      var filename = "vlv_ical_export_" + getDatetoString();
+      downloadSelection(filename);
+    }
   });
 }
 

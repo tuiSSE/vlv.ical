@@ -81,14 +81,19 @@ function addEventsWithBreak(cal, event, i, j) {
 /*
  * initializes a valid vCalendar
  */
-function initCal() {
+function initCal(calname) {
+
+  if (calname == undefined) {
+    calname = "Uni";
+  }
+
   var cal = [];
 
   cal.push('BEGIN:VCALENDAR');
   cal.push('CALSCALE:GREGORIAN');
   cal.push('VERSION:2.0');
   cal.push('METHOD:PUBLISH');
-  cal.push('X-WR-CALNAME:Uni');
+  cal.push('X-WR-CALNAME:' + calname);
   cal.push('X-WR-TIMEZONE:Europe/Berlin');
   cal.push('X-APPLE-CALENDAR-COLOR:#1BADF8');
   cal.push('BEGIN:VTIMEZONE');

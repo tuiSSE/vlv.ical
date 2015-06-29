@@ -65,28 +65,30 @@ function downloadSeparateFiles() {
 
     for (var i = 0; i < types.length; i++) {
       var type = objects[types[i]];
-      var cal = initCal();
+      var cal = initCal(types[i]);
 
-      if(type.until !== null){
-            if (!Array.isArray(type.begin)) {
-              cal = addEvents(cal, type, i);
-            } else {
-              for (var j = 0; j < type.begin.length; j++) {
-                  cal = addEventsWithBreak(cal, type, i, j);
-              }
+      for (var j = 0; j < type.length; j++) {
+        var obj = type[j];
+        if(obj.until !== null){
+          if (!Array.isArray(obj.begin)) {
+            cal = addEvents(cal, obj, i);
+          } else {
+            for (var j = 0; j < obj.begin.length; j++) {
+              cal = addEventsWithBreak(cal, obj, i, j);
             }
+          }
         } else {
-            cal = addEvent(cal, type, i);
+          cal = addEvent(cal, obj, i);
         }
-
+      }
 
       cal = closeCal(cal);
       var str = cal.join('\n');
       
       str = str.replace(/,/g, "\\,");
-     
+
       var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
-      saveAs(dl, types[i] + ".ics");
+      saveAs(dl, types[i] + "_" + getDatetoString() + ".ics");
     }
 
   } else {
