@@ -167,7 +167,7 @@ function getTypes(object) {
     }
 
     result[i] = {
-      "type": type,
+      "type": type.slice(0, type.length-1),
       "count": count,
       "objs": objects
     }

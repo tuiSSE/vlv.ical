@@ -7,16 +7,16 @@ function addEvent(cal, event, i) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
-    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
-    cal.push("LOCATION:" + event.objects[i].location);
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
+    cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     if (addTypeToName) {
-      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+      cal.push('SUMMARY:' + event.name + " " + event.type);
     } else {
-      cal.push('SUMMARY:' + event.objects[i].name);
+      cal.push('SUMMARY:' + event.name);
     }
-    cal.push("DESCRIPTION:" + event.objects[i].comment);
-    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
+    cal.push("DESCRIPTION:" + event.comment);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
@@ -33,17 +33,17 @@ function addEvents(cal, event, i) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
-    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end);
-    cal.push("LOCATION:" + event.objects[i].location);
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.end);
+    cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     if (addTypeToName) {
-      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+      cal.push('SUMMARY:' + event.name + " " + event.type);
     } else {
-      cal.push('SUMMARY:' + event.objects[i].name);
+      cal.push('SUMMARY:' + event.name);
     }
-    cal.push("DESCRIPTION:" + event.objects[i].comment);
-    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until);
+    cal.push("DESCRIPTION:" + event.comment);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.weekly + ';UNTIL=' + event.until);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
@@ -60,17 +60,17 @@ function addEventsWithBreak(cal, event, i, j) {
     cal.push('BEGIN:VEVENT');
     cal.push('CREATED:' + getCurrentTimestamp());
     cal.push('UID:' + uid());
-    cal.push('DTEND;TZID=Europe/Berlin:' + event.objects[i].end[j]);
-    cal.push("LOCATION:" + event.objects[i].location);
+    cal.push('DTEND;TZID=Europe/Berlin:' + event.end[j]);
+    cal.push("LOCATION:" + event.location);
     cal.push('TRANSP:OPAQUE');
     if (addTypeToName) {
-      cal.push('SUMMARY:' + event.objects[i].name + " " + event.objects[i].type.slice(0, event.objects[i].type.length-1));
+      cal.push('SUMMARY:' + event.name + " " + event.type);
     } else {
-      cal.push('SUMMARY:' + event.objects[i].name);
+      cal.push('SUMMARY:' + event.name);
     }
-    cal.push("DESCRIPTION:" + event.objects[i].comment);
-    cal.push('DTSTART;TZID=Europe/Berlin:' + event.objects[i].begin[j]);
-    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.objects[i].weekly + ';UNTIL=' + event.objects[i].until[j]);
+    cal.push("DESCRIPTION:" + event.comment);
+    cal.push('DTSTART;TZID=Europe/Berlin:' + event.begin[j]);
+    cal.push('RRULE:FREQ=WEEKLY;INTERVAL=' + event.weekly + ';UNTIL=' + event.until[j]);
     cal.push('DTSTAMP:' + getCurrentTimestamp());
     cal.push('SEQUENCE:0');
     cal.push('END:VEVENT');
