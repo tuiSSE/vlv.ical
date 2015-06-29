@@ -21,7 +21,6 @@ function updateSelectionBox() {
       (element).after(removeButton);
 
       /* highlight element, if it was changed through edit dialog */
-      console.log(item.changed);
       if (item.changed) {
         $(element).parent().addClass('item-edited');
         $(element).append('<br> <em class="small text-muted">- This item has been edited</em>');

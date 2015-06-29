@@ -7,8 +7,6 @@ function highlightUpdated() {
     for (var i = 0; i < subjects.length; i++) {
         var object = subjects[i];
 
-        object.style.border = '2px solid #435779';
-
         try {
             for (var j = 0; j < $(object).find('tbody').length; j++){
                 var tbody = $(object).find('tbody')[j];
