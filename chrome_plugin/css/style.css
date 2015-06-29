@@ -241,15 +241,28 @@ body {
 }
 
 #settings-button {
-	color: white;
+	color: rgb(116, 147, 179);
+	text-decoration: none;
+	font-size: 17px;
 	height: 50px;
 	line-height: 50px;
 	float: left;
-	margin-left: 5em;
-	padding: 0 1em;
+	padding: 0 1em 0 0;
 	cursor: pointer;
-	text-decoration: none;
-	font-size: 16px;
+	transition: color 2s;
+
+}
+
+#settings-button .cart-icon {
+	top: 3px;
+}
+
+#settings-button:hover {
+	color: #fff;
+}
+
+.padded-divider {
+	padding-left: 1em;
 }
 
 .itemDetail {
