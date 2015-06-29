@@ -35,7 +35,7 @@ $(function(){
   /*
    * Check if there was already a tour and check if the current url matches the pattern
    */
-  if(!tourCompleted && window.location.href.includes('https://www.tu-ilmenau.de/vlv/index.php?id=6&funccall=1')) {
+  if(!tourCompleted && window.location.href.includes('www.tu-ilmenau.de/vlv/index.php') && window.location.href.includes('vers=text')) {
     introguide.start();
   }
 
