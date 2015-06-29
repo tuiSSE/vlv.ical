@@ -403,7 +403,7 @@ function injectDiv() {
 
   var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>');
   var settings = $('<div id="settings-button"><span class="cart-icon glyphicon glyphicon-cog"></span> <span>Einstellungen</span></div>')
-  var logo = $('<div id="pluginLogo">VLV.ical <span> - Plugin aktiv</span> <span class="padded-divider">|</span> </div>');
+  var logo = $('<div id="pluginLogo">VLV.ical <span class="padded-divider">|</span> </div>');
   $('#emptyBox').prepend(open);
   $('#emptyBox').prepend(settings);
   $('#emptyBox').prepend(logo);

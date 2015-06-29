@@ -7,27 +7,66 @@ $(function(){
         {
           element: '#pluginLogo',
           intro: 'This guided tour will explain how to use this plugin for a splendid experience.<br><br>Use the arrow keys for navigation or hit ESC to exit the tour immediately.',
+          position: 'right'
+        },
+        {
+          element: '#emptyBox',
+          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aliquid vitae temporibus, ipsa consectetur nesciunt sed magni molestias, eaque quod dolorem possimus quisquam cumque, qui quos veniam. Necessitatibus, et vel!',
           position: 'bottom'
         },
         {
           element: '#emptyBox',
-          intro: 'Here you can deactivate the plugin, go to settings and open the cart.',
-          position: 'bottom'
-        },
-        {
-          element: '#emptyBox',
-          disableInteraction: false,
-          intro: 'Click the "Öffnen" Button to show the cart.',
+          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ut dolor ea blanditiis. Hic architecto repudiandae, velit magnam molestiae, possimus expedita impedit in iure, adipisci laborum doloribus similique voluptas vel!',
           position: 'bottom-right-aligned'
         },
         {
           element: '#selectionBox',
-          intro: 'This is your cart. Here you will find your chosen events',
+          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, consectetur at amet mollitia repudiandae animi eveniet, quasi hic incidunt quidem praesentium ad aperiam accusamus delectus et quod doloremque consequatur quo!',
+          position: 'left'
+        },
+        {
+          element: '#selectAll',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'bottom'
+        },
+        {
+          element: '.addButton',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'top'
+        },
+        {
+          element: '.moreInfoButton',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'floating'
+        },
+        {
+          element: '.selectionBoxItem',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'left'
+        },
+        {
+          element: '.cd-item-remove',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'left'
+        },
+        {
+          element: '#downloadSelected',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'top'
+        },
+        {
+          element: '#deleteCart',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
           position: 'left'
         },
         {
           element: '#backButton',
-          intro: "Let's close the cart. Click on 'Schliessen' to close",
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          position: 'bottom'
+        },
+        {
+          element: '#settings-button',
+          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
           position: 'bottom'
         }
     ]

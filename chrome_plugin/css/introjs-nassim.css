@@ -12,12 +12,12 @@
 }
 
 .introjs-fixParent {
-  z-index: auto !important;
-  opacity: 1.0 !important;
+  z-index: 9999997 !important;
+  opacity: 1 !important;
 }
 
 .introjs-showElement {
-  z-index: 100000000 !important;
+  z-index: 9999999 !important;
 }
 
 .introjs-relativePosition {
