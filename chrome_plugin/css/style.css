@@ -202,6 +202,7 @@ html, * {
 	clear: both;
 	overflow-y: scroll;
   	padding-bottom: 0;
+  	background: white;
 }
 
 #itemBox li {
@@ -216,7 +217,7 @@ html, * {
 }
 
 .selectionBoxItem {
-	background-color:white;
+	background-color:transparent;
 	width:80%;
 	position: relative;
 	display: inline;
@@ -394,6 +395,10 @@ html, * {
 
 .btn:focus {
 	outline: 0;
+}
+
+.item-edited {
+	border-left: 4px solid rgba(51, 122, 183, 1) !important;
 }
 
 /**

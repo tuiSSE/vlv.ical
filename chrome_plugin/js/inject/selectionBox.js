@@ -16,14 +16,15 @@ function updateSelectionBox() {
 
       element.insertBefore($('#itemBox')[0].childNodes[i]);
       
+      $(element).wrap('<li></li>');
+      (element).after(removeButton);
+
       /* highlight element, if it was changed through edit dialog */
       console.log(item.changed);
       if (item.changed) {
-        $(element).css("background-color", "#FBCA04");
+        $(element).parent().addClass('item-edited');
+        $(element).append('<br> <em class="small text-muted">- This item has been edited</em>');
       }
-      
-      $(element).wrap('<li></li>');
-      (element).after(removeButton);
 
       $(element).on('click', function() {
           openEditDialog(this.id);
