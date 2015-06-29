@@ -1,11 +1,13 @@
 function highlightUpdated() {
+    var elements = getRootElement().getElementsByTagName('div');
+
     var now = new Date();
     now = new Date(now.getFullYear(), now.getMonth(), now.getDate());
     var settingsPeriod = load('settings').highlightUpdatesPeriod;
     var period = new Date(now.getFullYear(), now.getMonth(), now.getDate() - settingsPeriod);
 
-    for (var i = 0; i < subjects.length; i++) {
-        var object = subjects[i];
+    for (var i = 0; i < elements.length; i++) {
+        var object = elements[i];
 
         try {
             for (var j = 0; j < $(object).find('tbody').length; j++){
