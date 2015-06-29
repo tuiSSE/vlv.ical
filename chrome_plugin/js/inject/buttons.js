@@ -20,7 +20,7 @@ function injectDownloadButtons() {
 }
 
 function injectSelectAllButton() {
-  var selectAll = $('<button id="selectAll" class="selectAll">Select All / Unselect All</input>');
+  var selectAll = $('<button id="selectAll" class="selectAll">Select All</input>');
   selectAll.insertBefore(getRootElement().getElementsByTagName('div')[0]);
   $('<p>&nbsp;</p>').insertBefore(subjects[0]);
   
@@ -31,11 +31,6 @@ function injectSelectAllButton() {
       if (bool) {
         if(!containsObject(getIdOfLecture(object), load('selection'))) {
           addToCart(object);
-        }
-      } else {
-        if(containsObject(getIdOfLecture(object), load('selection'))) {
-          deleteFromCart(object);
-          updateSelection();
         }
       }
     }
