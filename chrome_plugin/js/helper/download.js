@@ -1,3 +1,6 @@
+/**
+ * Downloads one file for all items
+ */
 function downloadSelection(filename) {
   var items = load('selection');
   if (items.length > 0) {
@@ -48,6 +51,9 @@ function downloadSelection(filename) {
   };
 }
 
+/**
+ * Downloads one file per type
+ */
 function downloadSeparateFiles() {
   var types = [];
   var objects = {};
