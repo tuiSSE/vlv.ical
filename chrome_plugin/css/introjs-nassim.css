@@ -31,7 +31,7 @@
   background-color: transparent;
   border: 1px solid rgba(24, 188, 156, 1);
   border-radius: 4px;
-  box-shadow: 0 5px 8px -3px rgba(0,0,0,.6);
+  /*box-shadow: 0 5px 8px -3px rgba(0,0,0,.6);*/
   -webkit-transition: all 0.3s ease-out;
      -moz-transition: all 0.3s ease-out;
       -ms-transition: all 0.3s ease-out;
@@ -51,11 +51,11 @@
   color: #fff; /* Old browsers */ /* Chrome10+,Safari5.1+ */
   background: #DA4433;
   width: 20px;
-  box-shadow: 0 1px 1px rgba(0,0,0,.35);
+  /*box-shadow: 0 1px 1px rgba(0,0,0,.35);*/
   height:20px;
   text-align: center;
   line-height: 20px;
-  border: 2px solid #DA4433;
+  /*border: 2px solid #DA4433;*/
   border-radius: 0; /* IE6-9 */  /* IE10 text shadows */
 }
 

@@ -6,6 +6,9 @@ html, * {
 	font-size: 12px;
 }
 
+.modal {
+	overflow-y: scroll !important;
+}
 #page {
 	transition: width 0.5s ease;
 }

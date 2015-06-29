@@ -1,4 +1,5 @@
 $(function(){
+  var tourCompleted = localStorage.getItem('tourCompleted') || false;
   var introguide = introJs();
   // var startbtn   = $('#startdemotour');
   introguide.setOptions({
@@ -31,9 +32,22 @@ $(function(){
         }
     ]
   });
-  introguide.start();
+  /*
+   * Check if there was already a tour and check if the current url matches the pattern
+   */
+  if(!tourCompleted && window.location.href.includes('https://www.tu-ilmenau.de/vlv/index.php?id=6&funccall=1')) {
+    introguide.start();
+  }
+
+  introguide.oncomplete(function() {
+    localStorage.setItem('tourCompleted', true);
+  });
+  introguide.onexit(function() {
+    localStorage.setItem('tourCompleted', true);
+  }); 
 	/**
-	    startbtn.on('click', function(e){
+	  * Example for extended properties of a tour 
+      startbtn.on('click', function(e){
 	      e.preventDefault();
 	      introguide.start();
 	      $(this).hide();
