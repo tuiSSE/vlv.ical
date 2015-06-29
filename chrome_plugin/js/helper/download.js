@@ -19,14 +19,14 @@ function downloadSelection(filename) {
              * Get data.seq[Begin, End, Until] items
              */
             if (!Array.isArray(tmp.objects[i].begin)) {
-              cal = addEvents(cal, tmp, i);
+              cal = addEvents(cal, tmp.objects[i], i);
             } else {
               for (var j = 0; j < tmp.objects[i].begin.length; j++) {
-                  cal = addEventsWithBreak(cal, tmp, i, j);
+                  cal = addEventsWithBreak(cal, tmp.objects[i], i, j);
               }
             }
           } else {
-            cal = addEvent(cal, load(item), i);
+            cal = addEvent(cal, load(item).objects[i], i);
           }
         }); 
       });
@@ -35,10 +35,10 @@ function downloadSelection(filename) {
       var str = cal.join('\n');
       
       str = str.replace(/,/g, "\\,");
-      console.log(str);
      
       var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
-     saveAs(dl, filename + ".ics");
+      saveAs(dl, filename + ".ics");
+
     } catch (e) {
       toastr.error("Download failed!", e);
       console.log(e);
@@ -46,4 +46,50 @@ function downloadSelection(filename) {
   } else {
       toastr.warning("Keine Veranstaltungen ausgewählt.")
   };
+}
+
+function downloadSeparateFiles() {
+  var types = [];
+  var objects = {};
+  var items = load('selection');
+  if (items.length > 0) {
+    for (var i = 0; i < items.length; i++) {
+      for (var j = 0; j < load(items[i]).objects.length; j++) {
+        if (!containsObject(load(items[i]).objects[j].type, types)) {
+          types.push(load(items[i]).objects[j].type);
+          objects[load(items[i]).objects[j].type] = [];
+        }
+        objects[load(items[i]).objects[j].type].push(load(items[i]).objects[j]);
+      }
+    }
+
+    for (var i = 0; i < types.length; i++) {
+      var type = objects[types[i]];
+      var cal = initCal();
+
+      if(type.until !== null){
+            if (!Array.isArray(type.begin)) {
+              cal = addEvents(cal, type, i);
+            } else {
+              for (var j = 0; j < type.begin.length; j++) {
+                  cal = addEventsWithBreak(cal, type, i, j);
+              }
+            }
+        } else {
+            cal = addEvent(cal, type, i);
+        }
+
+
+      cal = closeCal(cal);
+      var str = cal.join('\n');
+      
+      str = str.replace(/,/g, "\\,");
+     
+      var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
+      saveAs(dl, types[i] + ".ics");
+    }
+
+  } else {
+    toastr.warning("Keine Veranstaltungen ausgewählt.");
+  }
 }
