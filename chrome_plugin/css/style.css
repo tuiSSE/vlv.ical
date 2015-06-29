@@ -6,6 +6,10 @@ html, * {
 	font-size: 12px;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 .modal {
 	overflow-y: scroll !important;
 }
