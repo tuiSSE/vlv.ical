@@ -436,7 +436,7 @@ function injectDiv() {
   $('.cart-header').prepend(deleteCart);
 
   $(deleteCart).on('click', function () {
-    bootbox.confirm("Do you want to empty your cart?", function(result) {
+    bootbox.confirm("Willst du den Warenkorb entleeren?", function(result) {
       if (result) {
         save('selection', []);
         clearDataWithPrefix('nr');
