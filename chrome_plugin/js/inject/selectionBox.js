@@ -206,7 +206,7 @@ function openEditDialogDetailMulti(id, index) {
                 closeButton: false,
                 buttons: {
                     success: {
-                        label: "Save",
+                        label: "Speichern",
                         className: "btn-success",
                         callback: function () {
                           var i = index;
@@ -276,7 +276,7 @@ function openEditDialogDetailMulti(id, index) {
                         }
                     },
                     cancel: {
-                      label: "Cancel",
+                      label: "Abbrechen",
                       className: "btn-danger",
                       callback: function(){
                         try {
@@ -327,7 +327,7 @@ function openEditDialogDetail(id, index) {
                 closeButton: false,
                 buttons: {
                     success: {
-                        label: "Save",
+                        label: "Speichern",
                         className: "btn-success",
                         callback: function () {
                           try {
@@ -378,7 +378,7 @@ function openEditDialogDetail(id, index) {
                         }
                     },
                     cancel: {
-                      label: "Cancel",
+                      label: "Abbrechen",
                       className: "btn-danger",
                       callback: function(){
                         try {
@@ -501,7 +501,7 @@ function openSettingsDialog() {
                 closeButton: false,
                 buttons: {
                     success: {
-                        label: "Save",
+                        label: "Speichern",
                         className: "btn-success",
                         callback: function () {
                           try {
@@ -520,7 +520,7 @@ function openSettingsDialog() {
                         }
                     },
                     cancel: {
-                      label: "Cancel",
+                      label: "Abbrechen",
                       className: "btn-danger",
                       callback: function(){
                         try {
