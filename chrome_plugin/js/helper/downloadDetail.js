@@ -27,7 +27,7 @@ function downloadDetail(obj) {
       var dl = new Blob([str], { type: "text/plain;charset=utf-8" });
       saveAs(dl, filename + ".ics");
     } catch (e) {
-      toastr.error("Download failed!", e);
+      toastr.error("Download fehlgeschlagen!", e);
       console.log(e);
     }
 }

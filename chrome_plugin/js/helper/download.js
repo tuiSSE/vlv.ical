@@ -43,7 +43,7 @@ function downloadSelection(filename) {
       saveAs(dl, filename + ".ics");
 
     } catch (e) {
-      toastr.error("Download failed!", e);
+      toastr.error("Download fehlgeschlagen!", e);
       console.log(e);
     }
   } else {

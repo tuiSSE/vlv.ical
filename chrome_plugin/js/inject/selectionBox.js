@@ -134,7 +134,7 @@ function openEditDialog(id) {
                               return false;
                             }
                           } catch(e) {
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                             return false;
                           }
                         }
@@ -216,7 +216,7 @@ function openEditDialogDetailMulti(id, index) {
                             var data = load(id);
                           } catch (e) {
                             $('#formArea div:nth-child(2)').prepend(origForm);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                           }
                           
                           try {
@@ -246,7 +246,7 @@ function openEditDialogDetailMulti(id, index) {
                             clonedForm = $('#editFormMulti');
                           } catch(e) {
                             console.error(e.name+": "+e.message);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                             return false;   // Prevent the Modal from closing
                           }
                           
@@ -268,7 +268,7 @@ function openEditDialogDetailMulti(id, index) {
                                 $('.panel-default').remove();
                               }
                             $('#formArea div:nth-child(2)').prepend(origForm);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                           }
 
                           updateSelectionBox();
@@ -335,7 +335,7 @@ function openEditDialogDetail(id, index) {
                             var data = load(id);
                           } catch (e) {
                             $('#formArea div:nth-child(1)').prepend(origForm);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                           }
                           
                           try {
@@ -358,7 +358,7 @@ function openEditDialogDetail(id, index) {
                             clonedForm = $('#editForm');
                           } catch(e) {
                             console.error(e.name+": "+e.message);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                             return false;   // Prevent the Modal from closing
                           }
                           
@@ -370,7 +370,7 @@ function openEditDialogDetail(id, index) {
                               save(id, data);
                           } catch(e) {
                             $('#formArea div:nth-child(1)').prepend(origForm);
-                            toastr.error(e, 'Error');
+                            toastr.error(e, 'Fehler');
                           }
                           $('body').css('overflow', 'auto');
                           updateSelectionBox();

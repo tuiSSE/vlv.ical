@@ -96,7 +96,7 @@ if (/vers=text/.test(self.location.href)) {
     if (checkPageStructure()) {
       init();
     } else {
-      toastr.error("Site structure seems to have changed. Site manipulation has been disabled.");
+      toastr.error("Die Struktur der Seite ist verändert worden. Manipulation der Seite wurde deaktiviert.");
     }
   } catch (e) {
     console.log("Failed to initialize");

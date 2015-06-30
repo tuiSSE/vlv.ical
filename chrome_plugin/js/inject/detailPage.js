@@ -41,6 +41,6 @@ function addDownloadButtonDetailPage() {
 
   if (hasValidContent) {
       $('#openSelectionBox').remove();
-      $('#emptyBox').prepend('<div class="detailInfoBox"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Click on event to Download</div>');
+      $('#emptyBox').prepend('<div class="detailInfoBox"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> Zum Download anklicken</div>');
     }
 }
