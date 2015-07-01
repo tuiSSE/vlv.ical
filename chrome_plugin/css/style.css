@@ -30,12 +30,10 @@ body {
 	display:inline-block;
 	cursor:pointer;
 	color:white;
-	min-width: 250px;
 	font-family:Arial;
 	font-size:13px;
 	padding:5px 20px;
 	text-decoration:none;
-
 }
 .addButton:hover {
 	transition: background-color 0.8s ease;
@@ -52,6 +50,19 @@ body {
 .addButton.active {
 	background-color: #7dcf85;
 	color: white;
+}
+.addButtonDisabled {
+	background-color:lightgrey;
+	display:inline-block;
+	cursor:pointer;
+	color:white;
+	font-family:Arial;
+	font-size:13px;
+	padding:5px 20px;
+	text-decoration:none;
+}
+.addButtonDisabled:focus {
+	outline: 0;
 }
 .primary-btn {
 	background-color:#7dcf85;

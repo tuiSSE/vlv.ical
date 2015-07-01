@@ -8,8 +8,8 @@ function getRootElement() {
 /*
  * returns an array of all events present on the page
  */
-function getElements(root) {
-  var elements = root.getElementsByTagName('div');
+function getElements() {
+  var elements = getRootElement().getElementsByTagName('div');
   var result = [];
 
   for (var i = 0; i < elements.length; i++) {
@@ -23,6 +23,20 @@ function getElements(root) {
         console.log("Failed to read subject");
         console.log(e);
         console.log(elements[i]);
+    }
+  }
+
+  return result;
+}
+
+function getDeactivatedElements() {
+  var elements = getRootElement().getElementsByTagName('div');
+  var result = [];
+
+  var active = getElements(getRootElement());
+  for (var i = 0; i < elements.length; i++) {
+    if (!(containsObject(elements[i], active))) {
+      result.push(elements[i]);
     }
   }
 

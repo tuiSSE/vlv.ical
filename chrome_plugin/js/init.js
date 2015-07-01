@@ -85,7 +85,7 @@ try {
 if (/vers=text/.test(self.location.href)) {
   // all subjects the plugin can find on current page
   try{
-    subjects = getElements(getRootElement());
+    subjects = getElements();
     fixIds(subjects);
   } catch(e) {
     console.log("Could not read any subjects.");
@@ -118,7 +118,7 @@ if(/wcms3.rz.tu-ilmenau.de\/~goettlich\/elvvi\/*/.test(self.location.href)) {
  */
 function init() {
   injectSelectAllButton();
-  injectAddButtons(subjects);
+  injectAddButtons();
   injectBorders();
   highlightUpdated();
   updateSelection(subjects);

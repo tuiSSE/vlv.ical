@@ -49,12 +49,34 @@ function injectSelectAllButton() {
 /*
  * injects buttons to add subjects to an array, like a shopping cart
  */
-function injectAddButtons(subjects) {
+function injectAddButtons() {
+  var subjects = getElements();
   for (var i = 0; i < subjects.length; i++){
     var object = subjects[i];
     var name = subjects[i].childNodes[1].childNodes[0].data;
     subjects[i].childNodes[1].childNodes[0].data = null;
     var r = $('<button class="addButton"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> ' + name + '</button>');
+    r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
+
+    try {
+      var oldElement = object.childNodes[1].childNodes[2];
+      if (oldElement != undefined) {
+        var newElement = $('<button class="moreInfoButton" onclick="window.open(\'' + oldElement.href + '\', \'_blank\')">weitere Informationen</button>');
+        newElement.insertBefore(oldElement);
+        $(object.childNodes[1].childNodes[3]).remove();
+      }
+    } catch(e) {
+      console.log("Inject Buttons could not be injected.")
+      console.log(e);
+    };
+  }
+
+  var subjects = getDeactivatedElements();
+  for (var i = 0; i < subjects.length; i++) {
+    var object = subjects[i];
+    var name = subjects[i].childNodes[1].childNodes[0].data;
+    subjects[i].childNodes[1].childNodes[0].data = null;
+    var r = $('<button class="addButtonDisabled" disabled="disabled">' + name + '</button>');
     r.insertBefore(subjects[i].childNodes[1].childNodes[0]);
 
     try {
