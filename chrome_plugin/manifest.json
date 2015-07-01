@@ -21,6 +21,8 @@
                 "js/libs/moment.js",
                 "js/libs/bootstrap.min.js",
                 "js/libs/bootbox.min.js",
+                "js/libs/bootstrap-switch.min.js",
+                "js/libs/jquery.bootstrap-touchspin.min.js",
                 "js/helper/checkLastUpdated.js",
                 "js/helper/calHelper.js",
                 "js/helper/fixDiv.js",
@@ -43,7 +45,9 @@
             ],
             "css": [
                 "css/toastr.min.css",
+                "css/bootstrap-switch.min.css",
                 "css/bootstrap.min.css",
+                "css/jquery.bootstrap-touchspin.min.css",
                 "css/introjs.min.css",
                 "css/introjs-nassim.css",
                 "css/style.css"

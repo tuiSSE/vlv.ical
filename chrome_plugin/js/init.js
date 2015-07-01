@@ -130,7 +130,7 @@ function init() {
 */
 try {
   $('body').prepend('<div id="formArea" style="display: none;"></div>');
-  $('#formArea').append('<div></div><div></div>');
+  $('#formArea').append('<div></div><div></div><div></div>');
   $('#formArea div:nth-child(1)').load(chrome.extension.getURL("partials/edit-form.html"));
   $('#formArea div:nth-child(2)').load(chrome.extension.getURL("partials/edit-form-multidate.html"));
 } catch(e) {
