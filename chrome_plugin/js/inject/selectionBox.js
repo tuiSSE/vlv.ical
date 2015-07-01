@@ -23,7 +23,7 @@ function updateSelectionBox() {
       /* highlight element, if it was changed through edit dialog */
       if (item.changed) {
         $(element).parent().addClass('item-edited');
-        $(element).append('<br> <em class="small text-muted">- This item has been edited</em>');
+        $(element).append('<br> <em class="small text-muted">- Das Element wurde bearbeitet</em>');
       }
 
       $(element).on('click', function() {
@@ -116,7 +116,7 @@ function openEditDialog(id) {
                 message: $('#editItemTable'),
                 buttons: {
                     success: {
-                        label: "Edit",
+                        label: "Bearbeiten",
                         className: "btn-success",
                         callback: function () {
                           try {

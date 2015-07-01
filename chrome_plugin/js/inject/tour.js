@@ -6,17 +6,17 @@ $(function(){
     steps: [
         {
           element: '#pluginLogo',
-          intro: 'This guided tour will explain how to use this plugin for a splendid experience.<br><br>Use the arrow keys for navigation or hit ESC to exit the tour immediately.',
+          intro: 'Willkommen zu VLV.ical!<br<br> Diese Tour wird dich durch das Plugin führen.<br><br>Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du die Führung vorzeitig beenden.',
           position: 'right'
         },
         {
           element: '#emptyBox',
-          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto aliquid vitae temporibus, ipsa consectetur nesciunt sed magni molestias, eaque quod dolorem possimus quisquam cumque, qui quos veniam. Necessitatibus, et vel!',
+          intro: 'Das ist die Menüleiste <br><br> Hier kannst du diverse Einstellungen für deine Veranstaltungen übernehmen, auf VLV.ical klicken um die Webseite zu besuchen oder aber auch bei Hilfe den support kontaktieren',
           position: 'bottom'
         },
         {
           element: '#emptyBox',
-          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio ut dolor ea blanditiis. Hic architecto repudiandae, velit magnam molestiae, possimus expedita impedit in iure, adipisci laborum doloribus similique voluptas vel!',
+          intro: 'Das ist dein Warenkorb<br><br> Wenn du darauf klickst, öffnet sich dein Warenkorb und du kannst deine Ausgewählten Veranstaltungen sehen. <br> Mit einem erneutem Klick auf die gewünschte Vernstaltung gelangst du zum bearbeitungsfenster <br><br> Danke das du VLV.ical benutzt und viel Spaß damit',
           position: 'bottom-right-aligned'
         },
         {
@@ -73,7 +73,9 @@ $(function(){
   });
   /*
    * Check if there was already a tour and check if the current url matches the pattern
-   */
+   *
+  */ 
+   
   if(!tourCompleted && window.location.href.includes('www.tu-ilmenau.de/vlv/index.php') && window.location.href.includes('vers=text')) {
     introguide.start();
   }
@@ -84,6 +86,7 @@ $(function(){
   introguide.onexit(function() {
     localStorage.setItem('tourCompleted', true);
   }); 
+  
 	/**
 	  * Example for extended properties of a tour 
       startbtn.on('click', function(e){
