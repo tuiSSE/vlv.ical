@@ -540,15 +540,15 @@ function getSettingsForm() {
   var settings = load('settings');
   var form = '<form id="settingsForm" class="form-horizontal">' +
                     '<div class="form-group"> <label for="setUpdatePeriod" class="col-sm-3 control-label">Zeitraum</label>' +
-                    '<div class="col-sm-9"> <input type="text" class="form-control input-md" value="' + settings.highlightUpdatesPeriod + '" id="setUpdatePeriod" required>' +
+                    '<div class="col-sm-9"> <input type="number" class="form-control input-md" value="' + settings.highlightUpdatesPeriod + '" id="setUpdatePeriod" required>' +
                     '<p class="help-block">Größe des Zeitraums, in dem aktualisierte Veranstaltungen hervorgehoben werden (in Tagen)</p></div></div>' +
                     // end first form group
                     '<div class="form-group"> <label for="addTypeToName" class="col-sm-3 control-label">Dateiname</label>' +
-                    '<div class="col-sm-9"> <input type="checkbox" class="form-control input-md" id="addTypeToName">' +
+                    '<div class="col-sm-9"> <input type="checkbox" class="form-control input-md" id="addTypeToName" data-on-text="EIN" data-off-text="AUS">' +
                     '<p class="help-block">Soll an den Veranstaltungsnamen der Typ angehangen werden? (Vorlesung, Übung, Seminar, etc.)</p></div></div>' +
                     // end second form group
                     '<div class="form-group"> <label for="separateByType" class="col-sm-3 control-label">Separate Dateien</label>' +
-                    '<div class="col-sm-9"> <input type="checkbox" class="form-control input-md" id="separateByType">' +
+                    '<div class="col-sm-9"> <input type="checkbox" class="form-control input-md" id="separateByType" data-on-text="EIN" data-off-text="AUS">' +
                     '<p class="help-block">Sollen die Veranstaltungsarten separat heruntergeladen werden?</p></div></div>' +
               '</form>';
   $(document.body).prepend(form);
