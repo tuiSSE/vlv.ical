@@ -168,6 +168,18 @@ function openEditDialogDetailMulti(id, index) {
   $('#multiLocation').val( data.objects[i].location );
   $('#multiComment').val( data.objects[i].comment );
 
+  // assign the values of the object
+  $('#editMultiId').val( id );
+  var theName = $('#multiName').val( data.objects[i].name );
+  var theLocation = $('#multiLocation').val( data.objects[i].location );
+  var theComment = $('#multiComment').val( data.objects[i].comment );
+
+// get initial values for reseting 
+
+  var oldName = theName.val();
+  var oldLocation = theLocation.val();
+  var oldComment = theComment.val();
+
   var origForm = $('#editFormMulti'); // Copy of the Form before Edit
   var clonedForm = null; // Holds the edited Form
 
@@ -196,7 +208,8 @@ function openEditDialogDetailMulti(id, index) {
     $('#multiBeginTime' + j).val( begin[j] );
     $('#multiEndTime' + j).val( end[j] );
   }
-  $('#multiRepeat').val( data.objects[i].weekly );
+  var theRepeat = $('#multiRepeat').val( data.objects[i].weekly );
+  var oldRepeat = theRepeat.val();
   
 
   bootbox.dialog({
@@ -304,6 +317,27 @@ function openEditDialogDetailMulti(id, index) {
                             $('#editBeginTime').val( oldBegin );
                             $('#editEndTime').val( oldEnd );
                             $('#editRepeat').val( oldRepeat );
+                          return false;
+                        } catch (e) {
+                          console.log(e);
+                        }
+                      }
+                    },
+                    reset: {
+                      label: "Reset",
+                      className: "btn-primary pull-left",
+                      callback: function() {
+                        try {
+                           
+                            $('#multiName').val( oldName );
+                            $('#multiLocation').val( oldLocation);
+                            $('#multiComment').val( oldComment);
+                            for (var j = 0; j < length; j++) {
+                              $('#multiDate' + j).val( date[j] );
+                              $('#multiBeginTime' + j).val( begin[j] );
+                              $('#multiEndTime' + j).val( end[j] );
+                            }
+                            $('#multiRepeat').val( oldRepeat );
                           return false;
                         } catch (e) {
                           console.log(e);
