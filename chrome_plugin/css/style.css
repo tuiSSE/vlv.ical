@@ -10,6 +10,14 @@ body {
 	overflow-x: hidden;
 }
 
+mark {
+	color: white;
+	padding: 2px;
+	background: rgb(234, 106, 104);
+	margin: 0;
+	margin-bottom: 0.8em;
+}
+
 .modal {
 	overflow-y: scroll !important;
 }

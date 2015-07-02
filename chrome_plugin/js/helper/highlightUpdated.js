@@ -25,9 +25,8 @@ function highlightUpdated() {
                     if (lastUpdated > period){
                     	var obj = tr.childNodes[13];
 
-                        obj.style.background = '#ea6a68';
-                        obj.style.color = 'white';
-                        obj.style.padding = "2px";
+                        $(obj).wrapInner('<mark></mark>');
+                        obj.style.paddingBottom = '0.8em';
                     }
                 }
             }  
