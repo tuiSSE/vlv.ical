@@ -276,6 +276,26 @@ body {
 	padding-left: 1em;
 }
 
+#help-section {
+	float: left;
+	padding: 0 1em 0 0;
+	cursor: pointer;
+	transition: color 2s;
+	list-style: none;
+}
+
+#help-section li {
+	margin: 0;
+}
+
+#help-section > li > a {
+	color: rgb(116, 147, 179);
+	text-decoration: none;
+	font-size: 17px;
+	height: 50px;
+	line-height: 50px;
+}
+
 .itemDetail {
 	font-size: 10px;
 	text-align: left;
@@ -387,12 +407,15 @@ body {
 }
 
 #pluginLogo {
-	height: 50px;
-	line-height: 50px;
 	padding: 0 1em;
+	float: left;
+}
+
+#pluginLogo a {
 	color: white;
 	font-size: 18px;
-	float: left;
+	height: 50px;
+	line-height: 50px;
 }
 
 #pluginLogo span {

@@ -90,4 +90,8 @@ $(function(){
   if(window.location.href.includes('www.tu-ilmenau.de/vlv/index.php') && window.location.href.includes('vers=text')) {
     introguide.start();
   }
+
+  $(' a[href="#tourstarten"] ').on('click', function(){
+    introguide.restart();
+  });
 });
