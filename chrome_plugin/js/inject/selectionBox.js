@@ -305,7 +305,7 @@ function openEditDialogDetailMulti(id, index) {
                       }
                     },
                     reset: {
-                      label: "Reset",
+                      label: "Zurücksetzen",
                       className: "btn-primary pull-left",
                       callback: function() {
                         try {
@@ -324,7 +324,7 @@ function openEditDialogDetailMulti(id, index) {
                       }
                     },
                     reset: {
-                      label: "Reset",
+                      label: "Zurücksetzen",
                       className: "btn-primary pull-left",
                       callback: function() {
                         try {
