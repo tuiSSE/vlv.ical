@@ -6,67 +6,67 @@ $(function(){
     steps: [
         {
           element: '#pluginLogo',
-          intro: 'Willkommen zu VLV.ical!<br<br> Diese Tour wird dich durch das Plugin führen.<br><br>Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du die Führung vorzeitig beenden.',
+          intro: 'Willkommen zu VLV.ical!<br><br> Dieses Tutorial wird dich durch das Plugin führen. <br><br> Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du das Tutorial vorzeitig beenden.<br><br> Bei "Hilfe" kannst du zur einer späteren Zeit das Tutorial wieder starten',
           position: 'right'
         },
         {
           element: '#emptyBox',
-          intro: 'Das ist die Menüleiste <br><br> Hier kannst du diverse Einstellungen für deine Veranstaltungen übernehmen, auf VLV.ical klicken um die Webseite zu besuchen oder aber auch bei Hilfe den support kontaktieren',
+          intro: 'Das ist die Menüleiste <br><br> Hier kannst du diverse Einstellungen für deine Veranstaltungen übernehmen <br><br> Du kannst auf  VLV.ical klicken um die Webseite zu besuchen.',
           position: 'bottom'
         },
         {
           element: '#emptyBox',
-          intro: 'Das ist dein Warenkorb<br><br> Wenn du darauf klickst, öffnet sich dein Warenkorb und du kannst deine Ausgewählten Veranstaltungen sehen. <br> Mit einem erneutem Klick auf die gewünschte Vernstaltung gelangst du zum bearbeitungsfenster <br><br> Danke das du VLV.ical benutzt und viel Spaß damit',
+          intro: 'Mit einem Klick auf "Öffnen" öffnest du dein Warenkorb <br><br> Teste es gleich! <br><br> Um mit der Führung fortzufahren, öffne bitte zuerst den Warenkorb und fahre anschließen mit "Weiter" fort.',
           position: 'bottom-right-aligned'
         },
         {
           element: '#selectionBox',
-          intro: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis, consectetur at amet mollitia repudiandae animi eveniet, quasi hic incidunt quidem praesentium ad aperiam accusamus delectus et quod doloremque consequatur quo!',
+          intro: 'Super! <br><br> Das ist dein Warenkorb. <br><br> Hier (siehst/sammelst/stapelst) du deine ausgewählten Veranstaltungen.',
           position: 'left'
         },
         {
           element: '#selectAll',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Der "Alles auswählen" Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb.',
           position: 'bottom'
         },
         {
           element: '.addButton',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Die Blauen Schaltflächen sind vom Plugin erkannte Veranstaltungen, die du separat (einzeln) in den Warenkorb hinzufügen, oder entfernen kannst.',
           position: 'top'
         },
         {
           element: '.moreInfoButton',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Die "Weitere Informationen" Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In der Detailansicht kannst du einzelne Termine herunterladen. <br><br><br><br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
           position: 'floating'
         },
         {
           element: '.selectionBoxItem',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'kp was das darstellen soll.',
           position: 'left'
         },
         {
           element: '.cd-item-remove',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'kp was das darstellen soll.',
           position: 'left'
         },
         {
           element: '#downloadSelected',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Mit einem Klick auf den  "Download" Button wird der inhalt des Warenkorbs heruntergeladen.',
           position: 'top'
         },
         {
           element: '#deleteCart',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Die rote Schaltfläche mit dem Papierkorb Symbol, löscht den Warenkorb unwiederruflich.',
           position: 'left'
         },
         {
           element: '#backButton',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Wenn du dein Warenkorb ausblenden willst, dann reicht ein Klick auf den "Schließen" Button.',
           position: 'bottom'
         },
         {
           element: '#settings-button',
-          intro: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste sapiente enim voluptatum repellat sequi. Eius ad provident deleniti, aliquam. Id, ex quo architecto tempore quibusdam voluptatem dolorem ipsum fuga sapiente.",
+          intro: 'Unter "Einstellungen" kannst du dein Warenkorb einstellen. <br><br> Viel Spaß mit wenigen Klicks dein Stundenplan zusammenzustellen! <br><br> Nicht vergessen deinen Kommmilitonen von dem Plugin zu erzählen ;-)',
           position: 'bottom'
         }
     ]
