@@ -102,6 +102,7 @@ function getLastUpdated(object) {
   return lastUpdated;
 }
 
+// returns the data of an object, calls getNewData() if nothing in cache
 function getData(object) {
   var data;
   var cache = load('dataCache');
@@ -125,6 +126,7 @@ function getData(object) {
   return data;
 }
 
+// reads and parses data from the site
 function getNewData(object) {
   var data = [];
   var raw = getTypes(object);
