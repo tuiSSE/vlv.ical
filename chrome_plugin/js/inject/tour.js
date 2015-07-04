@@ -1,77 +1,6 @@
 $(function(){
   var introguide = new Tour({
     steps: [
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-        {
-          element: '#pluginLogo',
-          intro: 'Willkommen zu VLV.ical!<br><br> Dieses Tutorial wird dich durch das Plugin führen. <br><br> Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du das Tutorial vorzeitig beenden.<br><br> Zu einer späteren Zeit kannsr du bei der Schaltfläche "Hilfe" das Tutorial wieder starten.',
-          position: 'right'
-        },
-        {
-          element: '#emptyBox',
-          intro: 'Das ist die Menüleiste <br><br> Hier kannst du diverse Einstellungen für deine Veranstaltungen übernehmen <br><br> Du kannst auf  VLV.ical klicken um die Webseite zu besuchen.',
-          position: 'bottom'
-        },
-        {
-          element: '#emptyBox',
-          intro: 'Mit einem Klick auf "Öffnen" öffnest du dein Warenkorb <br><br> Teste es gleich! <br><br> Um mit der Führung fortzufahren, öffne bitte zuerst den Warenkorb und fahre anschließen mit "Weiter" fort.',
-          position: 'bottom-right-aligned'
-        },
-        {
-          element: '#selectionBox',
-          intro: 'Super! <br><br> Das ist dein Warenkorb. <br><br> Hier (siehst/sammelst/stapelst) du deine ausgewählten Veranstaltungen.',
-          position: 'left'
-        },
-        {
-          element: '#selectAll',
-          intro: 'Der "Alles auswählen" Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb.',
-          position: 'bottom'
-        },
-        {
-          element: '.addButton',
-          intro: 'Die Blauen Schaltflächen sind vom Plugin erkannte Veranstaltungen, die du separat (einzeln) in den Warenkorb hinzufügen, oder entfernen kannst.',
-          position: 'top'
-        },
-        {
-          element: '.moreInfoButton',
-          intro: 'Die "Weitere Informationen" Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In der Detailansicht kannst du einzelne Termine herunterladen. <br><br><br><br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
-          position: 'floating'
-        },
-        {
-          element: '.selectionBoxItem',
-          intro: 'kp was das darstellen soll.',
-          position: 'left'
-        },
-        {
-          element: '.cd-item-remove',
-          intro: 'kp was das darstellen soll.',
-          position: 'left'
-        },
-        {
-          element: '#downloadSelected',
-          intro: 'Mit einem Klick auf den  "Download" Button wird der Inhalt des Warenkorbs heruntergeladen (als kalenderdateiformat exportiert).',
-          position: 'top'
-        },
-        {
-          element: '#deleteCart',
-          intro: 'Die rote Schaltfläche mit dem Papierkorb Symbol löscht den Warenkorb unwiederruflich.',
-          position: 'left'
-        },
-        {
-          element: '#backButton',
-          intro: 'Wenn du dein Warenkorb ausblenden willst, dann reicht ein Klick auf den "Schließen" Button.',
-          position: 'bottom'
-        },
-        {
-          element: '#settings-button',
-          intro: 'Unter "Einstellungen" kannst du z.B den Zeitraum der hervorhebung von aktualisierten Veranstaltungen, oder den Typ beim download der Veranstaltungen anhängen. <br><br> Viel Spaß mit wenigen Klicks dein Stundenplan zusammenzustellen! <br><br> Nicht vergessen deinen Kommilitonen von dem Plugin zu erzählen ;-)',
-          position: 'bottom'
-        }
-    ]
-=======
->>>>>>> Stashed changes
     {
       element: '#pluginLogo',
       title: 'Willkommen zu VLV.ical!',
@@ -151,10 +80,6 @@ $(function(){
                       "<button class='btn btn-warning btn-xs' data-role='end'>Beenden</button>" +
                   "</div>" +
                 "</div>",
-<<<<<<< Updated upstream
-=======
->>>>>>> origin/dev
->>>>>>> Stashed changes
   });
 
   introguide.init();
