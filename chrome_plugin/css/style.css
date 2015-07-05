@@ -9,7 +9,9 @@ html, * {
 body {
 	overflow-x: hidden;
 }
-
+kbd {
+	color:black !important;
+}
 mark {
 	color: white;
 	padding: 2px;

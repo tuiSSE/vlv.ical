@@ -4,7 +4,7 @@ $(function(){
     {
       element: '#pluginLogo',
       title: 'Willkommen zu VLV.ical!',
-      content: 'Dieses Tutorial wird dich durch das Plugin führen. <br><br> Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du das Tutorial vorzeitig beenden.<br><br> Bei "Hilfe" kannst du zur einer späteren Zeit das Tutorial wieder starten',
+      content: 'Dieses Tutorial wird dich durch das Plugin führen. <br><br> Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der <kbd>ESC</kbd> Taste kannst du das Tutorial vorzeitig beenden.<br><br> Bei "Hilfe" kannst du zur einer späteren Zeit das Tutorial wieder starten',
       placement: 'right'
     },
     {
@@ -14,47 +14,47 @@ $(function(){
     },
     {
       element: '#emptyBox',
-      content: 'Mit einem Klick auf "Öffnen" öffnest du dein Warenkorb <br><br> Teste es gleich! <br><br> Um mit der Führung fortzufahren, öffne bitte zuerst den Warenkorb und fahre anschließen mit "Weiter" fort.',
+      content: 'Drücke "Öffnen" um mit der Führung weiterzumachen und fahre anschließen mit "Weiter" fort. ',
       placement: 'bottom'
     },
     {
       element: '#selectionBox',
-      content: 'Super! <br><br> Das ist dein Warenkorb. <br><br> Hier (siehst/sammelst/stapelst) du deine ausgewählten Veranstaltungen.',
+      content: 'Super! <br><br> Das ist dein Warenkorb. <br><br> Ausgewählte Veranstaltungen kannst du hier finden.',
       placement: 'left'
     },
     {
       element: '#selectAll',
-      content: 'Der "Alles auswählen" Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb.',
+      content: 'Der <span style="color:white;background:#7dcf85;padding:0.2em;">Alle auswählen</span> Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb.',
       placement: 'bottom'
     },
     {
       element: 'button.addButton:first',
-      content: 'Die Blauen Schaltflächen sind vom Plugin erkannte Veranstaltungen, die du separat (einzeln) in den Warenkorb hinzufügen, oder entfernen kannst.',
+      content: 'Die <span style="color:white;background:#435779;padding:0.2em;">blaue Schaltfläche</span> sind vom Plugin erkannte Veranstaltungen, die du separat (einzeln) in den Warenkorb hinzufügen, oder entfernen kannst.',
       placement: 'top'
     },
     {
       element: '.moreInfoButton:first',
-      content: 'Die "Weitere Informationen" Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In der Detailansicht kannst du einzelne Termine herunterladen. <br><br><br><br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
+      content: 'Die <span style="color:white;background:#7dcf85;padding:0.2em;">weitere Informationen</span> Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In der kannst du einzelne Termine herunterladen. <br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
       placement: 'bottom'
     },
     {
       element: '.selectionBoxItem:first',
-      content: 'kp was das darstellen soll.',
+      content: 'Die Ausgewählte Veranstaltung <br> mit einem Klick darauf, kannst du es bearbeiten',
       placement: 'left'
     },
     {
       element: '.cd-item-remove:first',
-      content: 'kp was das darstellen soll.',
+      content: 'Damit löschst du die Veranstaltung aus dem Warenkorb.',
       placement: 'left'
     },
     {
       element: '#downloadSelected',
-      content: 'Mit einem Klick auf den  "Download" Button wird der inhalt des Warenkorbs heruntergeladen.',
+      content: 'Mit einem Klick auf den <span style="color:white;background:#7dcf85;padding:0.2em;">Download</span> Button wird der Inhalt des Warenkorbs heruntergeladen.',
       placement: 'top'
     },
     {
       element: '#deleteCart',
-      content: 'Die rote Schaltfläche mit dem Papierkorb Symbol, löscht den Warenkorb unwiederruflich.',
+      content: 'Die <span style="color:white;background:#ea6a68;padding:0.2em;">rote Schaltfläche</span> mit dem Papierkorb Symbol, löscht den Warenkorb unwiderruflich.',
       placement: 'left'
     },
     {
