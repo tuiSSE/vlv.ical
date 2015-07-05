@@ -1,8 +1,17 @@
 {
     "name": "VLVical",
     "description": "Export für das VLV der TU-Ilmenau",
+    "icons": {
+        "16": "resources/VLV.ical-16x16.png",
+        "48": "resources/VLV.ical-48x48.png",
+        "128": "resources/VLV.ical-128x128.png"
+    },
     "version": "1.0",
     "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "resources/VLV.ical-48x48.png",
+        "default_title": "Export für das VLV der TU-Ilmenau"
+    },
     "content_scripts": [
         {
             "matches": [

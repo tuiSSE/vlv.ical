@@ -12,7 +12,7 @@ function updateSelectionBox() {
                         item.name + 
                         '</button>');
       var removeButton = $('<button name="'+ item.id +
-                           '" class="cd-item-remove cd-img-replace">Remove</button>');
+                           '" class="cd-item-remove cd-img-replace">Entfernen</button>');
 
       element.insertBefore($('#itemBox')[0].childNodes[i]);
       
@@ -465,8 +465,8 @@ function injectDiv() {
   div.insertBefore(document.body.childNodes[0]);
 
   var open = $('<div id="openSelectionBox"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> &Ouml;ffnen</div>');
-  var help = $('<div id="help-section"><li class="dropdown active"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"> Hilfe <span class="caret"></span> </a> <ul class="dropdown-menu"> <li class=""><a href="#tourstarten" data-toggle="tab" aria-expanded="false">Führung starten</a></li> <li class="divider"></li> <li class=""><a href="http://vlvical.github.io/" data-toggle="tab" aria-expanded="true">FAQ & Webseite</a></li> </ul> </li> </div>');
-  var settings = $('<div id="settings-button"><span class="cart-icon glyphicon glyphicon-cog"></span> <span>Einstellungen</span> <span class="padded-divider">|</span> </div>')
+  var help = $('<div id="help-section"><li class="dropdown active"> <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false"><span class="cart-icon glyphicon glyphicon-question-sign" aria-hidden="true"></span> Hilfe <span class="caret"></span> </a> <ul class="dropdown-menu"> <li class=""><a href="#tourstarten" data-toggle="tab" aria-expanded="false">Führung starten</a></li> <li class="divider"></li> <li class=""><a href="http://vlvical.github.io/" data-toggle="tab" aria-expanded="true">FAQ & Webseite</a></li> </ul> </li> </div>');
+  var settings = $('<div id="settings-button"><span class="cart-icon glyphicon glyphicon-cog"></span> <span>Einstellungen</span> <span class="padded-divider">|</span> </div>');
   var logo = $('<div id="pluginLogo"> <a href="http://vlvical.github.io/" target="_blank">VLV.ical</a> <span class="padded-divider">|</span> </div>');
   $('#emptyBox').prepend(open);
   $('#emptyBox').prepend(help);
