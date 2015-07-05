@@ -31,12 +31,27 @@ function addDownloadButtonDetailPage() {
   });
 
   $('.detailTr').on('click', function() {
-    var el = this;
-    bootbox.confirm("Wollen sie den ausgewählten Termin herunterladen?", function(result) {
-         if (result) {
-          downloadDetail(el);
-        }
-    }); 
+    var el = this; 
+     bootbox.dialog({
+      title: 'Download',
+      message: 'Willst du diese Veranstaltung wirklich herunterladen?',
+      closeButton: false,
+      buttons: {
+          success: {
+              label: "Ja",
+              className: "btn-primary",
+              callback: function () {
+              downloadDetail(el);
+              }
+            },
+          cancel: {
+              label: "Abbrechen",
+              className: "btn-default",
+              callback: function(){}
+          }
+      },
+      keyboard: false
+    });
   });
 
   if (hasValidContent) {
