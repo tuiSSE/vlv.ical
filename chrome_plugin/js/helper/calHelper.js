@@ -95,7 +95,6 @@ function initCal(calname) {
   cal.push('METHOD:PUBLISH');
   cal.push('X-WR-CALNAME:' + calname);
   cal.push('X-WR-TIMEZONE:Europe/Berlin');
-  cal.push('X-APPLE-CALENDAR-COLOR:#1BADF8');
   cal.push('BEGIN:VTIMEZONE');
   cal.push('TZID:Europe/Berlin');
   cal.push('BEGIN:DAYLIGHT');
