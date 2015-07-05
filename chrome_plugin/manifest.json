@@ -50,6 +50,9 @@
                 "js/inject/detailPage.js",
                 "js/inject/borders.js",
                 "js/inject/tour.js",
+                "js/inject/editDialogs.js",
+                "js/inject/generalLayout.js",
+                "js/inject/settings.js",
                 "js/init.js"
             ],
             "css": [
