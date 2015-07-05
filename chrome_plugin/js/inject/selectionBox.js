@@ -501,12 +501,32 @@ function injectDiv() {
   $('.cart-header').prepend(deleteCart);
 
   $(deleteCart).on('click', function () {
-    bootbox.confirm("Willst du den Warenkorb entleeren?", function(result) {
-      if (result) {
-        save('selection', []);
-        clearDataWithPrefix('nr');
-        updateSelection();
-      }
+    bootbox.dialog({
+      title: 'Warenkorb entleeren',
+      message: 'Willst du den Warenkorb entleeren?',
+      closeButton: false,
+      buttons: {
+          success: {
+              label: "Ja",
+              className: "btn-primary",
+              callback: function () {
+                try {
+                    save('selection', []);
+                    clearDataWithPrefix('nr');
+                    updateSelection();
+                } catch(e) {
+                    toastr.error(e, 'Fehler');
+                    return false;
+                }
+              }
+          },
+          cancel: {
+              label: "Abbrechen",
+              className: "btn-default",
+              callback: function(){}
+          }
+      },
+      keyboard: false
     });
   });
   
@@ -515,7 +535,7 @@ function injectDiv() {
    */
   $(deleteCart).on('mouseenter', function () {
     $(this).find('span').fadeOut(500, function() { $(this).remove(); });
-    $(this).append('<p>Clear</p>');
+    $(this).append('<p>Entleeren</p>');
   });
 
   $(deleteCart).on('mouseleave', function () {

@@ -318,7 +318,7 @@ mark {
 }
 
 #deleteCart {
-	width: 50px;
+	width: 80px;
 	height: 50px;
 	float:left;
 	background-color: #ea6a68;
@@ -353,7 +353,7 @@ mark {
 	z-index: 1000;
 	height: 50px;
 	float:right;
-	padding: 0 25%;
+	padding: 0 20%;
 	font-family: arial;
 	color: white;
 	vertical-align: middle;
