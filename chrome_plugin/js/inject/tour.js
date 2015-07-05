@@ -5,7 +5,7 @@ $(function(){
       element: '#pluginLogo',
       title: 'Willkommen zu VLV.ical!',
       content: 'Dieses Tutorial wird dich durch das Plugin führen. <br><br> Benutze die "Pfeiltasten" um durch die Führung zu navigieren. <br><br> Mit der "ESC-Taste" kannst du das Tutorial vorzeitig beenden.<br><br> Bei "Hilfe" kannst du zur einer späteren Zeit das Tutorial wieder starten',
-      placement: 'right'
+      placement: 'bottom'
     },
     {
       element: '#emptyBox',
