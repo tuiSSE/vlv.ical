@@ -72,7 +72,7 @@ try {
 var subjects = [];
 
 try {
-  injectDiv();
+  injectLayout();
   updateSelectionBox();
 } catch(e) {
   console.log("Div injecting failed.");

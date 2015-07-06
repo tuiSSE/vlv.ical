@@ -4,12 +4,29 @@ html, * {
 	border: none;
 	text-decoration: none;
 	font-size: 12px;
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body {
 	overflow-x: hidden;
 }
 
+kbd.whitebutton{
+	color:black !important;
+}	
+
+kbd.bluebutton{
+	color:white !important;
+	background:#435779;	
+	padding: 0.2em 0.8em;
+}
+
+kbd.darkbluebutton{
+	color:white !important;
+	background:rgb(44, 62, 80);	
+	padding:0.2em 0.8em;
+	 
+}
 mark {
 	color: white;
 	padding: 2px;
