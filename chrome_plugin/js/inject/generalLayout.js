@@ -1,4 +1,4 @@
-function injectDiv() {
+function injectLayout() {
   var page = $('#page')[0];
 
   var div = $('<div id="emptyBox"><br><br></div>');
