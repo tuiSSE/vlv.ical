@@ -9,12 +9,12 @@ $(function(){
     },
     {
       element: '#emptyBox',
-      content: '<b>Das ist die Menüleiste</b> <br><br> Hier kannst du diverse Einstellungen für deine Veranstaltungen übernehmen <br><br> Du kannst auf <span style="color:white;background:#45617D;padding:0.2em 0.8em;">VLV.ical</span> klicken um die Webseite zu besuchen.',
+      content: '<b>Das ist die Menüleiste</b> <br><br> Hier kannst du durch das Plugin navigieren <br><br> Du kannst auf <span style="color:white;background:#45617D;padding:0.2em 0.8em;">VLV.ical</span> klicken um die Webseite zu besuchen.',
       placement: 'bottom'
     },
     {
       element: '#emptyBox',
-      content: 'Drücke <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Öffnen</kbd> um mit der Führung weiterzumachen und fahre anschließen mit <kbd class="bluebutton">Weiter »</kbd>fort. ',
+      content: 'Drücke <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Öffnen</kbd> und fahre mit <kbd class="bluebutton">Weiter »</kbd>fort. ',
       placement: 'bottom'
     },
     {
@@ -24,23 +24,23 @@ $(function(){
     },
     {
       element: '#selectAll',
-      content: 'Der <span style="color:white;background:#7dcf85;padding:0.2em 0.8em;">Alle auswählen</span> Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb.',
+      content: 'Der <span style="color:white;background:#7dcf85;padding:0.2em 0.8em;">Alle auswählen</span> Button fügt alle auf der Seite ersichtlichen Veranstaltungen in deinen Warenkorb ein.',
       placement: 'bottom'
     },
     {
       element: 'button.addButton:first',
-      content: 'Die <span style="color:white;background:#435779;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>blaue Schaltfläche</b></span> sind vom Plugin erkannte Veranstaltungen, die du separat (einzeln) in den Warenkorb hinzufügen, oder entfernen kannst.',
+      content: 'Die <span style="color:white;background:#435779;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>blaue Schaltfläche</b></span> sind vom Plugin erkannte Veranstaltungen, die du einzeln in den Warenkorb hinzufügen, oder entfernen kannst.<br><br> <b>PS</b>: Grau hinterlegte <span style="color:white;background:lightgrey;padding:0.2em 0.8em;"> Veranstaltungen</span> enthalten nicht genügend Informationen und werden nicht vom Plugin erkannt.' ,
       placement: 'top'
     },
     {
       element: '.moreInfoButton:first',
-      content: 'Die <span style="color:white;background:#7dcf85;padding:0.2em 0.8em;">weitere Informationen</span> Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In der kannst du einzelne Termine herunterladen. <br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
+      content: 'Die <span style="color:white;background:#7dcf85;padding:0.2em 0.8em;">weitere Informationen</span> Schaltfläche leitet dich zur Detailansicht weiter. <br><br>  In dieser kannst du einzelne Termine herunterladen. <br><br> Das ist sehr hilfreich, wenn z.B eine Veranstaltung mehrere Übungstermine hat.',
       placement: 'bottom'
     },
     {
       element: '.selectionBoxItem:first',
-      content: 'Die Ausgewählte Veranstaltung <br> mit einem Klick darauf, kannst du es bearbeiten',
-      placement: 'left'
+      content: 'Bearbeite eine Veranstaltung, indem du darauf klickst. ',
+      placement: 'bottom'
     },
     {
       element: '.cd-item-remove:first',
@@ -54,20 +54,20 @@ $(function(){
     },
     {
       element: '#deleteCart',
-      content: 'Dieser Button <span style="color:white;background:#ea6a68;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></span> löscht den Warenkorb unwiderruflich.',
+      content: '<span style="color:white;background:#ea6a68;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></span> löscht den Warenkorb unwiderruflich.',
       placement: 'left'
     },
     {
       element: '#backButton',
-      content: 'Wenn du dein Warenkorb ausblenden willst, dann reicht ein Klick auf <br> <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Schließen</kbd>',
+      content: 'Wenn du dein Warenkorb ausblenden willst, dann reicht ein Klick auf <br> <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Schließen</kbd>',
       placement: 'bottom'
     },
     {
       element: '#settings-button',
-      content: 'Unter <span style="color:rgb(116, 147, 179);background:rgb(44, 62, 80);;padding:0.2em 0.8em;"><span class="cart-icon glyphicon glyphicon-cog"></span> Einstellungen</span> kannst du dein Warenkorb einstellen. <br><br> Viel Spaß mit wenigen Klicks dein Stundenplan zusammenzustellen! <br><br> Nicht vergessen deinen Kommmilitonen von dem Plugin zu erzählen ;-)',
+      content: 'Unter <span style="color:rgb(116, 147, 179);background:rgb(44, 62, 80);;padding:0.2em 0.8em;"><span class="cart-icon glyphicon glyphicon-cog"></span> Einstellungen</span> kannst du das Plugin konfigurieren. <br><br> Viel Spaß beim zusammenstellen deines Stundenplanes! <br><br><b>PS:</b> Erzähl doch deinen Kommilitonen davon ;-)',
       placement: 'bottom'
     }],
-    storage: false,
+    storage: true,
     debug: true,
     template: "<div class='popover tour'>" +
                   "<div class='arrow'></div>" +
