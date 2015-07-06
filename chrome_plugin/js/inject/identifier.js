@@ -1,6 +1,8 @@
 function fixId(obj) {
     var injectedIds = {};
-    var name = getNameOfLecture(obj);
+    var str = obj.innerText;
+    var str = str.split(/[ ][B][e][s][c][h][r][e][i][b][u][n][g]/);
+    var name = str[0];
     try {
         injectedIds = load('injectedIds');
         if (injectedIds[name] != undefined) {
