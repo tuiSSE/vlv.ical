@@ -67,7 +67,6 @@ $(function(){
       content: 'Unter <span style="color:rgb(116, 147, 179);background:rgb(44, 62, 80);;padding:0.2em 0.8em;"><span class="cart-icon glyphicon glyphicon-cog"></span> Einstellungen</span> kannst du das Plugin konfigurieren. <br><br> Viel Spaß beim zusammenstellen deines Stundenplanes! <br><br><b>PS:</b> Erzähl doch deinen Kommilitonen davon ;-)',
       placement: 'bottom'
     }],
-    storage: true,
     debug: true,
     template: "<div class='popover tour'>" +
                   "<div class='arrow'></div>" +
