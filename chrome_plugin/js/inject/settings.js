@@ -49,7 +49,7 @@ function getSettingsForm() {
                     '<div class="col-sm-9"> <input type="number" class="form-control input-md" value="' + settings.highlightUpdatesPeriod + '" id="setUpdatePeriod" required>' +
                     '<p class="help-block">Größe des Zeitraums, in dem aktualisierte Veranstaltungen hervorgehoben werden (in Tagen)</p></div></div>' +
                     // end first form group
-                    '<div class="form-group"> <label for="addTypeToName" class="col-sm-3 control-label">Dateiname</label>' +
+                    '<div class="form-group"> <label for="addTypeToName" class="col-sm-3 control-label">Namen anhängen</label>' +
                     '<div class="col-sm-9"> <input type="checkbox" class="form-control input-md" id="addTypeToName" data-on-text="EIN" data-off-text="AUS">' +
                     '<p class="help-block">Soll an den Veranstaltungsnamen der Typ angehangen werden? (Vorlesung, Übung, Seminar, etc.)</p></div></div>' +
                     // end second form group
