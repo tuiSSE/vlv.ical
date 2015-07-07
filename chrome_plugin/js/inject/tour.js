@@ -15,7 +15,10 @@ $(function(){
     {
       element: '#emptyBox',
       content: 'Drücke <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Öffnen</kbd> und fahre mit <kbd class="bluebutton">Weiter »</kbd>fort. ',
-      placement: 'bottom'
+      placement: 'bottom',
+      onShown: function(tour){
+        return $('#selectionBox').show('slow').promise();
+      }
     },
     {
       element: '#selectionBox',
