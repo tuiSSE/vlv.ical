@@ -11,6 +11,10 @@ body {
 	overflow-x: hidden;
 }
 
+.btn-info {
+	background: #435779 !important;
+}
+
 kbd.whitebutton{
 	color:black !important;
 }	
