@@ -33,7 +33,10 @@ $(function(){
     {
       element: 'button.addButton:first',
       content: 'Die <span style="color:white;background:#435779;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>blaue Schaltfläche</b></span> sind vom Plugin erkannte Veranstaltungen, die du einzeln in den Warenkorb hinzufügen, oder entfernen kannst.<br><br> <b>PS</b>: Grau hinterlegte <span style="color:white;background:lightgrey;padding:0.2em 0.8em;"> Veranstaltungen</span> enthalten nicht genügend Informationen und werden nicht vom Plugin erkannt.' ,
-      placement: 'top'
+      placement: 'top',
+      onShown: function(tour){
+        return $('button.addButton:first').click();
+      }
     },
     {
       element: '.moreInfoButton:first',
