@@ -16,13 +16,13 @@ $(function(){
       element: '#emptyBox',
       content: 'Drücke <kbd class="darkbluebutton"><span class="cart-icon glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Öffnen</kbd> und fahre mit <kbd class="bluebutton">Weiter »</kbd>fort. ',
       placement: 'bottom',
-      onShown: function(tour){
+      onNext: function(tour){
         return $('#selectionBox').show('slow').promise();
       }
     },
     {
       element: '#selectionBox',
-      content: 'Super! <br><br> Das ist dein Warenkorb. <br><br> Ausgewählte Veranstaltungen kannst du hier finden.',
+      content: 'Das ist dein Warenkorb. <br><br> Ausgewählte Veranstaltungen kannst du hier finden.',
       placement: 'left'
     },
     {
@@ -32,10 +32,12 @@ $(function(){
     },
     {
       element: 'button.addButton:first',
-      content: 'Die <span style="color:white;background:#435779;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>blaue Schaltfläche</b></span> sind vom Plugin erkannte Veranstaltungen, die du einzeln in den Warenkorb hinzufügen, oder entfernen kannst.<br><br> <b>PS</b>: Grau hinterlegte <span style="color:white;background:lightgrey;padding:0.2em 0.8em;"> Veranstaltungen</span> enthalten nicht genügend Informationen und werden nicht vom Plugin erkannt.' ,
+      content: 'Füge über die <span style="color:white;background:#435779;padding:0.2em 0.8em;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>blaue Schaltfläche</b></span> die Veranstaltung zu deinem Warenkorb hinzu.<br><br> <b>PS</b>: Grau hinterlegte <span style="color:white;background:lightgrey;padding:0.2em 0.8em;"> Veranstaltungen</span> enthalten nicht genügend Informationen und werden nicht vom Plugin erkannt.' ,
       placement: 'top',
-      onShown: function(tour){
-        return $('button.addButton:first').click();
+      onNext: function(tour){
+        if (!containsObject(subjects[0].id, load('selection'))) {
+          return $('button.addButton:first').click(); 
+        }
       }
     },
     {
